@@ -4,7 +4,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 public class FooTest {
-
+	
 	@Test
 	public void doFooShouldReturnFoo(){
         Foo foo = new Foo();

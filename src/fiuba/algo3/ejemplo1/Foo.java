@@ -24,5 +24,9 @@ public class Foo {
 		}
 		return x;
 	}
+	
+	public boolean nuevo_metodo() {
+		return true;
+	}
 
 }
