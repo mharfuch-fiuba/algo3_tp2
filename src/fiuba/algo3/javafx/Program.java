@@ -12,11 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-/*
-import fiuba.algo3.javafx.eventos.manejadores.BotonEnviarEventHandler;
-import fiuba.algo3.javafx.eventos.manejadores.BotonLimpiarEventHandler;
-import fiuba.algo3.javafx.eventos.manejadores.TextoEventHandler;
-*/
 
 /**
  * Created by nicopaez on 10/26/15.
