@@ -1,4 +1,4 @@
-# Algoritmos 3 - 2017-2C TN
+# Algoritmos 3 - 2017 - 2C TN
 # TP2: AlgoPoly                                                                                                                                                                 
 
 ## Integrantes
