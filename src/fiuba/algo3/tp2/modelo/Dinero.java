@@ -4,7 +4,7 @@ public class Dinero implements Comparable<Dinero> {
 
 	private Double cantidad;
 	
-	public Dinero(Double cantidad) {
+	public Dinero(double cantidad) {
 		this.cantidad = cantidad;
 	}
 
