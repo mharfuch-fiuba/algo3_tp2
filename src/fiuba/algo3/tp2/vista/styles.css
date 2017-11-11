@@ -1,0 +1,42 @@
+/* Paleta de colores: 	http://paletton.com/#uid=12V0u0kaFwc2SSy6pI0fDr7ljlq
+ * Oracle Reference: 	https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
+ * W3 Reference: 		https://www.w3.org/TR/CSS21/
+ */
+ 
+*{
+ 	-fx-font-family: "Roboto";
+ }
+.VistaInicial{
+	-fx-background-color: #7EBD91;
+	-fx-alignment: center;
+	-fx-pref-height: 600;
+	-fx-pref-width: 800;
+}
+.BotonIniciarPartida{
+	-fx-background-color: transparent;
+	-fx-text-fill: #2A7E43;	
+	-fx-font-size:48.0;
+	
+}
+
+.VistaPartida{
+	-fx-background-color: #3F6E4D;
+	-fx-alignment: center;
+	-fx-pref-height: 600;
+	-fx-pref-width: 800;
+}
+
+.VistaPartidaCentro{
+	-fx-background-color: #27703D;
+	-fx-alignment: center;
+	-fx-pref-height: 600;
+	-fx-pref-width: 600;
+}
+
+.VistaPartidaDerecha{
+	-fx-background-color: #54725D;
+	-fx-alignment: center;
+	-fx-pref-height: 600;
+	-fx-pref-width: 200;
+	
+}
