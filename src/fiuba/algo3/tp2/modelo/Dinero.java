@@ -1,19 +1,19 @@
 package fiuba.algo3.tp2.modelo;
 
-public class Dinero implements Comparable<Dinero> {
+public class Dinero {
 
-	private Double cantidad;
+	private double cantidad;
 	
 	public Dinero(double cantidad) {
 		this.cantidad = cantidad;
 	}
-
-	@Override
-	public int compareTo(Dinero otro) {
-		return this.cantidad.compareTo(otro.getCantidad());
+	
+	//MHHH!!!
+	public boolean equals(Dinero otro) {
+		return cantidad == otro.getCantidad();
 	}
 
-	private Double getCantidad() {
+	public double getCantidad() {
 		return this.cantidad;
 	}
 

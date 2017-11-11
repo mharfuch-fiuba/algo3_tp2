@@ -1,11 +1,20 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
+import fiuba.algo3.tp2.utils.DoublyCircularList;
 
 public class TableroAlgoPoly extends Tablero{
 	
+	//private DoublyCircularList casilleros;
+	private ArrayList<Encasillable> casilleros;
+	
 	public TableroAlgoPoly(){
+		//casilleros = new DoublyCircularList();
+		casilleros = new ArrayList<Encasillable>();
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
 		casilleros.add(new BuenosAiresSur());
@@ -26,6 +35,16 @@ public class TableroAlgoPoly extends Tablero{
 		casilleros.add(new Neuquen());
 		casilleros.add(new RetrocesoDinamico());
 		casilleros.add(new Tucuman());
+	}
+
+	@Override
+	public IterTablero crearIterador() {
+		return new IterTablero(this);
+	}
+	
+	//TEMPORAL, DESPUES LO CAMBIO
+	public ArrayList<Encasillable> obtenerListaCasilleros(){
+		return casilleros;
 	}
 	
 }

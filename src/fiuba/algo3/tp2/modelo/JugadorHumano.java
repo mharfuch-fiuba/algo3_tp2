@@ -2,11 +2,13 @@ package fiuba.algo3.tp2.modelo;
 
 public class JugadorHumano extends Jugador {
 	
+	private static final double DINERO_INICIAL = 100000;
 	private IterTablero posicion;
 	private Dinero dinero;
 	
 	public JugadorHumano(Tablero tablero) {
 		this.posicion = tablero.crearIterador();
+		this.dinero = new Dinero(DINERO_INICIAL);
 	}
 	
 	@Override
