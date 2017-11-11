@@ -8,7 +8,7 @@ public class AlgoPolyTest {
 	@Test
 	public void Test01elCapitalSeIncrementaEnQuini6() {
 		Recorrible tablero = new TableroAlgoPoly();
-		IterTablero iterador = new IterTablero(tablero);
+		IterTablero iterador = tablero.crearIterador();
 		Jugador jugador = new JugadorHumano(iterador);
 		Dado dado1 = new DadoCargado(7);
 		Dado dado2 = new DadoCargado(14);
