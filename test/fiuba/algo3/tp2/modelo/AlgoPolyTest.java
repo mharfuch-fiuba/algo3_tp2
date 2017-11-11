@@ -9,13 +9,11 @@ public class AlgoPolyTest {
 	public void Test01elCapitalSeIncrementaEnQuini6() {
 		Tablero tablero = new TableroAlgoPoly();
 		Jugador jugador = new JugadorHumano(tablero);
-		//Lanzable dado1 = new DadoCargado(7);
-		//Lanzable dado2 = new DadoCargado(14);
-		Lanzable dado = new DadoCargado(1);
+		Lanzable dado1 = new DadoCargado(7);
+		Lanzable dado2 = new DadoCargado(14);
 		Cubilete cubilete = new Cubilete();
-		//cubilete.agregar(dado1);
-		//cubilete.agregar(dado2);
-		cubilete.agregar(dado);
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();

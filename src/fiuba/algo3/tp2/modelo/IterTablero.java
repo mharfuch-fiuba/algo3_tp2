@@ -12,11 +12,14 @@ public class IterTablero {
 		this.pos_actual = 0;
 	}
 
-	public void avanzar() {
-		if(pos_actual + 1 < casilleros.size()) {
-			pos_actual++;
+	public Encasillable avanzar() {
+		pos_actual++;
+		try {
+			return this.verActual();
+		}catch (IndexOutOfBoundsException e) {
+			pos_actual = 0;
+			return this.verActual();
 		}
-		pos_actual = 0;
 	}
 
 	public Encasillable verActual() {
