@@ -1,13 +1,13 @@
 package fiuba.algo3.tp2.modelo;
 
-public class IterTablero {
+public class DoublyCircularList {
 
-	public void avanzar() {
+	public void add(Object salida) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public Casillero verActual() {
+	public IterTablero iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
