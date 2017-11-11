@@ -17,7 +17,8 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		Dinero monto_final = jugador.obtenerDinero();
-		Assert.assertEquals(150000, monto_final);
+		Dinero monto_esperado = new Dinero((double)150000);
+		Assert.assertEquals(monto_esperado, monto_final);
 	}
 	
 }

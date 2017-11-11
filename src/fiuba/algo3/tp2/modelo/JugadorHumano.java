@@ -16,12 +16,18 @@ public class JugadorHumano extends Jugador {
 			this.posicion.avanzar();
 		}
 		//EJECUTA EL EFECTO DEL CASILLERO:
-		Casillero casillero = posicion.verActual();
+		Encasillable casillero = posicion.verActual();
 		casillero.ejecutarEfecto(this);
 	}
 
+	@Override
 	public Dinero obtenerDinero() {
 		return this.dinero;
+	}
+
+	@Override
+	public void incrementarDinero(Dinero monto) {
+		this.dinero.agregarCantidad(monto);
 	}
 	
 }

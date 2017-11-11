@@ -7,7 +7,7 @@ public class IterTablero {
 		
 	}
 
-	public Casillero verActual() {
+	public Encasillable verActual() {
 		// TODO Auto-generated method stub
 		return null;
 	}
