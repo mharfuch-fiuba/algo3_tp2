@@ -11,17 +11,17 @@ public abstract class Jugador {
 
 	public abstract void agregarNombre(int nombre);
 	
-	public abstract Dinero obtenerDinero();
+	public abstract DineroAlgoPoly obtenerDinero();
 
-	public abstract void incrementarDinero(Dinero montoAIncrementar);
+	public abstract void incrementarDinero(DineroAlgoPoly montoAIncrementar);
 	
 	public abstract void comprarCasilleroActual() throws DineroInsuficienteException;
 
 	public abstract Encasillable obtenerCasilleroActual();
 
-	public abstract void disminuirCapital(Dinero monto) throws DineroInsuficienteException;
+	public abstract void disminuirCapital(DineroAlgoPoly monto) throws DineroInsuficienteException;
 
-	public abstract void aumentarCapital(Dinero monto);
+	public abstract void aumentarCapital(DineroAlgoPoly monto);
 	
 	public abstract void pagarFianza() throws DineroInsuficienteException;
 	

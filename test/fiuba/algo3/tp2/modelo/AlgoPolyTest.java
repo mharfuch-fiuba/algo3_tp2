@@ -14,7 +14,7 @@ public class AlgoPolyTest {
 	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
 		Cubilete cubilete = new Cubilete();
@@ -24,7 +24,7 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
-		double monto_esperado = new Dinero(150000).getCantidad();
+		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 	}
 	
@@ -32,7 +32,7 @@ public class AlgoPolyTest {
 	public void Test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws DineroInsuficienteException{
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
 		Cubilete cubilete = new Cubilete();
@@ -42,7 +42,7 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
-		double monto_esperado = new Dinero(150000).getCantidad();
+		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 
 		Lanzable dado3 = new DadoCargado(7);
@@ -52,7 +52,7 @@ public class AlgoPolyTest {
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
 		monto_final = jugador.obtenerDinero().getCantidad();
-		monto_esperado = new Dinero(180000).getCantidad();
+		monto_esperado = new DineroAlgoPoly(180000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 	}
@@ -61,7 +61,7 @@ public class AlgoPolyTest {
 	public void Test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws DineroInsuficienteException{
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
 		Cubilete cubilete = new Cubilete();
@@ -71,7 +71,7 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
-		double monto_esperado = new Dinero(150000).getCantidad();
+		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 
 		Lanzable dado3 = new DadoCargado(7);
@@ -81,7 +81,7 @@ public class AlgoPolyTest {
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
 		monto_final = jugador.obtenerDinero().getCantidad();
-		monto_esperado = new Dinero(180000).getCantidad();
+		monto_esperado = new DineroAlgoPoly(180000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 		Lanzable dado5 = new DadoCargado(7);
@@ -99,8 +99,8 @@ public class AlgoPolyTest {
 	public void Test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
-		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
 		Lanzable dado1 = new DadoCargado(2);
 		Lanzable dado2 = new DadoCargado(2);
 		Cubilete cubilete = new Cubilete();
@@ -125,7 +125,7 @@ public class AlgoPolyTest {
 	public void Test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		Dinero dinero_inicial = new Dinero(100000);
+		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(100000);
 		ronda.agregarJugador(new JugadorHumano(tablero, dinero_inicial));
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
@@ -150,7 +150,7 @@ public class AlgoPolyTest {
 	public void Test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		Dinero dinero_inicial = new Dinero(100000);
+		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(100000);
 		ronda.agregarJugador(new JugadorHumano(tablero, dinero_inicial));
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
@@ -178,7 +178,7 @@ public class AlgoPolyTest {
 	public void Test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		Dinero dinero_inicial = new Dinero(40000);
+		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(40000);
 		ronda.agregarJugador(new JugadorHumano(tablero, dinero_inicial));
 		Lanzable dado1 = new DadoCargado(2);
 		Lanzable dado2 = new DadoCargado(3);
@@ -206,7 +206,7 @@ public class AlgoPolyTest {
 	public void Test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
 		Cubilete cubilete_que_saca_1 = new Cubilete();
 		cubilete_que_saca_1.agregar(new DadoCargado(1));
 		Cubilete cubilete_que_saca_6 = new Cubilete();

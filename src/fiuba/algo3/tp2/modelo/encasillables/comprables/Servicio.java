@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
 import fiuba.algo3.tp2.modelo.Cubilete;
-import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
 
 public abstract class Servicio extends Propiedad {
@@ -10,7 +10,7 @@ public abstract class Servicio extends Propiedad {
 	
 	@Override
 	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
-		Dinero monto = new Dinero(PENALIDAD * dados.sumarValores());
+		DineroAlgoPoly monto = new DineroAlgoPoly(PENALIDAD * dados.sumarValores());
 		jugador.disminuirCapital(monto);
 		PROPIETARIO.aumentarCapital(monto);
 	}

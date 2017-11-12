@@ -1,15 +1,15 @@
 package fiuba.algo3.tp2.modelo.encasillables;
 
 import fiuba.algo3.tp2.modelo.Cubilete;
-import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import java.util.HashMap; 
 
 public class Quini6 implements Encasillable{
 
-	static final Dinero MONTO_A_INCREMENTAR_PRIMERA_VEZ = new Dinero(50000);
-	static final Dinero MONTO_A_INCREMENTAR_SEGUNDA_VEZ = new Dinero(30000);
+	static final DineroAlgoPoly MONTO_A_INCREMENTAR_PRIMERA_VEZ = new DineroAlgoPoly(50000);
+	static final DineroAlgoPoly MONTO_A_INCREMENTAR_SEGUNDA_VEZ = new DineroAlgoPoly(30000);
 	protected HashMap<Integer, Integer> jugadoresGanadores = new HashMap<Integer, Integer> ();
 	
 	public Quini6(){

@@ -6,12 +6,12 @@ public class JugadorHumano extends Jugador {
 
 	// private static final double DINERO_INICIAL = 100000;
 	private IterTablero posicion;
-	private Dinero dinero;
+	private DineroAlgoPoly dinero;
 	private int dias_de_carcel;
 	public int nombreJugador;
 	private ArrayList<Comprable> propiedades;
 
-	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
+	public JugadorHumano(Tablero tablero, DineroAlgoPoly dinero_inicial) {
 		this.posicion = tablero.crearIterador();
 		this.dinero = dinero_inicial;
 		this.dias_de_carcel = 0;
@@ -58,12 +58,12 @@ public class JugadorHumano extends Jugador {
 	}
 	
 	@Override
-	public Dinero obtenerDinero() {
+	public DineroAlgoPoly obtenerDinero() {
 		return this.dinero;
 	}
 
 	@Override
-	public void incrementarDinero(Dinero monto) {
+	public void incrementarDinero(DineroAlgoPoly monto) {
 		this.dinero.aumentarCantidad(monto);
 	}
 
@@ -80,7 +80,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void disminuirCapital(Dinero monto) throws DineroInsuficienteException {
+	public void disminuirCapital(DineroAlgoPoly monto) throws DineroInsuficienteException {
 		try {
 			dinero.disminuirCantidad(monto);
 		} catch (DineroNegativoException e) {
@@ -89,7 +89,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void aumentarCapital(Dinero monto) {
+	public void aumentarCapital(DineroAlgoPoly monto) {
 		dinero.aumentarCantidad(monto);
 	}
 
@@ -98,7 +98,7 @@ public class JugadorHumano extends Jugador {
 		if (dias_de_carcel != 2 && dias_de_carcel != 1)
 			return;
 		try {
-			this.disminuirCapital(new Dinero(45000));
+			this.disminuirCapital(new DineroAlgoPoly(45000));
 		} catch (DineroInsuficienteException e) {
 			throw new DineroInsuficienteException();
 		}

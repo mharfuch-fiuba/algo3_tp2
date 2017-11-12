@@ -10,13 +10,13 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public Dinero obtenerDinero() {
+	public DineroAlgoPoly obtenerDinero() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void incrementarDinero(Dinero montoAIncrementar) {
+	public void incrementarDinero(DineroAlgoPoly montoAIncrementar) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,13 +34,13 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void disminuirCapital(Dinero monto) {
+	public void disminuirCapital(DineroAlgoPoly monto) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void aumentarCapital(Dinero monto) {
+	public void aumentarCapital(DineroAlgoPoly monto) {
 		// TODO Auto-generated method stub
 		
 	}

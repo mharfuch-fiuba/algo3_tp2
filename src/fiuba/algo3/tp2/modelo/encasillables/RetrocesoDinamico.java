@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.DadoCargado;
+import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 
@@ -25,9 +26,9 @@ public class RetrocesoDinamico implements Encasillable{
 	
 	private void efectoRetrocedeCantidadEfectivoRestoSumaDados(Jugador jugador, int sumaDados){
 		System.out.println("entre a efecto 2");
-		int cantidadEfectivo=0;
+		DineroAlgoPoly dineroJugador =jugador.obtenerDinero();
 		Cubilete cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(cantidadEfectivo%sumaDados));
+		cubilete.agregar(new DadoCargado(dineroJugador.getCantidad() % sumaDados));
 		jugador.retroceder(cubilete);
 	}
 	
