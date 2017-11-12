@@ -40,18 +40,25 @@ public class AlgoPolyTest {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero));
+		ronda.agregarJugador(new JugadorHumano(tablero));
 		Lanzable dado1 = new DadoCargado(2);
 		Lanzable dado2 = new DadoCargado(2);
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
+		
+		Jugador jugador1 = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		Jugador jugador = ronda.obtenerJugadorActual();
-		jugador.avanzar(cubilete);
-		jugador.comprarCasilleroActual();
-		Comprable casillero = (Comprable) jugador.obtenerCasilleroActual();
+		jugador1.avanzar(cubilete);
+		jugador1.comprarCasilleroActual();
+		ronda.avanzarTurno();
+		Jugador jugador2 = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
+		jugador2.avanzar(cubilete);
+		Comprable casillero = (Comprable) jugador2.obtenerCasilleroActual();
 		Jugador propietario = casillero.obtenerPropietario();
-		Assert.assertEquals(jugador, propietario);
+		
+		Assert.assertEquals(jugador1, propietario);
 	}
 	
 	@Test
