@@ -56,4 +56,10 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public void avanzar(int cant_casilleros) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

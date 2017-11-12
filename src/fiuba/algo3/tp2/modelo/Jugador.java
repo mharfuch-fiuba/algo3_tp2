@@ -19,5 +19,9 @@ public abstract class Jugador {
 	public abstract void pagarFianza() throws DineroInsuficienteException;
 	
 	public abstract void encarcelar();
+
+	public abstract void avanzar(int cant_casilleros);
+	
+	//public abstract void interactuarConCasilleroActual();
 	
 }

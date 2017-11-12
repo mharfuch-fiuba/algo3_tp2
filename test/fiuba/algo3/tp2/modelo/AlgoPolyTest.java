@@ -3,6 +3,9 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.encasillables.Quini6;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
+
 public class AlgoPolyTest {
 	
 	@Test
@@ -141,8 +144,25 @@ public class AlgoPolyTest {
 	}
 	
 	@Test
-	public void Test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() {
+	public void Test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		Cubilete cubilete_que_saca_1 = new Cubilete();
+		cubilete_que_saca_1.agregar(new DadoCargado(1));
+		Cubilete cubilete_que_saca_6 = new Cubilete();
+		cubilete_que_saca_6.agregar(new DadoCargado(6));
 		
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete_que_saca_1.lanzar();
+		jugador.avanzar(cubilete_que_saca_1);
+		ronda.avanzarTurno();
+		jugador = ronda.obtenerJugadorActual();
+		cubilete_que_saca_6.lanzar();
+		jugador.avanzar(cubilete_que_saca_6);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+		
+		Assert.assertTrue(casillero_actual instanceof SantaFe);// <-- REVISAR
 	}
 	
 	@Test

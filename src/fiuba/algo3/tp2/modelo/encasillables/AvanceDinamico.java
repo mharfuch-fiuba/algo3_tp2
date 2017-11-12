@@ -8,8 +8,8 @@ public class AvanceDinamico implements Encasillable{
 
 	@Override
 	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
-		// TODO Auto-generated method stub
-		
+		int valor_obtenido = dados.sumarValores();
+		jugador.avanzar(valor_obtenido - 2);
 	}
 
 }

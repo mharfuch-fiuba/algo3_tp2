@@ -1,8 +1,6 @@
 package fiuba.algo3.tp2.modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.utils.DoublyCircularList;

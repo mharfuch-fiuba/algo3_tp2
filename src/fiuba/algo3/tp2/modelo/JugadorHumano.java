@@ -17,9 +17,7 @@ public class JugadorHumano extends Jugador {
 	public void avanzar(Cubilete cubilete) throws DineroInsuficienteException {
 		if(dias_de_carcel != 0) {dias_de_carcel--; return;}//ESTO SE PUEDE HACER DE OTRA FORMA
 		int cant_casilleros = cubilete.sumarValores();
-		for(int i = 0; i < cant_casilleros; i++) {
-			this.posicion.avanzar();
-		}
+		this.avanzar(cant_casilleros);
 		//EJECUTA EL EFECTO DEL CASILLERO:
 		Encasillable casillero = posicion.verActual();
 		casillero.ejecutarEfecto(this, cubilete);
@@ -74,6 +72,13 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void encarcelar() {
 		dias_de_carcel = 3;
+	}
+
+	@Override
+	public void avanzar(int cant_casilleros) {
+		for(int i = 0; i < cant_casilleros; i++) {
+			this.posicion.avanzar();
+		}
 	}
 	
 }
