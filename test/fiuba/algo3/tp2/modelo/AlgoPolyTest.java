@@ -235,8 +235,9 @@ public class AlgoPolyTest {
 	}
 	
 	@Test
-	public void Test11() {
-		
+	public void Test11_RetrocesoDinamico() {
+		//tests en clase RetrocesoDinamicoTest
+		Assert.assertTrue(true);;
 	}
 	
 	@Test

@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaNorte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tren;
 
 public class RetrocesoDinamicoTest {
@@ -103,28 +105,63 @@ public class RetrocesoDinamicoTest {
 	}
 
 	@Test
-	public void unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() {
-		fail();
+	public void test07unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() {
+		System.out.println("test07");
+		jugador.incrementarDinero(new DineroAlgoPoly(2));
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
+		jugador.avanzar(cubilete); // Ahora está a 10 lugares de RetrocesoDinámico
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(10));
+		jugador.avanzar(cubilete);
+		Encasillable casillero = jugador.obtenerCasilleroActual();
+		Assert.assertTrue(casillero instanceof Tren);
 
 	}
 
 	@Test
-	public void unJugadorCon100009EfectivoQueSaca10Retrocede9Lugares() {
-		fail();
+	public void test08unJugadorCon100009EfectivoQueSaca10Retrocede9Lugares() {
+		System.out.println("test08");
+		jugador.incrementarDinero(new DineroAlgoPoly(9));
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
+		jugador.avanzar(cubilete); // Ahora está a 10 lugares de RetrocesoDinámico
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(10));
+		jugador.avanzar(cubilete);
+		Encasillable casillero = jugador.obtenerCasilleroActual();
+		Assert.assertTrue(casillero instanceof CordobaNorte);
 
 	}
 
 	// Tests grupo [11,12]
 
 	@Test
-	public void unJugadorQueSaca11Retrocede9Lugares() {
-		fail();
-
+	public void test09unJugadorQueSaca11Retrocede9Lugares() {
+		/* VER!!!
+		 * falla porque parte de avance dinámico. hay que lograr pararlo en avance dinamico sin que se mueva
+		 */
+		System.out.println("test09");
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 11));
+		jugador.avanzar(cubilete); // Ahora está a 11 lugares de RetrocesoDinámico
+		System.out.println(jugador.obtenerCasilleroActual());
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(11));
+		jugador.avanzar(cubilete);
+		Encasillable casillero = jugador.obtenerCasilleroActual();
+		
+		System.out.println(jugador.obtenerCasilleroActual());
+		Assert.assertTrue(casillero instanceof CordobaNorte);
 	}
 
 	@Test
-	public void unJugadorQueSaca12Retrocede10Lugares() {
-		fail();
+	public void test10unJugadorQueSaca12Retrocede10Lugares() {
+		System.out.println("test09");
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 12));
+		jugador.avanzar(cubilete); // Ahora está a 12 lugares de RetrocesoDinámico
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(12));
+		jugador.avanzar(cubilete);
+		Encasillable casillero = jugador.obtenerCasilleroActual();
+		Assert.assertTrue(casillero instanceof Subte);
 
 	}
 }
