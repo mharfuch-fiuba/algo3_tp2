@@ -3,17 +3,21 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.encasillables.Carcel;
+
 public class AlgoPolyTest {
 	
 	@Test
 	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() {
 		Tablero tablero = new TableroAlgoPoly();
-		Jugador jugador = new JugadorHumano(tablero);
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero));
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
+		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
@@ -34,13 +38,15 @@ public class AlgoPolyTest {
 	@Test
 	public void Test04_ElJugadorCompraUnBarrio() {
 		Tablero tablero = new TableroAlgoPoly();
-		Jugador jugador = new JugadorHumano(tablero);
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero));
 		Lanzable dado1 = new DadoCargado(2);
 		Lanzable dado2 = new DadoCargado(2);
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
+		Jugador jugador = ronda.obtenerJugadorActual();
 		jugador.avanzar(cubilete);
 		jugador.comprarCasilleroActual();
 		Comprable casillero = (Comprable) jugador.obtenerCasilleroActual();
@@ -50,7 +56,24 @@ public class AlgoPolyTest {
 	
 	@Test
 	public void Test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() {
-		
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero));
+		Lanzable dado1 = new DadoCargado(1);
+		Lanzable dado2 = new DadoCargado(4);
+		Cubilete cubilete = new Cubilete();
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
+		cubilete.lanzar();
+		Jugador jugador = ronda.obtenerJugadorActual();
+		jugador.avanzar(cubilete);
+		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
+		ronda.avanzarTurno();
+		jugador = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+		Assert.assertEquals(casillero_carcel, casillero_actual);
 	}
 	
 	@Test
