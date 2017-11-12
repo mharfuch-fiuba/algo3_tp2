@@ -27,5 +27,5 @@ public class Cubilete {
 		}
 		return valores_sumados;
 	}
-	
+		
 }

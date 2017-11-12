@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.modelo;
 
 public class JugadorNull extends Jugador {
 
+	
 	@Override
 	public void avanzar(Cubilete cubilete) {
 		// TODO Auto-generated method stub
@@ -58,6 +59,12 @@ public class JugadorNull extends Jugador {
 
 	@Override
 	public void avanzar(int cant_casilleros) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void retroceder(Cubilete cubilete) {
 		// TODO Auto-generated method stub
 		
 	}

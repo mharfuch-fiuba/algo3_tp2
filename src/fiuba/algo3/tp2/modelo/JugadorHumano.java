@@ -1,24 +1,42 @@
 package fiuba.algo3.tp2.modelo;
 
 public class JugadorHumano extends Jugador {
-	
-	//private static final double DINERO_INICIAL = 100000;
+
+	// private static final double DINERO_INICIAL = 100000;
 	private IterTablero posicion;
 	private Dinero dinero;
 	private int dias_de_carcel;
-	
+
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		this.posicion = tablero.crearIterador();
 		this.dinero = dinero_inicial;
 		this.dias_de_carcel = 0;
 	}
-	
+
 	@Override
 	public void avanzar(Cubilete cubilete) throws DineroInsuficienteException {
-		if(dias_de_carcel != 0) {dias_de_carcel--; return;}//ESTO SE PUEDE HACER DE OTRA FORMA
+		if (dias_de_carcel != 0) {
+			dias_de_carcel--;
+			return;
+		} // ESTO SE PUEDE HACER DE OTRA FORMA
 		int cant_casilleros = cubilete.sumarValores();
+		System.out.println("voy a avanzar: " + cant_casilleros);
 		this.avanzar(cant_casilleros);
-		//EJECUTA EL EFECTO DEL CASILLERO:
+		// EJECUTA EL EFECTO DEL CASILLERO:
+		Encasillable casillero = posicion.verActual();
+		casillero.ejecutarEfecto(this, cubilete);
+	}
+
+	@Override
+	public void retroceder(Cubilete cubilete) throws DineroInsuficienteException {
+		if (dias_de_carcel != 0) {
+			dias_de_carcel--;
+			return;
+		} // ESTO SE PUEDE HACER DE OTRA FORMA
+		int cant_casilleros = cubilete.sumarValores();
+		System.out.println("voy a retroceder: " + cant_casilleros);
+		this.retroceder(cant_casilleros);
+		// EJECUTA EL EFECTO DEL CASILLERO:
 		Encasillable casillero = posicion.verActual();
 		casillero.ejecutarEfecto(this, cubilete);
 	}
@@ -46,9 +64,9 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void disminuirCapital(Dinero monto) throws DineroInsuficienteException {
-		try{
+		try {
 			dinero.disminuirCantidad(monto);
-		}catch (DineroNegativoException e) {
+		} catch (DineroNegativoException e) {
 			throw new DineroInsuficienteException();
 		}
 	}
@@ -60,7 +78,8 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void pagarFianza() throws DineroInsuficienteException {
-		if(dias_de_carcel != 2 && dias_de_carcel != 1) return;
+		if (dias_de_carcel != 2 && dias_de_carcel != 1)
+			return;
 		try {
 			this.disminuirCapital(new Dinero(45000));
 		} catch (DineroInsuficienteException e) {
@@ -74,11 +93,15 @@ public class JugadorHumano extends Jugador {
 		dias_de_carcel = 3;
 	}
 
-	@Override
 	public void avanzar(int cant_casilleros) {
-		for(int i = 0; i < cant_casilleros; i++) {
+		for (int i = 0; i < cant_casilleros; i++) {
 			this.posicion.avanzar();
 		}
 	}
-	
+
+	private void retroceder(int cant_casilleros) {
+		for (int i = 0; i < cant_casilleros; i++) {
+			this.posicion.retroceder();
+		}
+	}
 }

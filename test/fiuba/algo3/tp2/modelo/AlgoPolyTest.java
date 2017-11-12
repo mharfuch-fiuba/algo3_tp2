@@ -8,7 +8,7 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 
 public class AlgoPolyTest {
 	
-	private static final double DELTA = 1e-15;
+	private static final double DELTA = 1e-6;
 	
 	@Test
 	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {

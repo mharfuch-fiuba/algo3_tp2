@@ -6,6 +6,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 
 public class AvanceDinamico implements Encasillable{
 
+
 	@Override
 	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
 		int valor_obtenido = dados.sumarValores();

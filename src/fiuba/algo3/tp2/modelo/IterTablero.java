@@ -21,6 +21,16 @@ public class IterTablero{
 			return this.verActual();
 		}
 	}
+	
+	public Encasillable retroceder() {
+		pos_actual--;
+		try {
+			return this.verActual();
+		}catch (IndexOutOfBoundsException e) {
+			pos_actual = 0;
+			return this.verActual();
+		}
+	}
 
 	public Encasillable verActual() {
 		return casilleros.get(pos_actual);

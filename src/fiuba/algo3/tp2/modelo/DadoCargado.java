@@ -5,7 +5,7 @@ public class DadoCargado implements Lanzable {
 	private int valor_mostrado;
 	
 	public DadoCargado(int valor_esperado) {
-		//CREA UN DADO QUE SIEMPRE SACA EL MISMO NUMERO
+		//Crea un dado que saca siempre el mismo número, sin limitaciones
 		this.valor_mostrado = valor_esperado;
 	}
 
