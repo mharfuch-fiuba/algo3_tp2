@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
+
 public class JugadorHumano extends Jugador {
 
 	// private static final double DINERO_INICIAL = 100000;
@@ -7,11 +9,13 @@ public class JugadorHumano extends Jugador {
 	private Dinero dinero;
 	private int dias_de_carcel;
 	public int nombreJugador;
+	private ArrayList<Comprable> propiedades;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		this.posicion = tablero.crearIterador();
 		this.dinero = dinero_inicial;
 		this.dias_de_carcel = 0;
+		this.propiedades=new ArrayList<Comprable>();
 	}
 
 	@Override
@@ -65,6 +69,7 @@ public class JugadorHumano extends Jugador {
 	public void comprarCasilleroActual() throws DineroInsuficienteException {
 		Comprable casillero = (Comprable) posicion.verActual();
 		casillero.comprar(this);
+		propiedades.add(casillero);
 	}
 
 	@Override
@@ -113,5 +118,10 @@ public class JugadorHumano extends Jugador {
 		for (int i = 0; i < cant_casilleros; i++) {
 			this.posicion.retroceder();
 		}
+	}
+
+	@Override
+	public int getCantidadDePropiedades() {
+		return propiedades.size();
 	}
 }

@@ -5,13 +5,14 @@ import static org.junit.Assert.fail;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tren;
 
 public class RetrocesoDinamicoTest {
 
 	int posicionEnTableroDeRetrocesoDinamico = 18;
 	Tablero tablero = new TableroAlgoPoly();
-	Dinero dinero = new Dinero(10000);
+	Dinero dinero = new Dinero(100000);
 	Jugador jugador = new JugadorHumano(tablero, dinero);
 	Cubilete cubilete = new Cubilete();
 
@@ -25,13 +26,27 @@ public class RetrocesoDinamicoTest {
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
+		//System.out.println(casillero);
 		Assert.assertTrue(casillero instanceof Tren);
 	}
 
 	@Test
 	public void unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() {
-		fail();
+		cubilete.agregar(new DadoCargado(2));
+		jugador.avanzar(cubilete);
+		jugador.comprarCasilleroActual(); // Compra Bs As Sur
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 4));
+		jugador.avanzar(cubilete);
+		// Ahora está a 2 lugares de RetrocesoDinámico
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(2));
+		jugador.avanzar(cubilete);
+		Encasillable casillero = jugador.obtenerCasilleroActual();
+		System.out.println(casillero);
+		Assert.assertTrue(casillero instanceof Neuquen);
+		
+		
 	}
 
 	@Test

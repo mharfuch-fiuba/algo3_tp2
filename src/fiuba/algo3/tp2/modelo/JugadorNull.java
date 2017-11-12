@@ -81,4 +81,9 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public int getCantidadDePropiedades() {
+		return 0;
+	}
+
 }
