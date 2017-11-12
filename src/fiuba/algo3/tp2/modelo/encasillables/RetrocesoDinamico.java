@@ -16,8 +16,10 @@ public class RetrocesoDinamico implements Encasillable{
 	private void efectoRetrocedeSumaDadosMenosCantidadPropiedades(Jugador jugador, int sumaDados){
 		System.out.println("entre a efecto 1");
 		int cantidadPropiedades = jugador.getCantidadDePropiedades();
+		int casillerosPorRetroceder = sumaDados-cantidadPropiedades;
+		casillerosPorRetroceder = (casillerosPorRetroceder<0)?0:casillerosPorRetroceder;
 		Cubilete cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(sumaDados-cantidadPropiedades));
+		cubilete.agregar(new DadoCargado(casillerosPorRetroceder));
 		jugador.retroceder(cubilete);
 	}
 	

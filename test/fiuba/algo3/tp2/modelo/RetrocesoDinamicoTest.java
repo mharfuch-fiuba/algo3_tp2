@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tren;
 
@@ -37,45 +38,66 @@ public class RetrocesoDinamicoTest {
 		jugador.comprarCasilleroActual(); // Compra Bs As Sur
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 4));
-		jugador.avanzar(cubilete);
-		// Ahora está a 2 lugares de RetrocesoDinámico
+		jugador.avanzar(cubilete); // Ahora está a 2 lugares de RetrocesoDinámico
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
-		Assert.assertTrue(casillero instanceof Neuquen);
-		
+		//System.out.println(casillero);
+		Assert.assertTrue(casillero instanceof Neuquen);	
 		
 	}
 
 	@Test
 	public void unJugadorCon3PropiedadesQueSaca2NoRetrocede() {
-		fail();
+		cubilete.agregar(new DadoCargado(2));
+		jugador.avanzar(cubilete);
+		Encasillable casillero = jugador.obtenerCasilleroActual();
+		System.out.println(casillero);
+		jugador.comprarCasilleroActual(); // Compra Bs As Sur
+		jugador.avanzar(cubilete);
+		casillero = jugador.obtenerCasilleroActual();
+		System.out.println(casillero);
+		jugador.comprarCasilleroActual(); // Compra Bs As Norte
+		jugador.avanzar(cubilete);
+		casillero = jugador.obtenerCasilleroActual();
+		System.out.println(casillero);
+		jugador.comprarCasilleroActual(); // Compra Cordoba Sur
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(10));
+		jugador.avanzar(cubilete); // Ahora está a 2 lugares de RetrocesoDinámico
+		casillero = jugador.obtenerCasilleroActual();
+		System.out.println(casillero);
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(2));
+		jugador.avanzar(cubilete);
+		casillero = jugador.obtenerCasilleroActual();
+		System.out.println(casillero);
+		Assert.assertTrue(casillero instanceof RetrocesoDinamico);	
 	}
 
 	// Tests grupo [7,8,9,10]
 
 	@Test
-	public void unJugadorCon10000EfectivoQueSaca10NoRetrocede() {
+	public void unJugadorCon100000EfectivoQueSaca10NoRetrocede() {
 		fail();
 
 	}
 
 	@Test
-	public void unJugadorCon10001EfectivoQueSaca10Retrocede1Lugar() {
+	public void unJugadorCon100001EfectivoQueSaca10Retrocede1Lugar() {
 		fail();
 
 	}
 
 	@Test
-	public void unJugadorCon10002EfectivoQueSaca10Retrocede2Lugares() {
+	public void unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() {
 		fail();
 
 	}
 
 	@Test
-	public void unJugadorCon10009EfectivoQueSaca10Retrocede9Lugares() {
+	public void unJugadorCon100009EfectivoQueSaca10Retrocede9Lugares() {
 		fail();
 
 	}

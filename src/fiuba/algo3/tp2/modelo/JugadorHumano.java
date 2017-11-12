@@ -38,12 +38,14 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void retroceder(Cubilete cubilete) throws DineroInsuficienteException {
+	public void retroceder(Cubilete cubilete){
+		//esto es una copia de avanzar, hay que hacer refactor
 		if (dias_de_carcel != 0) {
 			dias_de_carcel--;
 			return;
 		} // ESTO SE PUEDE HACER DE OTRA FORMA
 		int cant_casilleros = cubilete.sumarValores();
+		if(cant_casilleros == 0) return;
 		System.out.println("voy a retroceder: " + cant_casilleros);
 		this.retroceder(cant_casilleros);
 		// EJECUTA EL EFECTO DEL CASILLERO:
