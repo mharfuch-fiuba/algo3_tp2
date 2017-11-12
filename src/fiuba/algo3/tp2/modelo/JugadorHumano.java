@@ -2,19 +2,19 @@ package fiuba.algo3.tp2.modelo;
 
 public class JugadorHumano extends Jugador {
 	
-	private static final double DINERO_INICIAL = 100000;
+	//private static final double DINERO_INICIAL = 100000;
 	private IterTablero posicion;
 	private Dinero dinero;
 	private int dias_de_carcel;
 	
-	public JugadorHumano(Tablero tablero) {
+	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		this.posicion = tablero.crearIterador();
-		this.dinero = new Dinero(DINERO_INICIAL);
+		this.dinero = dinero_inicial;
 		this.dias_de_carcel = 0;
 	}
 	
 	@Override
-	public void avanzar(Cubilete cubilete) {
+	public void avanzar(Cubilete cubilete) throws DineroInsuficienteException {
 		if(dias_de_carcel != 0) {dias_de_carcel--; return;}//ESTO SE PUEDE HACER DE OTRA FORMA
 		int cant_casilleros = cubilete.sumarValores();
 		for(int i = 0; i < cant_casilleros; i++) {
@@ -36,7 +36,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void comprarCasilleroActual() {
+	public void comprarCasilleroActual() throws DineroInsuficienteException {
 		Comprable casillero = (Comprable) posicion.verActual();
 		casillero.comprar(this);
 	}
@@ -47,8 +47,12 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void disminuirCapital(Dinero monto) {
-		dinero.disminuirCantidad(monto);
+	public void disminuirCapital(Dinero monto) throws DineroInsuficienteException {
+		try{
+			dinero.disminuirCantidad(monto);
+		}catch (DineroNegativoException e) {
+			throw new DineroInsuficienteException();
+		}
 	}
 
 	@Override
@@ -57,9 +61,13 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void pagarFianza() {
-		if(dias_de_carcel == 3) return;
-		this.disminuirCapital(new Dinero(45000));
+	public void pagarFianza() throws DineroInsuficienteException {
+		if(dias_de_carcel != 2 && dias_de_carcel != 1) return;
+		try {
+			this.disminuirCapital(new Dinero(45000));
+		} catch (DineroInsuficienteException e) {
+			throw new DineroInsuficienteException();
+		}
 		dias_de_carcel = 0;
 	}
 

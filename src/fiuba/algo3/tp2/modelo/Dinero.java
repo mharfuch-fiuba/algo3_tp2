@@ -7,11 +7,6 @@ public class Dinero {
 	public Dinero(double cantidad) {
 		this.cantidad = cantidad;
 	}
-	
-	//MHHH!!!
-	public boolean equals(Dinero otro) {
-		return cantidad == otro.getCantidad();
-	}
 
 	public double getCantidad() {
 		return this.cantidad;
@@ -21,7 +16,8 @@ public class Dinero {
 		this.cantidad += monto.getCantidad();
 	}
 
-	public void disminuirCantidad(Dinero monto) {
+	public void disminuirCantidad(Dinero monto) throws DineroNegativoException {
+		if(this.cantidad < monto.getCantidad()) throw new DineroNegativoException();
 		this.cantidad -= monto.getCantidad();
 	}
 	

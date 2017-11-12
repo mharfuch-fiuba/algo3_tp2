@@ -3,15 +3,13 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.encasillables.Carcel;
-
 public class AlgoPolyTest {
 	
 	@Test
-	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() {
+	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero));
+		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
 		Cubilete cubilete = new Cubilete();
@@ -36,11 +34,11 @@ public class AlgoPolyTest {
 	}
 	
 	@Test
-	public void Test04_ElJugadorCompraUnBarrio() {
+	public void Test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero));
-		ronda.agregarJugador(new JugadorHumano(tablero));
+		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
 		Lanzable dado1 = new DadoCargado(2);
 		Lanzable dado2 = new DadoCargado(2);
 		Cubilete cubilete = new Cubilete();
@@ -62,10 +60,11 @@ public class AlgoPolyTest {
 	}
 	
 	@Test
-	public void Test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() {
+	public void Test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero));
+		Dinero dinero_inicial = new Dinero(100000);
+		ronda.agregarJugador(new JugadorHumano(tablero, dinero_inicial));
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
 		Cubilete cubilete = new Cubilete();
@@ -86,10 +85,11 @@ public class AlgoPolyTest {
 	}
 	
 	@Test
-	public void Test06_ElJugadorQuePagaLaFianzaPuedeMoverse() {
+	public void Test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ronda.agregarJugador(new JugadorHumano(tablero));
+		Dinero dinero_inicial = new Dinero(100000);
+		ronda.agregarJugador(new JugadorHumano(tablero, dinero_inicial));
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
 		Cubilete cubilete = new Cubilete();
@@ -113,8 +113,31 @@ public class AlgoPolyTest {
 	}
 	
 	@Test
-	public void Test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse() {
+	public void Test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse() throws DineroInsuficienteException {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		Dinero dinero_inicial = new Dinero(40000);
+		ronda.agregarJugador(new JugadorHumano(tablero, dinero_inicial));
+		Lanzable dado1 = new DadoCargado(2);
+		Lanzable dado2 = new DadoCargado(3);
+		Cubilete cubilete = new Cubilete();
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
 		
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
+		ronda.avanzarTurno();
+		jugador.avanzar(cubilete);
+		ronda.avanzarTurno();
+		jugador = ronda.obtenerJugadorActual();
+		try {jugador.pagarFianza();} catch (DineroInsuficienteException e) {}
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+			
+		Assert.assertEquals(casillero_carcel, casillero_actual);
 	}
 	
 	@Test
