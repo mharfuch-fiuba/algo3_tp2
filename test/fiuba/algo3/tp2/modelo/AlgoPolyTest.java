@@ -48,6 +48,8 @@ public class AlgoPolyTest {
 		Lanzable dado3 = new DadoCargado(7);
 		Lanzable dado4 = new DadoCargado(13);
 		Cubilete cubilete2 = new Cubilete();
+		cubilete2.agregar(dado3);
+		cubilete2.agregar(dado4);
 		jugador=ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
@@ -77,6 +79,8 @@ public class AlgoPolyTest {
 		Lanzable dado3 = new DadoCargado(7);
 		Lanzable dado4 = new DadoCargado(13);
 		Cubilete cubilete2 = new Cubilete();
+		cubilete2.agregar(dado3);
+		cubilete2.agregar(dado4);
 		jugador=ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
@@ -87,6 +91,8 @@ public class AlgoPolyTest {
 		Lanzable dado5 = new DadoCargado(7);
 		Lanzable dado6 = new DadoCargado(13);
 		Cubilete cubilete3 = new Cubilete();
+		cubilete3.agregar(dado5);
+		cubilete3.agregar(dado6);
 		jugador=ronda.obtenerJugadorActual();
 		cubilete3.lanzar();
 		jugador.avanzar(cubilete3);
