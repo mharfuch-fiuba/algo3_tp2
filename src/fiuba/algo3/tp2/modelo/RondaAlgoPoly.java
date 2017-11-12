@@ -14,10 +14,16 @@ public class RondaAlgoPoly extends Ronda{
 	
 	public void agregarJugador(Jugador jugador) {
 		jugadores.add(jugador);
+		jugador.agregarNombre(jugadores.indexOf(jugador));
 	}
 	
 	public void avanzarTurno() {
 		turno_numero++;
+	}
+	
+	public int obtenerUbicacion(Jugador jugador){
+		return jugadores.indexOf(jugador);
+		
 	}
 	
 	public Jugador obtenerJugadorActual() {
@@ -28,6 +34,7 @@ public class RondaAlgoPoly extends Ronda{
 			return jugadores.get(turno_numero);
 		}
 	}
+	
 	
 	
 }

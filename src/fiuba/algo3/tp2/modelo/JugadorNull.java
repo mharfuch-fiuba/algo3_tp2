@@ -69,4 +69,16 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public int getNombre() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void agregarNombre(int nombre) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -6,6 +6,7 @@ public class JugadorHumano extends Jugador {
 	private IterTablero posicion;
 	private Dinero dinero;
 	private int dias_de_carcel;
+	public int nombreJugador;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		this.posicion = tablero.crearIterador();
@@ -13,6 +14,11 @@ public class JugadorHumano extends Jugador {
 		this.dias_de_carcel = 0;
 	}
 
+	@Override
+	public void agregarNombre(int nombre){
+		nombreJugador=nombre;
+	}
+	
 	@Override
 	public void avanzar(Cubilete cubilete) throws DineroInsuficienteException {
 		if (dias_de_carcel != 0) {
@@ -40,7 +46,11 @@ public class JugadorHumano extends Jugador {
 		Encasillable casillero = posicion.verActual();
 		casillero.ejecutarEfecto(this, cubilete);
 	}
-
+	
+	public int getNombre(){
+		return nombreJugador+1;
+	}
+	
 	@Override
 	public Dinero obtenerDinero() {
 		return this.dinero;

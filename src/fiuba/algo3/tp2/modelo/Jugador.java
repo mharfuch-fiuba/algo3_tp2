@@ -3,7 +3,13 @@ package fiuba.algo3.tp2.modelo;
 public abstract class Jugador {
 
 	//public abstract void avanzar(Cubilete cubilete) throws DineroInsuficienteException;	//no me cierra que el avanzar tire esta excepcion.
-	public abstract void avanzar(Cubilete cubilete);
+	//public abstract void avanzar(Cubilete cubilete);
+	
+	public abstract void avanzar(Cubilete cubilete) throws DineroInsuficienteException;
+	
+	public abstract int getNombre();
+
+	public abstract void agregarNombre(int nombre);
 	
 	public abstract Dinero obtenerDinero();
 

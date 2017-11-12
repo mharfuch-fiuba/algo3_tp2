@@ -25,16 +25,73 @@ public class AlgoPolyTest {
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
 		double monto_esperado = new Dinero(150000).getCantidad();
-		Assert.assertEquals(monto_esperado, monto_final, DELTA);//NO SE BIEN COMO SE HACE ESTO CON EQUALS
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 	}
 	
 	@Test
-	public void Test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() {
+	public void Test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws DineroInsuficienteException{
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		Lanzable dado1 = new DadoCargado(7);
+		Lanzable dado2 = new DadoCargado(14);
+		Cubilete cubilete = new Cubilete();
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		double monto_final = jugador.obtenerDinero().getCantidad();
+		double monto_esperado = new Dinero(150000).getCantidad();
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);
+
+		Lanzable dado3 = new DadoCargado(7);
+		Lanzable dado4 = new DadoCargado(13);
+		Cubilete cubilete2 = new Cubilete();
+		jugador=ronda.obtenerJugadorActual();
+		cubilete2.lanzar();
+		jugador.avanzar(cubilete2);
+		monto_final = jugador.obtenerDinero().getCantidad();
+		monto_esperado = new Dinero(180000).getCantidad();
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 	}
 	
 	@Test
-	public void Test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() {
+	public void Test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws DineroInsuficienteException{
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero, new Dinero(100000)));
+		Lanzable dado1 = new DadoCargado(7);
+		Lanzable dado2 = new DadoCargado(14);
+		Cubilete cubilete = new Cubilete();
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		double monto_final = jugador.obtenerDinero().getCantidad();
+		double monto_esperado = new Dinero(150000).getCantidad();
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);
+
+		Lanzable dado3 = new DadoCargado(7);
+		Lanzable dado4 = new DadoCargado(13);
+		Cubilete cubilete2 = new Cubilete();
+		jugador=ronda.obtenerJugadorActual();
+		cubilete2.lanzar();
+		jugador.avanzar(cubilete2);
+		monto_final = jugador.obtenerDinero().getCantidad();
+		monto_esperado = new Dinero(180000).getCantidad();
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);
+		
+		Lanzable dado5 = new DadoCargado(7);
+		Lanzable dado6 = new DadoCargado(13);
+		Cubilete cubilete3 = new Cubilete();
+		jugador=ronda.obtenerJugadorActual();
+		cubilete3.lanzar();
+		jugador.avanzar(cubilete3);
+		monto_final = jugador.obtenerDinero().getCantidad();
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 	}
 	
