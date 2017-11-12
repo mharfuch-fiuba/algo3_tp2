@@ -2,7 +2,11 @@ package fiuba.algo3.tp2.modelo;
 
 public abstract class Jugador {
 
+	public abstract void agregarNombre(int nombre);
+	
 	public abstract void avanzar(Cubilete cubilete) throws DineroInsuficienteException;
+	
+	public abstract int getNombre();
 
 	public abstract Dinero obtenerDinero();
 
