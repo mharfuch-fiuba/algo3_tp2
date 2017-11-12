@@ -8,8 +8,7 @@ public class Carcel implements Encasillable {
 
 	@Override
 	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
-		// TODO Auto-generated method stub
-		
+		jugador.encarcelar();
 	}
 
 }

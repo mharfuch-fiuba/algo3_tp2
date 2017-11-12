@@ -16,4 +16,8 @@ public abstract class Jugador {
 
 	public abstract void aumentarCapital(Dinero monto);
 	
+	public abstract void pagarFianza();
+	
+	public abstract void encarcelar();
+	
 }

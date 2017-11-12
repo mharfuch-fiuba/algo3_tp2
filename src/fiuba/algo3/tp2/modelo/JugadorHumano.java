@@ -5,14 +5,17 @@ public class JugadorHumano extends Jugador {
 	private static final double DINERO_INICIAL = 100000;
 	private IterTablero posicion;
 	private Dinero dinero;
+	private int dias_de_carcel;
 	
 	public JugadorHumano(Tablero tablero) {
 		this.posicion = tablero.crearIterador();
 		this.dinero = new Dinero(DINERO_INICIAL);
+		this.dias_de_carcel = 0;
 	}
 	
 	@Override
 	public void avanzar(Cubilete cubilete) {
+		if(dias_de_carcel != 0) {dias_de_carcel--; return;}//ESTO SE PUEDE HACER DE OTRA FORMA
 		int cant_casilleros = cubilete.sumarValores();
 		for(int i = 0; i < cant_casilleros; i++) {
 			this.posicion.avanzar();
@@ -51,6 +54,18 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void aumentarCapital(Dinero monto) {
 		dinero.aumentarCantidad(monto);
+	}
+
+	@Override
+	public void pagarFianza() {
+		if(dias_de_carcel == 3) return;
+		this.disminuirCapital(new Dinero(45000));
+		dias_de_carcel = 0;
+	}
+
+	@Override
+	public void encarcelar() {
+		dias_de_carcel = 3;
 	}
 	
 }

@@ -71,8 +71,9 @@ public class AlgoPolyTest {
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
-		cubilete.lanzar();
+		
 		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
@@ -80,12 +81,35 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+		
 		Assert.assertEquals(casillero_carcel, casillero_actual);
 	}
 	
 	@Test
 	public void Test06_ElJugadorQuePagaLaFianzaPuedeMoverse() {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero));
+		Lanzable dado1 = new DadoCargado(1);
+		Lanzable dado2 = new DadoCargado(4);
+		Cubilete cubilete = new Cubilete();
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
 		
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
+		ronda.avanzarTurno();
+		jugador.avanzar(cubilete);
+		ronda.avanzarTurno();
+		jugador = ronda.obtenerJugadorActual();
+		jugador.pagarFianza();
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+		
+		Assert.assertNotEquals(casillero_carcel, casillero_actual);
 	}
 	
 	@Test

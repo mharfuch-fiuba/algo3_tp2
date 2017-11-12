@@ -2,8 +2,8 @@ package fiuba.algo3.tp2.modelo;
 
 import java.util.ArrayList;
 
-public class IterTablero {
-	
+public class IterTablero{
+
 	private ArrayList<Encasillable> casilleros;
 	private int pos_actual;
 

@@ -44,4 +44,16 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public void pagarFianza() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void encarcelar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
