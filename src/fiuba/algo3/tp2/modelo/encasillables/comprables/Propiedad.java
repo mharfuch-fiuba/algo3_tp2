@@ -5,6 +5,7 @@ import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.JugadorNull;
 
 public abstract class Propiedad implements Comprable, Encasillable {
 	
@@ -24,5 +25,9 @@ public abstract class Propiedad implements Comprable, Encasillable {
 	
 	@Override
 	public abstract void ejecutarEfecto(Jugador jugador, Cubilete dados);
+	
+	public Propiedad() {
+		PROPIETARIO = new JugadorNull();
+	}
 	
 }
