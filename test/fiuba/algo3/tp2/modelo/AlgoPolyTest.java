@@ -33,7 +33,19 @@ public class AlgoPolyTest {
 	
 	@Test
 	public void Test04_ElJugadorCompraUnBarrio() {
-		
+		Tablero tablero = new TableroAlgoPoly();
+		Jugador jugador = new JugadorHumano(tablero);
+		Lanzable dado1 = new DadoCargado(2);
+		Lanzable dado2 = new DadoCargado(2);
+		Cubilete cubilete = new Cubilete();
+		cubilete.agregar(dado1);
+		cubilete.agregar(dado2);
+		cubilete.lanzar();
+		jugador.avanzar(cubilete);
+		jugador.comprarCasilleroActual();
+		Comprable casillero = (Comprable) jugador.obtenerCasilleroActual();
+		Jugador propietario = casillero.obtenerPropietario();
+		Assert.assertEquals(jugador, propietario);
 	}
 	
 	@Test

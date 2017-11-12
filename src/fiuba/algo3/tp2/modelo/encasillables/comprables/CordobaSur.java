@@ -1,15 +1,12 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import fiuba.algo3.tp2.modelo.Comprable;
-import fiuba.algo3.tp2.modelo.Encasillable;
-import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.Dinero;
 
-public class CordobaSur implements Encasillable,Comprable{
+public class CordobaSur extends Terreno {
 
-	@Override
-	public void ejecutarEfecto(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+	public CordobaSur() {
+		PRECIO_COMPRA = new Dinero(18000);
+		PRECIO_ALQUILER = new Dinero(1000);
 	}
-
+	
 }

@@ -1,15 +1,12 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import fiuba.algo3.tp2.modelo.Comprable;
-import fiuba.algo3.tp2.modelo.Encasillable;
-import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.Dinero;
 
-public class Tren implements Encasillable,Comprable{
+public class Tren extends Servicio {
 
-	@Override
-	public void ejecutarEfecto(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+	public Tren() {
+		PRECIO_COMPRA = new Dinero(38000);
+		PENALIDAD = 450;
 	}
-
+	
 }

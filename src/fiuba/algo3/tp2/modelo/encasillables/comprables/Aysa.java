@@ -1,15 +1,12 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import fiuba.algo3.tp2.modelo.Comprable;
-import fiuba.algo3.tp2.modelo.Encasillable;
-import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.Dinero;
 
-public class Aysa implements Encasillable,Comprable{
-
-	@Override
-	public void ejecutarEfecto(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+public class Aysa extends Servicio {
+	
+	public Aysa() {
+		PRECIO_COMPRA = new Dinero(30000);
+		PENALIDAD = 300;
 	}
-
+	
 }

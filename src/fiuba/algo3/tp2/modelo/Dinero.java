@@ -17,8 +17,12 @@ public class Dinero {
 		return this.cantidad;
 	}
 
-	public void agregarCantidad(Dinero monto) {
+	public void aumentarCantidad(Dinero monto) {
 		this.cantidad += monto.getCantidad();
+	}
+
+	public void disminuirCantidad(Dinero monto) {
+		this.cantidad -= monto.getCantidad();
 	}
 	
 }

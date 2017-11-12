@@ -8,4 +8,12 @@ public abstract class Jugador {
 
 	public abstract void incrementarDinero(Dinero montoAIncrementar);
 	
+	public abstract void comprarCasilleroActual();
+
+	public abstract Encasillable obtenerCasilleroActual();
+
+	public abstract void disminuirCapital(Dinero monto);
+
+	public abstract void aumentarCapital(Dinero monto);
+	
 }

@@ -19,7 +19,7 @@ public class JugadorHumano extends Jugador {
 		}
 		//EJECUTA EL EFECTO DEL CASILLERO:
 		Encasillable casillero = posicion.verActual();
-		casillero.ejecutarEfecto(this);
+		casillero.ejecutarEfecto(this, cubilete);
 	}
 
 	@Override
@@ -29,7 +29,28 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void incrementarDinero(Dinero monto) {
-		this.dinero.agregarCantidad(monto);
+		this.dinero.aumentarCantidad(monto);
+	}
+
+	@Override
+	public void comprarCasilleroActual() {
+		Comprable casillero = (Comprable) posicion.verActual();
+		casillero.comprar(this);
+	}
+
+	@Override
+	public Encasillable obtenerCasilleroActual() {
+		return posicion.verActual();
+	}
+
+	@Override
+	public void disminuirCapital(Dinero monto) {
+		dinero.disminuirCantidad(monto);
+	}
+
+	@Override
+	public void aumentarCapital(Dinero monto) {
+		dinero.aumentarCantidad(monto);
 	}
 	
 }

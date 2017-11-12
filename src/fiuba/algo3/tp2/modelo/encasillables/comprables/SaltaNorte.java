@@ -1,15 +1,12 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import fiuba.algo3.tp2.modelo.Comprable;
-import fiuba.algo3.tp2.modelo.Encasillable;
-import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.Dinero;
 
-public class SaltaNorte implements Encasillable,Comprable {
-
-	@Override
-	public void ejecutarEfecto(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+public class SaltaNorte extends Terreno {
+	
+	public SaltaNorte() {
+		PRECIO_COMPRA = new Dinero(23000);
+		PRECIO_ALQUILER = new Dinero(2000);
 	}
-
+	
 }
