@@ -8,6 +8,8 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 
 public class AlgoPolyTest {
 	
+	private static final double DELTA = 1e-15;
+	
 	@Test
 	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
@@ -23,7 +25,7 @@ public class AlgoPolyTest {
 		jugador.avanzar(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
 		double monto_esperado = new Dinero(150000).getCantidad();
-		Assert.assertEquals(monto_esperado, monto_final, 0.001);//NO SE BIEN COMO SE HACE ESTO CON EQUALS
+		Assert.assertEquals(monto_esperado, monto_final, DELTA);//NO SE BIEN COMO SE HACE ESTO CON EQUALS
 	}
 	
 	@Test
