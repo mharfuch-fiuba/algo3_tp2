@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.modelo;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,9 +1,13 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Aysa;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
@@ -247,12 +251,45 @@ public class AlgoPolyTest {
 
 	@Test
 	public void Test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
+		Cubilete cubilete_que_saca_7 = new Cubilete();
+		cubilete_que_saca_7.agregar(new DadoCargado(1));
+		cubilete_que_saca_7.agregar(new DadoCargado(6));
 
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete_que_saca_7.lanzar();
+		jugador.avanzar(cubilete_que_saca_7);
+		jugador.interactuarConCasilleroActual(cubilete_que_saca_7);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+
+		Assert.assertTrue(casillero_actual instanceof Aysa);
 	}
 
 	@Test
 	public void Test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ArrayList<Comprable> propiedades = new ArrayList<Comprable>();
+			propiedades.add(new SantaFe());
+			propiedades.add(new Neuquen());
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000), propiedades));
+		Cubilete cubilete_que_saca_7 = new Cubilete();
+			cubilete_que_saca_7.agregar(new DadoCargado(6));
+			cubilete_que_saca_7.agregar(new DadoCargado(1));
+		Cubilete cubilete_que_saca_12 = new Cubilete();
+			cubilete_que_saca_12.agregar(new DadoCargado(6));
+			cubilete_que_saca_12.agregar(new DadoCargado(6));
 
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete_que_saca_7.lanzar();
+		cubilete_que_saca_12.lanzar();
+		jugador.avanzar(cubilete_que_saca_7);
+		jugador.interactuarConCasilleroActual(cubilete_que_saca_12);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+
+		Assert.assertTrue(casillero_actual instanceof Neuquen);
 	}
 
 	@Test

@@ -21,6 +21,13 @@ public class JugadorHumano extends Jugador {
 		this.dias_de_carcel = 0;
 		this.propiedades = new ArrayList<Comprable>();
 	}
+	
+	public JugadorHumano(Tablero tablero, DineroAlgoPoly dinero_inicial, ArrayList<Comprable> propiedades) {
+		this.posicion = tablero.crearIterador();
+		this.dinero = dinero_inicial;
+		this.dias_de_carcel = 0;
+		this.propiedades = propiedades;
+	}
 
 	/*
 	 * @Override public void agregarNombre(int nombre){ nombreJugador=nombre; }
