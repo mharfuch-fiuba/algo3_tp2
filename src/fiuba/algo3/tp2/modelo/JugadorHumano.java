@@ -24,7 +24,7 @@ public class JugadorHumano extends Jugador {
 	}
 	
 	@Override
-	public void avanzar(Cubilete cubilete) throws DineroInsuficienteException {
+	public void avanzar(Cubilete cubilete) {
 		if (dias_de_carcel != 0) {
 			dias_de_carcel--;
 			return;
@@ -32,9 +32,6 @@ public class JugadorHumano extends Jugador {
 		int cant_casilleros = cubilete.sumarValores();
 		System.out.println("voy a avanzar: " + cant_casilleros);
 		this.avanzar(cant_casilleros);
-		// EJECUTA EL EFECTO DEL CASILLERO:
-		Encasillable casillero = posicion.verActual();
-		casillero.ejecutarEfecto(this, cubilete);
 	}
 
 	@Override
@@ -48,9 +45,7 @@ public class JugadorHumano extends Jugador {
 		if(cant_casilleros == 0) return;
 		System.out.println("voy a retroceder: " + cant_casilleros);
 		this.retroceder(cant_casilleros);
-		// EJECUTA EL EFECTO DEL CASILLERO:
-		Encasillable casillero = posicion.verActual();
-		casillero.ejecutarEfecto(this, cubilete);
+		
 	}
 	
 	public int getNombre(){
@@ -125,5 +120,11 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public int getCantidadDePropiedades() {
 		return propiedades.size();
+	}
+
+	@Override
+	public void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
+		Encasillable casillero = posicion.verActual();
+		casillero.ejecutarEfecto(this, cubilete);
 	}
 }

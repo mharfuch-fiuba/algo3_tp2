@@ -23,6 +23,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
+		jugador.interactuarConCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
 		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -41,6 +42,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
+		jugador.interactuarConCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
 		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -53,6 +55,7 @@ public class AlgoPolyTest {
 		jugador=ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
+		jugador.interactuarConCasilleroActual(cubilete2);
 		monto_final = jugador.obtenerDinero().getCantidad();
 		monto_esperado = new DineroAlgoPoly(180000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -72,6 +75,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
+		jugador.interactuarConCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().getCantidad();
 		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -84,6 +88,7 @@ public class AlgoPolyTest {
 		jugador=ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
+		jugador.interactuarConCasilleroActual(cubilete2);
 		monto_final = jugador.obtenerDinero().getCantidad();
 		monto_esperado = new DineroAlgoPoly(180000).getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -96,6 +101,7 @@ public class AlgoPolyTest {
 		jugador=ronda.obtenerJugadorActual();
 		cubilete3.lanzar();
 		jugador.avanzar(cubilete3);
+		jugador.interactuarConCasilleroActual(cubilete3);
 		monto_final = jugador.obtenerDinero().getCantidad();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
@@ -142,6 +148,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
+		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
@@ -195,6 +202,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
+		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
 		jugador.avanzar(cubilete);
@@ -203,6 +211,7 @@ public class AlgoPolyTest {
 		try {jugador.pagarFianza();} catch (DineroInsuficienteException e) {}
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
+		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 			
 		Assert.assertEquals(casillero_carcel, casillero_actual);
@@ -221,10 +230,12 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_1.lanzar();
 		jugador.avanzar(cubilete_que_saca_1);
+		jugador.interactuarConCasilleroActual(cubilete_que_saca_1);
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_6.lanzar();
 		jugador.avanzar(cubilete_que_saca_6);
+		jugador.interactuarConCasilleroActual(cubilete_que_saca_6);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		
 		Assert.assertTrue(casillero_actual instanceof SantaFe);// <-- REVISAR

@@ -31,6 +31,6 @@ public abstract class Jugador {
 
 	public abstract void retroceder(Cubilete cubilete);
 	
-	//public abstract void interactuarConCasilleroActual();
+	public abstract void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException;
 	
 }
