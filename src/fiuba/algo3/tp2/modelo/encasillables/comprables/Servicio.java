@@ -11,7 +11,7 @@ public abstract class Servicio extends Propiedad {
 	@Override
 	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
 		DineroAlgoPoly monto = new DineroAlgoPoly(PENALIDAD * dados.sumarValores());
-		jugador.disminuirCapital(monto);
+		jugador.pagar(monto);
 		PROPIETARIO.aumentarCapital(monto);
 	}
 	

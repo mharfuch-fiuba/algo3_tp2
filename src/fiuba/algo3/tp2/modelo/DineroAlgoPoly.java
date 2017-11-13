@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.modelo;
 
+import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public class DineroAlgoPoly extends Dinero {
@@ -20,9 +21,9 @@ public class DineroAlgoPoly extends Dinero {
 		this.cantidad += monto.obtenerMontoEntero();
 	}
 
-	public void disminuirCantidad(Dinero monto) throws DineroNegativoException {
+	public void disminuirCantidad(Dinero monto) throws DineroInsuficienteException {
 		if (this.cantidad < monto.obtenerMontoEntero())
-			throw new DineroNegativoException();
+			throw new DineroInsuficienteException();
 		this.cantidad -= monto.obtenerMontoEntero();
 	}
 

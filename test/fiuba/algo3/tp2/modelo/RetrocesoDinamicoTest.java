@@ -31,7 +31,6 @@ public class RetrocesoDinamicoTest {
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		//System.out.println(casillero);
 		Assert.assertTrue(casillero instanceof Tren);
 	}
 
@@ -43,16 +42,16 @@ public class RetrocesoDinamicoTest {
 		jugador.comprarCasilleroActual(); // Compra Bs As Sur
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 4));
-		jugador.avanzar(cubilete); // Ahora est� a 2 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete); // Ahora est� a 2 lugares de
+									// RetrocesoDin�mico
 		jugador.interactuarConCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		//System.out.println(casillero);
-		Assert.assertTrue(casillero instanceof Neuquen);	
-		
+		Assert.assertTrue(casillero instanceof Neuquen);
+
 	}
 
 	@Test
@@ -60,26 +59,22 @@ public class RetrocesoDinamicoTest {
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
 		jugador.comprarCasilleroActual(); // Compra Bs As Sur
 		jugador.avanzar(cubilete);
 		casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
 		jugador.comprarCasilleroActual(); // Compra Bs As Norte
 		jugador.avanzar(cubilete);
 		casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
 		jugador.comprarCasilleroActual(); // Compra Cordoba Sur
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
-		jugador.avanzar(cubilete); // Ahora est� a 2 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete); // Ahora est� a 2 lugares de
+									// RetrocesoDin�mico
 		casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
 		casillero = jugador.obtenerCasilleroActual();
-		System.out.println(casillero);
 		Assert.assertTrue(casillero instanceof RetrocesoDinamico);
 	}
 
@@ -88,7 +83,8 @@ public class RetrocesoDinamicoTest {
 	@Test
 	public void test05unJugadorCon100000EfectivoQueSaca10NoRetrocede() {
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
+									// RetrocesoDin�mico
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete);
@@ -98,10 +94,10 @@ public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test06unJugadorCon100001EfectivoQueSaca10Retrocede1Lugar() {
-		System.out.println("test06");
-		jugador.incrementarDinero(new DineroAlgoPoly(1));
+		jugador.cobrar(new DineroAlgoPoly(1));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
+									// RetrocesoDin�mico
 		jugador.interactuarConCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
@@ -113,10 +109,10 @@ public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test07unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() {
-		System.out.println("test07");
-		jugador.incrementarDinero(new DineroAlgoPoly(2));
+		jugador.cobrar(new DineroAlgoPoly(2));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
+									// RetrocesoDin�mico
 		jugador.interactuarConCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
@@ -129,10 +125,10 @@ public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test08unJugadorCon100009EfectivoQueSaca10Retrocede9Lugares() {
-		System.out.println("test08");
-		jugador.incrementarDinero(new DineroAlgoPoly(9));
+		jugador.cobrar(new DineroAlgoPoly(9));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
+									// RetrocesoDin�mico
 		jugador.interactuarConCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
@@ -147,29 +143,25 @@ public class RetrocesoDinamicoTest {
 
 	@Test
 	public void test09unJugadorQueSaca11Retrocede9Lugares() {
-		/* VER!!!
-		 * falla porque parte de avance din�mico. hay que lograr pararlo en avance dinamico sin que se mueva
+		/*
+		 * VER!!! falla porque parte de avance din�mico. hay que lograr
+		 * pararlo en avance dinamico sin que se mueva
 		 */
-		System.out.println("test09");
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 11));
-		jugador.avanzar(cubilete); // Ahora est� a 11 lugares de RetrocesoDin�mico
-		//jugador.interactuarConCasilleroActual(cubilete);
-		System.out.println(jugador.obtenerCasilleroActual());
+		jugador.avanzar(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(11));
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		
-		System.out.println(jugador.obtenerCasilleroActual());
+
 		Assert.assertTrue(casillero instanceof CordobaNorte);
 	}
 
 	@Test
 	public void test10unJugadorQueSaca12Retrocede10Lugares() {
-		System.out.println("test09");
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 12));
-		jugador.avanzar(cubilete); // Ahora est� a 12 lugares de RetrocesoDin�mico
+		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(12));

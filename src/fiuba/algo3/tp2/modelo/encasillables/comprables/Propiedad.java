@@ -20,7 +20,7 @@ public abstract class Propiedad implements Comprable, Encasillable {
 	
 	@Override
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
-		jugador.disminuirCapital(PRECIO_COMPRA);
+		jugador.pagar(PRECIO_COMPRA);
 		PROPIETARIO = jugador;
 	}
 	

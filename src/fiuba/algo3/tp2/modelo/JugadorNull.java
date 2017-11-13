@@ -4,11 +4,10 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class JugadorNull extends Jugador {
 
-	
 	@Override
 	public void avanzar(Cubilete cubilete) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -18,15 +17,15 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void incrementarDinero(DineroAlgoPoly montoAIncrementar) {
+	public void cobrar(Dinero montoAIncrementar) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void comprarCasilleroActual() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -36,47 +35,38 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void disminuirCapital(DineroAlgoPoly monto) {
+	public void aumentarCapital(Dinero monto) {
 		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void aumentarCapital(DineroAlgoPoly monto) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void pagarFianza() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void encarcelar() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void retroceder(Cubilete cubilete) {
 		// TODO Auto-generated method stub
-		
-	}
-/*
-	@Override
-	public int getNombre() {
-		// TODO Auto-generated method stub
-		return 0;
+
 	}
 
-	@Override
-	public void agregarNombre(int nombre) {
-		// TODO Auto-generated method stub
-		
-	}
-*/
+	/*
+	 * @Override public int getNombre() { // TODO Auto-generated method stub
+	 * return 0; }
+	 * 
+	 * @Override public void agregarNombre(int nombre) { // TODO Auto-generated
+	 * method stub
+	 * 
+	 * }
+	 */
 	@Override
 	public int getCantidadDePropiedades() {
 		return 0;
@@ -85,14 +75,19 @@ public class JugadorNull extends Jugador {
 	@Override
 	public void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void avanzarHastaCarcel() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
+	@Override
+	public Dinero pagar(Dinero monto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

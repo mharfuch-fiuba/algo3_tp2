@@ -11,7 +11,7 @@ public abstract class Terreno extends Propiedad {
 	
 	@Override
 	public void ejecutarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
-		jugador.disminuirCapital(PRECIO_ALQUILER);
+		jugador.pagar(PRECIO_ALQUILER);
 		PROPIETARIO.aumentarCapital(PRECIO_ALQUILER);
 	}
 	

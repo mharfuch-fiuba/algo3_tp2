@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public class DineroAlgoPolyTest {
@@ -37,7 +38,7 @@ public class DineroAlgoPolyTest {
 		new DineroAlgoPoly(-10);
 	}
 
-	@Test(expected = DineroNegativoException.class)
+	@Test(expected = DineroInsuficienteException.class)
 	public void disminuirCantidadLanzaExcepcionSiQuedaraNegativo() {
 		dinero100.disminuirCantidad(dinero120);
 	}
@@ -46,7 +47,7 @@ public class DineroAlgoPolyTest {
 	public void disminuirCantidadNoSeModificaSiQuedaraNegativo() {
 		try {
 			dinero100.disminuirCantidad(dinero120);
-		} catch (DineroNegativoException e) {
+		} catch (DineroInsuficienteException e) {
 
 		} finally {
 			Assert.assertEquals(dinero100.obtenerMontoEntero(), 100);
