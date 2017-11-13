@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.encasillables.Carcel;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 
 public class AlgoPolyTest {
@@ -258,7 +259,38 @@ public class AlgoPolyTest {
 	
 	@Test
 	public void Test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
+		Cubilete cubilete_que_saca_15 = new Cubilete();
+		cubilete_que_saca_15.agregar(new DadoCargado(15));
 		
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete_que_saca_15.lanzar();
+		jugador.avanzar(cubilete_que_saca_15);
+		jugador.interactuarConCasilleroActual(cubilete_que_saca_15);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+		
+		Assert.assertTrue(casillero_actual instanceof Carcel);// <-- REVISAR
+	}
+	
+	@Test
+	public void Test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() {
+		Tablero tablero = new TableroAlgoPoly();
+		Ronda ronda = new RondaAlgoPoly();
+		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
+		Cubilete cubilete_que_saca_15 = new Cubilete();
+		cubilete_que_saca_15.agregar(new DadoCargado(15));
+		
+		Jugador jugador = ronda.obtenerJugadorActual();
+		cubilete_que_saca_15.lanzar();
+		jugador.avanzar(cubilete_que_saca_15);
+		jugador.interactuarConCasilleroActual(cubilete_que_saca_15);
+		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
+		jugador.avanzar(cubilete_que_saca_15);
+		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
+		
+		Assert.assertEquals(casillero_esperado, casillero_actual);// <-- REVISAR
 	}
 	
 }
