@@ -12,6 +12,12 @@ public class DadoCargadoTest {
 		Lanzable dado = new DadoCargado(2);
 		Assert.assertNotEquals(null, dado);
 	}
+	
+	@Test
+	public void testCrearUnDadoCargadoTieneUnEstadoValido() {
+		Lanzable dado = new DadoCargado(6);
+		Assert.assertEquals(6, dado.obtenerValor(), DELTA);
+	}
 
 	@Test
 	public void testLanzarUnDadoCargadoCon2Saca2AlLanzarlo1000Veces() {

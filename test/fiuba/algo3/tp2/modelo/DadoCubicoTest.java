@@ -9,8 +9,16 @@ public class DadoCubicoTest {
 
 	@Test
 	public void testCrearUnDadoCubicoNoEsNull() {
-		Lanzable dado = new DadoCargado(2);
+		Lanzable dado = new DadoCubico();
 		Assert.assertNotEquals(null, dado);
+	}
+	
+	@Test
+	public void testCrearUnDadoCubicoTieneUnEstadoValido() {
+		Lanzable dado = new DadoCubico();
+		int valor_obtenido = dado.obtenerValor();
+		if(valor_obtenido > 6) fail();
+		if(valor_obtenido < 1) fail();
 	}
 
 	@Test

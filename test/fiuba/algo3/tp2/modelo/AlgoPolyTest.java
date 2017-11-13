@@ -290,7 +290,7 @@ public class AlgoPolyTest {
 		jugador.avanzar(cubilete_que_saca_15);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		
-		Assert.assertEquals(casillero_esperado, casillero_actual);// <-- REVISAR
+		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
 	
 }
