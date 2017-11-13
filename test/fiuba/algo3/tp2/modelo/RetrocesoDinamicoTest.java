@@ -118,7 +118,6 @@ public class RetrocesoDinamicoTest {
 		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Tren);
-
 	}
 
 	@Test
