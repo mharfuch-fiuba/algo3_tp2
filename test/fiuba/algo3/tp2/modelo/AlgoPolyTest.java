@@ -3,7 +3,6 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.encasillables.Quini6;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 
 public class AlgoPolyTest {
