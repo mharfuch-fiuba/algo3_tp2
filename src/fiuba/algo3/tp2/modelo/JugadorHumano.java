@@ -10,7 +10,7 @@ public class JugadorHumano extends Jugador {
 	private IterTablero posicion;
 	private DineroAlgoPoly dinero;
 	private int dias_de_carcel;
-	public int nombreJugador;
+	//public int nombreJugador;
 	private ArrayList<Comprable> propiedades;
 
 	public JugadorHumano(Tablero tablero, DineroAlgoPoly dinero_inicial) {
@@ -19,12 +19,12 @@ public class JugadorHumano extends Jugador {
 		this.dias_de_carcel = 0;
 		this.propiedades=new ArrayList<Comprable>();
 	}
-
+/*
 	@Override
 	public void agregarNombre(int nombre){
 		nombreJugador=nombre;
 	}
-	
+*/	
 	private void avanzar(int cant_casilleros) {
 		for (int i = 0; i < cant_casilleros; i++) {
 			this.posicion.avanzar();
@@ -55,12 +55,12 @@ public class JugadorHumano extends Jugador {
 		this.retroceder(cant_casilleros);
 		
 	}
-	
+/*	
 	@Override
 	public int getNombre(){
 		return nombreJugador+1;
 	}
-	
+*/	
 	@Override
 	public DineroAlgoPoly obtenerDinero() {
 		return this.dinero;

@@ -7,9 +7,9 @@ public abstract class Jugador {
 	
 	public abstract void avanzar(Cubilete cubilete);
 	
-	public abstract int getNombre();
+	//public abstract int getNombre();
 
-	public abstract void agregarNombre(int nombre);
+	//public abstract void agregarNombre(int nombre);
 	
 	public abstract DineroAlgoPoly obtenerDinero();
 

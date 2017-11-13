@@ -14,7 +14,7 @@ public class RondaAlgoPoly extends Ronda{
 	
 	public void agregarJugador(Jugador jugador) {
 		jugadores.add(jugador);
-		jugador.agregarNombre(jugadores.indexOf(jugador));
+		//jugador.agregarNombre(jugadores.indexOf(jugador));
 	}
 	
 	public void avanzarTurno() {

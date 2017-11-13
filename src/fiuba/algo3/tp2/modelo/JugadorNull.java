@@ -62,7 +62,7 @@ public class JugadorNull extends Jugador {
 		// TODO Auto-generated method stub
 		
 	}
-
+/*
 	@Override
 	public int getNombre() {
 		// TODO Auto-generated method stub
@@ -74,7 +74,7 @@ public class JugadorNull extends Jugador {
 		// TODO Auto-generated method stub
 		
 	}
-
+*/
 	@Override
 	public int getCantidadDePropiedades() {
 		return 0;
