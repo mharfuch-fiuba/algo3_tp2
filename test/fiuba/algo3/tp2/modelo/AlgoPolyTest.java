@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
+import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class AlgoPolyTest {
 	
@@ -24,8 +25,8 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
-		double monto_final = jugador.obtenerDinero().getCantidad();
-		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
+		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
+		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 	}
 	
@@ -43,8 +44,8 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
-		double monto_final = jugador.obtenerDinero().getCantidad();
-		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
+		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
+		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 
 		Lanzable dado3 = new DadoCargado(7);
@@ -56,8 +57,8 @@ public class AlgoPolyTest {
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
 		jugador.interactuarConCasilleroActual(cubilete2);
-		monto_final = jugador.obtenerDinero().getCantidad();
-		monto_esperado = new DineroAlgoPoly(180000).getCantidad();
+		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
+		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 	}
@@ -76,8 +77,8 @@ public class AlgoPolyTest {
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
-		double monto_final = jugador.obtenerDinero().getCantidad();
-		double monto_esperado = new DineroAlgoPoly(150000).getCantidad();
+		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
+		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 
 		Lanzable dado3 = new DadoCargado(7);
@@ -89,8 +90,8 @@ public class AlgoPolyTest {
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
 		jugador.interactuarConCasilleroActual(cubilete2);
-		monto_final = jugador.obtenerDinero().getCantidad();
-		monto_esperado = new DineroAlgoPoly(180000).getCantidad();
+		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
+		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 		Lanzable dado5 = new DadoCargado(7);
@@ -102,7 +103,7 @@ public class AlgoPolyTest {
 		cubilete3.lanzar();
 		jugador.avanzar(cubilete3);
 		jugador.interactuarConCasilleroActual(cubilete3);
-		monto_final = jugador.obtenerDinero().getCantidad();
+		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 		
 	}

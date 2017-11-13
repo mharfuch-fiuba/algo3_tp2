@@ -3,6 +3,8 @@ package fiuba.algo3.tp2.modelo;
 import java.util.ArrayList;
 
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
+import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public class JugadorHumano extends Jugador {
 
