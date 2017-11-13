@@ -139,4 +139,5 @@ public class JugadorHumano extends Jugador {
 			posicion.avanzar();
 		}
 	}
+	
 }
