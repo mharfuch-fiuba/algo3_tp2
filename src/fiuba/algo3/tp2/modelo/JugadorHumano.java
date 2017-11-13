@@ -2,6 +2,8 @@ package fiuba.algo3.tp2.modelo;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tp2.modelo.encasillables.Carcel;
+
 public class JugadorHumano extends Jugador {
 
 	// private static final double DINERO_INICIAL = 100000;
@@ -21,6 +23,12 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void agregarNombre(int nombre){
 		nombreJugador=nombre;
+	}
+	
+	private void avanzar(int cant_casilleros) {
+		for (int i = 0; i < cant_casilleros; i++) {
+			this.posicion.avanzar();
+		}
 	}
 	
 	@Override
@@ -48,6 +56,7 @@ public class JugadorHumano extends Jugador {
 		
 	}
 	
+	@Override
 	public int getNombre(){
 		return nombreJugador+1;
 	}
@@ -105,12 +114,6 @@ public class JugadorHumano extends Jugador {
 		dias_de_carcel = 3;
 	}
 
-	public void avanzar(int cant_casilleros) {
-		for (int i = 0; i < cant_casilleros; i++) {
-			this.posicion.avanzar();
-		}
-	}
-
 	private void retroceder(int cant_casilleros) {
 		for (int i = 0; i < cant_casilleros; i++) {
 			this.posicion.retroceder();
@@ -126,5 +129,12 @@ public class JugadorHumano extends Jugador {
 	public void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
 		Encasillable casillero = posicion.verActual();
 		casillero.ejecutarEfecto(this, cubilete);
+	}
+
+	@Override
+	public void avanzarHastaCarcel() {
+		while(!(this.obtenerCasilleroActual() instanceof Carcel)) { // <-- REVISAR
+			posicion.avanzar();
+		}
 	}
 }

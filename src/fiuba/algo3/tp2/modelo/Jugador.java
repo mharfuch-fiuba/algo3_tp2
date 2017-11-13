@@ -27,10 +27,12 @@ public abstract class Jugador {
 	
 	public abstract void encarcelar();
 
-	public abstract void avanzar(int cant_casilleros);
+	//public abstract void avanzar(int cant_casilleros);
 
 	public abstract void retroceder(Cubilete cubilete);
 	
 	public abstract void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException;
+
+	public abstract void avanzarHastaCarcel();
 	
 }

@@ -58,12 +58,6 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void avanzar(int cant_casilleros) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void retroceder(Cubilete cubilete) {
 		// TODO Auto-generated method stub
 		
@@ -88,6 +82,12 @@ public class JugadorNull extends Jugador {
 
 	@Override
 	public void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void avanzarHastaCarcel() {
 		// TODO Auto-generated method stub
 		
 	}
