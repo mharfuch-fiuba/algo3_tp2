@@ -8,6 +8,9 @@ public class CasilleroAlgoPoly extends Casillero {
 
 	public CasilleroAlgoPoly(Encasillable encasillable) {
 		this.encasillable = encasillable;
+		this.jugadores=new ArrayList<Jugador>();
 	}
 
 }
+
+
