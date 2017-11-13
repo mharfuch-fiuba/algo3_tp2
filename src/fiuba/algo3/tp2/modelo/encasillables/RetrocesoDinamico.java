@@ -28,7 +28,7 @@ public class RetrocesoDinamico implements Encasillable{
 		System.out.println("entre a efecto 2");
 		DineroAlgoPoly dineroJugador =jugador.obtenerDinero();
 		Cubilete cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(dineroJugador.getCantidad() % sumaDados));
+		cubilete.agregar(new DadoCargado(dineroJugador.obtenerMontoEntero() % sumaDados));
 		jugador.retroceder(cubilete);
 	}
 	
