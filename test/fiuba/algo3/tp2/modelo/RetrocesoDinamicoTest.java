@@ -1,7 +1,4 @@
 package fiuba.algo3.tp2.modelo;
-
-import static org.junit.Assert.fail;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -120,7 +117,6 @@ public class RetrocesoDinamicoTest {
 		jugador.interactuarConCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Tren);
-
 	}
 
 	@Test
