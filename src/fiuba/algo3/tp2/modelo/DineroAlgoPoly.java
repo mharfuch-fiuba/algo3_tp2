@@ -18,13 +18,13 @@ public class DineroAlgoPoly extends Dinero {
 	}
 
 	public void aumentarCantidad(Dinero monto) {
-		this.cantidad += monto.obtenerMontoEntero();
+		this.cantidad += monto.obtenerMontoEntero();//<-- ??
 	}
 
 	public void disminuirCantidad(Dinero monto) throws DineroInsuficienteException {
 		if (this.cantidad < monto.obtenerMontoEntero())
 			throw new DineroInsuficienteException();
-		this.cantidad -= monto.obtenerMontoEntero();
+		this.cantidad -= monto.obtenerMontoEntero();//<-- ??
 	}
 
 }

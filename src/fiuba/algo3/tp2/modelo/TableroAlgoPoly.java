@@ -3,7 +3,6 @@ package fiuba.algo3.tp2.modelo;
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
-import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
 public class TableroAlgoPoly extends Tablero{
 	
@@ -57,6 +56,7 @@ public class TableroAlgoPoly extends Tablero{
 	//	return this.casilleros.get(this.casilleros.indexOf(origen)+saltos);
 	//}
 	
+	/*
 	public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
 		DoublyLinkedCircularListIterator iterador = casilleros.iterator();
 		//AVANZA EL ITERADOR HASTA ENCONTRAR EL ORIGEN
@@ -73,6 +73,7 @@ public class TableroAlgoPoly extends Tablero{
 	public Encasillable getSalida(){
 		return this.salida;
 	}
+	*/
 	
 }
 
