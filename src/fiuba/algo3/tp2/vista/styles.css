@@ -6,6 +6,7 @@
 *{
  	-fx-font-family: "Roboto";
  }
+ 
 .VistaInicial{
 	-fx-background-color: #7EBD91;
 	-fx-alignment: center;
@@ -16,27 +17,72 @@
 	-fx-background-color: transparent;
 	-fx-text-fill: #2A7E43;	
 	-fx-font-size:48.0;
-	
+}
+.BotonNuevaPartida{
+	-fx-background-color: transparent;
+	-fx-text-fill: #2A7E43;	
+	-fx-font-size:48.0;
 }
 
-.VistaPartida{
+.VistaConfiguracionPartida{
 	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;
 	-fx-pref-height: 600;
 	-fx-pref-width: 800;
 }
 
-.VistaPartidaCentro{
-	-fx-background-color: #27703D;
+.VistaPartida{
+	-fx-background-color: transparent;
 	-fx-alignment: center;
+	-fx-pref-width: 800;
 	-fx-pref-height: 600;
-	-fx-pref-width: 600;
 }
 
-.VistaPartidaDerecha{
-	-fx-background-color: #54725D;
+.VistaTablero{
+	-fx-background-color: black;
 	-fx-alignment: center;
-	-fx-pref-height: 600;
-	-fx-pref-width: 200;
-	
+	-fx-pref-width: 600;
+	-fx-pref-height: 300;
+}
+
+.VistaRonda{
+	-fx-background-color: white;
+	-fx-alignment: center;
+	-fx-pref-width: 200;	
+	-fx-pref-height: 300;	
+}
+
+.VistaTurnoDinamica{
+	-fx-background-color: green;
+	-fx-alignment: center;
+	-fx-pref-width: 600;	
+	-fx-pref-height: 250;
+}
+
+.VistaTurnoTitulo{
+	-fx-background-color: lightgreen;
+	-fx-alignment: center;
+	-fx-pref-width: 600;	
+	-fx-pref-height: 50;	
+}
+
+/*
+.TextFieldNombreJugador{
+	-fx-background-color: #ADD8BA;
+	-fx-alignment: center;
+	-fx-pref-height: 100;
+	-fx-pref-width: 100;	
+}
+*/
+
+.text-field {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-alignment: center;
+    -fx-padding: 10;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.text-field:focused {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
 }
