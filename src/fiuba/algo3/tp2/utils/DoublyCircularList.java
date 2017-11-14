@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.utils;
 
-import fiuba.algo3.tp2.modelo.IterTablero;
-
 public class DoublyCircularList {
 	
 	private static class Node {
@@ -17,6 +15,30 @@ public class DoublyCircularList {
 		}
 		
 	}
+	
+	public class DoublyCircularListIterator {
+		
+		private Node actual;
+		
+		public DoublyCircularListIterator() {
+			actual = primer_nodo;
+		}
+		
+		public Object next() {
+			actual = actual.next;
+			return actual.data;
+		}
+		
+		public Object prev() {
+			actual = actual.prev;
+			return actual.data;
+		}
+		
+		public Object actual() {
+			return actual.data;
+		}
+		
+	}
 
 	private Node primer_nodo;
 	
@@ -25,12 +47,22 @@ public class DoublyCircularList {
 	}
 	
 	public void add(Object element) {
-		
+		Node nuevo_nodo = new Node(element);
+		if(primer_nodo == null) {
+			primer_nodo = nuevo_nodo;
+			primer_nodo.next = primer_nodo;
+			primer_nodo.prev = primer_nodo;
+			return;
+		}
+		Node ultimo_nodo = primer_nodo.prev;
+		ultimo_nodo.next = nuevo_nodo;
+		primer_nodo.prev = nuevo_nodo;
+		nuevo_nodo.prev = ultimo_nodo;
+		nuevo_nodo.next = primer_nodo;
 	}
-
-	public IterTablero iterator() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public DoublyCircularListIterator iterator() {
+		return new DoublyCircularListIterator();
 	}
 
 }
