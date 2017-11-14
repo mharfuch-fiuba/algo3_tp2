@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.vista;
 
 import fiuba.algo3.tp2.controlador.ControladorPartida;
-import fiuba.algo3.tp2.vista.partida.VistaPartida;
+import fiuba.algo3.tp2.vista.partida.ContenedorPartida;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -13,7 +13,7 @@ public class AlgoPoly extends Application {
 		
 		ControladorPartida controladorPartida = new ControladorPartida();
 
-		VistaPartida vistaPartida = new VistaPartida(stage,controladorPartida);	
+		ContenedorPartida vistaPartida = new ContenedorPartida(stage,controladorPartida);	
 		Scene escenaPartida = new Scene(vistaPartida);
 		
 		VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage,controladorPartida,escenaPartida);

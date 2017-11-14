@@ -39,7 +39,7 @@
 }
 
 .VistaTablero{
-	-fx-background-color: black;
+	-fx-background-color: lightgray;
 	-fx-alignment: center;
 	-fx-pref-width: 600;
 	-fx-pref-height: 300;
@@ -66,14 +66,9 @@
 	-fx-pref-height: 50;	
 }
 
-/*
-.TextFieldNombreJugador{
-	-fx-background-color: #ADD8BA;
-	-fx-alignment: center;
-	-fx-pref-height: 100;
-	-fx-pref-width: 100;	
+.VistaCasillero{
+	
 }
-*/
 
 .text-field {
     -fx-background-color: #a9a9a9 , white , white;
