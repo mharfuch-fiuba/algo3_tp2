@@ -8,13 +8,14 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.Aysa;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 
 public class AlgoPolyTest {
 
 	private static final double DELTA = 1e-6;
 
 	@Test
-	public void test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {
+	public void test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -33,7 +34,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws DineroInsuficienteException {
+	public void test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -66,7 +67,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws DineroInsuficienteException {
+	public void test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -111,7 +112,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
+	public void test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -137,7 +138,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws DineroInsuficienteException {
+	public void test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(100000);
@@ -163,7 +164,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws DineroInsuficienteException {
+	public void test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(100000);
@@ -192,7 +193,7 @@ public class AlgoPolyTest {
 
 	@Test
 	public void test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse()
-			throws DineroInsuficienteException {
+			throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(40000);
@@ -223,7 +224,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException {
+	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -247,7 +248,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() {
+	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() throws NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -265,7 +266,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() {
+	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() throws NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		Jugador jugador = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
@@ -297,7 +298,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() {
+	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() throws NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -314,7 +315,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() {
+	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() throws NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
