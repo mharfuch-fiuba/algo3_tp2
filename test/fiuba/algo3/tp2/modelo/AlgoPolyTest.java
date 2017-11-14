@@ -16,7 +16,7 @@ public class AlgoPolyTest {
 	private static final double DELTA = 1e-6;
 
 	@Test
-	public void Test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {
+	public void test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -35,7 +35,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws DineroInsuficienteException {
+	public void test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -68,7 +68,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws DineroInsuficienteException {
+	public void test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -113,7 +113,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
+	public void test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -139,7 +139,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws DineroInsuficienteException {
+	public void test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(100000);
@@ -165,7 +165,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws DineroInsuficienteException {
+	public void test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(100000);
@@ -193,7 +193,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse()
+	public void test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse()
 			throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
@@ -225,7 +225,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros()
+	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros()
 			throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
@@ -250,7 +250,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() {
+	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -268,7 +268,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() {
+	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ArrayList<Comprable> propiedades = new ArrayList<Comprable>();
@@ -293,14 +293,14 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test11_RetrocesoDinamico() {
+	public void test11_RetrocesoDinamico() {
 		// tests en clase RetrocesoDinamicoTest
 		Assert.assertTrue(true);
 		;
 	}
 
 	@Test
-	public void Test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() {
+	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -317,7 +317,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void Test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() {
+	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
