@@ -30,5 +30,5 @@ public abstract class Jugador {
 	
 	public abstract Dinero pagar(Dinero monto);
 	
-	
+	public abstract void agregarPropiedad(Comprable propiedad);
 }

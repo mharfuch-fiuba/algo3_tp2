@@ -90,4 +90,10 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public void agregarPropiedad(Comprable propiedad) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

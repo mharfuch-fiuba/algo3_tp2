@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import fiuba.algo3.tp2.modelo.encasillables.AvanceDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
 import fiuba.algo3.tp2.modelo.encasillables.ImpuestoDeLujo;
-import fiuba.algo3.tp2.modelo.encasillables.Policia;
+//import fiuba.algo3.tp2.modelo.encasillables.Policia;
 import fiuba.algo3.tp2.modelo.encasillables.Quini6;
 import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.Salida;

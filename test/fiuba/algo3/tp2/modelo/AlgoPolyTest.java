@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.modelo;
 
-import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -225,8 +223,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros()
-			throws DineroInsuficienteException {
+	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -271,18 +268,18 @@ public class AlgoPolyTest {
 	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
-		ArrayList<Comprable> propiedades = new ArrayList<Comprable>();
-			propiedades.add(new SantaFe());
-			propiedades.add(new Neuquen());
-		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000), propiedades));
+		Jugador jugador = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+		jugador.agregarPropiedad(new SantaFe());
+		jugador.agregarPropiedad(new Neuquen());
+		ronda.agregarJugador(jugador);
 		Cubilete cubilete_que_saca_7 = new Cubilete();
-			cubilete_que_saca_7.agregar(new DadoCargado(6));
-			cubilete_que_saca_7.agregar(new DadoCargado(1));
+		cubilete_que_saca_7.agregar(new DadoCargado(6));
+		cubilete_que_saca_7.agregar(new DadoCargado(1));
 		Cubilete cubilete_que_saca_12 = new Cubilete();
-			cubilete_que_saca_12.agregar(new DadoCargado(6));
-			cubilete_que_saca_12.agregar(new DadoCargado(6));
+		cubilete_que_saca_12.agregar(new DadoCargado(6));
+		cubilete_que_saca_12.agregar(new DadoCargado(6));
 
-		Jugador jugador = ronda.obtenerJugadorActual();
+		jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_7.lanzar();
 		cubilete_que_saca_12.lanzar();
 		jugador.avanzar(cubilete_que_saca_7);

@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.modelo;
 
-import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -126,19 +124,19 @@ public class AvanceDinamicoTest {
 */
 	@Test
 	public void test03sacandoDe11A12SeAvanzaElNumeroMenosCantidadDePropiedades(){
-		ArrayList<Comprable> propiedades = new ArrayList<Comprable>();
-		for(int i = 1; i <= cant_propiedades; i++){
-			propiedades.add(new Neuquen());
-		}
+
 		for(int i = 11; i <= 12; i++){
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
-			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000), propiedades);
+			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+			for(int j = 1; j <= cant_propiedades; j++){
+				jugador1.agregarPropiedad(new Neuquen());
+			}
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
 			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
 			jugador1.interactuarConCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I - CANT_PROP
-			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000), propiedades);
+			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
 			Cubilete cubilete2 = new Cubilete();
 			int distancia_esperada = distancia_hasta_avance_dinamico + i - jugador1.getCantidadDePropiedades();
 			cubilete2.agregar(new DadoCargado(distancia_esperada));

@@ -6,7 +6,6 @@ import java.util.Arrays;
 import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.DadoCargado;
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 
