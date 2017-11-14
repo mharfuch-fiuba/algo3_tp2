@@ -1,6 +1,10 @@
 package fiuba.algo3.tp2.vista.eventos;
+<<<<<<< HEAD
 
 import fiuba.algo3.tp2.controlador.ControladorPartida;
+=======
+/*
+>>>>>>> refs/remotes/origin/javafx
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -23,3 +27,4 @@ public class BotonIniciarPartidaHandler implements EventHandler<ActionEvent> {
 	}
 
 }
+*/

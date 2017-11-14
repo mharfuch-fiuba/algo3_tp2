@@ -9,7 +9,7 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 
 public class AvanceDinamicoTest {
-
+/*
 	Tablero tablero = new TableroAlgoPoly();
 	Encasillable avance_dinamico = tablero.getCasilleroDestino(tablero.getSalida(), 7);
 	Cubilete cubilete_para_llegar = new Cubilete();
@@ -18,7 +18,18 @@ public class AvanceDinamicoTest {
 	public void crearCubileteParaLlegarAAvanceDinamico(){
 		cubilete_para_llegar.agregar(new DadoCargado(7));
 	}
+*/
+	Tablero tablero = new TableroAlgoPoly();
+	Jugador jugador = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+	Cubilete cubilete_para_llegar_hasta_avance_dinamico = new Cubilete();
+	private static final int cant_propiedades = 3;
+	private static final int distancia_hasta_avance_dinamico = 7;
 	
+	@Before
+	public void crearCubileteParaLlegarAAvanceDinamico(){
+		cubilete_para_llegar_hasta_avance_dinamico.agregar(new DadoCargado(7));
+	}
+/*	
 	@Test
 	public void test01sacandoDe2A6SeAvanzaDosMenos(){
 		for(int i = 2; i<= 6; i++){
@@ -33,7 +44,29 @@ public class AvanceDinamicoTest {
 		}
 		
 	}
-	
+*/
+	@Test
+	public void test01sacandoDe2A6SeAvanzaDosMenos(){
+		for(int i = 2; i<= 6; i++){
+			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
+			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
+			Cubilete cubilete1 = new Cubilete();
+			cubilete1.agregar(new DadoCargado(i));
+			jugador1.interactuarConCasilleroActual(cubilete1);
+			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I
+			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+			Cubilete cubilete2 = new Cubilete();
+			int distancia_esperada = distancia_hasta_avance_dinamico  + i - 2;
+			cubilete2.agregar(new DadoCargado(distancia_esperada));
+			cubilete2.lanzar();
+			jugador2.avanzar(cubilete2);
+			//VERIFICO QUE AMBOS ESTAN EN EL MISMO LUGAR
+			Assert.assertEquals(jugador2.obtenerCasilleroActual(), jugador1.obtenerCasilleroActual());			
+		}
+		
+	}
+/*
 	@Test
 	public void test02sacandoDe7A10SeAvanzaLaCantidadDineroDelJugadorDivididoLosDados(){
 		int cantidad_random = (int)Math.random() * 1000000;
@@ -49,7 +82,29 @@ public class AvanceDinamicoTest {
 		}
 		Assert.assertTrue(true);
 	}
-	
+*/
+	@Test
+	public void test02sacandoDe7A10SeAvanzaLaCantidadDineroDelJugadorDivididoLosDados(){
+		for(int i = 7; i<= 10; i++){
+			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
+			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
+			Cubilete cubilete1 = new Cubilete();
+			cubilete1.agregar(new DadoCargado(i));
+			jugador1.interactuarConCasilleroActual(cubilete1);
+			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + PLATA % I
+			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+			Cubilete cubilete2 = new Cubilete();
+			int distancia_esperada = distancia_hasta_avance_dinamico + jugador1.obtenerDinero().obtenerMontoEntero() % i;
+			cubilete2.agregar(new DadoCargado(distancia_esperada));
+			cubilete2.lanzar();
+			jugador2.avanzar(cubilete2);
+			//VERIFICO QUE AMBOS ESTAN EN EL MISMO LUGAR
+			Assert.assertEquals(jugador2.obtenerCasilleroActual(), jugador1.obtenerCasilleroActual());			
+		}
+		
+	}
+/*
 	@Test
 	public void test03sacandoDe11A12SeAvanzaElNumeroMenosCantidadDePropiedades(){
 		int propiedades_random = (int)Math.random() * 10;
@@ -67,5 +122,31 @@ public class AvanceDinamicoTest {
 			Encasillable casilleroActual = jugador.obtenerCasilleroActual();
 			Assert.assertEquals(casilleroEsperado, casilleroActual);
 		}
+	}
+*/
+	@Test
+	public void test03sacandoDe11A12SeAvanzaElNumeroMenosCantidadDePropiedades(){
+		ArrayList<Comprable> propiedades = new ArrayList<Comprable>();
+		for(int i = 1; i <= cant_propiedades; i++){
+			propiedades.add(new Neuquen());
+		}
+		for(int i = 11; i <= 12; i++){
+			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
+			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000), propiedades);
+			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
+			Cubilete cubilete1 = new Cubilete();
+			cubilete1.agregar(new DadoCargado(i));
+			jugador1.interactuarConCasilleroActual(cubilete1);
+			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I - CANT_PROP
+			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000), propiedades);
+			Cubilete cubilete2 = new Cubilete();
+			int distancia_esperada = distancia_hasta_avance_dinamico + i - jugador1.getCantidadDePropiedades();
+			cubilete2.agregar(new DadoCargado(distancia_esperada));
+			cubilete2.lanzar();
+			jugador2.avanzar(cubilete2);
+			//VERIFICO QUE AMBOS ESTAN EN EL MISMO LUGAR
+			Assert.assertEquals(jugador2.obtenerCasilleroActual(), jugador1.obtenerCasilleroActual());			
+		}
+		
 	}
 }

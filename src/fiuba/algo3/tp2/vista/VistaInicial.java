@@ -1,6 +1,11 @@
 package fiuba.algo3.tp2.vista;
+<<<<<<< HEAD
 
 import fiuba.algo3.tp2.vista.eventos.BotonNuevaPartidaHandler;
+=======
+/*
+import fiuba.algo3.tp2.vista.eventos.BotonIniciarPartidaHandler;
+>>>>>>> refs/remotes/origin/javafx
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,3 +26,4 @@ public class VistaInicial extends VBox {
 	
 	
 }
+*/

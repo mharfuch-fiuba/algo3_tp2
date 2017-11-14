@@ -1,5 +1,5 @@
 package fiuba.algo3.tp2.vista.eventos;
-
+/*
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -21,3 +21,4 @@ public class PartidaOnKeyPressEventHandler implements EventHandler<KeyEvent> {
 		}
 	}
 }
+*/
