@@ -1,19 +1,19 @@
 package fiuba.algo3.tp2.modelo;
 
-import fiuba.algo3.tp2.utils.DoublyCircularList.DoublyCircularListIterator;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
 public class IterTablero{
 
 //	private ArrayList<Encasillable> casilleros;
 //	private int pos_actual;
-	DoublyCircularListIterator iterador;
+	DoublyLinkedCircularListIterator iterador;
 /*
 	public IterTablero(TableroAlgoPoly tablero) {
 		this.casilleros = tablero.obtenerListaCasilleros();
 		this.pos_actual = 0;
 	}
 */
-	public IterTablero(DoublyCircularListIterator iterador_tablero) {
+	public IterTablero(DoublyLinkedCircularListIterator iterador_tablero) {
 		iterador = iterador_tablero;
 	}
 /*

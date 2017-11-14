@@ -2,16 +2,16 @@ package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
-import fiuba.algo3.tp2.utils.DoublyCircularList;
-import fiuba.algo3.tp2.utils.DoublyCircularList.DoublyCircularListIterator;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
 public class TableroAlgoPoly extends Tablero{
 	
-	DoublyCircularList casilleros;
+	DoublyLinkedCircularList casilleros;
 	Salida salida;
 	
 	public TableroAlgoPoly(){
-		casilleros = new DoublyCircularList();
+		casilleros = new DoublyLinkedCircularList();
 		
 		Carcel carcel = new Carcel();
 		salida = new Salida();
@@ -58,7 +58,7 @@ public class TableroAlgoPoly extends Tablero{
 	//}
 	
 	public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
-		DoublyCircularListIterator iterador = casilleros.iterator();
+		DoublyLinkedCircularListIterator iterador = casilleros.iterator();
 		//AVANZA EL ITERADOR HASTA ENCONTRAR EL ORIGEN
 		while(origen != iterador.actual()) {
 			iterador.next();

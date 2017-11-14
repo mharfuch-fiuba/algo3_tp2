@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.utils;
 
-public class DoublyCircularList {
+public class DoublyLinkedCircularList {
 	
 	private static class Node {
 		
@@ -16,11 +16,11 @@ public class DoublyCircularList {
 		
 	}
 	
-	public class DoublyCircularListIterator {
+	public class DoublyLinkedCircularListIterator {
 		
 		private Node actual;
 		
-		public DoublyCircularListIterator() {
+		public DoublyLinkedCircularListIterator() {
 			actual = primer_nodo;
 		}
 		
@@ -61,7 +61,7 @@ public class DoublyCircularList {
 	private Node primer_nodo;
 	private int len;
 	
-	public DoublyCircularList(){
+	public DoublyLinkedCircularList(){
 		primer_nodo = null;
 		len = 0;
 	}
@@ -82,8 +82,8 @@ public class DoublyCircularList {
 		nuevo_nodo.next = primer_nodo;
 	}
 	
-	public DoublyCircularListIterator iterator() {
-		return new DoublyCircularListIterator();
+	public DoublyLinkedCircularListIterator iterator() {
+		return new DoublyLinkedCircularListIterator();
 	}
 
 }

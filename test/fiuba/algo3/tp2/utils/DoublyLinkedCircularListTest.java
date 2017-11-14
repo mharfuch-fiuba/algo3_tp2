@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.utils.DoublyCircularList.DoublyCircularListIterator;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
-public class DoublyCircularListTest {
+public class DoublyLinkedCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeUnElementoConUnIteradorUsandoNext() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
-		DoublyCircularListIterator iterator = list.iterator();
+		DoublyLinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
 			resultado.add((Integer) iterator.actual());
@@ -24,9 +24,9 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeUnElementoConUnIteradorUsandoPrev() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
-		DoublyCircularListIterator iterator = list.iterator();
+		DoublyLinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
 			resultado.add((Integer) iterator.actual());
@@ -37,10 +37,10 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeDosElementosConUnIteradorUsandoNext() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
 		list.add(2);
-		DoublyCircularListIterator iterator = list.iterator();
+		DoublyLinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
 			resultado.add((Integer) iterator.actual());
@@ -51,10 +51,10 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeDosElementosConUnIteradorUsandoPrev() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
 		list.add(2);
-		DoublyCircularListIterator iterator = list.iterator();
+		DoublyLinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
 			resultado.add((Integer) iterator.actual());
@@ -65,11 +65,11 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeTresElementosConUnIteradorUsandoNext() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		DoublyCircularListIterator iterator = list.iterator();
+		DoublyLinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
 			resultado.add((Integer) iterator.actual());
@@ -80,11 +80,11 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeTresElementosConUnIteradorUsandoPrev() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		DoublyCircularListIterator iterator = list.iterator();
+		DoublyLinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
 			resultado.add((Integer) iterator.actual());
@@ -95,13 +95,13 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeCutroElementoConDosIteradoresUsandoNext() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
 		list.add(2);
 		list.add(3);
 		list.add(4);
-		DoublyCircularListIterator iterator1 = list.iterator();
-		DoublyCircularListIterator iterator2 = list.iterator();
+		DoublyLinkedCircularListIterator iterator1 = list.iterator();
+		DoublyLinkedCircularListIterator iterator2 = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<5;i++) {
 			resultado.add((Integer) iterator1.next());//24242
@@ -113,13 +113,13 @@ public class DoublyCircularListTest {
 	
 	@Test
 	public void testDoublyCircularListDeCutroElementoConDosIteradoresUsandoPrev() {
-		DoublyCircularList list = new DoublyCircularList();
+		DoublyLinkedCircularList list = new DoublyLinkedCircularList();
 		list.add(1);
 		list.add(2);
 		list.add(3);
 		list.add(4);
-		DoublyCircularListIterator iterator1 = list.iterator();
-		DoublyCircularListIterator iterator2 = list.iterator();
+		DoublyLinkedCircularListIterator iterator1 = list.iterator();
+		DoublyLinkedCircularListIterator iterator2 = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<5;i++) {
 			resultado.add((Integer) iterator1.prev());//42424
