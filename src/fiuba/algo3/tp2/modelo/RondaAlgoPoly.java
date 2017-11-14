@@ -21,10 +21,10 @@ public class RondaAlgoPoly extends Ronda{
 		turno_numero++;
 	}
 	
-	public int obtenerUbicacion(Jugador jugador){
-		return jugadores.indexOf(jugador);
-		
-	}
+//	public int obtenerUbicacion(Jugador jugador){
+//		return jugadores.indexOf(jugador);
+//		
+//	}
 	
 	public Jugador obtenerJugadorActual() {
 		try {
