@@ -128,11 +128,8 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void avanzarHastaCarcel() {
-		while (!(this.obtenerCasilleroActual() instanceof Carcel)) { // <--
-																		// REVISAR
-			posicion.avanzar();
-		}
+	public void avanzarHasta(Encasillable casillero) {
+		posicion.avanzarHasta(casillero);
 	}
 
 	@Override

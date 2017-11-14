@@ -36,4 +36,14 @@ public class IterTablero{
 		return casilleros.get(pos_actual);
 	}
 
+	public void avanzarHasta(Encasillable casillero_destino) {
+		int i = 0;
+		for(Encasillable casillero_actual:casilleros) {
+			if(casillero_actual == casillero_destino) {
+				pos_actual = i;
+			}
+			i++;
+		}
+	}
+
 }

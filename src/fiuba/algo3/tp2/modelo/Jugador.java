@@ -26,7 +26,7 @@ public abstract class Jugador {
 	
 	public abstract void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException;
 
-	public abstract void avanzarHastaCarcel();
+	public abstract void avanzarHasta(Encasillable casillero);
 	
 	public abstract Dinero pagar(Dinero monto);
 	

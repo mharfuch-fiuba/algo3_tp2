@@ -8,7 +8,7 @@ import fiuba.algo3.tp2.utils.ListaCircular;
 
 public class TableroAlgoPoly extends Tablero{
 	private Encasillable salida;
-	private Encasillable carcel;
+	private Carcel carcel;
 	
 	private ListaCircular<Encasillable> casilleros;
 	//private ArrayList<Encasillable> casilleros;
@@ -34,7 +34,7 @@ public class TableroAlgoPoly extends Tablero{
 		casilleros.add(new Aysa());
 		casilleros.add(new SaltaNorte());
 		casilleros.add(new SaltaSur());
-		casilleros.add(new Policia());
+		casilleros.add(new Policia(this.carcel));
 		casilleros.add(new Tren());
 		casilleros.add(new Neuquen());
 		casilleros.add(new RetrocesoDinamico());

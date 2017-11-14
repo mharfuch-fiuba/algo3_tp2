@@ -49,7 +49,7 @@ public class TableroAlgoPoly2 {
 		casilleros.add(new CasilleroAlgoPoly(new Aysa()));
 		casilleros.add(new CasilleroAlgoPoly(new SaltaNorte()));
 		casilleros.add(new CasilleroAlgoPoly(new SaltaSur()));
-		casilleros.add(new CasilleroAlgoPoly(new Policia()));
+		//casilleros.add(new CasilleroAlgoPoly(new Policia(this.carcel)));
 		casilleros.add(new CasilleroAlgoPoly(new Tren()));
 		casilleros.add(new CasilleroAlgoPoly(new Neuquen()));
 		casilleros.add(new CasilleroAlgoPoly(new RetrocesoDinamico()));

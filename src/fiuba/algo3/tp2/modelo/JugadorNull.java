@@ -79,15 +79,15 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void avanzarHastaCarcel() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public Dinero pagar(Dinero monto) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void avanzarHasta(Encasillable casillero) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
