@@ -39,6 +39,8 @@ public class DoublyCircularList {
 		}
 		
 		public void remove() {
+			if(actual == null) return;
+			len --;
 			Node nodo_anterior = actual.prev;
 			Node nodo_siguiente = actual.next;
 			if(nodo_anterior == nodo_siguiente) {
@@ -49,17 +51,24 @@ public class DoublyCircularList {
 			nodo_siguiente.prev = nodo_anterior;
 			actual = nodo_siguiente;
 		}
+
+		public int size() {
+			return len;
+		}
 		
 	}
 
 	private Node primer_nodo;
+	private int len;
 	
 	public DoublyCircularList(){
 		primer_nodo = null;
+		len = 0;
 	}
 	
 	public void add(Object element) {
 		Node nuevo_nodo = new Node(element);
+		len ++;
 		if(primer_nodo == null) {
 			primer_nodo = nuevo_nodo;
 			primer_nodo.next = primer_nodo;
