@@ -1,5 +1,5 @@
 package fiuba.algo3.tp2.vista;
-
+/*
 import fiuba.algo3.tp2.controlador.ControladorPartida;
 import fiuba.algo3.tp2.vista.eventos.PartidaOnKeyPressEventHandler;
 import javafx.application.Application;
@@ -34,3 +34,4 @@ public class AlgoPoly extends Application {
 	
 	
 }
+*/
