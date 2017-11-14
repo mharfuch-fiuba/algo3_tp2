@@ -3,19 +3,50 @@ package fiuba.algo3.tp2.modelo;
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
 public class TableroAlgoPoly extends Tablero{
 	
-	DoublyLinkedCircularList casilleros;
-	Salida salida;
+	public class IterTableroAlgoPoly implements IterTablero {
+		
+		private DoublyLinkedCircularListIterator iterador;
+		
+		public IterTableroAlgoPoly() {
+			iterador = casilleros.iterator();
+		}
+		
+		public Encasillable avanzar() {
+			return (Encasillable) iterador.next();
+		}
+		
+		public Encasillable retroceder() {
+			return (Encasillable) iterador.prev();
+		}
+		
+		public Encasillable verActual() {
+			return (Encasillable) iterador.actual();
+		}
+		
+		public void avanzarHasta(Encasillable casillero_destino) {
+			for(int i = 0; i < iterador.size(); i++) {
+				if(iterador.actual() == casillero_destino) return;
+				iterador.next();
+			}
+		}
+		
+	}
+	
+	private DoublyLinkedCircularList casilleros;
+	//private Salida salida;
 	
 	public TableroAlgoPoly(){
 		casilleros = new DoublyLinkedCircularList();
 		
 		Carcel carcel = new Carcel();
-		salida = new Salida();
+		//salida = new Salida();
 		
-		casilleros.add(salida);
+		//casilleros.add(salida);
+		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
 		casilleros.add(new BuenosAiresSur());
 		casilleros.add(new Edesur());
@@ -39,7 +70,7 @@ public class TableroAlgoPoly extends Tablero{
 
 	@Override
 	public IterTablero crearIterador() {
-		return new IterTablero(casilleros.iterator());
+		return new IterTableroAlgoPoly();
 	}
 	
 	//TEMPORAL, DESPUES LO CAMBIO
