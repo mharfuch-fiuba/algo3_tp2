@@ -38,6 +38,18 @@ public class DoublyCircularList {
 			return actual.data;
 		}
 		
+		public void remove() {
+			Node nodo_anterior = actual.prev;
+			Node nodo_siguiente = actual.next;
+			if(nodo_anterior == nodo_siguiente) {
+				primer_nodo = actual = null;
+				return;
+			}
+			nodo_anterior.next = nodo_siguiente;
+			nodo_siguiente.prev = nodo_anterior;
+			actual = nodo_siguiente;
+		}
+		
 	}
 
 	private Node primer_nodo;
