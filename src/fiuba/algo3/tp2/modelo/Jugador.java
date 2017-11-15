@@ -15,8 +15,6 @@ public abstract class Jugador {
 
 	public abstract Encasillable obtenerCasilleroActual();
 
-	public abstract void aumentarCapital(Dinero monto);
-	
 	public abstract void pagarFianza() throws DineroInsuficienteException;
 	
 	public abstract void encarcelar();

@@ -19,14 +19,6 @@ public class JugadorHumano extends Jugador {
 		turnos_de_carcel = 0;
 		propiedades = new ArrayList<Comprable>();
 	}
-/*	
-	public JugadorHumano(Tablero tablero, DineroAlgoPoly dinero_inicial, ArrayList<Comprable> propiedades) {
-		this.posicion = tablero.crearIterador();
-		this.dinero = dinero_inicial;
-		this.dias_de_carcel = 0;
-		this.propiedades = propiedades;
-	}
-*/
 	public void agregarPropiedad(Comprable propiedad) {
 		propiedades.add(propiedad);
 	}
@@ -63,9 +55,6 @@ public class JugadorHumano extends Jugador {
 		throw new JugadorEnCarcelException();
 	}
 
-	/*
-	 * @Override public int getNombre(){ return nombreJugador+1; }
-	 */
 	@Override
 	public Dinero obtenerDinero() {
 		return this.dinero;
@@ -87,11 +76,6 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public Encasillable obtenerCasilleroActual() {
 		return posicion.verActual();
-	}
-
-	@Override
-	public void aumentarCapital(Dinero monto) {
-		dinero.aumentarCantidad(monto);
 	}
 
 	@Override

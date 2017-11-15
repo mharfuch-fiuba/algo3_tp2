@@ -29,12 +29,6 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void aumentarCapital(Dinero monto) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void pagarFianza() {
 		// TODO Auto-generated method stub
 

@@ -6,7 +6,6 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
 public class JugadorHumanoTest {
 
@@ -43,7 +42,7 @@ public class JugadorHumanoTest {
 
 	@Test
 	public void siAumentoCapitalGetDineroDevuelveLaSuma(){
-		jugador100k.aumentarCapital(dinero50k);
+		jugador100k.cobrar(dinero50k);
 		Assert.assertEquals(jugador100k.obtenerDinero().obtenerMontoEntero(),150000);
 	}	
 }
