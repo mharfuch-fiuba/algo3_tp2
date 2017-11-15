@@ -91,7 +91,25 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void agregarDinero(Dinero monto) {
+	public void cobrar(Dinero monto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void disminuirDiasDeCarcel() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void avanzar(int cant_casilleros) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void retroceder(int cant_casilleros) {
 		// TODO Auto-generated method stub
 		
 	}

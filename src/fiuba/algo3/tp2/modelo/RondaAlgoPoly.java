@@ -19,7 +19,9 @@ public class RondaAlgoPoly extends Ronda{
 		//jugador.agregarNombre(jugadores.indexOf(jugador));
 	}
 	
-	public void avanzarTurno() {
+	public void avanzarTurno() throws NoHayJugadoresException {
+		Jugador jugador = this.obtenerJugadorActual();
+		jugador.disminuirDiasDeCarcel();
 		turno_numero++;
 	}
 	

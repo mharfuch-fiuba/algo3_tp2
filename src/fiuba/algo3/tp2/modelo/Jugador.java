@@ -1,12 +1,13 @@
 package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
 public abstract class Jugador {
 
 	public abstract int getCantidadDePropiedades();
 	
-	public abstract void avanzar(Cubilete cubilete);
+	public abstract void avanzar(Cubilete cubilete) throws JugadorEnCarcelException;
 		
 	public abstract Dinero obtenerDinero();
 	
@@ -20,7 +21,7 @@ public abstract class Jugador {
 	
 	public abstract void encarcelar();
 
-	public abstract void retroceder(Cubilete cubilete);
+	public abstract void retroceder(Cubilete cubilete) throws JugadorEnCarcelException;
 	
 	public abstract void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException;
 
@@ -30,5 +31,12 @@ public abstract class Jugador {
 	
 	public abstract void agregarPropiedad(Comprable propiedad);
 
-	public abstract void agregarDinero(Dinero monto);
+	public abstract void cobrar(Dinero monto);
+
+	public abstract void disminuirDiasDeCarcel();
+
+	public abstract void avanzar(int cant_casilleros);
+
+	public abstract void retroceder(int cant_casilleros);
+	
 }
