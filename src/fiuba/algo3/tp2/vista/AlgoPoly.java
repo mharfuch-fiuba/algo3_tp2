@@ -22,15 +22,16 @@ public class AlgoPoly extends Application {
 		VistaInicial vistaInicial = new VistaInicial(stage,escenaConfiguracionPartida);
 		Scene escenaInicial = new Scene(vistaInicial);
 		
-		escenaInicial.getStylesheets().add("fiuba/algo3/tp2/vista/styles.css");
-		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles.css");
-		escenaPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles.css");
+		escenaInicial.getStylesheets().add("fiuba/algo3/tp2/vista/styles_hd.css");
+		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles_hd.css");
+		escenaPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles_hd.css");
 		//escenaPartida.setOnKeyPressed(new AplicacionOnKeyPressEventHandler(stage));
 		
 		stage.setTitle("AlgoPoly");
 		stage.setScene(escenaInicial);
 		stage.show();
 		stage.setResizable(false);
+		stage.setMaximized(true);
 		
 	}
 
