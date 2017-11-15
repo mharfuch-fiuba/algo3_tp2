@@ -18,7 +18,7 @@ public abstract class Jugador {
 
 	public abstract void aumentarCapital(Dinero monto);
 	
-	public abstract void pagarFianza();
+	public abstract void pagarFianza() throws DineroInsuficienteException;
 	
 	public abstract void encarcelar();
 
@@ -28,7 +28,7 @@ public abstract class Jugador {
 
 	public abstract void avanzarHasta(Encasillable casillero);
 	
-	public abstract Dinero pagar(Dinero monto);
+	public abstract Dinero pagar(Dinero monto) throws DineroInsuficienteException;
 	
 	public abstract void agregarPropiedad(Comprable propiedad);
 }

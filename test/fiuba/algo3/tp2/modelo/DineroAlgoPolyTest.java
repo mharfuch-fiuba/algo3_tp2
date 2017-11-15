@@ -39,7 +39,7 @@ public class DineroAlgoPolyTest {
 	}
 
 	@Test(expected = DineroInsuficienteException.class)
-	public void disminuirCantidadLanzaExcepcionSiQuedaraNegativo() {
+	public void disminuirCantidadLanzaExcepcionSiQuedaraNegativo() throws DineroInsuficienteException {
 		dinero100.disminuirCantidad(dinero120);
 	}
 

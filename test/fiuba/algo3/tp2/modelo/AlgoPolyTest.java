@@ -192,8 +192,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse()
-			throws DineroInsuficienteException, NoHayJugadoresException {
+	public void test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse() throws DineroInsuficienteException, NoHayJugadoresException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		DineroAlgoPoly dinero_inicial = new DineroAlgoPoly(40000);
@@ -213,7 +212,9 @@ public class AlgoPolyTest {
 		jugador.avanzar(cubilete);
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
-		jugador.pagarFianza();
+		try {
+			jugador.pagarFianza();
+		} catch(DineroInsuficienteException e) {};
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
 		jugador.interactuarConCasilleroActual(cubilete);
@@ -248,7 +249,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() throws NoHayJugadoresException {
+	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() throws NoHayJugadoresException, DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -266,7 +267,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() throws NoHayJugadoresException {
+	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades() throws NoHayJugadoresException, DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		Jugador jugador = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
@@ -298,7 +299,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() throws NoHayJugadoresException {
+	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel() throws NoHayJugadoresException, DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));
@@ -315,7 +316,7 @@ public class AlgoPolyTest {
 	}
 
 	@Test
-	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() throws NoHayJugadoresException {
+	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() throws NoHayJugadoresException, DineroInsuficienteException {
 		Tablero tablero = new TableroAlgoPoly();
 		Ronda ronda = new RondaAlgoPoly();
 		ronda.agregarJugador(new JugadorHumano(tablero, new DineroAlgoPoly(100000)));

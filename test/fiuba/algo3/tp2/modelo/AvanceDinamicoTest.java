@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
+import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class AvanceDinamicoTest {
 /*
@@ -44,7 +45,7 @@ public class AvanceDinamicoTest {
 	}
 */
 	@Test
-	public void test01sacandoDe2A6SeAvanzaDosMenos(){
+	public void test01sacandoDe2A6SeAvanzaDosMenos() throws DineroInsuficienteException{
 		for(int i = 2; i<= 6; i++){
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
 			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
@@ -82,7 +83,7 @@ public class AvanceDinamicoTest {
 	}
 */
 	@Test
-	public void test02sacandoDe7A10SeAvanzaLaCantidadDineroDelJugadorDivididoLosDados(){
+	public void test02sacandoDe7A10SeAvanzaLaCantidadDineroDelJugadorDivididoLosDados() throws DineroInsuficienteException{
 		for(int i = 7; i<= 10; i++){
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
 			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
@@ -123,7 +124,7 @@ public class AvanceDinamicoTest {
 	}
 */
 	@Test
-	public void test03sacandoDe11A12SeAvanzaElNumeroMenosCantidadDePropiedades(){
+	public void test03sacandoDe11A12SeAvanzaElNumeroMenosCantidadDePropiedades() throws DineroInsuficienteException{
 
 		for(int i = 11; i <= 12; i++){
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO

@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import java.util.ArrayList;
 
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public class JugadorHumano extends Jugador {
 
@@ -94,16 +95,15 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void pagarFianza() {
+	public void pagarFianza() throws DineroInsuficienteException {
 		if (dias_de_carcel != 2 && dias_de_carcel != 1)
 			return;
 		try {
 			this.pagar(new DineroAlgoPoly(45000));
 			dias_de_carcel = 0;
-		} catch (DineroInsuficienteException e) {
-
+		} catch (DineroNegativoException e) {
+				//ESTO NO VA A PASAR
 		}
-
 	}
 
 	@Override
@@ -135,10 +135,8 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public Dinero pagar(Dinero monto) throws DineroInsuficienteException {
-
 		this.dinero.disminuirCantidad(monto);
 		return monto;
-
 	}
 
 }
