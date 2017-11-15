@@ -23,12 +23,12 @@ public class RetrocesoDinamicoTest{
 	public void test01unJugadorSinPropiedadesQueSaca2Retrocede2Lugares() throws DineroInsuficienteException {
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		// Ahora est� a 2 lugares de RetrocesoDin�mico
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Tren);
 	}
@@ -37,17 +37,17 @@ public class RetrocesoDinamicoTest{
 	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws DineroInsuficienteException {
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		jugador.comprarCasilleroActual(); // Compra Bs As Sur
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 4));
 		jugador.avanzar(cubilete); // Ahora est� a 2 lugares de
 									// RetrocesoDin�mico
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Neuquen);
 
@@ -97,11 +97,11 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Neuquen);
 	}
@@ -112,11 +112,11 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Tren);
 	}
@@ -127,11 +127,11 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof CordobaNorte);
 
@@ -150,7 +150,7 @@ public class RetrocesoDinamicoTest{
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(11));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 
 		Assert.assertTrue(casillero instanceof CordobaNorte);
@@ -160,11 +160,11 @@ public class RetrocesoDinamicoTest{
 	public void test10unJugadorQueSaca12Retrocede10Lugares() throws DineroInsuficienteException {
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 12));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(12));
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof Subte);
 

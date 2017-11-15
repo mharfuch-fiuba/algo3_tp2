@@ -73,7 +73,7 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
+	public void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
 		// TODO Auto-generated method stub
 
 	}

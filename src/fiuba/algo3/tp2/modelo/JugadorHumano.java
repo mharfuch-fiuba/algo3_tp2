@@ -123,7 +123,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void interactuarConCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
+	public void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
 		Encasillable casillero = posicion.verActual();
 		casillero.aplicarEfecto(this, cubilete);
 	}

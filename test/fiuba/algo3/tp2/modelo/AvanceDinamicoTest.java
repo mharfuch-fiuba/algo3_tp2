@@ -52,7 +52,7 @@ public class AvanceDinamicoTest {
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
 			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
-			jugador1.interactuarConCasilleroActual(cubilete1);
+			jugador1.aplicarEfectoDeCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I
 			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
 			Cubilete cubilete2 = new Cubilete();
@@ -90,7 +90,7 @@ public class AvanceDinamicoTest {
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
 			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
-			jugador1.interactuarConCasilleroActual(cubilete1);
+			jugador1.aplicarEfectoDeCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + PLATA % I
 			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
 			Cubilete cubilete2 = new Cubilete();
@@ -135,7 +135,7 @@ public class AvanceDinamicoTest {
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico);
 			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
-			jugador1.interactuarConCasilleroActual(cubilete1);
+			jugador1.aplicarEfectoDeCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I - CANT_PROP
 			Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
 			Cubilete cubilete2 = new Cubilete();

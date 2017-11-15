@@ -27,7 +27,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -46,7 +46,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -59,7 +59,7 @@ public class AlgoPolyTest {
 		jugador = ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
-		jugador.interactuarConCasilleroActual(cubilete2);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete2);
 		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -79,7 +79,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -92,7 +92,7 @@ public class AlgoPolyTest {
 		jugador = ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
 		jugador.avanzar(cubilete2);
-		jugador.interactuarConCasilleroActual(cubilete2);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete2);
 		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -105,7 +105,7 @@ public class AlgoPolyTest {
 		jugador = ronda.obtenerJugadorActual();
 		cubilete3.lanzar();
 		jugador.avanzar(cubilete3);
-		jugador.interactuarConCasilleroActual(cubilete3);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete3);
 		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
 
@@ -152,7 +152,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
@@ -206,7 +206,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
 		jugador.avanzar(cubilete);
@@ -217,7 +217,7 @@ public class AlgoPolyTest {
 		} catch(DineroInsuficienteException e) {};
 		cubilete.lanzar();
 		jugador.avanzar(cubilete);
-		jugador.interactuarConCasilleroActual(cubilete);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
 		Assert.assertEquals(casillero_carcel, casillero_actual);
@@ -237,12 +237,12 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_1.lanzar();
 		jugador.avanzar(cubilete_que_saca_1);
-		jugador.interactuarConCasilleroActual(cubilete_que_saca_1);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_1);
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_6.lanzar();
 		jugador.avanzar(cubilete_que_saca_6);
-		jugador.interactuarConCasilleroActual(cubilete_que_saca_6);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_6);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
 		Assert.assertTrue(casillero_actual instanceof SantaFe);// <-- REVISAR
@@ -260,7 +260,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_7.lanzar();
 		jugador.avanzar(cubilete_que_saca_7);
-		jugador.interactuarConCasilleroActual(cubilete_que_saca_7);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_7);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
 		Assert.assertTrue(casillero_actual instanceof Aysa);
@@ -285,7 +285,7 @@ public class AlgoPolyTest {
 		cubilete_que_saca_7.lanzar();
 		cubilete_que_saca_12.lanzar();
 		jugador.avanzar(cubilete_que_saca_7);
-		jugador.interactuarConCasilleroActual(cubilete_que_saca_12);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_12);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
 		Assert.assertTrue(casillero_actual instanceof Neuquen);
@@ -309,7 +309,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_15.lanzar();
 		jugador.avanzar(cubilete_que_saca_15);
-		jugador.interactuarConCasilleroActual(cubilete_que_saca_15);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_15);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
 		Assert.assertTrue(casillero_actual instanceof Carcel);// <-- REVISAR
@@ -326,7 +326,7 @@ public class AlgoPolyTest {
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_15.lanzar();
 		jugador.avanzar(cubilete_que_saca_15);
-		jugador.interactuarConCasilleroActual(cubilete_que_saca_15);
+		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_15);
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
 		jugador.avanzar(cubilete_que_saca_15);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
