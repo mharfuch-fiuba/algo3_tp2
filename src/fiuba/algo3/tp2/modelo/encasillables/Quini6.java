@@ -25,7 +25,7 @@ public class Quini6 implements Encasillable{
 	}
 	
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
 		
 		if(!jugadoresGanadores.containsKey(jugador)) {
 			jugadoresGanadores.put(jugador, 0);

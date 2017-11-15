@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 public class Carcel implements Encasillable {
 
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
 		jugador.encarcelar();
 	}
 

@@ -10,7 +10,7 @@ public abstract class Terreno extends Propiedad {
 	protected DineroAlgoPoly PRECIO_ALQUILER;
 	
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		jugador.pagar(PRECIO_ALQUILER);
 		PROPIETARIO.aumentarCapital(PRECIO_ALQUILER);
 	}

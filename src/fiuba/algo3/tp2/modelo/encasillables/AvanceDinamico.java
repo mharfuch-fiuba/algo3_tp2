@@ -9,7 +9,7 @@ public class AvanceDinamico implements Encasillable{
 
 
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
 		int valor_obtenido = dados.sumarValores();
 		Cubilete cubilete = new Cubilete();
 		switch(valor_obtenido){

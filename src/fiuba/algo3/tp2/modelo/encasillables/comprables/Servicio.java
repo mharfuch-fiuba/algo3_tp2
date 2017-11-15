@@ -11,7 +11,7 @@ public abstract class Servicio extends Propiedad {
 	protected int PENALIDAD;
 	
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		DineroAlgoPoly monto;
 		try {
 			monto = new DineroAlgoPoly(PENALIDAD * dados.sumarValores());

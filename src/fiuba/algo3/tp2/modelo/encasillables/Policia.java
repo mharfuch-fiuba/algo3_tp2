@@ -14,7 +14,7 @@ public class Policia implements Encasillable {
 	}
 
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		jugador.avanzarHasta(carcel);
 		jugador.interactuarConCasilleroActual(dados);
 	}

@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 public class ImpuestoDeLujo implements Encasillable {
 
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
 		// TODO Auto-generated method stub
 		
 	}

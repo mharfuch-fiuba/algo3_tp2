@@ -37,7 +37,7 @@ public class RetrocesoDinamico implements Encasillable{
 	}
 	
 	@Override
-	public void ejecutarEfecto(Jugador jugador, Cubilete dados) {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
 		int sumaDados = dados.sumarValores();
 		if(dadosEfecto1.contains(sumaDados)){
 			efectoRetrocedeSumaDadosMenosCantidadPropiedades(jugador, sumaDados);

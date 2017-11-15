@@ -25,7 +25,7 @@ public abstract class Propiedad implements Comprable, Encasillable {
 	}
 	
 	@Override
-	public abstract void ejecutarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException;
+	public abstract void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException;
 	
 	public Propiedad() {
 		PROPIETARIO = new JugadorNull();
