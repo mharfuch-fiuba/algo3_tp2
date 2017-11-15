@@ -9,8 +9,6 @@ public abstract class Jugador {
 	public abstract void avanzar(Cubilete cubilete);
 		
 	public abstract Dinero obtenerDinero();
-
-	public abstract void cobrar(Dinero montoAIncrementar);
 	
 	public abstract void comprarCasilleroActual() throws DineroInsuficienteException;
 
@@ -31,4 +29,6 @@ public abstract class Jugador {
 	public abstract Dinero pagar(Dinero monto) throws DineroInsuficienteException;
 	
 	public abstract void agregarPropiedad(Comprable propiedad);
+
+	public abstract void agregarDinero(Dinero monto);
 }

@@ -93,7 +93,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test06unJugadorCon100001EfectivoQueSaca10Retrocede1Lugar() throws DineroInsuficienteException {
-		jugador.cobrar(new DineroAlgoPoly(1));
+		jugador.agregarDinero(new DineroAlgoPoly(1));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico
@@ -108,7 +108,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test07unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() throws DineroInsuficienteException {
-		jugador.cobrar(new DineroAlgoPoly(2));
+		jugador.agregarDinero(new DineroAlgoPoly(2));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico
@@ -123,7 +123,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test08unJugadorCon100009EfectivoQueSaca10Retrocede9Lugares() throws DineroInsuficienteException {
-		jugador.cobrar(new DineroAlgoPoly(9));
+		jugador.agregarDinero(new DineroAlgoPoly(9));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico

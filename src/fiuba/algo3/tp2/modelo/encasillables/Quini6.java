@@ -34,12 +34,12 @@ public class Quini6 implements Encasillable{
 		int cant_veces_que_gano = jugadoresGanadores.get(jugador);
 		
 		if(cant_veces_que_gano == 0) {
-			jugador.cobrar(MONTO_A_INCREMENTAR_PRIMERA_VEZ);
+			jugador.agregarDinero(MONTO_A_INCREMENTAR_PRIMERA_VEZ);
 			jugadoresGanadores.put(jugador, 1);
 		}
 		
 		if(cant_veces_que_gano == 1) {
-			jugador.cobrar(MONTO_A_INCREMENTAR_SEGUNDA_VEZ);
+			jugador.agregarDinero(MONTO_A_INCREMENTAR_SEGUNDA_VEZ);
 			jugadoresGanadores.put(jugador, 2);
 		}
 		

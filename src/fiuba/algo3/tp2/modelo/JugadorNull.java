@@ -17,12 +17,6 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void cobrar(Dinero montoAIncrementar) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void comprarCasilleroActual() {
 		// TODO Auto-generated method stub
 
@@ -92,6 +86,12 @@ public class JugadorNull extends Jugador {
 
 	@Override
 	public void agregarPropiedad(Comprable propiedad) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void agregarDinero(Dinero monto) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -73,7 +73,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void cobrar(Dinero monto) {
+	public void agregarDinero(Dinero monto) {
 		this.dinero.aumentarCantidad(monto);
 	}
 
