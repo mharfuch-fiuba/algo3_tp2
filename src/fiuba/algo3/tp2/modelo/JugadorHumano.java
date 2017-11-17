@@ -8,7 +8,6 @@ import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 public class JugadorHumano extends Jugador {
 
 	private Movimiento movimiento;
-	private IterTablero posicion;
 	private Dinero dinero;
 	private int turnos_de_carcel;
 	
@@ -16,7 +15,6 @@ public class JugadorHumano extends Jugador {
 	private ArrayList<Comprable> propiedades;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
-		posicion = tablero.crearIterador();
 		dinero = dinero_inicial;
 		turnos_de_carcel = 0;
 		propiedades = new ArrayList<Comprable>();
@@ -29,15 +27,13 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void avanzar(int cant_casilleros) throws JugadorEnCarcelException {
-		if (turnos_de_carcel > 0) throw new JugadorEnCarcelException();
-		for (int i = 0; i < cant_casilleros; i++) this.posicion.avanzar();		
+		this.movimiento.avanzar(cant_casilleros);		
 	}
-
 
 	@Override
 	public void retroceder(int cant_casilleros) {
 		for (int i = 0; i < cant_casilleros; i++) {
-			this.posicion.retroceder();
+			this.movimiento.retroceder();
 		}
 	}
 
@@ -53,27 +49,26 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void comprarCasilleroActual() throws DineroInsuficienteException {
-		Comprable casillero = (Comprable) posicion.verActual();
+		Comprable casillero = (Comprable) this.movimiento.verActual();	//No me gusta como esta resuelto esto.
 		casillero.comprar(this);
 		propiedades.add(casillero);
 	}
 
 	@Override
 	public Encasillable obtenerCasilleroActual() {
-		return posicion.verActual();
+		return this.movimiento.verActual();
 	}
 
 	@Override
-	public void pagarFianza() throws DineroInsuficienteException {
-		if (turnos_de_carcel != 2 && turnos_de_carcel != 1)
-			return;
+	public void pagarFianza() throws DineroInsuficienteException {	
+		if (this.movimiento.getTurnosPendientesDeCarcel() == 3)	return;
 		this.pagar(new DineroAlgoPoly(45000));
-		turnos_de_carcel = 0;
+		this.movimiento.desencarcelar();
 	}
 
 	@Override
 	public void encarcelar() {
-		turnos_de_carcel = 3;
+		this.movimiento.encarcelar();
 	}
 
 	@Override
@@ -83,13 +78,13 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
-		Encasillable casillero = posicion.verActual();
+		Encasillable casillero = this.movimiento.verActual();
 		casillero.aplicarEfecto(this, cubilete);
 	}
 
 	@Override
 	public void avanzarHasta(Encasillable casillero) {
-		posicion.avanzarHasta(casillero);
+		this.movimiento.avanzarHasta(casillero);
 	}
 
 	@Override
@@ -99,10 +94,8 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void disminuirDiasDeCarcel() {
-		if (turnos_de_carcel <= 0)
-			return;
-		turnos_de_carcel--;
+	public void disminuirDiasDeCarcel(){
+		this.movimiento.disminuirDiasDeCarcel();
 	}
 
 }

@@ -5,47 +5,48 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
-public class TableroAlgoPoly extends Tablero{
-	
+public class TableroAlgoPoly extends Tablero {
+
 	public class IterTableroAlgoPoly implements IterTablero {
-		
+
 		private DoublyLinkedCircularListIterator iterador;
-		
+
 		public IterTableroAlgoPoly() {
 			iterador = casilleros.iterator();
 		}
-		
+
 		public Encasillable avanzar() {
 			return (Encasillable) iterador.next();
 		}
-		
+
 		public Encasillable retroceder() {
 			return (Encasillable) iterador.prev();
 		}
-		
+
 		public Encasillable verActual() {
 			return (Encasillable) iterador.actual();
 		}
-		
+
 		public void avanzarHasta(Encasillable casillero_destino) {
-			for(int i = 0; i < iterador.size(); i++) {
-				if(iterador.actual() == casillero_destino) return;
+			for (int i = 0; i < iterador.size(); i++) {
+				if (iterador.actual() == casillero_destino)
+					return;
 				iterador.next();
 			}
 		}
-		
+
 	}
-	
+
 	private DoublyLinkedCircularList casilleros;
-	//private Salida salida;
-	
-	public TableroAlgoPoly(){
+	// private Salida salida;
+
+	public TableroAlgoPoly() {
 		casilleros = new DoublyLinkedCircularList();
-		
+
 		Carcel carcel = new Carcel();
-		//salida = new Salida();
-		
-		//casilleros.add(salida);
+		// salida = new Salida();
+
+		// casilleros.add(salida);
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
 		casilleros.add(new BuenosAiresSur());
@@ -72,41 +73,32 @@ public class TableroAlgoPoly extends Tablero{
 	public IterTablero crearIterador() {
 		return new IterTableroAlgoPoly();
 	}
-	
-	//TEMPORAL, DESPUES LO CAMBIO
-	//public ArrayList<Encasillable> obtenerListaCasilleros(){
-	//	return casilleros;
-	//}
-	
-	/* LOS METODOS QUE SIGUEN SE USAN UNICAMENTE PARA LOS TESTS, PROPONGO HACER LOS TESTS DE OTRA MANERA Y DESPUES SACARLOS
+
+	// TEMPORAL, DESPUES LO CAMBIO
+	// public ArrayList<Encasillable> obtenerListaCasilleros(){
+	// return casilleros;
+	// }
+
+	/*
+	 * LOS METODOS QUE SIGUEN SE USAN UNICAMENTE PARA LOS TESTS, PROPONGO HACER
+	 * LOS TESTS DE OTRA MANERA Y DESPUES SACARLOS
 	 * 
 	 * 
 	 */
-	
-	//public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
-	//	return this.casilleros.get(this.casilleros.indexOf(origen)+saltos);
-	//}
-	
+
+	// public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
+	// return this.casilleros.get(this.casilleros.indexOf(origen)+saltos);
+	// }
+
 	/*
-	public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
-		DoublyLinkedCircularListIterator iterador = casilleros.iterator();
-		//AVANZA EL ITERADOR HASTA ENCONTRAR EL ORIGEN
-		while(origen != iterador.actual()) {
-			iterador.next();
-		}
-		//AVANZA "SALTOS" CASILLEROS MAS
-		for(int i = 0;i < saltos;i++) {
-			iterador.next();
-		}
-		return (Encasillable) iterador.actual();
-	}
-	
-	public Encasillable getSalida(){
-		return this.salida;
-	}
-	*/
-	
+	 * public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
+	 * DoublyLinkedCircularListIterator iterador = casilleros.iterator();
+	 * //AVANZA EL ITERADOR HASTA ENCONTRAR EL ORIGEN while(origen !=
+	 * iterador.actual()) { iterador.next(); } //AVANZA "SALTOS" CASILLEROS MAS
+	 * for(int i = 0;i < saltos;i++) { iterador.next(); } return (Encasillable)
+	 * iterador.actual(); }
+	 * 
+	 * public Encasillable getSalida(){ return this.salida; }
+	 */
+
 }
-
-
-
