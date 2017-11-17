@@ -4,11 +4,6 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class JugadorNull extends Jugador {
 
-	@Override
-	public void avanzar(Cubilete cubilete) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public DineroAlgoPoly obtenerDinero() {
@@ -40,21 +35,14 @@ public class JugadorNull extends Jugador {
 
 	}
 
+	/*
 	@Override
 	public void retroceder(Cubilete cubilete) {
 		// TODO Auto-generated method stub
 
 	}
+*/
 
-	/*
-	 * @Override public int getNombre() { // TODO Auto-generated method stub
-	 * return 0; }
-	 * 
-	 * @Override public void agregarNombre(int nombre) { // TODO Auto-generated
-	 * method stub
-	 * 
-	 * }
-	 */
 	@Override
 	public int getCantidadDePropiedades() {
 		return 0;

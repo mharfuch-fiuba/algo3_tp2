@@ -26,7 +26,7 @@ public class AlgoPolyTest {
 		cubilete.agregar(dado2);
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
@@ -45,7 +45,7 @@ public class AlgoPolyTest {
 		cubilete.agregar(dado2);
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
@@ -58,7 +58,7 @@ public class AlgoPolyTest {
 		cubilete2.agregar(dado4);
 		jugador = ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
-		jugador.avanzar(cubilete2);
+		jugador.avanzar(cubilete2.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete2);
 		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
@@ -78,7 +78,7 @@ public class AlgoPolyTest {
 		cubilete.agregar(dado2);
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		double monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		double monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
@@ -91,7 +91,7 @@ public class AlgoPolyTest {
 		cubilete2.agregar(dado4);
 		jugador = ronda.obtenerJugadorActual();
 		cubilete2.lanzar();
-		jugador.avanzar(cubilete2);
+		jugador.avanzar(cubilete2.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete2);
 		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
@@ -104,7 +104,7 @@ public class AlgoPolyTest {
 		cubilete3.agregar(dado6);
 		jugador = ronda.obtenerJugadorActual();
 		cubilete3.lanzar();
-		jugador.avanzar(cubilete3);
+		jugador.avanzar(cubilete3.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete3);
 		monto_final = jugador.obtenerDinero().obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final, DELTA);
@@ -125,12 +125,12 @@ public class AlgoPolyTest {
 
 		Jugador jugador1 = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador1.avanzar(cubilete);
+		jugador1.avanzar(cubilete.sumarValores());
 		jugador1.comprarCasilleroActual();
 		ronda.avanzarTurno();
 		Jugador jugador2 = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador2.avanzar(cubilete);
+		jugador2.avanzar(cubilete.sumarValores());
 		Comprable casillero = (Comprable) jugador2.obtenerCasilleroActual();
 		Jugador propietario = casillero.obtenerPropietario();
 
@@ -151,14 +151,14 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
 		try {
-			jugador.avanzar(cubilete);
+			jugador.avanzar(cubilete.sumarValores());
 		} catch (JugadorEnCarcelException e) {
 			//ESTO ES ESPERABLE.
 		}
@@ -181,15 +181,15 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
 		jugador.pagarFianza();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
 		Assert.assertNotEquals(casillero_carcel, casillero_actual);
@@ -209,12 +209,12 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete.lanzar();
-		jugador.avanzar(cubilete);
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero_carcel = jugador.obtenerCasilleroActual();
 		ronda.avanzarTurno();
 		try {
-			jugador.avanzar(cubilete);
+			jugador.avanzar(cubilete.sumarValores());
 		} catch (JugadorEnCarcelException e) {
 			//ESTO ES ESPERABLE.
 		}
@@ -225,7 +225,7 @@ public class AlgoPolyTest {
 		} catch(DineroInsuficienteException e) {};
 		cubilete.lanzar();
 		try {
-			jugador.avanzar(cubilete);
+			jugador.avanzar(cubilete.sumarValores());
 		} catch (JugadorEnCarcelException e) {
 			//ESTO ES ESPERABLE.
 		}
@@ -248,12 +248,12 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_1.lanzar();
-		jugador.avanzar(cubilete_que_saca_1);
+		jugador.avanzar(cubilete_que_saca_1.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_1);
 		ronda.avanzarTurno();
 		jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_6.lanzar();
-		jugador.avanzar(cubilete_que_saca_6);
+		jugador.avanzar(cubilete_que_saca_6.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_6);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
@@ -271,7 +271,7 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_7.lanzar();
-		jugador.avanzar(cubilete_que_saca_7);
+		jugador.avanzar(cubilete_que_saca_7.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_7);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
@@ -296,7 +296,7 @@ public class AlgoPolyTest {
 		jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_7.lanzar();
 		cubilete_que_saca_12.lanzar();
-		jugador.avanzar(cubilete_que_saca_7);
+		jugador.avanzar(cubilete_que_saca_7.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_12);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
@@ -320,7 +320,7 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_15.lanzar();
-		jugador.avanzar(cubilete_que_saca_15);
+		jugador.avanzar(cubilete_que_saca_15.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_15);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 
@@ -337,11 +337,11 @@ public class AlgoPolyTest {
 
 		Jugador jugador = ronda.obtenerJugadorActual();
 		cubilete_que_saca_15.lanzar();
-		jugador.avanzar(cubilete_que_saca_15);
+		jugador.avanzar(cubilete_que_saca_15.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete_que_saca_15);
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
 		try {
-			jugador.avanzar(cubilete_que_saca_15);
+			jugador.avanzar(cubilete_que_saca_15.sumarValores());
 		} catch (JugadorEnCarcelException e) {
 			//ESTO ES ESPERABLE.
 		}
