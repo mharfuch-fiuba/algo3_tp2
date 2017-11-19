@@ -1,42 +1,38 @@
 package fiuba.algo3.tp2.modelo;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
 
-public class RondaAlgoPoly extends Ronda{
-	
-	private ArrayList<Jugador> jugadores;
-	private int turno_numero;
-	
+public class RondaAlgoPoly extends Ronda {
+
+	private DoublyLinkedCircularList datos;
+	private DoublyLinkedCircularListIterator iterador;
+
 	public RondaAlgoPoly() {
-		jugadores = new ArrayList<Jugador>();
-		turno_numero = 0;
+		this.datos = new DoublyLinkedCircularList();
+		this.iterador = this.datos.iterator();
 	}
-	
+
+	@Override
 	public void agregarJugador(Jugador jugador) {
-		jugadores.add(jugador);
+		// Puede cambiar el jugador actual!
+		datos.add(jugador);
+		this.iterador = datos.iterator();
 	}
-	
+
+	@Override
 	public void avanzarTurno() throws NoHayJugadoresException {
-		Jugador jugador = this.obtenerJugadorActual();
-		jugador.disminuirDiasDeCarcel();
-		turno_numero++;
+		this.iterador.next();
 	}
-		
+
+	@Override
 	public Jugador obtenerJugadorActual() throws NoHayJugadoresException {
 		try {
-			return jugadores.get(turno_numero);
-		} catch (IndexOutOfBoundsException e) {
-			turno_numero = 0;
-			try {
-				return jugadores.get(turno_numero);
-			} catch (IndexOutOfBoundsException f) {
-				throw new NoHayJugadoresException();
-			}
+			return (Jugador) this.iterador.actual();// puedo porque se que guardo solo Jugadores
+		} catch (Exception e) {
+			throw new NoHayJugadoresException();
 		}
 	}
-	
-	
-	
+
 }

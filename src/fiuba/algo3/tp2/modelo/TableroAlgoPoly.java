@@ -38,15 +38,10 @@ public class TableroAlgoPoly extends Tablero {
 	}
 
 	private DoublyLinkedCircularList casilleros;
-	// private Salida salida;
 
 	public TableroAlgoPoly() {
 		casilleros = new DoublyLinkedCircularList();
-
 		Carcel carcel = new Carcel();
-		// salida = new Salida();
-
-		// casilleros.add(salida);
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
 		casilleros.add(new BuenosAiresSur());
@@ -73,32 +68,4 @@ public class TableroAlgoPoly extends Tablero {
 	public IterTablero crearIterador() {
 		return new IterTableroAlgoPoly();
 	}
-
-	// TEMPORAL, DESPUES LO CAMBIO
-	// public ArrayList<Encasillable> obtenerListaCasilleros(){
-	// return casilleros;
-	// }
-
-	/*
-	 * LOS METODOS QUE SIGUEN SE USAN UNICAMENTE PARA LOS TESTS, PROPONGO HACER
-	 * LOS TESTS DE OTRA MANERA Y DESPUES SACARLOS
-	 * 
-	 * 
-	 */
-
-	// public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
-	// return this.casilleros.get(this.casilleros.indexOf(origen)+saltos);
-	// }
-
-	/*
-	 * public Encasillable getCasilleroDestino(Encasillable origen,int saltos){
-	 * DoublyLinkedCircularListIterator iterador = casilleros.iterator();
-	 * //AVANZA EL ITERADOR HASTA ENCONTRAR EL ORIGEN while(origen !=
-	 * iterador.actual()) { iterador.next(); } //AVANZA "SALTOS" CASILLEROS MAS
-	 * for(int i = 0;i < saltos;i++) { iterador.next(); } return (Encasillable)
-	 * iterador.actual(); }
-	 * 
-	 * public Encasillable getSalida(){ return this.salida; }
-	 */
-
 }
