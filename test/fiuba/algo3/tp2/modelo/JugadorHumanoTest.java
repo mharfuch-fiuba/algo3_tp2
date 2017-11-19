@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class JugadorHumanoTest {

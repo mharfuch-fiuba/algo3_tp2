@@ -41,13 +41,6 @@ public class JugadorHumano extends Jugador {
 		this.dinero.aumentarCantidad(monto);
 	}
 
-	
-	public void comprarCasilleroActual() throws DineroInsuficienteException {
-		Comprable casillero = (Comprable) this.movimiento.verActual();	//No me gusta como esta resuelto esto.(Mateo)
-		casillero.comprar(this);
-		propiedades.add(casillero);
-	}
-	
 	public void comprar(Comprable comprable) throws DineroInsuficienteException{
 		comprable.comprar(this);
 		this.propiedades.add(comprable);
