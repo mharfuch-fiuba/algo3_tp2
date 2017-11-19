@@ -19,10 +19,6 @@ public class JugadorHumano extends Jugador {
 		this.movimiento = new Movimiento(tablero);
 	}
 
-	public void agregarPropiedad(Comprable propiedad) {
-		propiedades.add(propiedad);
-	}
-
 	@Override
 	public void avanzar(int cant_casilleros) throws JugadorEnCarcelException {
 		this.movimiento.avanzar(cant_casilleros);		

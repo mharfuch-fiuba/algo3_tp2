@@ -13,7 +13,7 @@ public class JugadorHumanoTest {
 
 	Dinero dinero100k = new DineroAlgoPoly(100000);
 	Dinero dinero50k = new DineroAlgoPoly(50000);
-	Propiedad propiedad = new BuenosAiresSur();
+	Comprable comprable = new BuenosAiresSur();
 
 	Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 
@@ -35,8 +35,8 @@ public class JugadorHumanoTest {
 	}
 
 	@Test
-	public void alComprarLaPrimerPropiedadGetCantidadDePropiedadesDevuelve1() {
-		jugador100k.agregarPropiedad(propiedad);
+	public void alComprarLaPrimerPropiedadGetCantidadDePropiedadesDevuelve1() throws DineroInsuficienteException {
+		jugador100k.comprar(comprable);
 		Assert.assertEquals(jugador100k.getCantidadDePropiedades(), 1);
 	}
 

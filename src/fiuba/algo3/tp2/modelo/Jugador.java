@@ -9,7 +9,6 @@ public abstract class Jugador {
 			
 	public abstract Dinero obtenerDinero();
 	
-	//public abstract void comprarCasilleroActual() throws DineroInsuficienteException;
 	public abstract void comprar(Comprable comprable) throws DineroInsuficienteException;
 
 	public abstract Encasillable obtenerCasilleroActual();
@@ -24,8 +23,6 @@ public abstract class Jugador {
 	
 	public abstract Dinero pagar(Dinero monto) throws DineroInsuficienteException;
 	
-	public abstract void agregarPropiedad(Comprable propiedad);
-
 	public abstract void cobrar(Dinero monto);
 
 	public abstract void disminuirDiasDeCarcel();

@@ -70,7 +70,7 @@ public class AvanceDinamicoTest {
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
 			Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
 			for(int j = 1; j <= cant_propiedades; j++){
-				jugador1.agregarPropiedad(new Neuquen());
+				jugador1.comprar(new Neuquen());
 			}
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico.sumarValores());
 			Cubilete cubilete1 = new Cubilete();
