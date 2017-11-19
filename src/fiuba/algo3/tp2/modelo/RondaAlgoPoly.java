@@ -16,7 +16,6 @@ public class RondaAlgoPoly extends Ronda{
 	
 	public void agregarJugador(Jugador jugador) {
 		jugadores.add(jugador);
-		//jugador.agregarNombre(jugadores.indexOf(jugador));
 	}
 	
 	public void avanzarTurno() throws NoHayJugadoresException {
@@ -24,12 +23,7 @@ public class RondaAlgoPoly extends Ronda{
 		jugador.disminuirDiasDeCarcel();
 		turno_numero++;
 	}
-	
-//	public int obtenerUbicacion(Jugador jugador){
-//		return jugadores.indexOf(jugador);
-//		
-//	}
-	
+		
 	public Jugador obtenerJugadorActual() throws NoHayJugadoresException {
 		try {
 			return jugadores.get(turno_numero);

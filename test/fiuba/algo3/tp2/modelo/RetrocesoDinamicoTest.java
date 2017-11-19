@@ -4,10 +4,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresNorte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaNorte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tren;
+import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
 public class RetrocesoDinamicoTest{
 
@@ -32,16 +37,11 @@ public class RetrocesoDinamicoTest{
 	}
 
 	@Test
-	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws Exception {
-		cubilete.agregar(new DadoCargado(2));
+	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws DineroInsuficienteException, JugadorEnCarcelException  {
+		Comprable comprable = new BuenosAiresNorte();
+		jugador.comprar(comprable);
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
 		jugador.avanzar(cubilete.sumarValores());
-		jugador.aplicarEfectoDeCasilleroActual(cubilete);
-		jugador.comprarCasilleroActual(); // Compra Bs As Sur
-		cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 4));
-		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 2 lugares de
-									// RetrocesoDin�mico
-		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete.sumarValores());
@@ -52,26 +52,23 @@ public class RetrocesoDinamicoTest{
 	}
 
 	@Test
-	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws Exception {
+	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws JugadorEnCarcelException, DineroInsuficienteException {
+		
+		Comprable comprable1 = new BuenosAiresNorte();
+		Comprable comprable2 = new BuenosAiresSur();
+		Comprable comprable3 = new CordobaSur();
+		jugador.comprar(comprable1);
+		jugador.comprar(comprable2);
+		jugador.comprar(comprable3);
+		
+		cubilete = new Cubilete();
+		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico-2));
+		jugador.avanzar(cubilete.sumarValores()); 
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete.sumarValores());
+		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		Encasillable casillero = jugador.obtenerCasilleroActual();
-		jugador.comprarCasilleroActual(); // Compra Bs As Sur
-		jugador.avanzar(cubilete.sumarValores());
-		casillero = jugador.obtenerCasilleroActual();
-		jugador.comprarCasilleroActual(); // Compra Bs As Norte
-		jugador.avanzar(cubilete.sumarValores());
-		casillero = jugador.obtenerCasilleroActual();
-		jugador.comprarCasilleroActual(); // Compra Cordoba Sur
-		cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(10));
-		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 2 lugares de
-									// RetrocesoDin�mico
-		casillero = jugador.obtenerCasilleroActual();
-		cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(2));
-		jugador.avanzar(cubilete.sumarValores());
-		casillero = jugador.obtenerCasilleroActual();
 		Assert.assertTrue(casillero instanceof RetrocesoDinamico);
 	}
 
@@ -80,8 +77,7 @@ public class RetrocesoDinamicoTest{
 	@Test
 	public void test05unJugadorCon100000EfectivoQueSaca10NoRetrocede() throws Exception {
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 10 lugares de
-									// RetrocesoDin�mico
+		jugador.avanzar(cubilete.sumarValores());
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete.sumarValores());
@@ -93,8 +89,7 @@ public class RetrocesoDinamicoTest{
 	public void test06unJugadorCon100001EfectivoQueSaca10Retrocede1Lugar() throws Exception {
 		jugador.cobrar(new DineroAlgoPoly(1));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 10 lugares de
-									// RetrocesoDin�mico
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
@@ -108,8 +103,7 @@ public class RetrocesoDinamicoTest{
 	public void test07unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() throws Exception {
 		jugador.cobrar(new DineroAlgoPoly(2));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
-		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 10 lugares de
-									// RetrocesoDin�mico
+		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
@@ -139,10 +133,6 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test09unJugadorQueSaca11Retrocede9Lugares() throws Exception {
-		/*
-		 * VER!!! falla porque parte de avance din�mico. hay que lograr
-		 * pararlo en avance dinamico sin que se mueva
-		 */
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 11));
 		jugador.avanzar(cubilete.sumarValores());
 		cubilete = new Cubilete();

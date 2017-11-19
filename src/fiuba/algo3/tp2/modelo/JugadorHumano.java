@@ -9,14 +9,12 @@ public class JugadorHumano extends Jugador {
 
 	private Movimiento movimiento;
 	private Dinero dinero;
-	private int turnos_de_carcel;
 	
 
 	private ArrayList<Comprable> propiedades;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		dinero = dinero_inicial;
-		turnos_de_carcel = 0;
 		propiedades = new ArrayList<Comprable>();
 		this.movimiento = new Movimiento(tablero);
 	}
@@ -47,11 +45,16 @@ public class JugadorHumano extends Jugador {
 		this.dinero.aumentarCantidad(monto);
 	}
 
-	@Override
+	
 	public void comprarCasilleroActual() throws DineroInsuficienteException {
-		Comprable casillero = (Comprable) this.movimiento.verActual();	//No me gusta como esta resuelto esto.
+		Comprable casillero = (Comprable) this.movimiento.verActual();	//No me gusta como esta resuelto esto.(Mateo)
 		casillero.comprar(this);
 		propiedades.add(casillero);
+	}
+	
+	public void comprar(Comprable comprable) throws DineroInsuficienteException{
+		comprable.comprar(this);
+		this.propiedades.add(comprable);
 	}
 
 	@Override
