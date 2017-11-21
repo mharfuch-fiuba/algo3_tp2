@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.Comprable;
 import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.DadoCargado;
 import fiuba.algo3.tp2.modelo.Dinero;
@@ -107,7 +108,12 @@ public class Entrega2Test {
 		cubilete.agregar(dadoSiempre2);
 		jugador100k.avanzar(2);
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
-		//jugador100k.obtenerCasilleroActual().
+		
+		//no se me ocurre otra forma de hacerlo ahora sin casteo
+		Terreno terreno =(Terreno )jugador100k.obtenerCasilleroActual(); 
+		jugador100k.comprar(terreno);
+		terreno.construir();
+		
 		jugador200k.avanzar(2);
 		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
 		int dineroDespues = jugador200k.obtenerDinero().obtenerMontoEntero();
@@ -115,7 +121,8 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test04_(){
+	public void test04_jugadorQueCaeEnBuenosAires(){
+		// No entiendo el requerimiento de este test. Revisar
 		fail();
 	}
 	

@@ -1,24 +1,43 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
-public class BuenosAiresSur extends Terreno {
+public class BuenosAiresSur extends Terreno implements Barrio {
 	
-	private Dinero costoCasa=new DineroAlgoPoly(5000);
-	private Dinero alquilerCasa= new DineroAlgoPoly(1000);
+	private BuenosAiresNorte hermana;
+	private Inmobiliaria inmobiliaria;
 	
 	public BuenosAiresSur() {
+		this.inmobiliaria=new InmobiliariaBuenosAiresSur();
 		precioCompra = new DineroAlgoPoly(20000);
 		alquilerTerreno = new DineroAlgoPoly(2000);
 	}
 	
+	public void agregarHermana(BuenosAiresNorte hermana){
+		this.hermana=hermana;
+	}
+	
+	@Override
+	public void informarBarrio(){
+		this.inmobiliaria.ofrecerHotel();
+		this.hermana.getInmobiliaria().ofrecerHotel();
+	}
+	
 	@Override
 	public void construir() throws DineroInsuficienteException{
-		Construccion construccion = new Construccion(costoCasa,alquilerCasa);
+		Construccion construccion = inmobiliaria.verProximaConstruccion();
 		construccion.comprar(this.propietario);
+		inmobiliaria.construir();
 		this.construcciones.agregarConstruccion(construccion);
+	}
+	
+	@Override
+	public void comprar(Jugador jugador) throws DineroInsuficienteException {
+		jugador.pagar(precioCompra);
+		propietario = jugador;
+		if(this.hermana.obtenerPropietario().equals(jugador)) informarBarrio();
 	}
 	
 	
