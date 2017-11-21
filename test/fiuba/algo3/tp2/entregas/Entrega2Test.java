@@ -27,15 +27,15 @@ public class Entrega2Test {
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 	private Jugador jugador200k = new JugadorHumano(tablero, dinero200k);
 	private ConstructorBuenosAires c = new ConstructorBuenosAires();
-	private Terreno bsAsSur = c.getSur();
-	private Terreno bsAsNorte = c.getNorte();
-	private Terreno cordobaSur = new CordobaSur();
-	private Terreno cordobaNorte = new CordobaNorte();
-	private Terreno santaFe = new SantaFe();
-	private Terreno saltaSur = new SaltaSur();
-	private Terreno saltaNorte = new SaltaNorte();
-	private Terreno neuquen = new Neuquen();
-	private Terreno tucuman = new Tucuman();
+	private TerrenoAlgoPoly bsAsSur = c.getSur();
+	private TerrenoAlgoPoly bsAsNorte = c.getNorte();
+	private TerrenoAlgoPoly cordobaSur = new CordobaSur();
+	private TerrenoAlgoPoly cordobaNorte = new CordobaNorte();
+	private TerrenoAlgoPoly santaFe = new SantaFe();
+	private TerrenoAlgoPoly saltaSur = new SaltaSur();
+	private TerrenoAlgoPoly saltaNorte = new SaltaNorte();
+	private TerrenoAlgoPoly neuquen = new Neuquen();
+	private TerrenoAlgoPoly tucuman = new Tucuman();
 
 	@Test
 	public void test01_comprarBsAsSurDisminuye20kElDineroDelJugador() throws DineroInsuficienteException {
@@ -113,7 +113,7 @@ public class Entrega2Test {
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
 
 		// no se me ocurre otra forma de hacerlo ahora sin casteo
-		Terreno terreno = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoAlgoPoly terreno = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(terreno);
 		terreno.construir();
 

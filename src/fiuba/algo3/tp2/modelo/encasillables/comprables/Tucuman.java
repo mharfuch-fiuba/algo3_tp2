@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.modelo.encasillables.comprables;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
-public class Tucuman extends Terreno {
+public class Tucuman extends TerrenoAlgoPoly {
 
 	public Tucuman() {
 		precioCompra = new DineroAlgoPoly(25000);

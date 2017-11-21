@@ -8,8 +8,8 @@ public class ConstructorBuenosAires {
 	public ConstructorBuenosAires(){
 		this.sur=new BuenosAiresSur();
 		this.norte=new BuenosAiresNorte();
-		sur.agregarHermana(norte);
-		norte.agregarHermana(sur);
+		sur.agregarVecino(norte);
+		norte.agregarVecino(sur);
 	}
 	
 	public BuenosAiresSur getSur(){

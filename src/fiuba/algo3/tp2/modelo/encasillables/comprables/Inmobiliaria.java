@@ -1,22 +1,36 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
+import java.util.Stack;
+
 public abstract class Inmobiliaria {
+	/*
+	 * aca pondria la logica de que se puede construir. hay que ver como hacer
+	 * cuando uno vende casas (quizas un metodo demoler que agregue de nuevo esa
+	 * construccion al stack)
+	 * 
+	 */
+
+	protected Stack<Construccion> construcciones;
 
 	/*
-	 * No la saca de las pendientes. Llamar a este metodo 
-	 * para ver si el jugador puede pagarla.
+	 * No la saca de las pendientes. Llamar a este metodo para ver si el jugador
+	 * puede pagarla.
 	 */
-	public abstract Construccion verProximaConstruccion();
-	
+	public Construccion verProximaConstruccion() {
+		return construcciones.peek();
+	}
+
 	/*
-	 * La saca de las pendientes, por lo que antes de llamar a este
-	 * el jugador tiene que comprarla.
+	 * La saca de las pendientes, por lo que antes de llamar a este el jugador
+	 * tiene que comprarla.
 	 */
-	public abstract Construccion construir();
-	
+	public Construccion construir() {
+		return construcciones.pop();
+	}
+
 	/*
 	 * Agrega hotel como opcion de construccion
 	 */
 	public abstract void ofrecerHotel();
-	
+
 }
