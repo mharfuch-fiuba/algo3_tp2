@@ -86,4 +86,9 @@ public class JugadorNull extends Jugador {
 
 	}
 
+	@Override
+	public boolean isNull() {
+		return true;
+	}
+
 }

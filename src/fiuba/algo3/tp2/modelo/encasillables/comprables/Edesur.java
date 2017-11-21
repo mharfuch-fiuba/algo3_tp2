@@ -5,7 +5,7 @@ import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 public class Edesur extends Servicio {
 
 	public Edesur() {
-		PRECIO_COMPRA = new DineroAlgoPoly(35000);
+		precioCompra = new DineroAlgoPoly(35000);
 		PENALIDAD = 500;
 	}
 	

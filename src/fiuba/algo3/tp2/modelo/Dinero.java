@@ -10,4 +10,5 @@ public abstract class Dinero {
 
 	public abstract void disminuirCantidad(Dinero dinero) throws DineroInsuficienteException;
 
+	public abstract Dinero obtenerPorcentaje(int porcentaje);
 }

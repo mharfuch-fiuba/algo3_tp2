@@ -9,26 +9,30 @@ import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public abstract class Propiedad implements Comprable, Encasillable {
-	
-	protected Jugador PROPIETARIO;
-	protected DineroAlgoPoly PRECIO_COMPRA;
-	
+
+	protected Jugador propietario;
+	protected DineroAlgoPoly precioCompra;
+
 	@Override
 	public Jugador obtenerPropietario() {
-		return PROPIETARIO;
+		return propietario;
 	}
-	
+
 	@Override
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
-		jugador.pagar(PRECIO_COMPRA);
-		PROPIETARIO = jugador;
+		jugador.pagar(precioCompra);
+		propietario = jugador;
 	}
-	
+
 	@Override
 	public abstract void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException;
-	
+
 	public Propiedad() {
-		PROPIETARIO = new JugadorNull();
+		propietario = new JugadorNull();
 	}
 	
+	public DineroAlgoPoly getPrecioCompra(){
+		return this.precioCompra;
+	}
+
 }

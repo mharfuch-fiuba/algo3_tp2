@@ -16,7 +16,7 @@ public abstract class Servicio extends Propiedad {
 		try {
 			monto = new DineroAlgoPoly(PENALIDAD * dados.sumarValores());
 			jugador.pagar(monto);
-			PROPIETARIO.cobrar(monto);
+			propietario.cobrar(monto);
 		} catch (DineroNegativoException e) {
 			//ESTO NUNCA PUEDE OCURRIR
 		}

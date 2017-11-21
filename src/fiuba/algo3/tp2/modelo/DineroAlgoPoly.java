@@ -27,4 +27,10 @@ public class DineroAlgoPoly extends Dinero {
 		this.cantidad -= monto.obtenerMontoEntero();
 	}
 
+	@Override
+	public Dinero obtenerPorcentaje(int porcentaje) {
+		int resultado = (porcentaje*this.cantidad)/100;
+		return new DineroAlgoPoly(resultado);
+	}
+
 }

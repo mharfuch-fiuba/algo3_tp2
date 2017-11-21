@@ -90,4 +90,8 @@ public class JugadorHumano extends Jugador {
 		this.movimiento.disminuirDiasDeCarcel();
 	}
 
+	@Override
+	public boolean isNull() {
+		return false;
+	}
 }

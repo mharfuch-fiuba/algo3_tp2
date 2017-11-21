@@ -31,4 +31,6 @@ public abstract class Jugador {
 
 	public abstract void retroceder(int cant_casilleros);
 	
+	public abstract boolean isNull();
+	
 }
