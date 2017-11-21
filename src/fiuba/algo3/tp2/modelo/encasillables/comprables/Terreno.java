@@ -6,10 +6,11 @@ import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
-public abstract class Terreno extends Propiedad {
+public abstract class Terreno extends Propiedad implements Construible{
 	
 	protected Dinero alquilerTerreno;
-	protected Construcciones construcciones;
+	private Construcciones construcciones;
+	private Inmobiliaria inmobiliaria;
 	
 	public Terreno(){
 		this.construcciones=new Construcciones();
@@ -31,6 +32,11 @@ public abstract class Terreno extends Propiedad {
 	}
 	
 	
-	public abstract void construir() throws DineroInsuficienteException;
+	public void construir() throws DineroInsuficienteException{
+		Construccion construccion = inmobiliaria.verProximaConstruccion();
+		construccion.comprar(this.propietario);
+		inmobiliaria.construir();
+		this.construcciones.agregarConstruccion(construccion);	
+	}
 	
 }

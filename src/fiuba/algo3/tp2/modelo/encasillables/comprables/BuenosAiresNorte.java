@@ -21,18 +21,10 @@ public class BuenosAiresNorte extends Terreno implements Barrio{
 	}
 	
 	@Override
-	public void construir() throws DineroInsuficienteException {
-		Construccion construccion = inmobiliaria.verProximaConstruccion();
-		construccion.comprar(this.propietario);
-		inmobiliaria.construir();
-		this.construcciones.agregarConstruccion(construccion);		
-	}
-	
-	@Override
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
 		jugador.pagar(precioCompra);
 		propietario = jugador;
-		// esto falla porque no necesariamente hay hermana cuando se instancia
+		// esto falla si no hay hermana cuando se instancia
 		if(this.hermana.obtenerPropietario().equals(jugador)) informarBarrio();
 	}
 
