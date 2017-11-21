@@ -15,11 +15,11 @@ import fiuba.algo3.tp2.modelo.Lanzable;
 import fiuba.algo3.tp2.modelo.Tablero;
 import fiuba.algo3.tp2.modelo.TableroAlgoPoly;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Aysa;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresNorte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Aysa;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 

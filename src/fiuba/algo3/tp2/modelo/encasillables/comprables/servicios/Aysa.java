@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.modelo.encasillables.comprables;
+package fiuba.algo3.tp2.modelo.encasillables.comprables.servicios;
 
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 

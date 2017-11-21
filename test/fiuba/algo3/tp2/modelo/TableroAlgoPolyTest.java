@@ -7,6 +7,10 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Aysa;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Edesur;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
 
 public class TableroAlgoPolyTest {
 

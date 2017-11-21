@@ -9,9 +9,9 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaNorte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Subte;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Tren;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
