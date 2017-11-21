@@ -42,11 +42,14 @@ public class TableroAlgoPoly extends Tablero {
 	public TableroAlgoPoly() {
 		casilleros = new DoublyLinkedCircularList();
 		Carcel carcel = new Carcel();
+		
+		ConstructorBuenosAires c = new ConstructorBuenosAires();	//para que asocie las hermanas
+		
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
-		casilleros.add(new BuenosAiresSur());
+		casilleros.add(c.getSur());
 		casilleros.add(new Edesur());
-		casilleros.add(new BuenosAiresNorte());
+		casilleros.add(c.getNorte());
 		casilleros.add(carcel);
 		casilleros.add(new CordobaSur());
 		casilleros.add(new AvanceDinamico());

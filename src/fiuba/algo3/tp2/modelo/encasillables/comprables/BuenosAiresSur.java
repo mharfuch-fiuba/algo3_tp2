@@ -37,7 +37,12 @@ public class BuenosAiresSur extends Terreno implements Barrio {
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
 		jugador.pagar(precioCompra);
 		propietario = jugador;
+		// esto falla porque no necesariamente hay hermana cuando se instancia
 		if(this.hermana.obtenerPropietario().equals(jugador)) informarBarrio();
+	}
+	
+	public Inmobiliaria getInmobiliaria(){
+		return this.inmobiliaria;
 	}
 	
 	
