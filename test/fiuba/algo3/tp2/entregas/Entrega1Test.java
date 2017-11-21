@@ -19,6 +19,7 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.Aysa;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresNorte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
@@ -112,7 +113,7 @@ public class Entrega1Test {
 
 	@Test
 	public void test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
-		Comprable comprable = new BuenosAiresNorte();
+		Comprable comprable = new Tucuman();
 		jugador100k.comprar(comprable);
 		Assert.assertEquals(comprable.obtenerPropietario(), jugador100k);
 	}

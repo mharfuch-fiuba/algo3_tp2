@@ -11,6 +11,7 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tren;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
@@ -38,7 +39,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws DineroInsuficienteException, JugadorEnCarcelException  {
-		Comprable comprable = new BuenosAiresNorte();
+		Comprable comprable = new Tucuman();
 		jugador.comprar(comprable);
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
 		jugador.avanzar(cubilete.sumarValores());
@@ -54,8 +55,9 @@ public class RetrocesoDinamicoTest{
 	@Test
 	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws JugadorEnCarcelException, DineroInsuficienteException {
 		
-		Comprable comprable1 = new BuenosAiresNorte();
-		Comprable comprable2 = new BuenosAiresSur();
+		
+		Comprable comprable1 = new Tucuman();
+		Comprable comprable2 = new Neuquen();
 		Comprable comprable3 = new CordobaSur();
 		jugador.comprar(comprable1);
 		jugador.comprar(comprable2);

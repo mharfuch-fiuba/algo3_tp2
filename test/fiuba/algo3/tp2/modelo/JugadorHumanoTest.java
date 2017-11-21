@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class JugadorHumanoTest {
@@ -12,7 +13,8 @@ public class JugadorHumanoTest {
 
 	Dinero dinero100k = new DineroAlgoPoly(100000);
 	Dinero dinero50k = new DineroAlgoPoly(50000);
-	Comprable comprable = new BuenosAiresSur();
+	
+	Comprable comprable = new Tucuman();
 
 	Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 
