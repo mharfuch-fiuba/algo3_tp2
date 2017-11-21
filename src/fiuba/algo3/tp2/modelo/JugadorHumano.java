@@ -94,4 +94,10 @@ public class JugadorHumano extends Jugador {
 	public boolean isNull() {
 		return false;
 	}
+
+	@Override
+	public void comprarCasilleroActual() throws DineroInsuficienteException {
+		Comprable casillero_actual = (Comprable) this.obtenerCasilleroActual();
+		this.comprar(casillero_actual);
+	}
 }

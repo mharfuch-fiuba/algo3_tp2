@@ -10,6 +10,8 @@ public abstract class Jugador {
 	public abstract Dinero obtenerDinero();
 	
 	public abstract void comprar(Comprable comprable) throws DineroInsuficienteException;
+	
+	public abstract void comprarCasilleroActual() throws DineroInsuficienteException;
 
 	public abstract Encasillable obtenerCasilleroActual();
 
