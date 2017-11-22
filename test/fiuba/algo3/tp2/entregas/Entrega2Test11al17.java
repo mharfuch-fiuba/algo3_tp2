@@ -29,9 +29,7 @@ public class Entrega2Test11al17 {
 		/* CREO AL JUGADOR 1, LO AVANZO HASTA EL TREN Y LO COMPRO */
 		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(10000));
 		jugador1.avanzar(cubilete.sumarValores());
-		Comprable casillero_actual = (Comprable)jugador1.obtenerCasilleroActual();
-		//POR QUE NO UN METODO: COMPRAR CASILLERO ACTUAL?
-		jugador1.comprar(casillero_actual);
+		jugador1.comprarCasilleroActual();
 		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EL TREN */
 		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(10000));
 		jugador2.avanzar(cubilete.sumarValores());
@@ -47,9 +45,9 @@ public class Entrega2Test11al17 {
 		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(10000));
 		jugador1.avanzar(cubilete_que_saca_8.sumarValores());
 		//POR QUE NO UN METODO: COMPRAR CASILLERO ACTUAL?
-		jugador1.comprar((Comprable)jugador1.obtenerCasilleroActual()); // Compra el subte
+		jugador1.comprarCasilleroActual(); // Compra el subte
 		jugador1.avanzar(cubilete_que_saca_8.sumarValores());
-		jugador1.comprar((Comprable)jugador1.obtenerCasilleroActual()); // Compra el tren
+		jugador1.comprarCasilleroActual(); // Compra el tren
 		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EL TREN */
 		Cubilete cubilete_que_saca_16 = new Cubilete();
 		cubilete_que_saca_16.agregar(new DadoCargado(16));
