@@ -27,5 +27,26 @@ public class Construcciones {
 		return alquilerTotal;
 	}
 	
+	public Construccion verPrimera(){
+		Construccion construccion;
+		try{
+			construccion = this.construcciones.get(0);
+		}
+		catch (Exception e){
+			construccion = new ConstruccionNull();
+		}
+		return construccion;
+	}
+	
+	public Construccion sacarPrimera(){
+		Construccion construccion;
+		try{
+			construccion = this.construcciones.remove(0);
+		}
+		catch (Exception e){
+			construccion = new ConstruccionNull();
+		}
+		return construccion;		
+	}
 	
 }

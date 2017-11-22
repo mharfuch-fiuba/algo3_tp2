@@ -158,6 +158,8 @@ public class Entrega2Test {
 	@Test
 	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() {
 		// por como lo tenemos implementado un jugador no puede elegir que construir...
+		
+		
 	}
 
 	@Test
