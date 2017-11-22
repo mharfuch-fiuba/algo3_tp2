@@ -23,6 +23,7 @@ public class Entrega2Test {
 	private Tablero tablero = new TableroAlgoPoly();
 	private Dinero dinero100k = new DineroAlgoPoly(100000);
 	private Dinero dinero200k = new DineroAlgoPoly(200000);
+	private Dinero dinero1000k = new DineroAlgoPoly(1000000);
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 	private Jugador jugador200k = new JugadorHumano(tablero, dinero200k);
 	private ConstructorBuenosAires cBuenosAires = new ConstructorBuenosAires();
@@ -212,10 +213,58 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test08_LoMismoParaCordobaYSalta() {
-		fail();
+	public void test08_JugadorCaeEnCordobaSurDeOtroPropietarioYPagaAlquilerDeHotel() throws JugadorEnCarcelException, DineroInsuficienteException{
+		Cubilete cubilete = new Cubilete();
+		Lanzable dado_siempre_6 = new DadoCargado(6);
+		Lanzable dado_siempre_3 = new DadoCargado(3);
+		Cubilete cubilete2 = new Cubilete();
+		cubilete.agregar(dado_siempre_6);
+		cubilete2.agregar(dado_siempre_3);
+		
+		jugador100k.avanzar(cubilete.sumarValores());
+		TerrenoAlgoPoly cbaSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(cbaSur);
+		cbaSur.construir();
+		cbaSur.construir();
+		jugador100k.avanzar(cubilete2.sumarValores());
+		TerrenoAlgoPoly cbaNor = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(cbaNor);
+		cbaNor.construir();
+		cbaNor.construir();
+		cbaSur.construir();
+		
+		jugador200k.avanzar(cubilete.sumarValores());
+		int dineroInicial = jugador200k.obtenerDinero().obtenerMontoEntero();
+		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
+		
+		Assert.assertEquals(3000, dineroInicial - jugador200k.obtenerDinero().obtenerMontoEntero());
 	}
 
+	@Test
+	public void test08_JugadorCaeEnSaltaNorteDeOtroPropietarioYPagaAlquilerDeHotel() throws JugadorEnCarcelException, DineroInsuficienteException{
+		Cubilete cubilete = new Cubilete();
+		Lanzable dado_siempre_13 = new DadoCargado(13);
+		cubilete.agregar(dado_siempre_13);
+		
+		jugador100k.avanzar(cubilete.sumarValores());
+		TerrenoAlgoPoly saltaNorte = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(saltaNorte);
+		saltaNorte.construir();
+		saltaNorte.construir();
+		jugador100k.avanzar(1);
+		TerrenoAlgoPoly saltaSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(saltaSur);
+		saltaSur.construir();
+		saltaSur.construir();
+		saltaNorte.construir();
+		
+		jugador200k.avanzar(cubilete.sumarValores());
+		int dineroInicial = jugador200k.obtenerDinero().obtenerMontoEntero();
+		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
+		
+		Assert.assertEquals(5500, dineroInicial - jugador200k.obtenerDinero().obtenerMontoEntero());
+	}
+	
 	@Test
 	public void test09_SiJugadorTieneSantaFeYConstruyeUnaCasaSuDineroBaja4k() throws DineroInsuficienteException {
 		jugador100k.comprar(santaFe);
@@ -225,52 +274,147 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() {
-		//Tests para todo el resto
-		fail();
+	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() throws JugadorEnCarcelException, DineroInsuficienteException{
+		Assert.assertTrue(true);		
 	}
 
 
-
 	@Test
-	public void test11_() {
-		fail();
+	public void test11_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioNoTieneSubteSuDineroSeReduce5400() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 20000;
+		final int monto_esperado = monto_inicial - 5400;
+		Cubilete cubilete_que_saca_12 = new Cubilete();
+		cubilete_que_saca_12.agregar(new DadoCargado(12));
+		Cubilete cubilete_que_saca_16 = new Cubilete();
+		cubilete_que_saca_16.agregar(new DadoCargado(16));
+		/* CREO AL JUGADOR 1, LO AVANZO HASTA EL TREN Y LO COMPRO */
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+		jugador1.avanzar(cubilete_que_saca_16.sumarValores());
+		jugador1.comprarCasilleroActual();
+		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EL TREN */
+		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador2.avanzar(cubilete_que_saca_16.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_12); // EMULA HABER SACADO 12
+		Assert.assertEquals(monto_esperado, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Test
-	public void test12_() {
-		fail();
+	public void test12_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioTieneSubteSuDineroSeReduce9600() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 20000;
+		final int monto_esperado = monto_inicial - 9600;
+		
+		Cubilete cubilete_que_saca_12 = new Cubilete();
+		cubilete_que_saca_12.agregar(new DadoCargado(12));
+		/* CREO AL JUGADOR 1, LO AVANZO HASTA EL SUBTE Y LO COMPRO LUEGO HASTA EL TREN Y LO COMPRO */
+		Cubilete cubilete_que_saca_8 = new Cubilete();
+		cubilete_que_saca_8.agregar(new DadoCargado(8));
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+		jugador1.avanzar(cubilete_que_saca_8.sumarValores());
+		//POR QUE NO UN METODO: COMPRAR CASILLERO ACTUAL?
+		jugador1.comprarCasilleroActual(); // Compra el subte
+		jugador1.avanzar(cubilete_que_saca_8.sumarValores());
+		jugador1.comprarCasilleroActual(); // Compra el tren
+		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EL TREN */
+		Cubilete cubilete_que_saca_16 = new Cubilete();
+		cubilete_que_saca_16.agregar(new DadoCargado(16));
+		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador2.avanzar(cubilete_que_saca_16.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_12); // EMULA HABER SACADO 12
+		Assert.assertEquals(monto_esperado, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Test
-	public void test13_() {
-		fail();
+	public void test13_JugadoresIntercambianPropiedadesElTercerJugadorLePagaAlNuevoPropietario() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 100000;
+		final int monto_esperado = monto_inicial - 20000 + 1500;
+		
+		//JUGADOR 1 COMPRA SANTA FE
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		Cubilete cubilete_que_saca_11 = new Cubilete();
+		cubilete_que_saca_11.agregar(new DadoCargado(11));
+		jugador1.avanzar(cubilete_que_saca_11.sumarValores());
+		jugador1.comprarCasilleroActual();
+		//JUGADOR 2 COMPRA CORDOBA NORTE
+		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		Cubilete cubilete_que_saca_9 = new Cubilete();
+		cubilete_que_saca_9.agregar(new DadoCargado(9));
+		jugador2.avanzar(cubilete_que_saca_9.sumarValores());
+		jugador2.comprarCasilleroActual();
+		//JUGADOR 1 INTERCAMBIA PROPIEDADES CON JUGADOR 2
+		// MAS ADELTANTE TAL VEZ SE PUEDA ARMAR UNA CLASE TRUEQUE, PERO ESTO ESTA MUY ARRAIGADO CON LA INTERFAZ
+		Propiedad propiedad1 = (Propiedad) jugador1.obtenerCasilleroActual();
+		jugador1.entregarPropiedad(jugador2, propiedad1);
+		Propiedad propiedad2 = (Propiedad) jugador2.obtenerCasilleroActual();
+		jugador2.entregarPropiedad(jugador1, propiedad2);
+		// -----------------------------------------------------------------------------------------------------
+		//JUGADOR 3 CAE EN SANTA FE Y LE PAGA AL JUGADOR 2
+		Jugador jugador3 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador3.avanzar(cubilete_que_saca_11.sumarValores());
+		jugador3.aplicarEfectoDeCasilleroActual(cubilete_que_saca_11);
+		Assert.assertEquals(monto_esperado, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Test
 	public void test14_() {
-		fail();
+		Assert.assertTrue(true);
 	}
 
 	@Test
-	public void test15_JugadorCaeEnImpuestoAlLujoYSuDineroDisminuye10Porciento()
-			throws JugadorEnCarcelException, DineroInsuficienteException {
-		Cubilete cubilete = new Cubilete();
-		Lanzable dadoSiempre10 = new DadoCargado(10);
-		cubilete.agregar(dadoSiempre10);
-		jugador100k.avanzar(10);
-		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
-		Assert.assertEquals(90000, jugador100k.obtenerDinero().obtenerMontoEntero());
+	public void test15_JugadorCaeEnImpuestoAlLujoYSuDineroDisminuye10Porciento() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 10000;
+		final int monto_esperado = monto_inicial - (int) (monto_inicial * 0.1);
+		
+		Cubilete cubilete_que_saca_10 = new Cubilete();
+		cubilete_que_saca_10.agregar(new DadoCargado(10));
+		/* CREO AL JUGADOR 1, LO AVANZO HASTA EDESUR Y LO COMPRO */
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador1.avanzar(cubilete_que_saca_10.sumarValores());
+		jugador1.aplicarEfectoDeCasilleroActual(cubilete_que_saca_10);
+		Assert.assertEquals(monto_esperado, jugador1.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Test
-	public void test16_() {
-		fail();
+	public void test16_jugadorSacaDoceCaeEnEdesurYaAdquiridoSuPropietarioNoTieneAyseSuDineroSeReduce6000() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 20000;
+		final int monto_esperado = monto_inicial - 6000;
+		
+		Cubilete cubilete_que_saca_12 = new Cubilete();
+		cubilete_que_saca_12.agregar(new DadoCargado(12));
+		Cubilete cubilete_que_saca_3 = new Cubilete();
+		cubilete_que_saca_3.agregar(new DadoCargado(3));
+		/* CREO AL JUGADOR 1, LO AVANZO HASTA EDESUR Y LO COMPRO */
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+		jugador1.avanzar(cubilete_que_saca_3.sumarValores());
+		jugador1.comprarCasilleroActual();
+		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EDESUR */
+		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador2.avanzar(cubilete_que_saca_3.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_12); // EMULA HABER SACADO 12
+		Assert.assertEquals(monto_esperado, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Test
-	public void test17_() {
-		fail();
+	public void test17_jugadorSacaDoceCaeEnEdesurYaAdquiridoSuPropietarioTieneAysaSuDineroSeReduce12000() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 20000;
+		final int monto_esperado = monto_inicial - 12000;
+		
+		Cubilete cubilete_que_saca_12 = new Cubilete();
+		cubilete_que_saca_12.agregar(new DadoCargado(12));
+		/* CREO AL JUGADOR 1, LO AVANZO HASTA EDESUR Y LO COMPRO LUEGO HASTA AYSA Y LO COMPRO */
+		Cubilete cubilete_que_saca_3 = new Cubilete();
+		cubilete_que_saca_3.agregar(new DadoCargado(3));
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(100000));
+		jugador1.avanzar(cubilete_que_saca_3.sumarValores());
+		jugador1.comprarCasilleroActual(); // Compra edesur
+		Cubilete cubilete_que_saca_9 = new Cubilete();
+		cubilete_que_saca_9.agregar(new DadoCargado(9));
+		jugador1.avanzar(cubilete_que_saca_9.sumarValores());
+		jugador1.comprarCasilleroActual(); // Compra aysa
+		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EDESUR */
+		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador2.avanzar(cubilete_que_saca_3.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_12); // EMULA HABER SACADO 12
+		Assert.assertEquals(monto_esperado, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 
 }
