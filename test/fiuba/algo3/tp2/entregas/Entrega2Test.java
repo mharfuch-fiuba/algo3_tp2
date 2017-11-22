@@ -148,12 +148,37 @@ public class Entrega2Test {
 		bsAsSur.construir();
 		Dinero despuesDelHotel = jugador100k.obtenerDinero();
 		Assert.assertEquals(27000, despuesDelHotel.obtenerMontoEntero());
-		
 	}
 
 	@Test
-	public void test07_SiUnJugadorCaeEnBuenosAiresDeOtroConHotelPaga5k() {
-		fail();
+	public void test07_SiUnJugadorCaeEnBuenosAiresSurDeOtroConHotelPaga5k() throws JugadorEnCarcelException, DineroInsuficienteException {
+		
+		Cubilete cubilete = new Cubilete();
+		Lanzable dadoSiempre2 = new DadoCargado(2);
+		cubilete.agregar(dadoSiempre2);
+		
+		jugador100k.avanzar(2);
+
+		// no se me ocurre otra forma de hacerlo ahora sin casteo
+		TerrenoAlgoPoly bsAsSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(bsAsSur);
+		bsAsSur.construir();
+		bsAsSur.construir();
+		//hasta aca hay dos casas en BsAsSur
+		jugador100k.avanzar(2);
+		TerrenoAlgoPoly bsAsNorte = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(bsAsNorte);
+		bsAsNorte.construir();
+		bsAsNorte.construir();		
+		//hasta aca hay dos casas en BsAsSur y dos en BsAsNorte
+		bsAsSur.construir();
+		//ahora debería haber un hotel en BsAsSur
+		
+		//otro jugador cae en BsAsSur
+		jugador200k.avanzar(2);
+		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
+		int dineroDespues = jugador200k.obtenerDinero().obtenerMontoEntero();
+		Assert.assertEquals(195000, dineroDespues);
 	}
 	
 	@Test
