@@ -23,7 +23,6 @@ public class Entrega2Test {
 	private Tablero tablero = new TableroAlgoPoly();
 	private Dinero dinero100k = new DineroAlgoPoly(100000);
 	private Dinero dinero200k = new DineroAlgoPoly(200000);
-	private Dinero dinero1000k = new DineroAlgoPoly(1000000);
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 	private Jugador jugador200k = new JugadorHumano(tablero, dinero200k);
 	private ConstructorBuenosAires cBuenosAires = new ConstructorBuenosAires();
