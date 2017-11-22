@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.Comprable;
 import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.DadoCargado;
 import fiuba.algo3.tp2.modelo.Dinero;
@@ -130,34 +129,49 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test05_() {
+	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() {
+		// por como lo tenemos implementado un jugador no puede elegir que construir...
+	}
+
+	@Test
+	public void test06_SiJugadorTieneAmbosBuenosAiresConMaximaCantidadDeCasasYConstruyeHotelEnBuenosAiresSurSuDineroBaja8k() throws DineroInsuficienteException {
+		jugador100k.comprar(bsAsNorte);
+		jugador100k.comprar(bsAsSur);
+		bsAsSur.construir();
+		bsAsSur.construir();
+		bsAsNorte.construir();
+		bsAsNorte.construir();
+		//en este punto tiene dos casas en cada terreno.
+		//el dinero del jugador deberia ser ahora 35k (gasto 45k por los terrenos + 5k por c/casa)
+		Dinero antesDelHotel = jugador100k.obtenerDinero();
+		Assert.assertEquals(35000,antesDelHotel.obtenerMontoEntero());
+		bsAsSur.construir();
+		Dinero despuesDelHotel = jugador100k.obtenerDinero();
+		Assert.assertEquals(27000, despuesDelHotel.obtenerMontoEntero());
+		
+	}
+
+	@Test
+	public void test07_SiUnJugadorCaeEnBuenosAiresDeOtroConHotelPaga5k() {
+		fail();
+	}
+	
+	@Test
+	public void test08_LoMismoParaCordobaYSalta() {
 		fail();
 	}
 
 	@Test
-	public void test06_() {
+	public void test09_SiJugadorTieneSantaFeYConstruyeUnaCasaSuDineroBaja4k() {
 		fail();
 	}
 
 	@Test
-	public void test07_() {
+	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() {
 		fail();
 	}
 
-	@Test
-	public void test08_() {
-		fail();
-	}
 
-	@Test
-	public void test09_() {
-		fail();
-	}
-
-	@Test
-	public void test10_() {
-		fail();
-	}
 
 	@Test
 	public void test11_() {

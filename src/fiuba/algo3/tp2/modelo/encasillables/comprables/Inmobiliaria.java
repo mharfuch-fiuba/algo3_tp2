@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import java.util.Stack;
+import java.util.ArrayList;
 
 public abstract class Inmobiliaria {
 	/*
@@ -10,14 +10,13 @@ public abstract class Inmobiliaria {
 	 * 
 	 */
 
-	protected Stack<Construccion> construcciones;
-
+	protected ArrayList<Construccion> construcciones;
 	/*
 	 * No la saca de las pendientes. Llamar a este metodo para ver si el jugador
 	 * puede pagarla.
 	 */
 	public Construccion verProximaConstruccion() {
-		return construcciones.peek();
+		return construcciones.get(0);
 	}
 
 	/*
@@ -25,7 +24,7 @@ public abstract class Inmobiliaria {
 	 * tiene que comprarla.
 	 */
 	public Construccion construir() {
-		return construcciones.pop();
+		return construcciones.remove(0);
 	}
 
 	/*
