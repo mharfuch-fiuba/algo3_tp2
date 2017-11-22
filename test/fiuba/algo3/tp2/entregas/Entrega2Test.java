@@ -123,9 +123,36 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test04_jugadorQueCaeEnBuenosAires() {
-		// No entiendo el requerimiento de este test. Revisar
-		fail();
+	public void test04_jugadorQueCaeEnBuenosAiresDeOtroCon1CasaEnNorteYDosEnSurPaga3500EnCadaUna() throws JugadorEnCarcelException, DineroInsuficienteException {
+		Cubilete cubilete = new Cubilete();
+		Lanzable dadoSiempre2 = new DadoCargado(2);
+		cubilete.agregar(dadoSiempre2);
+		
+		jugador100k.avanzar(2);
+
+		// no se me ocurre otra forma de hacerlo ahora sin casteo
+		TerrenoAlgoPoly bsAsSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(bsAsSur);
+		bsAsSur.construir();
+		bsAsSur.construir();
+		//hasta aca hay dos casas en BsAsSur
+		jugador100k.avanzar(2);
+		TerrenoAlgoPoly bsAsNorte = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		jugador100k.comprar(bsAsNorte);
+		bsAsNorte.construir();
+		//ahora hay dos casas en BsAsSur y una en BsAsNorte
+
+		//otro jugador cae en BsAsSur
+		jugador200k.avanzar(2);
+		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
+		Dinero despuesDeCaerEnSur = jugador200k.obtenerDinero();
+		Assert.assertEquals(196500, despuesDeCaerEnSur.obtenerMontoEntero());
+		//el mismo jugador cae en BsAsNorte
+		jugador200k.avanzar(2);
+		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
+		Dinero despuesDeCaerEnNorte = jugador200k.obtenerDinero();
+		Assert.assertEquals(193000, despuesDeCaerEnNorte.obtenerMontoEntero());
+		
 	}
 
 	@Test
