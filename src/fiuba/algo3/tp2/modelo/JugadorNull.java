@@ -91,4 +91,16 @@ public class JugadorNull extends Jugador {
 		return true;
 	}
 
+	@Override
+	public void entregarPropiedad(Jugador destinatario, Comprable propiedad) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void agregarPropiedad(Comprable propiedad) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

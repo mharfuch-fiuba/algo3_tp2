@@ -34,5 +34,10 @@ public abstract class Propiedad implements Comprable, Encasillable {
 	public Dinero getPrecioCompra(){
 		return this.precioCompra;
 	}
+	
+	@Override
+	public void cambiarTitularidad(Jugador nuevo_propietario) {
+		propietario = nuevo_propietario;
+	}
 
 }

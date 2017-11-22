@@ -37,4 +37,9 @@ public class Construccion implements Comprable{
 		this.propietario=jugador;
 	}
 
+	@Override
+	public void cambiarTitularidad(Jugador nuevo_propietario) {
+		propietario = nuevo_propietario;
+	}
+
 }

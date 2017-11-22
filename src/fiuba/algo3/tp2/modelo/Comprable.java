@@ -6,5 +6,6 @@ public interface Comprable {
 
 	public Jugador obtenerPropietario();
 	public abstract void comprar(Jugador jugador) throws DineroInsuficienteException;
+	public void cambiarTitularidad(Jugador jugador);
 	
 }

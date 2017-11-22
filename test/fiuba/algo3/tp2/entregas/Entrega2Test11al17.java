@@ -12,6 +12,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.Tablero;
 import fiuba.algo3.tp2.modelo.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
@@ -64,8 +65,34 @@ public class Entrega2Test11al17 {
 	}
 
 	@Test
-	public void test13_() {
-		fail();
+	public void test13_JugadoresIntercambianPropiedadesElTercerJugadorLePagaAlNuevoPropietario() throws JugadorEnCarcelException, DineroInsuficienteException {
+		final int monto_inicial = 100000;
+		final int monto_esperado = monto_inicial - 20000 + 1500;
+		
+		//JUGADOR 1 COMPRA SANTA FE
+		Jugador jugador1 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		Cubilete cubilete_que_saca_11 = new Cubilete();
+		cubilete_que_saca_11.agregar(new DadoCargado(11));
+		jugador1.avanzar(cubilete_que_saca_11.sumarValores());
+		jugador1.comprarCasilleroActual();
+		//JUGADOR 2 COMPRA CORDOBA NORTE
+		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		Cubilete cubilete_que_saca_9 = new Cubilete();
+		cubilete_que_saca_9.agregar(new DadoCargado(9));
+		jugador2.avanzar(cubilete_que_saca_9.sumarValores());
+		jugador2.comprarCasilleroActual();
+		//JUGADOR 1 INTERCAMBIA PROPIEDADES CON JUGADOR 2
+		// MAS ADELTANTE TAL VEZ SE PUEDA ARMAR UNA CLASE TRUEQUE, PERO ESTO ESTA MUY ARRAIGADO CON LA INTERFAZ
+		Propiedad propiedad1 = (Propiedad) jugador1.obtenerCasilleroActual();
+		jugador1.entregarPropiedad(jugador2, propiedad1);
+		Propiedad propiedad2 = (Propiedad) jugador2.obtenerCasilleroActual();
+		jugador2.entregarPropiedad(jugador1, propiedad2);
+		// -----------------------------------------------------------------------------------------------------
+		//JUGADOR 3 CAE EN SANTA FE Y LE PAGA AL JUGADOR 2
+		Jugador jugador3 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		jugador3.avanzar(cubilete_que_saca_11.sumarValores());
+		jugador3.aplicarEfectoDeCasilleroActual(cubilete_que_saca_11);
+		Assert.assertEquals(monto_esperado, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Test

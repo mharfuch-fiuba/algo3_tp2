@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.modelo;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 
@@ -99,5 +100,19 @@ public class JugadorHumano extends Jugador {
 	public void comprarCasilleroActual() throws DineroInsuficienteException {
 		Comprable casillero_actual = (Comprable) this.obtenerCasilleroActual();
 		this.comprar(casillero_actual);
+	}
+
+	@Override
+	public void entregarPropiedad(Jugador destinatario, Comprable propiedad) {
+		if(propiedades.contains(propiedad)) {
+			destinatario.agregarPropiedad(propiedad);
+			propiedades.remove(propiedad);
+		}
+	}
+
+	@Override
+	public void agregarPropiedad(Comprable propiedad) {
+		propiedades.add(propiedad);
+		propiedad.cambiarTitularidad(this);
 	}
 }
