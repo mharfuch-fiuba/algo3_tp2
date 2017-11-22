@@ -10,10 +10,13 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public abstract class Servicio extends Propiedad implements Emparejable {
 
-	private int PENALIDAD;
+	private int penalidad_1;
+	private int penalidad_2;
+	private Propiedad pareja = null; // VER PATRON NULL
 	
-	public Servicio(int penalidad, Dinero precio_compra) {
-		PENALIDAD = penalidad;
+	public Servicio(Dinero precio_compra, int penalidad_1_servicio, int penalidad_2_servicios) {
+		penalidad_1 = penalidad_1_servicio;
+		penalidad_2 = penalidad_2_servicios;
 		precioCompra = precio_compra;
 	}
 	
@@ -21,12 +24,17 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		DineroAlgoPoly monto;
 		try {
-			monto = new DineroAlgoPoly(PENALIDAD * dados.sumarValores());
+			monto = new DineroAlgoPoly(penalidad_1 * dados.sumarValores());
 			jugador.pagar(monto);
 			propietario.cobrar(monto);
 		} catch (DineroNegativoException e) {
 			//ESTO NUNCA PUEDE OCURRIR
 		}
+	}
+	
+	@Override
+	public void agregarPareja(Propiedad casillero) {
+		pareja = casillero;
 	}
 	
 }
