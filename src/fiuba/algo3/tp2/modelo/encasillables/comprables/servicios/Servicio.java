@@ -6,7 +6,6 @@ import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public abstract class Servicio extends Propiedad implements Emparejable {
 
@@ -22,14 +21,22 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
-		DineroAlgoPoly monto;
-		try {
-			monto = new DineroAlgoPoly(penalidad_1 * dados.sumarValores());
+		//Si el propietario de este casillero es el mismo jugador no hago nada.
+		if(propietario == jugador) return;
+		//Si el propietario de este casillero es el mismo que el de la pareja entonces aplico la penalidad 2
+		Jugador propietario_pareja = pareja.obtenerPropietario();
+		if(propietario == propietario_pareja) {
+			Dinero monto = new DineroAlgoPoly(penalidad_2 * dados.sumarValores());
 			jugador.pagar(monto);
 			propietario.cobrar(monto);
-		} catch (DineroNegativoException e) {
-			//ESTO NUNCA PUEDE OCURRIR
+			return;
 		}
+		//Si el propietario de este casillero no es el mismo que el de la pareja entonces aplico la penalidad 1
+		Dinero monto = new DineroAlgoPoly(penalidad_1 * dados.sumarValores());
+		jugador.pagar(monto);
+		propietario.cobrar(monto);
+		return;
+		//Si el propietario es nulo????
 	}
 	
 	@Override
