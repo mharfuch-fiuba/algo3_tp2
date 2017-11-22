@@ -46,24 +46,25 @@ public class TableroAlgoPoly extends Tablero {
 	public TableroAlgoPoly() {
 		casilleros = new DoublyLinkedCircularList();
 		Carcel carcel = new Carcel();
-		
-		ConstructorBuenosAires c = new ConstructorBuenosAires();	//para que asocie las hermanas
-		
+
+		ConstructorBuenosAires constructorBuenosAires = new ConstructorBuenosAires(); 
+		ConstructorCordoba constructorCordoba = new ConstructorCordoba();
+
 		Subte subte = new Subte();
 		Tren tren = new Tren();
 		Aysa aysa = new Aysa();
 		Edesur edesur = new Edesur();
-		
+
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
-		casilleros.add(c.getSur());
+		casilleros.add(constructorBuenosAires.getSur());
 		casilleros.add(edesur);
-		casilleros.add(c.getNorte());
+		casilleros.add(constructorBuenosAires.getNorte());
 		casilleros.add(carcel);
-		casilleros.add(new CordobaSur());
+		casilleros.add(constructorCordoba.getSur());
 		casilleros.add(new AvanceDinamico());
 		casilleros.add(subte);
-		casilleros.add(new CordobaNorte());
+		casilleros.add(constructorCordoba.getNorte());
 		casilleros.add(new ImpuestoDeLujo());
 		casilleros.add(new SantaFe());
 		casilleros.add(aysa);
@@ -74,7 +75,7 @@ public class TableroAlgoPoly extends Tablero {
 		casilleros.add(new Neuquen());
 		casilleros.add(new RetrocesoDinamico());
 		casilleros.add(new Tucuman());
-		
+
 		tren.agregarPareja(subte);
 		subte.agregarPareja(tren);
 		aysa.agregarPareja(edesur);

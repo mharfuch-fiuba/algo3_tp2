@@ -216,10 +216,9 @@ public class Entrega2Test {
 	@Test
 	public void test09_SiJugadorTieneSantaFeYConstruyeUnaCasaSuDineroBaja4k() throws DineroInsuficienteException {
 		jugador100k.comprar(santaFe);
-		Dinero antesDeConstruir = jugador100k.obtenerDinero();
 		santaFe.construir();
 		Dinero despuesDeConstruir= jugador100k.obtenerDinero();
-		Assert.assertEquals(antesDeConstruir.obtenerMontoEntero()-4000, despuesDeConstruir.obtenerMontoEntero());
+		Assert.assertEquals(81000, despuesDeConstruir.obtenerMontoEntero());
 	}
 
 	@Test

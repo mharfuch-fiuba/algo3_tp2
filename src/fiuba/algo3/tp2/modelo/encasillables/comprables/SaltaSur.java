@@ -6,14 +6,11 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 public class SaltaSur extends TerrenoAlgoPoly {
 
 	public SaltaSur() {
-		precioCompra = new DineroAlgoPoly(23000);
-		alquilerTerreno = new DineroAlgoPoly(2000);
+		this.inmobiliaria=new InmobiliariaSaltaSur();
+		this.precioCompra = new DineroAlgoPoly(23000);
+		this.alquilerTerreno = new DineroAlgoPoly(2000);
 	}
 
-	@Override
-	public void construir() throws DineroInsuficienteException {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
