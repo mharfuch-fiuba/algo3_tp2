@@ -157,9 +157,7 @@ public class Entrega2Test {
 
 	@Test
 	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() {
-		// por como lo tenemos implementado un jugador no puede elegir que construir...
-		
-		
+		// por como lo tenemos implementado, el jugador no puede elegir qué construir. La inmobiliaria decide esto.		
 	}
 
 	@Test
@@ -216,12 +214,17 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test09_SiJugadorTieneSantaFeYConstruyeUnaCasaSuDineroBaja4k() {
-		fail();
+	public void test09_SiJugadorTieneSantaFeYConstruyeUnaCasaSuDineroBaja4k() throws DineroInsuficienteException {
+		jugador100k.comprar(santaFe);
+		Dinero antesDeConstruir = jugador100k.obtenerDinero();
+		santaFe.construir();
+		Dinero despuesDeConstruir= jugador100k.obtenerDinero();
+		Assert.assertEquals(antesDeConstruir.obtenerMontoEntero()-4000, despuesDeConstruir.obtenerMontoEntero());
 	}
 
 	@Test
 	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() {
+		//Tests para todo el resto
 		fail();
 	}
 
