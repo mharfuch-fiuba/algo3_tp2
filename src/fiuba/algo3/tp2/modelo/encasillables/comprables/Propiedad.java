@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
 import fiuba.algo3.tp2.modelo.Comprable;
 import fiuba.algo3.tp2.modelo.Cubilete;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
@@ -11,7 +11,7 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 public abstract class Propiedad implements Comprable, Encasillable {
 
 	protected Jugador propietario;
-	protected DineroAlgoPoly precioCompra;
+	protected Dinero precioCompra;
 
 	@Override
 	public Jugador obtenerPropietario() {
@@ -31,7 +31,7 @@ public abstract class Propiedad implements Comprable, Encasillable {
 		propietario = new JugadorNull();
 	}
 	
-	public DineroAlgoPoly getPrecioCompra(){
+	public Dinero getPrecioCompra(){
 		return this.precioCompra;
 	}
 

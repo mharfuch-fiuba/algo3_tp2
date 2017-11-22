@@ -1,15 +1,18 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables.servicios;
 
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 
 public class Aysa extends Servicio {
 	
-	private Propiedad pareja; 
+	private static final int PENALIDAD = 300;
+	private static final Dinero PRECIO_DE_COMPRA = new DineroAlgoPoly(30000);
+	
+	private Propiedad pareja;
 	
 	public Aysa() {
-		precioCompra = new DineroAlgoPoly(30000);
-		PENALIDAD = 300;
+		super(PENALIDAD, PRECIO_DE_COMPRA);
 		pareja = null; // VER PATRON NULL
 	}
 
