@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
-public abstract class Servicio extends Propiedad {
+public abstract class Servicio extends Propiedad implements Emparejable {
 
 	protected int PENALIDAD;
 	
