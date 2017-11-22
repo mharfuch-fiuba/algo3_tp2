@@ -19,12 +19,9 @@ public abstract class TerrenoAlgoPoly extends Terreno{
 
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
-		if (this.propietario.equals(jugador))
-			return; // si sos propietario no pasa nada
-		if (this.propietario.isNull())
-			jugador.comprar(this); // si caes y esta libre compras
-		else
-			cobrarAlquiler(jugador); // si hay propietario le pagas
+		// solo pasa algo si tiene dueño y es otro jugador
+		if (! this.propietario.equals(jugador)) cobrarAlquiler(jugador);
+		
 	}
 
 	private void cobrarAlquiler(Jugador jugador) throws DineroInsuficienteException {
