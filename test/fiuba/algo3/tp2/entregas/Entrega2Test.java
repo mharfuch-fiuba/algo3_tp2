@@ -25,14 +25,17 @@ public class Entrega2Test {
 	private Dinero dinero200k = new DineroAlgoPoly(200000);
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 	private Jugador jugador200k = new JugadorHumano(tablero, dinero200k);
-	private ConstructorBuenosAires c = new ConstructorBuenosAires();
-	private TerrenoAlgoPoly bsAsSur = c.getSur();
-	private TerrenoAlgoPoly bsAsNorte = c.getNorte();
-	private TerrenoAlgoPoly cordobaSur = new CordobaSur();
-	private TerrenoAlgoPoly cordobaNorte = new CordobaNorte();
+	private ConstructorBuenosAires cBuenosAires = new ConstructorBuenosAires();
+	private ConstructorSalta cSalta = new ConstructorSalta();
+	private ConstructorCordoba cCordoba = new ConstructorCordoba();
+	
+	private TerrenoAlgoPoly bsAsSur = cBuenosAires.getSur();
+	private TerrenoAlgoPoly bsAsNorte = cBuenosAires.getNorte();
+	private TerrenoAlgoPoly cordobaSur = cCordoba.getSur();
+	private TerrenoAlgoPoly cordobaNorte = cCordoba.getNorte();
 	private TerrenoAlgoPoly santaFe = new SantaFe();
-	private TerrenoAlgoPoly saltaSur = new SaltaSur();
-	private TerrenoAlgoPoly saltaNorte = new SaltaNorte();
+	private TerrenoAlgoPoly saltaSur = cSalta.getSur();
+	private TerrenoAlgoPoly saltaNorte = cSalta.getNorte();
 	private TerrenoAlgoPoly neuquen = new Neuquen();
 	private TerrenoAlgoPoly tucuman = new Tucuman();
 

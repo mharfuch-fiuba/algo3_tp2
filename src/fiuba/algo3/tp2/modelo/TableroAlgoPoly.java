@@ -49,6 +49,7 @@ public class TableroAlgoPoly extends Tablero {
 
 		ConstructorBuenosAires constructorBuenosAires = new ConstructorBuenosAires(); 
 		ConstructorCordoba constructorCordoba = new ConstructorCordoba();
+		ConstructorSalta constructorSalta= new ConstructorSalta();
 
 		Subte subte = new Subte();
 		Tren tren = new Tren();
@@ -68,8 +69,8 @@ public class TableroAlgoPoly extends Tablero {
 		casilleros.add(new ImpuestoDeLujo());
 		casilleros.add(new SantaFe());
 		casilleros.add(aysa);
-		casilleros.add(new SaltaNorte());
-		casilleros.add(new SaltaSur());
+		casilleros.add(constructorSalta.getNorte());
+		casilleros.add(constructorSalta.getSur());
 		casilleros.add(new Policia(carcel));
 		casilleros.add(tren);
 		casilleros.add(new Neuquen());
