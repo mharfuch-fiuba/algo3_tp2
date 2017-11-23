@@ -1,47 +1,34 @@
 package fiuba.algo3.tp2.modelo.encasillables;
 
 import fiuba.algo3.tp2.modelo.Cubilete;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
-import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
+import fiuba.algo3.tp2.modelo.premios.Premio;
 
 import java.util.HashMap; 
 
 public class Quini6 implements Encasillable{
-
-	private DineroAlgoPoly MONTO_A_INCREMENTAR_PRIMERA_VEZ;
-	private DineroAlgoPoly MONTO_A_INCREMENTAR_SEGUNDA_VEZ;
 	
-	private HashMap<Jugador, Integer> jugadoresGanadores = new HashMap<Jugador, Integer> ();
+	/*** PARA ESTA SOLUCION SE UTILIZO EL PATRON STATE ***/
+	
+	private HashMap<Jugador, Premio> jugadoresGanadores;
 
 	public Quini6(){
-		try {
-			MONTO_A_INCREMENTAR_PRIMERA_VEZ = new DineroAlgoPoly(50000);
-			MONTO_A_INCREMENTAR_SEGUNDA_VEZ = new DineroAlgoPoly(30000);
-		} catch (DineroNegativoException e) {
-			//ESTO NUNCA PUEDE OCURRIR
-		}
+		jugadoresGanadores = new HashMap<Jugador, Premio> ();
 	}
 	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
 		
 		if(!jugadoresGanadores.containsKey(jugador)) {
-			jugadoresGanadores.put(jugador, 0);
+			jugadoresGanadores.put(jugador, new Premio());
 		}
 		
-		int cant_veces_que_gano = jugadoresGanadores.get(jugador);
-		
-		if(cant_veces_que_gano == 0) {
-			jugador.cobrar(MONTO_A_INCREMENTAR_PRIMERA_VEZ);
-			jugadoresGanadores.put(jugador, 1);
-		}
-		
-		if(cant_veces_que_gano == 1) {
-			jugador.cobrar(MONTO_A_INCREMENTAR_SEGUNDA_VEZ);
-			jugadoresGanadores.put(jugador, 2);
-		}
+		Premio premio_actual = jugadoresGanadores.get(jugador);
+		Dinero monto_premio = premio_actual.obtenerMonto();
+		jugador.cobrar(monto_premio);
+		premio_actual.siguientePremio();
 		
 	}
 
