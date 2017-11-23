@@ -150,9 +150,11 @@ public class Entrega2Test {
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
 		Jugador jugador2 = new JugadorHumano(tablero, new DineroAlgoPoly(monto_inicial));
+		int monto_esperado_jugador_2 = monto_inicial;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
 		jugador2.avanzar(cubilete_que_saca_2.sumarValores());
 		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_2);
-		int monto_esperado_jugador_2 = monto_inicial - 3000;
+		monto_esperado_jugador_2 = monto_inicial - 3000;
 		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
 		jugador2.avanzar(cubilete_que_saca_2.sumarValores());
 		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_2);

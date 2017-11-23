@@ -26,7 +26,7 @@ public abstract class TerrenoAlgoPoly extends Terreno{
 
 	private void cobrarAlquiler(Jugador jugador) throws DineroInsuficienteException {
 		Dinero dineroACobrar = new DineroAlgoPoly(0);
-		dineroACobrar.aumentarCantidad(this.alquilerTerreno);
+		//dineroACobrar.aumentarCantidad(this.alquilerTerreno);
 		dineroACobrar.aumentarCantidad(this.construcciones.getAlquilerTotal());
 		jugador.pagar(dineroACobrar);
 		propietario.cobrar(dineroACobrar);
