@@ -1,9 +1,9 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
-import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public abstract class TerrenoAlgoPoly extends Terreno{
@@ -19,7 +19,7 @@ public abstract class TerrenoAlgoPoly extends Terreno{
 
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
-		// solo pasa algo si tiene dueño y es otro jugador
+		// solo pasa algo si tiene dueï¿½o y es otro jugador
 		if (! this.propietario.equals(jugador)) cobrarAlquiler(jugador);
 		
 	}

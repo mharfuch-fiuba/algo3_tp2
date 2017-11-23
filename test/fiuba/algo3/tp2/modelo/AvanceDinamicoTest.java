@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 
 public class AvanceDinamicoTest {

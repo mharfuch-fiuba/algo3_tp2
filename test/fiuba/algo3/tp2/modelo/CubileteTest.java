@@ -3,6 +3,10 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
+import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
+
 public class CubileteTest {
 	
 	private static final double DELTA = 1e-6;

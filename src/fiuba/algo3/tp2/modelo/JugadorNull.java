@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.modelo;
 
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class JugadorNull extends Jugador {

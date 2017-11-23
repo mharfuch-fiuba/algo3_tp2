@@ -1,6 +1,10 @@
 package fiuba.algo3.tp2.modelo;
 
 import org.junit.Test;
+
+import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
+import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
+
 import org.junit.Assert;
 
 public class DadoCargadoTest {

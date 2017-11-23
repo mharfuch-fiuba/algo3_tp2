@@ -5,16 +5,16 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.Cubilete;
-import fiuba.algo3.tp2.modelo.DadoCargado;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.Lanzable;
 import fiuba.algo3.tp2.modelo.Tablero;
 import fiuba.algo3.tp2.modelo.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
+import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
@@ -196,7 +196,7 @@ public class Entrega2Test {
 
 	@Test
 	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() {
-		// por como lo tenemos implementado, el jugador no puede elegir qué construir. La inmobiliaria decide esto.		
+		// por como lo tenemos implementado, el jugador no puede elegir quï¿½ construir. La inmobiliaria decide esto.		
 	}
 
 	@Test
@@ -238,7 +238,7 @@ public class Entrega2Test {
 		bsAsNorte.construir();		
 		//hasta aca hay dos casas en BsAsSur y dos en BsAsNorte
 		bsAsSur.construir();
-		//ahora debería haber un hotel en BsAsSur
+		//ahora deberï¿½a haber un hotel en BsAsSur
 		
 		//otro jugador cae en BsAsSur
 		jugador200k.avanzar(2);

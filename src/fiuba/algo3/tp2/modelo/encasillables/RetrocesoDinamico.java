@@ -3,10 +3,10 @@ package fiuba.algo3.tp2.modelo.encasillables;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 
 public class RetrocesoDinamico implements Encasillable{
 	private ArrayList<Integer> dadosEfecto1 = new ArrayList<>(Arrays.asList(2,3,4,5,6));

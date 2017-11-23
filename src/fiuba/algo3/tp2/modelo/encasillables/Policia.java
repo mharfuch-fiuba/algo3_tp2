@@ -1,8 +1,8 @@
 package fiuba.algo3.tp2.modelo.encasillables;
 
-import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class Policia implements Encasillable {

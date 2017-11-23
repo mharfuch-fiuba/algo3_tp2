@@ -5,6 +5,9 @@ import static org.junit.Assert.fail;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
+import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
+
 public class DadoCubicoTest {
 
 	@Test

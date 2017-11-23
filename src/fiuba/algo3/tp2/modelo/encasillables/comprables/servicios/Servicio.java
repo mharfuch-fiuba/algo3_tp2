@@ -1,9 +1,9 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables.servicios;
 
-import fiuba.algo3.tp2.modelo.Cubilete;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
