@@ -11,6 +11,7 @@ import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.construible.ConstructorBuenosAires;
 import fiuba.algo3.tp2.modelo.construible.ConstructorCordoba;
 import fiuba.algo3.tp2.modelo.construible.ConstructorSalta;
+import fiuba.algo3.tp2.modelo.construible.Construible;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
@@ -109,7 +110,7 @@ public class Entrega2Test {
 	@Test
 	public void test03_jugadorQueCaeEnBuenosAiresSurConUnaCasaPaga3k()
 			throws DineroInsuficienteException, JugadorEnCarcelException {
-		// El requerimiento de este test era otro. Revisar con corrector.
+		
 		Cubilete cubilete = new Cubilete();
 		Lanzable dadoSiempre2 = new DadoCargado(2);
 		cubilete.agregar(dadoSiempre2);
@@ -125,6 +126,7 @@ public class Entrega2Test {
 		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
 		int dineroDespues = jugador200k.obtenerDinero().obtenerMontoEntero();
 		Assert.assertEquals(197000, dineroDespues);
+		
 		/*
 		// DE OTRA FORMA ... <PRUEBA DE INTEGRACION>
 		final int monto_inicial = 200000;
