@@ -216,26 +216,26 @@ public class Entrega2Test {
 		monto_esperado_jugador_1 -= 25000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		Construible bsas_nor = (Construible) jugador1.obtenerCasilleroActual();
-		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion
+		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion CasasInsuficientesException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_nor.construirHotel(); // <-- Tiene que tirar excepcion
-		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_sur.construirCasa();
-		monto_esperado_jugador_1 -= 5000;
-		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion
+		//bsas_nor.construirHotel(); // <-- Tiene que tirar excepcion CasasInsuficientesException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		//bsas_sur.construirCasa();
 		monto_esperado_jugador_1 -= 5000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion
+		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion CasasInsuficientesException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_sur.construirCasa(); // <-- Tiene que tirar excepcion
+		//bsas_sur.construirCasa();
+		monto_esperado_jugador_1 -= 5000;
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion CasasInsuficientesException
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		//bsas_sur.construirCasa(); // <-- Tiene que tirar excepcion MaximoDeCasasException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		//bsas_nor.construirCasa();
 		monto_esperado_jugador_1 -= 5500;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion
+		//bsas_sur.construirHotel(); // <-- Tiene que tirar excepcion CasasInsuficientesException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		//bsas_nor.construirCasa();
 		monto_esperado_jugador_1 -= 5500;
@@ -243,7 +243,7 @@ public class Entrega2Test {
 		//bsas_sur.construirHotel();
 		monto_esperado_jugador_1 -= 8000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_nor.construirCasa(); // <-- Tiene que tirar excepcion
+		//bsas_nor.construirCasa(); // <-- Tiene que tirar excepcion MaximoDeCasasException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 	}
 
