@@ -7,8 +7,8 @@ public class InmobiliariaBuenosAiresNorte extends Inmobiliaria {
 
 	public InmobiliariaBuenosAiresNorte() {
 		this.construcciones=new Construcciones();
-		Construccion primerCasa = new Construccion(new DineroAlgoPoly(5500), new DineroAlgoPoly(3500));
-		Construccion segundaCasa = new Construccion(new DineroAlgoPoly(5500), new DineroAlgoPoly(4000));
+		Construccion primerCasa = new Construccion(new DineroAlgoPoly(5500), new DineroAlgoPoly(1000));
+		Construccion segundaCasa = new Construccion(new DineroAlgoPoly(5500), new DineroAlgoPoly(500));
 		this.construcciones.agregarConstruccion(primerCasa);
 		this.construcciones.agregarConstruccion(segundaCasa);
 		

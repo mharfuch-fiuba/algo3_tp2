@@ -123,7 +123,8 @@ public class Entrega2Test {
 		jugador200k.avanzar(2);
 		jugador200k.aplicarEfectoDeCasilleroActual(cubilete);
 		int dineroDespues = jugador200k.obtenerDinero().obtenerMontoEntero();
-		//Assert.assertEquals(197000, dineroDespues);
+		Assert.assertEquals(197000, dineroDespues);
+		/*
 		// DE OTRA FORMA ... <PRUEBA DE INTEGRACION>
 		final int monto_inicial = 200000;
 		
@@ -160,7 +161,7 @@ public class Entrega2Test {
 		jugador2.aplicarEfectoDeCasilleroActual(cubilete_que_saca_2);
 		monto_esperado_jugador_2 = monto_esperado_jugador_2 - 3500;
 		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
-		
+		*/
 	}
 
 	@Test
@@ -198,7 +199,11 @@ public class Entrega2Test {
 
 	@Test
 	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() throws JugadorEnCarcelException, DineroInsuficienteException {
-		// por como lo tenemos implementado, el jugador no puede elegir qu� construir. La inmobiliaria decide esto.	
+		// por como lo tenemos implementado, el jugador no puede elegir qu� construir. La inmobiliaria decide esto.
+		
+		//Si decidimos cambiarlo, aca una posible implementacion del test:
+		
+		/*
 		final int monto_inicial = 200000;
 		int monto_esperado_jugador_1 = monto_inicial;
 
@@ -245,6 +250,7 @@ public class Entrega2Test {
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		//bsas_nor.construirCasa(); // <-- Tiene que tirar excepcion MaximoDeCasasException
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		*/
 	}
 
 	@Test
@@ -256,12 +262,12 @@ public class Entrega2Test {
 		bsAsNorte.construir();
 		bsAsNorte.construir();
 		//en este punto tiene dos casas en cada terreno.
-		//el dinero del jugador deberia ser ahora 35k (gasto 45k por los terrenos + 5k por c/casa)
+		//el dinero del jugador deberia ser ahora 34k (gasto 45k por los terrenos + 10k casas BsAsSur + 11k casas BsAsNorte)
 		Dinero antesDelHotel = jugador100k.obtenerDinero();
-		Assert.assertEquals(35000,antesDelHotel.obtenerMontoEntero());
+		Assert.assertEquals(34000,antesDelHotel.obtenerMontoEntero());
 		bsAsSur.construir();
 		Dinero despuesDelHotel = jugador100k.obtenerDinero();
-		Assert.assertEquals(27000, despuesDelHotel.obtenerMontoEntero());
+		Assert.assertEquals(26000, despuesDelHotel.obtenerMontoEntero());
 	}
 
 	@Test

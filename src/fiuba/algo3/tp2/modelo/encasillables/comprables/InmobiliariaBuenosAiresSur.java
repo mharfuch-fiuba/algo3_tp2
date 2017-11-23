@@ -6,8 +6,8 @@ public class InmobiliariaBuenosAiresSur extends Inmobiliaria {
 
 	public InmobiliariaBuenosAiresSur() {
 		this.construcciones=new Construcciones();
-		Construccion primerCasa = new Construccion(new DineroAlgoPoly(5000), new DineroAlgoPoly(3000));
-		Construccion segundaCasa = new Construccion(new DineroAlgoPoly(5000), new DineroAlgoPoly(3500));
+		Construccion primerCasa = new Construccion(new DineroAlgoPoly(5000), new DineroAlgoPoly(1000));
+		Construccion segundaCasa = new Construccion(new DineroAlgoPoly(5000), new DineroAlgoPoly(500));
 		this.construcciones.agregarConstruccion(primerCasa);
 		this.construcciones.agregarConstruccion(segundaCasa);
 	}
