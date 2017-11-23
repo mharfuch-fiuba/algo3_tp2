@@ -3,7 +3,6 @@ package fiuba.algo3.tp2.entregas;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.Comprable;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
@@ -13,6 +12,7 @@ import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresNorte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;

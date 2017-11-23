@@ -1,5 +1,6 @@
-package fiuba.algo3.tp2.modelo;
+package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
+import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public interface Comprable {

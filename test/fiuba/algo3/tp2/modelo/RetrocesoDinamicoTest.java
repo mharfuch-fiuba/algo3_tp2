@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresNorte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaNorte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
