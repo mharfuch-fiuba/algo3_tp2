@@ -1,10 +1,10 @@
 package fiuba.algo3.tp2.modelo.encasillables;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.premios.Premio;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 import java.util.HashMap; 
 

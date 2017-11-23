@@ -16,6 +16,9 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
 
 public class RetrocesoDinamicoTest{
 

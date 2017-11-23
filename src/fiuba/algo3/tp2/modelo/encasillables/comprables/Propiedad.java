@@ -2,11 +2,11 @@ package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
 import fiuba.algo3.tp2.modelo.Comprable;
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public abstract class Propiedad implements Comprable, Encasillable {
 

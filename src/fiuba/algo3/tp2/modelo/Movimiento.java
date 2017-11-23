@@ -1,6 +1,9 @@
 package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import fiuba.algo3.tp2.modelo.tablero.IterTablero;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class Movimiento {
 

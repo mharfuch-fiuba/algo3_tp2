@@ -1,9 +1,9 @@
 package fiuba.algo3.tp2.modelo.encasillables;
 
-import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class AvanceDinamico implements Encasillable{
 

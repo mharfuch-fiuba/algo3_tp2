@@ -11,6 +11,10 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Aysa;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Edesur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import fiuba.algo3.tp2.modelo.tablero.IterTablero;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
 
 public class TableroAlgoPolyTest {
 

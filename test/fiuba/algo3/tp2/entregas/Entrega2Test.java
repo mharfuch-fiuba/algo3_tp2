@@ -7,17 +7,17 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
-import fiuba.algo3.tp2.modelo.Encasillable;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.Tablero;
-import fiuba.algo3.tp2.modelo.TableroAlgoPoly;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
 
 public class Entrega2Test {
 

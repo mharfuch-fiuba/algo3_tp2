@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.modelo;
+package fiuba.algo3.tp2.modelo.tablero;
 
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
