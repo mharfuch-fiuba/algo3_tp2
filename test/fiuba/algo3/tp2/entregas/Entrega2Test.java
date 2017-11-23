@@ -367,9 +367,125 @@ public class Entrega2Test {
 
 	@Test
 	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() throws JugadorEnCarcelException, DineroInsuficienteException{
-		Assert.assertTrue(true);		
+		//Tests realizados en clase aparte porque hay que verificar todos los casos.
 	}
-
+	
+	@Test
+	public void test10_SiJugadorCaeEnBuenosAiresSurConUnaConstruccionSuDineroSeReduce3000() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(2);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly bsAsSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		bsAsSur.construir();
+		jugador200k.avanzar(2);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(3000, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnBuenosAiresNorteConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(4);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly bsAsNorte = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		bsAsNorte.construir();
+		jugador200k.avanzar(4);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(3500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnCordobaSurConUnaConstruccionSuDineroSeReduce1500() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(6);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly cordobaSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		cordobaSur.construir();
+		jugador200k.avanzar(6);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(1500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnCordobaNorteConUnaConstruccionSuDineroSeReduce1800() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(9);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly cordobaNorte = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		cordobaNorte.construir();
+		jugador200k.avanzar(9);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(1800, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnSantaFeConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(11);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly santaFe = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		santaFe.construir();
+		jugador200k.avanzar(11);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(3500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnSaltaNorteConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(13);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly saltaNorte = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		saltaNorte.construir();
+		jugador200k.avanzar(13);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(3250, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnSalaSurConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(13);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly saltaSur = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		saltaSur.construir();
+		jugador200k.avanzar(13);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(3250, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnNeuquenConUnaConstruccionSuDineroSeReduce3800() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(17);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly neuquen = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		neuquen.construir();
+		jugador200k.avanzar(17);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(3800, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
+	
+	@Test
+	public void test10_SiJugadorCaeEnTucumanConUnaConstruccionSuDineroSeReduce4500() throws DineroInsuficienteException, JugadorEnCarcelException {
+		jugador100k.avanzar(19);
+		jugador100k.comprarCasilleroActual();
+		TerrenoAlgoPoly tucuman = (TerrenoAlgoPoly) jugador100k.obtenerCasilleroActual();
+		tucuman.construir();
+		jugador200k.avanzar(19);
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
+		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
+		
+		Assert.assertEquals(4500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
+	}
 
 	@Test
 	public void test11_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioNoTieneSubteSuDineroSeReduce5400() throws JugadorEnCarcelException, DineroInsuficienteException {
