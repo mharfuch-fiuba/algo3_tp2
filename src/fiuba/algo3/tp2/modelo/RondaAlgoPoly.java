@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
-import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
 
 public class RondaAlgoPoly extends Ronda {
 

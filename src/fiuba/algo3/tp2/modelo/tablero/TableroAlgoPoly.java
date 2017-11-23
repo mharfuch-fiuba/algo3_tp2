@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Edesur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
-import fiuba.algo3.tp2.utils.DoublyLinkedCircularList.DoublyLinkedCircularListIterator;
+import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
 
 public class TableroAlgoPoly extends Tablero {
 
