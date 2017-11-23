@@ -1,4 +1,6 @@
-package fiuba.algo3.tp2.modelo.encasillables.comprables;
+package fiuba.algo3.tp2.modelo.inmobiliaria;
+
+import fiuba.algo3.tp2.modelo.construible.Construccion;
 
 public class InmobiliariaNull extends Inmobiliaria{
 

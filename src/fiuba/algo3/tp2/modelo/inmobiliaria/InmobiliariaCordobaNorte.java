@@ -1,6 +1,8 @@
-package fiuba.algo3.tp2.modelo.encasillables.comprables;
+package fiuba.algo3.tp2.modelo.inmobiliaria;
 
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.construible.Construccion;
+import fiuba.algo3.tp2.modelo.construible.Construcciones;
 
 public class InmobiliariaCordobaNorte extends Inmobiliaria {
 

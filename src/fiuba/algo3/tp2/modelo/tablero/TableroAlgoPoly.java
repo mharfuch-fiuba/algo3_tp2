@@ -1,5 +1,8 @@
 package fiuba.algo3.tp2.modelo.tablero;
 
+import fiuba.algo3.tp2.modelo.construible.ConstructorBuenosAires;
+import fiuba.algo3.tp2.modelo.construible.ConstructorCordoba;
+import fiuba.algo3.tp2.modelo.construible.ConstructorSalta;
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Aysa;

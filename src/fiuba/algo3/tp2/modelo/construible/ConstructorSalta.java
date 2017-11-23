@@ -1,4 +1,7 @@
-package fiuba.algo3.tp2.modelo.encasillables.comprables;
+package fiuba.algo3.tp2.modelo.construible;
+
+import fiuba.algo3.tp2.modelo.encasillables.comprables.SaltaNorte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.SaltaSur;
 
 public class ConstructorSalta {
 	

@@ -1,4 +1,7 @@
-package fiuba.algo3.tp2.modelo.encasillables.comprables;
+package fiuba.algo3.tp2.modelo.construible;
+
+import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresNorte;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
 
 public class ConstructorBuenosAires {
 	

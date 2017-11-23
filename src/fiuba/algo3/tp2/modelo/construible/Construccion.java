@@ -1,8 +1,9 @@
-package fiuba.algo3.tp2.modelo.encasillables.comprables;
+package fiuba.algo3.tp2.modelo.construible;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
+import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public class Construccion implements Comprable{

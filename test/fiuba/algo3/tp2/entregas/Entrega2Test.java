@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.entregas;
 
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,13 +8,15 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
+import fiuba.algo3.tp2.modelo.construible.ConstructorBuenosAires;
+import fiuba.algo3.tp2.modelo.construible.ConstructorCordoba;
+import fiuba.algo3.tp2.modelo.construible.ConstructorSalta;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
-import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
 
@@ -292,7 +293,7 @@ public class Entrega2Test {
 		bsAsNorte.construir();		
 		//hasta aca hay dos casas en BsAsSur y dos en BsAsNorte
 		bsAsSur.construir();
-		//ahora deber�a haber un hotel en BsAsSur
+		//ahora deberia haber un hotel en BsAsSur
 		
 		//otro jugador cae en BsAsSur
 		jugador200k.avanzar(2);
@@ -445,7 +446,7 @@ public class Entrega2Test {
 
 	@Test
 	public void test14_() {
-		Assert.assertTrue(true);
+		//duplicado test13
 	}
 
 	@Test
