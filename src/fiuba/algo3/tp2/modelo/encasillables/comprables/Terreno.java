@@ -13,4 +13,5 @@ public abstract class Terreno extends Propiedad implements Construible{
 	}
 	
 	
+	
 }

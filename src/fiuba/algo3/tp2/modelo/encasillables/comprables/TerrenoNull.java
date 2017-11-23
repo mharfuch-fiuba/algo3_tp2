@@ -23,6 +23,10 @@ public class TerrenoNull extends Terreno{
 		//no quiero implementar esto
 	}
 
+	@Override
+	public void comprar(Jugador jugador){
+		//no quiero implementar esto
 
+	}
 	
 }

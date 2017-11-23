@@ -21,7 +21,8 @@ import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
 
 public class Entrega2Test {
-
+	Terreno terreno = new TerrenoNull();
+	
 	private Tablero tablero = new TableroAlgoPoly();
 	private Dinero dinero100k = new DineroAlgoPoly(100000);
 	private Dinero dinero200k = new DineroAlgoPoly(200000);
