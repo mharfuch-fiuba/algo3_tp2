@@ -11,7 +11,6 @@ import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.construible.ConstructorBuenosAires;
 import fiuba.algo3.tp2.modelo.construible.ConstructorCordoba;
 import fiuba.algo3.tp2.modelo.construible.ConstructorSalta;
-import fiuba.algo3.tp2.modelo.construible.Construible;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;

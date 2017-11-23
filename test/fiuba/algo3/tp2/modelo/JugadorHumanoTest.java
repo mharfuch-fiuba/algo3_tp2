@@ -3,7 +3,6 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.encasillables.comprables.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
