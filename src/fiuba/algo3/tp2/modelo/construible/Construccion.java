@@ -9,17 +9,18 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 public class Construccion implements Comprable{
 
 	Jugador propietario;
-	private Dinero costo;
+	private Dinero precioCompra;
 	private Dinero alquiler;
 
 	public Construccion(Dinero costo, Dinero alquiler) {
-		this.costo = costo;
+		this.precioCompra = costo;
 		this.alquiler = alquiler;
 		this.propietario=new JugadorNull();
 	}
 
-	public Dinero getCosto() {
-		return this.costo;
+	@Override
+	public Dinero getPrecioCompra() {
+		return this.precioCompra;
 	}
 
 	public Dinero getAlquiler() {
@@ -33,7 +34,7 @@ public class Construccion implements Comprable{
 
 	@Override
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
-		jugador.pagar(this.costo);
+		jugador.pagar(this.precioCompra);
 		this.propietario=jugador;
 	}
 
@@ -41,5 +42,6 @@ public class Construccion implements Comprable{
 	public void cambiarTitularidad(Jugador nuevo_propietario) {
 		propietario = nuevo_propietario;
 	}
+
 
 }
