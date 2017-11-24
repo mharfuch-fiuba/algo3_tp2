@@ -1,7 +1,6 @@
 package fiuba.algo3.tp2.modelo.premios;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.Dinero;
 
 public class SinPremio implements EstadoPremio {
 
