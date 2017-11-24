@@ -15,8 +15,7 @@ public class VistaInicial extends VBox {
 	private void agregarBotonNuevaPartida(Stage stage, Scene escenaConfigurarPartida){
 		BotonNuevaPartida botonNuevaPartida = new BotonNuevaPartida();
 		botonNuevaPartida.setOnAction(new BotonNuevaPartidaHandler(stage,escenaConfigurarPartida));
-		this.getChildren().add(botonNuevaPartida);
-		
+		this.getChildren().add(botonNuevaPartida);	
 	}
 	
 }

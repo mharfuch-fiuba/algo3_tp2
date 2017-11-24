@@ -13,8 +13,9 @@
 .VistaInicial{
 	-fx-background-color: #7EBD91;
 	-fx-alignment: center;
-	-fx-pref-height: 600;
-	-fx-pref-width: 800;
+	-fx-pref-width: 1920;
+	-fx-pref-height: 1080;
+
 }
 .BotonIniciarPartida{
 	-fx-background-color: transparent;
@@ -30,43 +31,43 @@
 .VistaConfiguracionPartida{
 	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;
-	-fx-pref-height: 600;
-	-fx-pref-width: 800;
+	-fx-pref-width: 1920;
+	-fx-pref-height: 1080;
 }
 
 .VistaPartida{
 	-fx-background-color: transparent;
 	-fx-alignment: center;
-	-fx-pref-width: 800;
-	-fx-pref-height: 600;
+	-fx-pref-width: 1920;
+	-fx-pref-height: 1080;
 }
 
 .VistaTablero{
 	-fx-background-color: lightgray;
 	-fx-alignment: center;
-	-fx-pref-width: 600;
-	-fx-pref-height: 300;
+	-fx-pref-width: 1080;
+	-fx-pref-height: 1080;
 }
 
 .VistaRonda{
 	-fx-background-color: white;
 	-fx-alignment: center;
-	-fx-pref-width: 200;	
-	-fx-pref-height: 300;	
+	-fx-pref-width: 840;	
+	-fx-pref-height: 360;	
 }
 
 .VistaTurnoDinamica{
 	-fx-background-color: green;
 	-fx-alignment: center;
-	-fx-pref-width: 600;	
-	-fx-pref-height: 250;
+	-fx-pref-width: 840;	
+	-fx-pref-height: 720;
 }
 
 .VistaTurnoTitulo{
 	-fx-background-color: lightgreen;
 	-fx-alignment: center;
-	-fx-pref-width: 600;	
-	-fx-pref-height: 50;	
+	-fx-pref-width: 840;	
+	-fx-pref-height: 90;	
 }
 
 .VistaCasillero{

@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class VistaConfiguracionPartida extends VBox{
 
 	public VistaConfiguracionPartida(Stage stage, ControladorPartida controladorPartida, Scene escenaPartida) {
+		stage.setFullScreen(true);
 		agregarTextFieldNombres();
 		agregarBotonIniciarPartida(stage,controladorPartida,escenaPartida);
 		this.getStyleClass().add("VistaConfiguracionPartida");	}
