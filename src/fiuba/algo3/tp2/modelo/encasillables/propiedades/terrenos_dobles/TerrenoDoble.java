@@ -7,11 +7,11 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccio
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionNull;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Emparejable;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
-public abstract class TerrenoDoble extends Terreno implements Emparejable {
+public abstract class TerrenoDoble extends Propiedad implements Edificable, Emparejable {
 	
 	private Propiedad pareja;
 	private Construible construccion;

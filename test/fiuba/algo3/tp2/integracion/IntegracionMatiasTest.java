@@ -5,7 +5,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Terreno;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -25,7 +25,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
 		jugador1.avanzar(cubilete_que_saca_2.sumarValores());
-		Terreno bsas_sur = (Terreno) jugador1.obtenerCasilleroActual();
+		Edificable bsas_sur = (Edificable) jugador1.obtenerCasilleroActual();
 		jugador1.comprarCasilleroActual();//Compra BsAs Sur $20000
 		int monto_esperado_jugador_1 = monto_inicial - 20000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
@@ -34,7 +34,7 @@ public class IntegracionMatiasTest extends TestCase {
 		jugador1.comprarCasilleroActual();//Compra BsAs Norte $25000
 		monto_esperado_jugador_1 = monto_esperado_jugador_1 - 25000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		Terreno bsas_nor = (Terreno) jugador1.obtenerCasilleroActual();
+		Edificable bsas_nor = (Edificable) jugador1.obtenerCasilleroActual();
 		bsas_sur.construir();
 		monto_esperado_jugador_1 = monto_esperado_jugador_1 - 5000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
@@ -65,7 +65,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
 		jugador1.avanzar(cubilete_que_saca_2.sumarValores());
-		Terreno bsas_sur = (Terreno) jugador1.obtenerCasilleroActual();
+		Edificable bsas_sur = (Edificable) jugador1.obtenerCasilleroActual();
 		jugador1.comprarCasilleroActual();//Compra BsAs Sur $20000
 		monto_esperado_jugador_1 -= 20000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
@@ -77,7 +77,7 @@ public class IntegracionMatiasTest extends TestCase {
 		jugador1.comprarCasilleroActual();//Compra BsAs Norte $25000
 		monto_esperado_jugador_1 -= 25000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		Terreno bsas_nor = (Terreno) jugador1.obtenerCasilleroActual();
+		Edificable bsas_nor = (Edificable) jugador1.obtenerCasilleroActual();
 		
 		bsas_sur.construir();
 		monto_esperado_jugador_1 -= 5000;

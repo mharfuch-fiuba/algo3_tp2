@@ -10,13 +10,14 @@ import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoDoble;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class Entrega2Test {
-	Terreno terreno = null;
+	Edificable terreno = null;
 	
 	private Tablero tablero = new Tablero();
 	private Dinero dinero100k = new Dinero(100000);
@@ -24,45 +25,45 @@ public class Entrega2Test {
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 	private Jugador jugador200k = new JugadorHumano(tablero, dinero200k);
 
-	private Terreno bsAsSur;
-	private Terreno bsAsNorte;
-	private Terreno cordobaSur;
-	private Terreno cordobaNorte;
-	private Terreno santaFe;
-	private Terreno saltaSur;
-	private Terreno saltaNorte;
-	private Terreno neuquen;
-	private Terreno tucuman;
+	private TerrenoDoble bsAsSur;
+	private TerrenoDoble bsAsNorte;
+	private TerrenoDoble cordobaSur;
+	private TerrenoDoble cordobaNorte;
+	private TerrenoDoble santaFe;
+	private TerrenoDoble saltaSur;
+	private TerrenoDoble saltaNorte;
+	private TerrenoDoble neuquen;
+	private TerrenoDoble tucuman;
 	
 	public Entrega2Test() throws JugadorEnCarcelException{
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
 		jugador100k.avanzar(cubilete.sumarValores());
-		bsAsSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		bsAsNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		bsAsNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		cordobaSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		cordobaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		cordobaNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		cordobaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		santaFe = (Terreno) jugador100k.obtenerCasilleroActual();
+		santaFe = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		saltaNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		saltaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		saltaSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		saltaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		neuquen = (Terreno) jugador100k.obtenerCasilleroActual();
+		neuquen = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
-		tucuman = (Terreno) jugador100k.obtenerCasilleroActual();
+		tucuman = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
 	}
@@ -143,7 +144,7 @@ public class Entrega2Test {
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
 
 		// no se me ocurre otra forma de hacerlo ahora sin casteo
-		Terreno terreno = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble terreno = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(terreno);
 		terreno.construir();
 
@@ -164,13 +165,13 @@ public class Entrega2Test {
 		jugador100k.avanzar(2);
 
 		// no se me ocurre otra forma de hacerlo ahora sin casteo
-		Terreno bsAsSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(bsAsSur);
 		bsAsSur.construir();
 		bsAsSur.construir();
 		//hasta aca hay dos casas en BsAsSur
 		jugador100k.avanzar(2);
-		Terreno bsAsNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble bsAsNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(bsAsNorte);
 		bsAsNorte.construir();
 		//ahora hay dos casas en BsAsSur y una en BsAsNorte
@@ -271,13 +272,13 @@ public class Entrega2Test {
 		jugador100k.avanzar(2);
 
 		// no se me ocurre otra forma de hacerlo ahora sin casteo
-		Terreno bsAsSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(bsAsSur);
 		bsAsSur.construir();
 		bsAsSur.construir();
 		//hasta aca hay dos casas en BsAsSur
 		jugador100k.avanzar(2);
-		Terreno bsAsNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble bsAsNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(bsAsNorte);
 		bsAsNorte.construir();
 		bsAsNorte.construir();		
@@ -302,12 +303,12 @@ public class Entrega2Test {
 		cubilete2.agregar(dado_siempre_3);
 		
 		jugador100k.avanzar(cubilete.sumarValores());
-		Terreno cbaSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble cbaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(cbaSur);
 		cbaSur.construir();
 		cbaSur.construir();
 		jugador100k.avanzar(cubilete2.sumarValores());
-		Terreno cbaNor = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble cbaNor = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(cbaNor);
 		cbaNor.construir();
 		cbaNor.construir();
@@ -327,12 +328,12 @@ public class Entrega2Test {
 		cubilete.agregar(dado_siempre_13);
 		
 		jugador100k.avanzar(cubilete.sumarValores());
-		Terreno saltaNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble saltaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(saltaNorte);
 		saltaNorte.construir();
 		saltaNorte.construir();
 		jugador100k.avanzar(1);
-		Terreno saltaSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble saltaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(saltaSur);
 		saltaSur.construir();
 		saltaSur.construir();
@@ -362,7 +363,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnBuenosAiresSurConUnaConstruccionSuDineroSeReduce3000() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(2);
 		jugador100k.comprarCasilleroActual();
-		Terreno bsAsSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		bsAsSur.construir();
 		jugador200k.avanzar(2);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -375,7 +376,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnBuenosAiresNorteConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(4);
 		jugador100k.comprarCasilleroActual();
-		Terreno bsAsNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble bsAsNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		bsAsNorte.construir();
 		jugador200k.avanzar(4);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -388,7 +389,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnCordobaSurConUnaConstruccionSuDineroSeReduce1500() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(6);
 		jugador100k.comprarCasilleroActual();
-		Terreno cordobaSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble cordobaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cordobaSur.construir();
 		jugador200k.avanzar(6);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -401,7 +402,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnCordobaNorteConUnaConstruccionSuDineroSeReduce1800() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(9);
 		jugador100k.comprarCasilleroActual();
-		Terreno cordobaNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble cordobaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cordobaNorte.construir();
 		jugador200k.avanzar(9);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -414,7 +415,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnSantaFeConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(11);
 		jugador100k.comprarCasilleroActual();
-		Terreno santaFe = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble santaFe = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		santaFe.construir();
 		jugador200k.avanzar(11);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -427,7 +428,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnSaltaNorteConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(13);
 		jugador100k.comprarCasilleroActual();
-		Terreno saltaNorte = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble saltaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		saltaNorte.construir();
 		jugador200k.avanzar(13);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -440,7 +441,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnSalaSurConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(13);
 		jugador100k.comprarCasilleroActual();
-		Terreno saltaSur = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble saltaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		saltaSur.construir();
 		jugador200k.avanzar(13);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -453,7 +454,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnNeuquenConUnaConstruccionSuDineroSeReduce3800() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(17);
 		jugador100k.comprarCasilleroActual();
-		Terreno neuquen = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble neuquen = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		neuquen.construir();
 		jugador200k.avanzar(17);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
@@ -466,7 +467,7 @@ public class Entrega2Test {
 	public void test10_SiJugadorCaeEnTucumanConUnaConstruccionSuDineroSeReduce4500() throws DineroInsuficienteException, JugadorEnCarcelException {
 		jugador100k.avanzar(19);
 		jugador100k.comprarCasilleroActual();
-		Terreno tucuman = (Terreno) jugador100k.obtenerCasilleroActual();
+		TerrenoDoble tucuman = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		tucuman.construir();
 		jugador200k.avanzar(19);
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
