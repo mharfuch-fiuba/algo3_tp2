@@ -56,13 +56,6 @@
 	-fx-pref-height: 360;	
 }
 
-.VistaTurnoDinamica{
-	-fx-background-color: green;
-	-fx-alignment: center;
-	-fx-pref-width: 840;	
-	-fx-pref-height: 720;
-}
-
 .VistaTurnoTitulo{
 	-fx-background-color: lightgreen;
 	-fx-alignment: center;
@@ -70,8 +63,19 @@
 	-fx-pref-height: 90;	
 }
 
+.VistaTurnoDinamica{
+	-fx-background-color: green;
+	-fx-alignment: center;
+	-fx-pref-width: 840;	
+	-fx-pref-height: 720;
+}
+
 .VistaCasillero{
-	
+	-fx-border-color:black;
+	-fx-border-width:1px;
+	-fx-alignment: center;
+	-fx-pref-width: 180;	
+	-fx-pref-height: 180;	
 }
 
 .text-field {
