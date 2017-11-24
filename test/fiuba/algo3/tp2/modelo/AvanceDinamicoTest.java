@@ -6,8 +6,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
-import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class AvanceDinamicoTest {

@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
@@ -12,7 +12,7 @@ public abstract class Jugador {
 			
 	public abstract Dinero obtenerDinero();
 	
-	public abstract void comprar(Comprable comprable) throws DineroInsuficienteException;
+	public abstract void comprar(Propiedad propiedad) throws DineroInsuficienteException;
 	
 	public abstract void comprarCasilleroActual() throws DineroInsuficienteException;
 
@@ -38,8 +38,10 @@ public abstract class Jugador {
 	
 	public abstract boolean isNull();
 
-	public abstract void entregarPropiedad(Jugador destinatario, Comprable propiedad);
+	public abstract void entregarPropiedad(Jugador destinatario, Propiedad propiedad);
 
-	public abstract void agregarPropiedad(Comprable propiedad);
+	public abstract void agregarPropiedad(Propiedad propiedad);
+
+	public abstract boolean esNull();
 	
 }

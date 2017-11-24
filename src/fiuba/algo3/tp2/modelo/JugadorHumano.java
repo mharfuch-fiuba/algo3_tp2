@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import java.util.ArrayList;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
@@ -15,11 +15,11 @@ public class JugadorHumano extends Jugador {
 	private Dinero dinero;
 	
 
-	private ArrayList<Comprable> propiedades;
+	private ArrayList<Propiedad> propiedades;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		dinero = dinero_inicial;
-		propiedades = new ArrayList<Comprable>();
+		propiedades = new ArrayList<Propiedad>();
 		this.movimiento = new Movimiento(tablero);
 	}
 
@@ -45,7 +45,7 @@ public class JugadorHumano extends Jugador {
 		this.dinero.aumentarCantidad(monto);
 	}
 
-	public void comprar(Comprable comprable) throws DineroInsuficienteException{
+	public void comprar(Propiedad comprable) throws DineroInsuficienteException{
 		comprable.comprar(this);
 		this.propiedades.add(comprable);
 	}
@@ -101,12 +101,12 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void comprarCasilleroActual() throws DineroInsuficienteException {
-		Comprable casillero_actual = (Comprable) this.obtenerCasilleroActual();
+		Propiedad casillero_actual = (Propiedad) this.obtenerCasilleroActual();
 		this.comprar(casillero_actual);
 	}
 
 	@Override
-	public void entregarPropiedad(Jugador destinatario, Comprable propiedad) {
+	public void entregarPropiedad(Jugador destinatario, Propiedad propiedad) {
 		if(propiedades.contains(propiedad)) {
 			destinatario.agregarPropiedad(propiedad);
 			propiedades.remove(propiedad);
@@ -114,8 +114,14 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void agregarPropiedad(Comprable propiedad) {
+	public void agregarPropiedad(Propiedad propiedad) {
 		propiedades.add(propiedad);
-		propiedad.cambiarTitularidad(this);
+		propiedad.setPropietario(this);
 	}
+
+	@Override
+	public boolean esNull() {
+		return false;
+	}
+	
 }

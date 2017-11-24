@@ -3,12 +3,11 @@ package fiuba.algo3.tp2.integracion;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.construible.Construible;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
-import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 import org.junit.Assert;
@@ -25,7 +24,7 @@ public class IntegracionMatiasTest {
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
 		jugador1.avanzar(cubilete_que_saca_2.sumarValores());
-		Construible bsas_sur = (Construible) jugador1.obtenerCasilleroActual();
+		Terreno bsas_sur = (Terreno) jugador1.obtenerCasilleroActual();
 		jugador1.comprarCasilleroActual();//Compra BsAs Sur $20000
 		int monto_esperado_jugador_1 = monto_inicial - 20000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
@@ -34,7 +33,7 @@ public class IntegracionMatiasTest {
 		jugador1.comprarCasilleroActual();//Compra BsAs Norte $25000
 		monto_esperado_jugador_1 = monto_esperado_jugador_1 - 25000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		Construible bsas_nor = (Construible) jugador1.obtenerCasilleroActual();
+		Terreno bsas_nor = (Terreno) jugador1.obtenerCasilleroActual();
 		bsas_sur.construir();
 		monto_esperado_jugador_1 = monto_esperado_jugador_1 - 5000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
