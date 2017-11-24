@@ -36,7 +36,7 @@ public class Entrega2Test {
 	
 	public Entrega2Test() throws JugadorEnCarcelException{
 		Cubilete cubilete = new Cubilete();
-		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2}));
+		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
 		jugador100k.avanzar(cubilete.sumarValores());
 		bsAsSur = (Terreno) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
@@ -64,6 +64,7 @@ public class Entrega2Test {
 		jugador100k.avanzar(cubilete.sumarValores());
 		tucuman = (Terreno) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
+		jugador100k.avanzar(cubilete.sumarValores());
 	}
 
 	@Test
