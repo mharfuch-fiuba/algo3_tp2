@@ -10,29 +10,7 @@ public class AlgoPoly extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		/*
-		try{
-			
-			ControladorPartida controladorPartida = new ControladorPartida();
-	
-			ContenedorPartida vistaPartida = new ContenedorPartida(stage,controladorPartida);	
-			Scene escenaPartida = new Scene(vistaPartida);
-			
-			VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage,controladorPartida,escenaPartida);
-			Scene escenaConfiguracionPartida = new Scene(vistaConfiguracionPartida);
-			
 
-			
-			ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaPartida);
-			Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 800, 600);
-			
-			stage.setScene(escenaBienvenidos);
-			stage.setFullScreen(true);
-			stage.show();
-		}catch (Exception e){
-			e.printStackTrace();
-		}
-		*/
 		ControladorPartida controladorPartida = new ControladorPartida();
 
 		ContenedorPartida vistaPartida = new ContenedorPartida(stage,controladorPartida);	
@@ -44,18 +22,17 @@ public class AlgoPoly extends Application {
 		VistaInicial vistaInicial = new VistaInicial(stage,escenaConfiguracionPartida);
 		Scene escenaInicial = new Scene(vistaInicial);
 		
-		escenaInicial.getStylesheets().add("fiuba/algo3/tp2/vista/styles.css");
-		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles.css");
-		escenaPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles.css");
+		escenaInicial.getStylesheets().add("fiuba/algo3/tp2/vista/styles_1366x768.css");
+		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles_1366x768.css");
+		escenaPartida.getStylesheets().add("fiuba/algo3/tp2/vista/styles_1366x768.css");
 		//escenaPartida.setOnKeyPressed(new AplicacionOnKeyPressEventHandler(stage));
 		
-		
+		stage.setFullScreenExitHint("");
 		stage.setTitle("AlgoPoly");
 		stage.setScene(escenaInicial);
-		//stage.setMaximized(true);
 		stage.setFullScreen(true);
+		stage.setResizable(false);
 		stage.show();
-		//stage.setResizable(false);
 		
 	}
 

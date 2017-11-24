@@ -16,7 +16,6 @@ public class ContenedorTablero extends BorderPane {
 		this.setCenter(center);
 		this.setRight(right);
 		this.setBottom(bottom);
-		
 	}
 
 }
