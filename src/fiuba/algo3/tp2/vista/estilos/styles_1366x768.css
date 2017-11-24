@@ -8,8 +8,17 @@
  
 *{
  	-fx-font-family: "Roboto";
+ 	
  	-fx-alignment: center;
  }
+ 
+.TextFieldNombreJugador{
+	-fx-background-color: transparent;
+	-fx-alignment: center;
+	-fx-padding:5;
+	-fx-pref-width:80;
+	-fx-font-size: 16;
+}
  
 .VistaInicial{
 	-fx-background-color: #7EBD91;
@@ -20,7 +29,7 @@
 }
 .BotonIniciarPartida{
 	-fx-background-color: transparent;
-	-fx-text-fill: #2A7E43;	
+	-fx-text-fill: #D8EDDF;	
 	-fx-font-size:48.0;
 }
 .BotonNuevaPartida{
@@ -34,6 +43,7 @@
 	-fx-alignment: center;
 	-fx-pref-width: 1366;
 	-fx-pref-height: 768;
+	-fx-spacing: 30;
 }
 
 .VistaPartida{

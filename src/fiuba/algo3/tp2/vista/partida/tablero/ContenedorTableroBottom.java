@@ -1,11 +1,12 @@
-package fiuba.algo3.tp2.vista.partida;
+package fiuba.algo3.tp2.vista.partida.tablero;
 
+import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
-public class ContenedorTableroTop extends HBox {
+public class ContenedorTableroBottom extends HBox {
 
-	public ContenedorTableroTop() {
+	public ContenedorTableroBottom() {
 		for (int i = 0; i < 6; i++) {
 			ContenedorCasillero c = new ContenedorCasillero();
 			HBox.setHgrow(c, Priority.ALWAYS);

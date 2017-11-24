@@ -4,6 +4,7 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import javafx.scene.paint.Color;
 
 public class JugadorNull extends Jugador {
 
@@ -109,6 +110,30 @@ public class JugadorNull extends Jugador {
 	@Override
 	public boolean esNull() {
 		return true;
+	}
+
+	@Override
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setNombre(String nombre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setColor(Color color) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

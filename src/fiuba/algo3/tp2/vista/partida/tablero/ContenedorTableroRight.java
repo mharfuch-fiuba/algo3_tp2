@@ -1,11 +1,12 @@
-package fiuba.algo3.tp2.vista.partida;
+package fiuba.algo3.tp2.vista.partida.tablero;
 
+import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-public class ContenedorTableroLeft extends VBox {
+public class ContenedorTableroRight extends VBox {
 
-	public ContenedorTableroLeft() {
+	public ContenedorTableroRight() {
 		for (int i = 0; i < 4; i++) {
 			ContenedorCasillero c = new ContenedorCasillero();
 			VBox.setVgrow(c, Priority.ALWAYS);

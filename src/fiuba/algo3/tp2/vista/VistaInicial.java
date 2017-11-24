@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.vista;
 
+import fiuba.algo3.tp2.vista.botones.BotonNuevaPartida;
 import fiuba.algo3.tp2.vista.eventos.BotonNuevaPartidaHandler;
 import javafx.scene.Scene;
 //import javafx.scene.image.Image;

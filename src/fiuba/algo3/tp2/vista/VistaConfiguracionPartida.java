@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista;
 
 import fiuba.algo3.tp2.controlador.ControladorPartida;
+import fiuba.algo3.tp2.vista.botones.BotonIniciarPartida;
 import fiuba.algo3.tp2.vista.eventos.BotonIniciarPartidaHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -11,6 +12,7 @@ public class VistaConfiguracionPartida extends VBox{
 	public VistaConfiguracionPartida(Stage stage, ControladorPartida controladorPartida, Scene escenaPartida) {
 		stage.setFullScreen(true);
 		agregarTextFieldNombres();
+		
 		agregarBotonIniciarPartida(stage,controladorPartida,escenaPartida);
 		this.getStyleClass().add("VistaConfiguracionPartida");	}
 

@@ -5,9 +5,20 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propied
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import javafx.scene.paint.Color;
 
 public abstract class Jugador {
 
+	public abstract String getNombre();
+	
+	public abstract Color getColor();
+	
+	//esto lo haria en constructor
+	public abstract void setNombre(String nombre);
+	
+	//esto lo haria en constructor
+	public abstract void setColor(Color color);
+	
 	public abstract int getCantidadDePropiedades();
 			
 	public abstract Dinero obtenerDinero();

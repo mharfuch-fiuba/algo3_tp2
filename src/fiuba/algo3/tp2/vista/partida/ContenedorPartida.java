@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista.partida;
 
 import fiuba.algo3.tp2.controlador.ControladorPartida;
+import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 

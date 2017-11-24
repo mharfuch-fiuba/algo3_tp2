@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.vista.partida;
+package fiuba.algo3.tp2.vista.partida.tablero;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;

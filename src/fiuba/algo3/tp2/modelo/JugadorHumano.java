@@ -8,11 +8,14 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import javafx.scene.paint.Color;
 
 public class JugadorHumano extends Jugador {
 
 	private Movimiento movimiento;
 	private Dinero dinero;
+	private String nombre;
+	private Color color;
 	
 
 	private ArrayList<Propiedad> propiedades;
@@ -122,6 +125,28 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public boolean esNull() {
 		return false;
+	}
+	
+	@Override
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	@Override
+	public Color getColor() {
+		return this.color;
+	}
+
+	//Provisorio! Debería ir en constructor
+	@Override
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
+	}
+
+	@Override
+	public void setColor(Color color) {
+		this.color=color;
+		
 	}
 	
 }
