@@ -13,8 +13,8 @@ public class JugadorHumanoTest {
 
 	Tablero tablero = new TableroAlgoPoly();
 
-	Dinero dinero100k = new DineroAlgoPoly(100000);
-	Dinero dinero50k = new DineroAlgoPoly(50000);
+	Dinero dinero100k = new Dinero(100000);
+	Dinero dinero50k = new Dinero(50000);
 	
 	Comprable comprable = new Tucuman();
 

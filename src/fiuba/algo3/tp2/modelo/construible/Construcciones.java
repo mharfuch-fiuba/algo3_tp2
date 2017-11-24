@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.modelo.construible;
 import java.util.ArrayList;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 
 public class Construcciones {
 	
@@ -22,7 +22,7 @@ public class Construcciones {
 	}
 	
 	public Dinero getAlquilerTotal(){
-		Dinero alquilerTotal=new DineroAlgoPoly(0);
+		Dinero alquilerTotal=new Dinero(0);
 		construcciones.forEach(construccion->alquilerTotal.aumentarCantidad(construccion.getAlquiler()));
 		return alquilerTotal;
 	}

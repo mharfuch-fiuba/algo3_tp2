@@ -7,9 +7,9 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
 public class DineroAlgoPolyTest {
-	Dinero dinero100 = new DineroAlgoPoly(100);
-	Dinero dinero120 = new DineroAlgoPoly(120);
-	Dinero dinero0 = new DineroAlgoPoly(0);
+	Dinero dinero100 = new Dinero(100);
+	Dinero dinero120 = new Dinero(120);
+	Dinero dinero0 = new Dinero(0);
 
 	@Test
 	public void siCreoConParametro100GetCantidadDevuelve100() {
@@ -35,7 +35,7 @@ public class DineroAlgoPolyTest {
 	
 	@Test(expected = DineroNegativoException.class)
 	public void crearConParametroNegativoLanzaExcepcion() {
-		new DineroAlgoPoly(-10);
+		new Dinero(-10);
 	}
 
 	@Test(expected = DineroInsuficienteException.class)

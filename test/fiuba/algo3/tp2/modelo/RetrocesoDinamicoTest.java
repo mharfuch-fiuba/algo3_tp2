@@ -23,7 +23,7 @@ public class RetrocesoDinamicoTest{
 
 	int posicionEnTableroDeRetrocesoDinamico = 18;
 	Tablero tablero = new TableroAlgoPoly();
-	DineroAlgoPoly dinero = new DineroAlgoPoly(100000);
+	Dinero dinero = new Dinero(100000);
 	Jugador jugador = new JugadorHumano(tablero, dinero);
 	Cubilete cubilete = new Cubilete();
 
@@ -93,7 +93,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test06unJugadorCon100001EfectivoQueSaca10Retrocede1Lugar() throws Exception {
-		jugador.cobrar(new DineroAlgoPoly(1));
+		jugador.cobrar(new Dinero(1));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -107,7 +107,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test07unJugadorCon100002EfectivoQueSaca10Retrocede2Lugares() throws Exception {
-		jugador.cobrar(new DineroAlgoPoly(2));
+		jugador.cobrar(new Dinero(2));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -121,7 +121,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test08unJugadorCon100009EfectivoQueSaca10Retrocede9Lugares() throws Exception {
-		jugador.cobrar(new DineroAlgoPoly(9));
+		jugador.cobrar(new Dinero(9));
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico

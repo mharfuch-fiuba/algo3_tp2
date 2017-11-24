@@ -1,14 +1,35 @@
 package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
-public abstract class Dinero {
-	
-	public abstract int obtenerMontoEntero();
+public class Dinero {
 
-	public abstract void aumentarCantidad(Dinero dinero);
+	private int cantidad;
 
-	public abstract void disminuirCantidad(Dinero dinero) throws DineroInsuficienteException;
+	public Dinero(int cantidad) throws DineroNegativoException {
+		if (cantidad < 0)
+			throw new DineroNegativoException();
+		this.cantidad = cantidad;
+	}
 
-	public abstract Dinero obtenerPorcentaje(int porcentaje);
+	public int obtenerMontoEntero() {
+		return this.cantidad;
+	}
+
+	public void aumentarCantidad(Dinero monto) {
+		this.cantidad += monto.obtenerMontoEntero();
+	}
+
+	public void disminuirCantidad(Dinero monto) throws DineroInsuficienteException {
+		if (this.cantidad < monto.obtenerMontoEntero())
+			throw new DineroInsuficienteException();
+		this.cantidad -= monto.obtenerMontoEntero();
+	}
+
+	public Dinero obtenerPorcentaje(int porcentaje) {
+		int resultado = (porcentaje*this.cantidad)/100;
+		return new Dinero(resultado);
+	}
+
 }

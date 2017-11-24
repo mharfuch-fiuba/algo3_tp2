@@ -58,7 +58,7 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void pagarFianza() throws DineroInsuficienteException {	
 		if (this.movimiento.getTurnosPendientesDeCarcel() == 3)	return;
-		this.pagar(new DineroAlgoPoly(45000));
+		this.pagar(new Dinero(45000));
 		this.movimiento.desencarcelar();
 	}
 

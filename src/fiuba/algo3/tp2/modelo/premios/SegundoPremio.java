@@ -1,11 +1,11 @@
 package fiuba.algo3.tp2.modelo.premios;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 
 public class SegundoPremio implements EstadoPremio {
 
-	private static final Dinero monto = new DineroAlgoPoly(30000);
+	private static final Dinero monto = new Dinero(30000);
 	
 	@Override
 	public Dinero obtenerMonto() {

@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.construible.Construccion;
 import fiuba.algo3.tp2.modelo.construible.Construcciones;
@@ -27,7 +27,7 @@ public abstract class TerrenoAlgoPoly extends Terreno{
 	}
 
 	private void cobrarAlquiler(Jugador jugador) throws DineroInsuficienteException {
-		Dinero dineroACobrar = new DineroAlgoPoly(0);
+		Dinero dineroACobrar = new Dinero(0);
 		dineroACobrar.aumentarCantidad(this.alquilerTerreno);
 		dineroACobrar.aumentarCantidad(this.construcciones.getAlquilerTotal());
 		jugador.pagar(dineroACobrar);

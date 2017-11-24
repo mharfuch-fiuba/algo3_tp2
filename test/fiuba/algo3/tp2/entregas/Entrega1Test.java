@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
@@ -24,7 +24,7 @@ import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
 
 public class Entrega1Test {
 
-	private Dinero dinero100k = new DineroAlgoPoly(100000);
+	private Dinero dinero100k = new Dinero(100000);
 	private Tablero tablero = new TableroAlgoPoly();
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 
@@ -39,7 +39,7 @@ public class Entrega1Test {
 		jugador100k.avanzar(cubilete.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
 		int monto_final = jugador100k.obtenerDinero().obtenerMontoEntero();
-		int monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
+		int monto_esperado = new Dinero(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final);
 	}
 
@@ -54,7 +54,7 @@ public class Entrega1Test {
 		jugador100k.avanzar(cubilete.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
 		int monto_final = jugador100k.obtenerDinero().obtenerMontoEntero();
-		int monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
+		int monto_esperado = new Dinero(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final);
 
 		Lanzable dado3 = new DadoCargado(7);
@@ -66,7 +66,7 @@ public class Entrega1Test {
 		jugador100k.avanzar(cubilete2.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete2);
 		monto_final = jugador100k.obtenerDinero().obtenerMontoEntero();
-		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
+		monto_esperado = new Dinero(180000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final);
 
 	}
@@ -82,7 +82,7 @@ public class Entrega1Test {
 		jugador100k.avanzar(cubilete.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
 		int monto_final = jugador100k.obtenerDinero().obtenerMontoEntero();
-		int monto_esperado = new DineroAlgoPoly(150000).obtenerMontoEntero();
+		int monto_esperado = new Dinero(150000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final);
 
 		Lanzable dado3 = new DadoCargado(7);
@@ -94,7 +94,7 @@ public class Entrega1Test {
 		jugador100k.avanzar(cubilete2.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete2);
 		monto_final = jugador100k.obtenerDinero().obtenerMontoEntero();
-		monto_esperado = new DineroAlgoPoly(180000).obtenerMontoEntero();
+		monto_esperado = new Dinero(180000).obtenerMontoEntero();
 		Assert.assertEquals(monto_esperado, monto_final);
 
 		Lanzable dado5 = new DadoCargado(7);
@@ -151,7 +151,7 @@ public class Entrega1Test {
 
 	@Test(expected=JugadorEnCarcelException.class)
 	public void test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse() throws Exception {
-		DineroAlgoPoly dinero40k = new DineroAlgoPoly(40000);
+		Dinero dinero40k = new Dinero(40000);
 		Jugador jugador40k = new JugadorHumano(tablero,dinero40k);
 
 		Lanzable dado1 = new DadoCargado(2);

@@ -8,7 +8,7 @@ import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 public class JugadorNull extends Jugador {
 
 	@Override
-	public DineroAlgoPoly obtenerDinero() {
+	public Dinero obtenerDinero() {
 		// TODO Auto-generated method stub
 		return null;
 	}

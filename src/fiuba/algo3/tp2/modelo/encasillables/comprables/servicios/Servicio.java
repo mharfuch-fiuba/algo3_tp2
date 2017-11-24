@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.comprables.servicios;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.DineroAlgoPoly;
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
@@ -21,7 +21,7 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	}
 	
 	private void realizarCobros(Jugador jugador_actual, Jugador propietario, int penalidad, Cubilete dados) throws DineroInsuficienteException {
-		Dinero monto = new DineroAlgoPoly(penalidad * dados.sumarValores());
+		Dinero monto = new Dinero(penalidad * dados.sumarValores());
 		jugador_actual.pagar(monto);
 		propietario.cobrar(monto);
 	}
