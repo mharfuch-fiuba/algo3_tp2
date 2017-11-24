@@ -18,12 +18,12 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class Entrega2Test {
 	Terreno terreno = new TerrenoNull();
 	
-	private Tablero tablero = new TableroAlgoPoly();
+	private Tablero tablero = new Tablero();
 	private Dinero dinero100k = new Dinero(100000);
 	private Dinero dinero200k = new Dinero(200000);
 	private Jugador jugador100k = new JugadorHumano(tablero, dinero100k);

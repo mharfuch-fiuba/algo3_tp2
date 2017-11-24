@@ -7,11 +7,11 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class JugadorHumanoTest {
 
-	Tablero tablero = new TableroAlgoPoly();
+	Tablero tablero = new Tablero();
 
 	Dinero dinero100k = new Dinero(100000);
 	Dinero dinero50k = new Dinero(50000);

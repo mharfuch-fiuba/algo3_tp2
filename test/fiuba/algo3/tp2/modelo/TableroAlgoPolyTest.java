@@ -14,20 +14,20 @@ import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.IterTablero;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class TableroAlgoPolyTest {
 
 	@Test
 	public void testCrearIteradorNoEsNulo() {
-		Tablero tablero = new TableroAlgoPoly();
+		Tablero tablero = new Tablero();
 		IterTablero iterador = tablero.crearIterador();
 		Assert.assertNotNull(iterador);
 	}
 	
 	@Test
 	public void testCrearIteradorTieneLaSecuenciaCorrectaDeCasilleros() {
-		Tablero tablero = new TableroAlgoPoly();
+		Tablero tablero = new Tablero();
 		IterTablero iterador = tablero.crearIterador();
 		ArrayList<Encasillable> casilleros = new ArrayList<Encasillable>();
 		for(int i = 0; i < 20; i++) {
@@ -58,7 +58,7 @@ public class TableroAlgoPolyTest {
 
 	@Test
 	public void testTableroAlgoPolyNoEsNuloAlCrear() {
-		Tablero tablero = new TableroAlgoPoly();
+		Tablero tablero = new Tablero();
 		Assert.assertNotNull(tablero);
 	}
 

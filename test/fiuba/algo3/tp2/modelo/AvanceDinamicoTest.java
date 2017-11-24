@@ -8,11 +8,11 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class AvanceDinamicoTest {
 
-	Tablero tablero = new TableroAlgoPoly();
+	Tablero tablero = new Tablero();
 	Jugador jugador = new JugadorHumano(tablero, new Dinero(100000));
 	Cubilete cubilete_para_llegar_hasta_avance_dinamico = new Cubilete();
 	private static final int cant_propiedades = 3;

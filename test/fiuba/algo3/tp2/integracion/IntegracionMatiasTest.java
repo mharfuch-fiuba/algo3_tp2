@@ -9,13 +9,13 @@ import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 import org.junit.Assert;
 
 public class IntegracionMatiasTest {
 	
-	private Tablero tablero = new TableroAlgoPoly();
+	private Tablero tablero = new Tablero();
 	
 	public void testConstruirEnBuenosAires() throws JugadorEnCarcelException, DineroInsuficienteException {
 		final int monto_inicial = 200000;

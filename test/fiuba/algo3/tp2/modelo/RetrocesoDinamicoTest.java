@@ -17,12 +17,12 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.modelo.tablero.TableroAlgoPoly;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class RetrocesoDinamicoTest{
 
 	int posicionEnTableroDeRetrocesoDinamico = 18;
-	Tablero tablero = new TableroAlgoPoly();
+	Tablero tablero = new Tablero();
 	Dinero dinero = new Dinero(100000);
 	Jugador jugador = new JugadorHumano(tablero, dinero);
 	Cubilete cubilete = new Cubilete();
