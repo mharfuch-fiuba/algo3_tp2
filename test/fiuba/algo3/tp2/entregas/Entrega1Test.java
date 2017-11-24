@@ -4,22 +4,20 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.SantaFe;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Aysa;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Aysa;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
-import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class Entrega1Test {
@@ -112,9 +110,9 @@ public class Entrega1Test {
 
 	@Test
 	public void test04_ElJugadorCompraUnBarrio() throws DineroInsuficienteException {
-		Comprable comprable = new Tucuman();
+		Propiedad comprable = new Tucuman();
 		jugador100k.comprar(comprable);
-		Assert.assertEquals(comprable.obtenerPropietario(), jugador100k);
+		Assert.assertEquals(comprable.getPropietario(), jugador100k);
 	}
 
 	@Test(expected=JugadorEnCarcelException.class)

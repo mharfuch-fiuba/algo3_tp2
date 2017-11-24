@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.modelo;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
@@ -84,7 +84,7 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void comprar(Comprable comprable) throws DineroInsuficienteException {
+	public void comprar(Propiedad comprable) throws DineroInsuficienteException {
 		// TODO Auto-generated method stub
 
 	}
@@ -95,15 +95,20 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void entregarPropiedad(Jugador destinatario, Comprable propiedad) {
+	public void entregarPropiedad(Jugador destinatario, Propiedad propiedad) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void agregarPropiedad(Comprable propiedad) {
+	public void agregarPropiedad(Propiedad propiedad) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean esNull() {
+		return true;
 	}
 
 }

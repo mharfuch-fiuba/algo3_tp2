@@ -3,10 +3,9 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class JugadorHumanoTest {
@@ -16,7 +15,7 @@ public class JugadorHumanoTest {
 	Dinero dinero100k = new Dinero(100000);
 	Dinero dinero50k = new Dinero(50000);
 	
-	Comprable comprable = new Tucuman();
+	Propiedad comprable = new Tucuman();
 
 	Jugador jugador100k = new JugadorHumano(tablero, dinero100k);
 

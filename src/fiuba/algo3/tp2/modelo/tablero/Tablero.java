@@ -1,14 +1,9 @@
 package fiuba.algo3.tp2.modelo.tablero;
 
-import fiuba.algo3.tp2.modelo.construible.ConstructorBuenosAires;
-import fiuba.algo3.tp2.modelo.construible.ConstructorCordoba;
-import fiuba.algo3.tp2.modelo.construible.ConstructorSalta;
 import fiuba.algo3.tp2.modelo.encasillables.*;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.*;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Aysa;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Edesur;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.*;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
 
@@ -50,30 +45,32 @@ public class Tablero {
 		casilleros = new DoublyLinkedCircularList();
 		Carcel carcel = new Carcel();
 
-		ConstructorBuenosAires constructorBuenosAires = new ConstructorBuenosAires(); 
-		ConstructorCordoba constructorCordoba = new ConstructorCordoba();
-		ConstructorSalta constructorSalta= new ConstructorSalta();
-
 		Subte subte = new Subte();
 		Tren tren = new Tren();
 		Aysa aysa = new Aysa();
 		Edesur edesur = new Edesur();
+		BuenosAiresNorte buenosairesnorte = new BuenosAiresNorte();
+		BuenosAiresSur buenosairessur = new BuenosAiresSur();
+		CordobaNorte cordobanorte = new CordobaNorte();
+		CordobaSur cordobasur = new CordobaSur();
+		SaltaNorte saltanorte = new SaltaNorte();
+		SaltaSur saltasur = new SaltaSur();
 
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
-		casilleros.add(constructorBuenosAires.getSur());
+		casilleros.add(buenosairessur);
 		casilleros.add(edesur);
-		casilleros.add(constructorBuenosAires.getNorte());
+		casilleros.add(buenosairesnorte);
 		casilleros.add(carcel);
-		casilleros.add(constructorCordoba.getSur());
+		casilleros.add(cordobasur);
 		casilleros.add(new AvanceDinamico());
 		casilleros.add(subte);
-		casilleros.add(constructorCordoba.getNorte());
+		casilleros.add(cordobanorte);
 		casilleros.add(new ImpuestoDeLujo());
 		casilleros.add(new SantaFe());
 		casilleros.add(aysa);
-		casilleros.add(constructorSalta.getNorte());
-		casilleros.add(constructorSalta.getSur());
+		casilleros.add(saltanorte);
+		casilleros.add(saltasur);
 		casilleros.add(new Policia(carcel));
 		casilleros.add(tren);
 		casilleros.add(new Neuquen());
@@ -84,6 +81,12 @@ public class Tablero {
 		subte.agregarPareja(tren);
 		aysa.agregarPareja(edesur);
 		edesur.agregarPareja(aysa);
+		buenosairesnorte.agregarPareja(buenosairessur);
+		buenosairessur.agregarPareja(buenosairesnorte);
+		cordobanorte.agregarPareja(cordobasur);
+		cordobasur.agregarPareja(cordobanorte);
+		saltanorte.agregarPareja(saltasur);
+		saltasur.agregarPareja(saltanorte);
 	}
 
 	public IterTablero crearIterador() {

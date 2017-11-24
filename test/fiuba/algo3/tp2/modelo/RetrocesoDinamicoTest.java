@@ -6,17 +6,16 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Comprable;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaNorte;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.CordobaSur;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Neuquen;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.Tucuman;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Subte;
-import fiuba.algo3.tp2.modelo.encasillables.comprables.servicios.Tren;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Subte;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Tren;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaNorte;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaSur;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
-import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class RetrocesoDinamicoTest{
@@ -43,7 +42,7 @@ public class RetrocesoDinamicoTest{
 
 	@Test
 	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws DineroInsuficienteException, JugadorEnCarcelException  {
-		Comprable comprable = new Tucuman();
+		Propiedad comprable = new Tucuman();
 		jugador.comprar(comprable);
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
 		jugador.avanzar(cubilete.sumarValores());
@@ -60,9 +59,9 @@ public class RetrocesoDinamicoTest{
 	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws JugadorEnCarcelException, DineroInsuficienteException {
 		
 		
-		Comprable comprable1 = new Tucuman();
-		Comprable comprable2 = new Neuquen();
-		Comprable comprable3 = new CordobaSur();
+		Propiedad comprable1 = new Tucuman();
+		Propiedad comprable2 = new Neuquen();
+		Propiedad comprable3 = new CordobaSur();
 		jugador.comprar(comprable1);
 		jugador.comprar(comprable2);
 		jugador.comprar(comprable3);
