@@ -12,4 +12,9 @@ public class Subte extends Servicio {
 		super(PRECIO_DE_COMPRA, MULT_PENALIDAD, MULT_PENALIDAD_CON_TREN);
 	}
 	
+	@Override
+	public String getNombre() {
+		return "Subte";
+	}
+	
 }

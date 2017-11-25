@@ -11,4 +11,8 @@ public class Carcel implements Encasillable {
 		jugador.encarcelar();
 	}
 
+	@Override
+	public String getNombre() {
+		return "Carcel";
+	}
 }

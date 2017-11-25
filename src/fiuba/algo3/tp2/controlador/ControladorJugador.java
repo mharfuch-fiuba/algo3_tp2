@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.controlador;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.vista.partida.VistaJugador;
+import javafx.scene.paint.Color;
 
 public class ControladorJugador {
 
@@ -14,6 +15,14 @@ public class ControladorJugador {
 	
 	public String getNombre(){
 		return this.jugador.getNombre();
+	}
+	
+	public Color getColor(){
+		return this.jugador.getColor();
+	}
+	
+	public String getDinero(){
+		return String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
 	}
 	
 }

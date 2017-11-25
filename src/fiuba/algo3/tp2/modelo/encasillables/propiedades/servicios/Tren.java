@@ -12,4 +12,8 @@ public class Tren extends Servicio {
 		super(PRECIO_DE_COMPRA, MULT_PENALIDAD, MULT_PENALIDAD_CON_SUBTE);
 	}
 	
+	@Override
+	public String getNombre() {
+		return "Tren";
+	}
 }

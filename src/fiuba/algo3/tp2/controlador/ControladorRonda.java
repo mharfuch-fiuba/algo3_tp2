@@ -22,7 +22,6 @@ public class ControladorRonda {
 	}
 	
 	public void agregarJugadores(ContenedorRonda contenedorRonda){
-		System.out.println("agregarJugadores");
 
 		/*
 		 * esto es una truchada, hay que arreglar el iterador
@@ -30,11 +29,9 @@ public class ControladorRonda {
 		 */
 		try{
 		for (int i=0;i<3;i++) {
-			System.out.println("controRonda1");
 			Jugador j = this.ronda.obtenerJugadorActual();
 			this.ronda.avanzarTurno();
 			ControladorJugador controladorJugador = new ControladorJugador(j);
-			System.out.println("controRonda2");
 			VistaJugador vista = new VistaJugador(controladorJugador);
 			HBox.setHgrow(vista, Priority.ALWAYS);
 			contenedorRonda.getChildren().add(vista);		

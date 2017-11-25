@@ -31,5 +31,10 @@ public class Quini6 implements Encasillable{
 		premio_actual.siguientePremio();
 		
 	}
+	
+	@Override
+	public String getNombre() {
+		return "Quini 6";
+	}
 
 }

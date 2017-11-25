@@ -12,4 +12,9 @@ public class Aysa extends Servicio {
 		super(PRECIO_DE_COMPRA, MULT_PENALIDAD, MULT_PENALIDAD_CON_EDESUR);
 	}
 	
+	
+	@Override
+	public String getNombre() {
+		return "AYSA";
+	}
 }
