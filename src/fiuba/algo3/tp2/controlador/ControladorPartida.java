@@ -10,12 +10,19 @@ import javafx.scene.paint.Color;
 public class ControladorPartida {
 
 	private Partida partida;
+	private ControladorRonda controladorRonda;
 
 	public ControladorPartida() {
-		this.partida = new Partida();
+		
 	}
 
-	public void agregarJugadores(String[] jugadores) {
+	public void nuevaPartida(String[] jugadores){
+		this.partida=new Partida();
+		agregarJugadores(jugadores);
+		this.controladorRonda=new ControladorRonda(this.partida.getRonda());	
+	}
+	
+	private void agregarJugadores(String[] jugadores) {
 		for (String nombre : jugadores) {
 			Jugador jugador = new JugadorHumano(this.partida.getTablero(), this.partida.dineroInicial);
 			jugador.setNombre(nombre);
@@ -27,6 +34,10 @@ public class ControladorPartida {
 	private Color colorAleatorio() {
 		Random rand = new Random();
 		return new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), 100);
+	}
+	
+	public ControladorRonda getControladorRonda(){
+		return this.controladorRonda;
 	}
 
 }

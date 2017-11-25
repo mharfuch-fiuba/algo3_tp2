@@ -34,5 +34,7 @@ public class RondaAlgoPoly extends Ronda {
 			throw new NoHayJugadoresException();
 		}
 	}
+	
+	
 
 }
