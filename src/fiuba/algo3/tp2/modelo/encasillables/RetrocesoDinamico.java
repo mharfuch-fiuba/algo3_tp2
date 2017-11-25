@@ -42,5 +42,8 @@ public class RetrocesoDinamico implements Encasillable{
 			efectoRetrocedeSumaDadosMenosDos(jugador, sumaDados);
 		}
 	}
-
+	@Override
+	public String getNombre() {
+		return "Retroceso Dinamico";
+	}
 }

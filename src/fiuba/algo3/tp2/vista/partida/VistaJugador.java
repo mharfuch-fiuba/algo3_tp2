@@ -12,12 +12,18 @@ public class VistaJugador extends VBox{
 	public VistaJugador(ControladorJugador controladorJugador){
 		this.getStyleClass().add("VistaJugador");
 		this.controladorJugador = controladorJugador;
-		agregarNombre();
+		mostrarNombre();
+		mostrarDinero();
 	}
 	
-	private void agregarNombre(){
+	private void mostrarNombre(){
 		Label labelNombre = new Label(controladorJugador.getNombre());
 		this.getChildren().add(labelNombre);
+	}
+	
+	private void mostrarDinero(){
+		Label labelDinero = new Label(controladorJugador.getDinero());
+		this.getChildren().add(labelDinero);
 	}
 	
 }

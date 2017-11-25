@@ -12,6 +12,7 @@ public class ControladorPartida {
 
 	private Partida partida;
 	private ControladorRonda controladorRonda;
+	private ControladorTablero controladorTablero;
 
 	public ControladorPartida() {
 	}
@@ -19,8 +20,9 @@ public class ControladorPartida {
 	public void nuevaPartida(String[] jugadores){
 		this.partida=new Partida();
 		agregarJugadores(jugadores);
-		this.controladorRonda=new ControladorRonda(this.partida.getRonda());	
+		this.controladorRonda=new ControladorRonda(this.partida.getRonda());
 		this.controladorRonda.agregarVistasJugadores();
+		this.controladorTablero=new ControladorTablero(this.partida.getTablero());	
 	}
 	
 	private void agregarJugadores(String[] jugadores) {
@@ -39,6 +41,10 @@ public class ControladorPartida {
 	
 	public ControladorRonda getControladorRonda(){
 		return this.controladorRonda;
+	}
+	
+	public ControladorTablero getControladorTablero(){
+		return this.controladorTablero;
 	}
 
 }

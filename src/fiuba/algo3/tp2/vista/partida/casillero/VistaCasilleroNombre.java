@@ -4,7 +4,7 @@ import javafx.scene.control.Label;
 
 public class VistaCasilleroNombre extends Label{
 
-	public VistaCasilleroNombre(){
-		this.setText("NOMBRE");
+	public VistaCasilleroNombre(String nombre){
+		this.setText(nombre);
 	}
 }

@@ -18,5 +18,10 @@ public class Policia implements Encasillable {
 		jugador.avanzarHasta(carcel);
 		jugador.aplicarEfectoDeCasilleroActual(dados);
 	}
+	
+	@Override
+	public String getNombre() {
+		return "Policia";
+	}
 
 }

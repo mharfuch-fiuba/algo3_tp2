@@ -4,19 +4,32 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 
-public abstract class ControladorEncasillable {
-	//abstracta porque creo que vamos a tener diferencias entre los distintos tipos
-
+public class ControladorEncasillable {
+	
 	private Encasillable modelo;
 	private ContenedorCasillero vista;
 
+	public ControladorEncasillable(Encasillable encasillable){
+		this.modelo = encasillable;
+	}
+	
 	// mostrar en sector superior
-	public abstract String getNombre();
+	public  String getNombre(){
+		return this.modelo.getNombre();
+	}
 
 	// mostrar en sector medio
-	public abstract String getEstado();
+	public String getEstado(){
+		return this.modelo.toString()+": ESTADO";
+	}
 
 	// mostrar en sector inferior
-	public abstract Jugador[] getJugadores();
+	public  Jugador[] getJugadores(){
+		return null;
+	}
+
+	public void asociarVista(ContenedorCasillero c) {
+		this.vista=c;
+	}
 
 }

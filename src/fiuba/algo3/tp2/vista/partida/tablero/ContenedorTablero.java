@@ -1,16 +1,20 @@
 package fiuba.algo3.tp2.vista.partida.tablero;
 
+import fiuba.algo3.tp2.controlador.ControladorTablero;
 import javafx.scene.layout.BorderPane;
 
 public class ContenedorTablero extends BorderPane {
 
-	public ContenedorTablero() {
+	public ContenedorTablero(ControladorTablero controladorTablero) {
 		this.getStyleClass().add("VistaTablero");
-		ContenedorTableroTop top = new ContenedorTableroTop();
-		ContenedorTableroLeft left = new ContenedorTableroLeft();
+		
+		ContenedorTableroHorizontal bottom = new ContenedorTableroHorizontal(controladorTablero.getControladoresAbajo());
+		ContenedorTableroVertical left = new ContenedorTableroVertical(controladorTablero.getControladoresIzquierda());
+		ContenedorTableroHorizontal top = new ContenedorTableroHorizontal(controladorTablero.getControladoresArriba());
+		ContenedorTableroVertical right = new ContenedorTableroVertical(controladorTablero.getControladoresDerecha());
+		
 		ContenedorTableroCenter center = new ContenedorTableroCenter();
-		ContenedorTableroRight right = new ContenedorTableroRight();
-		ContenedorTableroBottom bottom = new ContenedorTableroBottom();
+		
 		this.setTop(top);
 		this.setLeft(left);
 		this.setCenter(center);
@@ -18,4 +22,6 @@ public class ContenedorTablero extends BorderPane {
 		this.setBottom(bottom);
 	}
 
+	
+	
 }

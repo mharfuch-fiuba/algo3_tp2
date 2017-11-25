@@ -16,4 +16,8 @@ public class ControladorJugador {
 		return this.jugador.getNombre();
 	}
 	
+	public String getDinero(){
+		return String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
+	}
+	
 }

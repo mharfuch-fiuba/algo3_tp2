@@ -15,5 +15,8 @@ public class CordobaNorte extends TerrenoDoble {
 	public CordobaNorte() {
 		super(PRECIO_TERRENO, ALQUILER, ALQUILER_CON_1_CASA, ALQUILER_CON_2_CASAS, ALQUILER_CON_HOTEL, COSTO_CONSTRUCCION_CASA, COSTO_CONSTRUCCION_HOTEL);
 	}
-	
+	@Override
+	public String getNombre() {
+		return "Cordoba Norte";
+	}
 }

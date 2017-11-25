@@ -12,4 +12,8 @@ public class Edesur extends Servicio {
 		super(PRECIO_DE_COMPRA, MULT_PENALIDAD, MULT_PENALIDAD_CON_AYSA);
 	}
 	
+	@Override
+	public String getNombre() {
+		return "EDESUR";
+	}
 }

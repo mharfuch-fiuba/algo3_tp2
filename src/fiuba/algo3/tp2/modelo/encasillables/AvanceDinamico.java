@@ -44,4 +44,9 @@ public class AvanceDinamico implements Encasillable{
 		}
 	}
 
+	@Override
+	public String getNombre() {
+		return "Avance Dinamico";
+	}
+
 }

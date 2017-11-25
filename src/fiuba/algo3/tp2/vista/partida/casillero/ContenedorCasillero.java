@@ -4,16 +4,26 @@ import javafx.scene.layout.VBox;
 
 public class ContenedorCasillero extends VBox{
 	
-	public ContenedorCasillero(){
+	private VistaCasilleroNombre nombre;
+	private VistaCasilleroDetalle detalle ;
+	private VistaCasilleroJugadores jugadores ;	
+	
+	
+	public ContenedorCasillero(String nombreCasillero){
 		this.getStyleClass().add("VistaCasillero");
-		VistaCasilleroNombre nombre = new VistaCasilleroNombre();
-		VistaCasilleroDetalle detalle = new VistaCasilleroDetalle();
-		VistaCasilleroJugadores jugadores = new VistaCasilleroJugadores();
+		nombre = new VistaCasilleroNombre(nombreCasillero);
+		detalle = new VistaCasilleroDetalle();
+		jugadores = new VistaCasilleroJugadores();
+		
 		nombre.setPrefHeight(this.getPrefHeight()/3);
 		detalle.setPrefHeight(this.getPrefHeight()/3);
 		jugadores.setPrefHeight(this.getPrefHeight()/3);
 		this.getChildren().addAll(nombre,detalle,jugadores);
 
 	}
+	
+	
+	
+	
 
 }

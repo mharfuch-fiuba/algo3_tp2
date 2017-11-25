@@ -8,8 +8,12 @@ public class Salida implements Encasillable {
 
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
-		// TODO Auto-generated method stub
+		// no hay que sumarle plata al jugador?
 		
 	}
 
+	@Override
+	public String getNombre() {
+		return "Salida";
+	}
 }

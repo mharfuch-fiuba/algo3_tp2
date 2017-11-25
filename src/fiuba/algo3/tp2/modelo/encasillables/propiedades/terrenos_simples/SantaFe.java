@@ -12,5 +12,8 @@ public class SantaFe extends TerrenoSimple {
 	public SantaFe() {
 		super(PRECIO_TERRENO, ALQUILER, ALQUILER_CON_1_CASA, COSTO_CONSTRUCCION_CASA);
 	}
-
+	@Override
+	public String getNombre() {
+		return "Santa Fe";
+	}
 }
