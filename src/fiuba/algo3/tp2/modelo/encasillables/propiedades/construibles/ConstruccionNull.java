@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.excepciones.MaximoDeConstruccionesAlcanzadoException;
 
 public class ConstruccionNull implements Construible {
 	
@@ -17,6 +18,7 @@ public class ConstruccionNull implements Construible {
 
 	@Override
 	public Construible getSiguienteConstruccion() {
+		//throw new MaximoDeConstruccionesAlcanzadoException();
 		return this;
 	}
 
