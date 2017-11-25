@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.Iterator;
+
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
@@ -33,6 +35,11 @@ public class RondaAlgoPoly extends Ronda {
 		} catch (Exception e) {
 			throw new NoHayJugadoresException();
 		}
+	}
+
+	@Override
+	public Iterator<Jugador> iterator() {
+		return this.iterador;
 	}
 	
 	

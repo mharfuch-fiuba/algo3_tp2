@@ -1,6 +1,8 @@
 package fiuba.algo3.tp2.utils;
 
-public interface DoublyLinkedCircularListIterator {
+import java.util.Iterator;
+
+public interface DoublyLinkedCircularListIterator extends Iterator {
 	public Object next();
 	public Object prev();
 	public Object actual();

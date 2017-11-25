@@ -55,6 +55,11 @@ public class DoublyLinkedCircularList {
 		public int size() {
 			return len;
 		}
+
+		@Override
+		public boolean hasNext() {
+			return true;
+		}
 		
 	}
 
