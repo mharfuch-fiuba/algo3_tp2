@@ -10,7 +10,9 @@ public class ContenedorPartida extends HBox {
 	public ContenedorPartida(Stage stage, ControladorPartida controladorPartida) {
 		this.getStyleClass().add("ContenedorPartida");
 		ContenedorDinamico contenedorDinamico=new ContenedorDinamico(controladorPartida);
+		System.out.println("A1");
 		ContenedorTablero vistaTablero = new ContenedorTablero();
+		System.out.println("A2");
 		this.getChildren().addAll(contenedorDinamico,vistaTablero);
 	}	
 

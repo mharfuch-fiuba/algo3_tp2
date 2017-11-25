@@ -8,8 +8,8 @@ public class ControladorJugador {
 	private Jugador jugador;
 	private VistaJugador vista;
 	
-	public ControladorJugador(){
-		
+	public ControladorJugador(Jugador jugador){
+		this.jugador=jugador;
 	}
 	
 	public String getNombre(){

@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.vista.partida;
 
 import fiuba.algo3.tp2.controlador.ControladorRonda;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 public class ContenedorRonda extends HBox{
 	
@@ -11,8 +10,12 @@ public class ContenedorRonda extends HBox{
 	public ContenedorRonda(ControladorRonda controladorRonda){
 		this.controladorRonda = controladorRonda;
 		this.getStyleClass().add("VistaRonda");
-		controladorRonda.agregarJugadores(this);
-
+		
 	}
 
+	public void agregarVistasJugadores(){
+		System.out.println("contRonda1");
+		this.controladorRonda.agregarJugadores(this);
+		System.out.println("contRonda2");
+	}
 }

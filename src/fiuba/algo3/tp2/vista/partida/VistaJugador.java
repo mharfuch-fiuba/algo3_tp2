@@ -12,6 +12,7 @@ public class VistaJugador extends VBox{
 	public VistaJugador(ControladorJugador controladorJugador){
 		this.getStyleClass().add("VistaJugador");
 		this.controladorJugador = controladorJugador;
+		agregarNombre();
 	}
 	
 	private void agregarNombre(){

@@ -8,6 +8,7 @@ public class DoublyLinkedCircularList {
 		private Node prev;
 		private Object data;
 		
+		
 		public Node(Object element) {
 			this.next = null;
 			this.prev = null;
@@ -15,10 +16,12 @@ public class DoublyLinkedCircularList {
 		}
 		
 	}
-	
+	private Node primer_nodo;
+	private int len;
 	private class InnerIterator implements DoublyLinkedCircularListIterator {
 		
 		private Node actual;
+
 		
 		public InnerIterator() {
 			actual = primer_nodo;
@@ -58,13 +61,12 @@ public class DoublyLinkedCircularList {
 
 		@Override
 		public boolean hasNext() {
-			return true;
+			return !(this.actual==primer_nodo);
 		}
 		
 	}
 
-	private Node primer_nodo;
-	private int len;
+
 	
 	public DoublyLinkedCircularList(){
 		primer_nodo = null;

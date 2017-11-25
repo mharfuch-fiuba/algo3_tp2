@@ -6,6 +6,5 @@ public class VistaTurnoTitulo extends HBox{
 
 	public VistaTurnoTitulo(){
 		this.getStyleClass().add("VistaTurnoTitulo");
-
 	}
 }

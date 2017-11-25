@@ -10,7 +10,11 @@ public class ContenedorDinamico extends VBox{
 	public ContenedorDinamico(ControladorPartida controladorPartida){
 		this.controladorPartida=controladorPartida;
 		ContenedorRonda contenedorRonda =new ContenedorRonda(controladorPartida.getControladorRonda());
+		System.out.println("AA");
+		contenedorRonda.agregarVistasJugadores();
+		System.out.println("AA1");
 		ContenedorTurno contenedorTurno = new ContenedorTurno();
+		System.out.println("AA2");
 		this.getChildren().addAll(contenedorRonda,contenedorTurno);
 	}
 

@@ -13,7 +13,8 @@ public class ControladorPartida {
 	private ControladorRonda controladorRonda;
 
 	public ControladorPartida() {
-		
+		String[] jugadores ={"Mateo","Jaime"};
+		nuevaPartida(jugadores);
 	}
 
 	public void nuevaPartida(String[] jugadores){
@@ -33,7 +34,7 @@ public class ControladorPartida {
 
 	private Color colorAleatorio() {
 		Random rand = new Random();
-		return new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), 100);
+		return new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), 1.0);
 	}
 	
 	public ControladorRonda getControladorRonda(){

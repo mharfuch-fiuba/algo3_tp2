@@ -12,8 +12,9 @@ public class AlgoPoly extends Application {
 	public void start(Stage stage) throws Exception {
 
 		ControladorPartida controladorPartida = new ControladorPartida();
-
-		ContenedorPartida vistaPartida = new ContenedorPartida(stage,controladorPartida);	
+		System.out.println("A");
+		ContenedorPartida vistaPartida = new ContenedorPartida(stage,controladorPartida);
+		System.out.println("B");
 		Scene escenaPartida = new Scene(vistaPartida);
 		
 		VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage,controladorPartida,escenaPartida);
