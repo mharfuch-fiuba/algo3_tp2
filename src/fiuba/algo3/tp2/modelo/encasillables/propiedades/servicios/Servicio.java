@@ -16,25 +16,34 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 		super(precio_compra);
 		penalidad_1 = penalidad_1_servicio;
 		penalidad_2 = penalidad_2_servicios;
+		/*
+		EstrategiaServicios estrategia_0 = new EstrategiaNula();
+		EstrategiaServicios estrategia_1 = new EstrategiaUnservicio(this, pareja, penalidad_1_servicio, estrategia_0);
+		EstrategiaServicios estrategia_2 = new EstrategiaUnservicio(this, pareja, penalidad_2_servicios, estrategia_1);
+		new EstrategiaDosServicios(penalidad_2_servicios, )
+		*/
 	}
 	
-	private void realizarCobros(Jugador jugador_actual, Jugador propietario, int penalidad, Cubilete dados) throws DineroInsuficienteException {
+	private void realizarCobros(Jugador inquilino, Jugador propietario, int penalidad, Cubilete dados) throws DineroInsuficienteException {
 		Dinero monto = new Dinero(penalidad * dados.sumarValores());
-		jugador_actual.pagar(monto);
+		inquilino.pagar(monto);
 		propietario.cobrar(monto);
+	}
+	
+	private int seleccionarPenalidad() {
+		Jugador propietario_pareja = pareja.getPropietario();
+		if(this.getPropietario() == propietario_pareja) {
+			return penalidad_2;
+		}
+		return penalidad_1;
 	}
 	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		//Si el propietario de este casillero es el mismo jugador o null no hago nada.
 		if(this.getPropietario() == jugador || this.getPropietario().esNull()) return;
-		//Si el propietario de este casillero es el mismo que el de la pareja entonces aplico la penalidad 2
-		Jugador propietario_pareja = pareja.getPropietario();
-		if(this.getPropietario() == propietario_pareja) {
-			this.realizarCobros(jugador, this.getPropietario(), penalidad_2, dados);
-			return;
-		}
-		this.realizarCobros(jugador, this.getPropietario(), penalidad_1, dados);
+		int penalidad = seleccionarPenalidad();
+		realizarCobros(jugador, this.getPropietario(), penalidad, dados);
 		return;
 	}
 	
