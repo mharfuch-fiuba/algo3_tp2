@@ -114,7 +114,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 	}
 	
-	public void testJugadorCompraTodosLosCasilleros() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void testJugador1CompraTodosLosCasillerosJugador2AlquilaTodosLosCasilleros() throws JugadorEnCarcelException, DineroInsuficienteException {
 		int dinero_inicial = 10000000;
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
 		Cubilete cubilete = new Cubilete();
