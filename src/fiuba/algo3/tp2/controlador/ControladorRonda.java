@@ -11,11 +11,16 @@ import javafx.scene.layout.Priority;
 public class ControladorRonda {
 
 	private Ronda ronda;
+	
 
 	public ControladorRonda(Ronda ronda) {
 		this.ronda = ronda;
 	}
 
+	public void agregarVistasJugadores(){
+		
+	}
+	
 	public void agregarJugadores(ContenedorRonda contenedorRonda){
 		System.out.println("agregarJugadores");
 

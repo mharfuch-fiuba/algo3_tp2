@@ -9,15 +9,19 @@ import javafx.stage.Stage;
 
 public class VistaInicial extends VBox {
 		
-	public VistaInicial(Stage stage, Scene escenaConfigurarPartida) {
+	public VistaInicial(Stage stage) {
 		//Image logo = new Image("file:assets/logo.jpg");
-		agregarBotonNuevaPartida(stage,escenaConfigurarPartida);
+		agregarBotonNuevaPartida(stage);
 		this.getStyleClass().add("VistaInicial");
 	}
 	
-	private void agregarBotonNuevaPartida(Stage stage, Scene escenaConfigurarPartida){
+	private void agregarBotonNuevaPartida(Stage stage){	
+		VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage);
+		Scene escenaConfiguracionPartida = new Scene(vistaConfiguracionPartida);
+		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
+
 		BotonNuevaPartida botonNuevaPartida = new BotonNuevaPartida();
-		botonNuevaPartida.setOnAction(new BotonNuevaPartidaHandler(stage,escenaConfigurarPartida));
+		botonNuevaPartida.setOnAction(new BotonNuevaPartidaHandler(stage,escenaConfiguracionPartida));
 		this.getChildren().add(botonNuevaPartida);	
 	}
 	

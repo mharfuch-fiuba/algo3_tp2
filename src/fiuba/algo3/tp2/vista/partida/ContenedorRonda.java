@@ -10,12 +10,7 @@ public class ContenedorRonda extends HBox{
 	public ContenedorRonda(ControladorRonda controladorRonda){
 		this.controladorRonda = controladorRonda;
 		this.getStyleClass().add("VistaRonda");
-		
+		this.controladorRonda.agregarJugadores(this);
 	}
 
-	public void agregarVistasJugadores(){
-		System.out.println("contRonda1");
-		this.controladorRonda.agregarJugadores(this);
-		System.out.println("contRonda2");
-	}
 }
