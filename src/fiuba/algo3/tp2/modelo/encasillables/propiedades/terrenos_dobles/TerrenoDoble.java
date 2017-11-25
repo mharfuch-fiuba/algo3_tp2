@@ -10,6 +10,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Emparejable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
 
 public abstract class TerrenoDoble extends Propiedad implements Edificable, Emparejable {
 	
@@ -38,7 +39,7 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 	
 	@Override
 	public void construir() throws DineroInsuficienteException {
-		if(pareja.getPropietario() != this.getPropietario()) return;
+		if(pareja.getPropietario() != this.getPropietario()) throw new PropietarioDeParejaNoEsElMismoException();
 		this.getPropietario().pagar(construccion.getPrecioMejora());
 		construccion = construccion.getSiguienteConstruccion();
 	}

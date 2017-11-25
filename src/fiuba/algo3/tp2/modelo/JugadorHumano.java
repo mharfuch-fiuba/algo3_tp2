@@ -40,7 +40,7 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public Dinero obtenerDinero() {
-		return this.dinero;
+		return this.dinero.clone();
 	}
 
 	@Override
@@ -137,7 +137,7 @@ public class JugadorHumano extends Jugador {
 		return this.color;
 	}
 
-	//Provisorio! Debería ir en constructor
+	//Provisorio! Deberï¿½a ir en constructor
 	@Override
 	public void setNombre(String nombre) {
 		this.nombre=nombre;

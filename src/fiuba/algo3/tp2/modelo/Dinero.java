@@ -31,5 +31,9 @@ public class Dinero {
 		int resultado = (porcentaje*this.cantidad)/100;
 		return new Dinero(resultado);
 	}
+	
+	public Dinero clone() {
+		return new Dinero(this.cantidad);
+	}
 
 }

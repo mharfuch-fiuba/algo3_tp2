@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import junit.framework.TestCase;
 
@@ -70,7 +71,10 @@ public class IntegracionMatiasTest extends TestCase {
 		monto_esperado_jugador_1 -= 20000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
-		bsas_sur.construir(); // <-- No deberia hacer nada
+		try {
+			bsas_sur.construir(); // <-- No deberia hacer nada
+		}catch(PropietarioDeParejaNoEsElMismoException e) {}
+		
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
 		jugador1.avanzar(cubilete_que_saca_2.sumarValores());
@@ -85,7 +89,7 @@ public class IntegracionMatiasTest extends TestCase {
 		bsas_sur.construir();
 		monto_esperado_jugador_1 -= 5000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		bsas_sur.construir(); // <-- No deberia hacer nada
+		//bsas_sur.construir(); // <-- No deberia hacer nada
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
 		bsas_nor.construir();
