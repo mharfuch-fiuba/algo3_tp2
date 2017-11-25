@@ -22,6 +22,7 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 		EstrategiaServicios estrategia_2 = new EstrategiaUnservicio(this, pareja, penalidad_2_servicios, estrategia_1);
 		new EstrategiaDosServicios(penalidad_2_servicios, )
 		*/
+		
 	}
 	
 	private void realizarCobros(Jugador inquilino, Jugador propietario, int penalidad, Cubilete dados) throws DineroInsuficienteException {
