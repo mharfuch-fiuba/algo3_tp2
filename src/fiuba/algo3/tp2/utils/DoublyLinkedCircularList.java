@@ -18,6 +18,7 @@ public class DoublyLinkedCircularList {
 	}
 	private Node primer_nodo;
 	private int len;
+	
 	private class InnerIterator implements DoublyLinkedCircularListIterator {
 		
 		private Node actual;
