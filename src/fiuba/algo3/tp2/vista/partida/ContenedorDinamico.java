@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista.partida;
 
 import fiuba.algo3.tp2.controlador.ControladorPartida;
+import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 import javafx.scene.layout.VBox;
 
 public class ContenedorDinamico extends VBox{

@@ -25,7 +25,8 @@ public class ControladorEncasillable {
 
 	// mostrar en sector inferior
 	public  Jugador[] getJugadores(){
-		return null;
+		Jugador[] jugadores={};
+		return jugadores;
 	}
 
 	public void asociarVista(ContenedorCasillero c) {

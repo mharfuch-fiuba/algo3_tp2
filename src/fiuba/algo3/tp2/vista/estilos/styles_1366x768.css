@@ -38,6 +38,12 @@
 	-fx-font-size:48.0;
 }
 
+.BotonTurnoInicial{
+	-fx-background-color: transparent;
+	-fx-text-fill: black;	
+	-fx-font-size:36.0;
+}
+
 .VistaConfiguracionPartida{
 	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;

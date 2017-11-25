@@ -20,7 +20,7 @@ public class ControladorTablero {
 		for(int i=0;i<6;i++){
 			ControladorEncasillable controlador = new ControladorEncasillable(iterador.verActual());
 			iterador.avanzar();
-			controladores.add(controlador);
+			controladores.add(0,controlador);
 		}
 		return controladores;
 	}
@@ -30,7 +30,7 @@ public class ControladorTablero {
 		for(int i=0;i<4;i++){
 			ControladorEncasillable controlador = new ControladorEncasillable(iterador.verActual());
 			iterador.avanzar();
-			controladores.add(controlador);
+			controladores.add(0,controlador);
 		}
 		return controladores;
 	}
