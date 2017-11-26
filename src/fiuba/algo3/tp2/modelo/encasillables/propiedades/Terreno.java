@@ -5,6 +5,8 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
+
 
 public abstract class Terreno extends Propiedad implements Edificable {
 	
@@ -34,6 +36,10 @@ public abstract class Terreno extends Propiedad implements Edificable {
 		Dinero precio_alquiler = construccion.getAlquiler();
 		jugador.pagar(precio_alquiler);
 		this.getPropietario().cobrar(precio_alquiler);
+	}
+
+	public void quiereContruir(Terreno pareja) {
+		if(pareja.getPropietario() != this.getPropietario()) throw new FaltaAdquirirParejaException(); 
 	}
 	
 }

@@ -7,9 +7,10 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Emparejable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
+
 public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	
-	private Propiedad pareja;
+	private Terreno pareja;
 
 	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
@@ -22,7 +23,7 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	
 	@Override
 	public void agregarPareja(Propiedad casillero) {
-		pareja = casillero;
+		pareja = (Terreno)casillero;
 	}
 	
 	@Override

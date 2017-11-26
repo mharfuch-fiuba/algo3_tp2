@@ -1,8 +1,9 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
+
 
 public class ConstruccionNull implements Construible {
 
@@ -28,7 +29,7 @@ public class ConstruccionNull implements Construible {
 	}
 
 	@Override
-	public Construible construirSiguiente(Propiedad actual, Propiedad pareja) {
+	public Construible construirSiguiente(Terreno actual, Terreno pareja) {
 		throw new NoHayMasMejorasException();
 	}
 

@@ -1,8 +1,8 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
+
 
 public class ConstruccionHotel implements Construible {
 	
@@ -43,10 +43,9 @@ public class ConstruccionHotel implements Construible {
 	}
 	
 	@Override
-	public Construible construirSiguiente(Propiedad actual, Propiedad pareja) {
-		if(actual.getPropietario() == pareja.getPropietario()) return this.construirSiguiente();
-		if(pareja.esNull()) return this.construirSiguiente();
-		throw new FaltaAdquirirParejaException();
+	public Construible construirSiguiente(Terreno actual, Terreno pareja) {
+		actual.quiereContruir(pareja); // <-- SALTA EXCEPCION SI EL DUEÑO NO ES EL MISMO
+		return this.construirSiguiente(); // <-- SALTA EXCEPCION SI NO HAY MAS MEJORAS
 	}
 
 	@Override
