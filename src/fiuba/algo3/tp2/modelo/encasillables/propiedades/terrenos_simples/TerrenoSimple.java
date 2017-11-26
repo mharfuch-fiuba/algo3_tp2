@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccio
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
+
 public abstract class TerrenoSimple extends Terreno {
 	
 	public TerrenoSimple(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero costoConstruccionCasa) {

@@ -4,6 +4,7 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 
+
 public class ConstruccionBaldio implements Construible {
 	
 	private Construible proxima_mejora;

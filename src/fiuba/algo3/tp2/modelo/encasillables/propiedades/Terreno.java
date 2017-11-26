@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 
+
 public abstract class Terreno extends Propiedad implements Edificable {
 	
 	private Construible construccion;

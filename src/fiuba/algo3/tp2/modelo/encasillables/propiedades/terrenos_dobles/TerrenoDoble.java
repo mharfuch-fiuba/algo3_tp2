@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Emparejable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
+
 public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	
 	private Terreno pareja;
