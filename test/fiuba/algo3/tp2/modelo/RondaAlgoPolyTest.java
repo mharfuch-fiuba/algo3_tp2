@@ -5,6 +5,8 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 
 public class RondaAlgoPolyTest {
@@ -63,6 +65,26 @@ public class RondaAlgoPolyTest {
 	public void testRondaAlgoPolyDevuelveJugadorNull() throws NoHayJugadoresException {
 		Ronda turnos = new RondaAlgoPoly();
 		turnos.obtenerJugadorActual();
+	}
+	
+	@Test
+	public void testRondaEsIterable() throws NoHayJugadoresException {
+		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		Ronda turnos = new RondaAlgoPoly();
+		Jugador jugador1 = new JugadorHumano(new Tablero(), new Dinero(100));
+		Jugador jugador2 = new JugadorHumano(new Tablero(), new Dinero(100));
+		Jugador jugador3 = new JugadorHumano(new Tablero(), new Dinero(100));
+		turnos.agregarJugador(jugador1);
+		jugadores.add(jugador1);
+		turnos.agregarJugador(jugador2);
+		jugadores.add(jugador2);
+		turnos.agregarJugador(jugador3);
+		jugadores.add(jugador3);
+		int i = 0;
+		for(Jugador jugador:turnos) {
+			Assert.assertEquals(jugadores.get(i), jugador);
+			i++;
+		}
 	}
 
 }
