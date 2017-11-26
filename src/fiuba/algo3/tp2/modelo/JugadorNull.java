@@ -49,9 +49,7 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public Dinero pagar(Dinero monto) {
-		// TODO Auto-generated method stub
-		return null;
+	public void pagar(Dinero monto) {
 	}
 
 	@Override

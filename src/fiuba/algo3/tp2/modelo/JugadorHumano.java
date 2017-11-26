@@ -87,9 +87,8 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public Dinero pagar(Dinero monto) throws DineroInsuficienteException {
+	public void pagar(Dinero monto) throws DineroInsuficienteException {
 		this.dinero.disminuirCantidad(monto);
-		return monto;
 	}
 
 	@Override
