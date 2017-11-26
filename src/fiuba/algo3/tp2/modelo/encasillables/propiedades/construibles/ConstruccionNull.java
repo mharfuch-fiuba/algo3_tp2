@@ -38,13 +38,8 @@ public class ConstruccionNull implements Construible {
 	}
 
 	@Override
-	public boolean esDuplex() {
-		return construccion.esDuplex();
-	}
-
-	@Override
-	public boolean esHotel() {
-		return construccion.esHotel();
+	public void parejaQuiereConstruirHotel() {
+		construccion.parejaQuiereConstruirHotel();
 	}
 
 }

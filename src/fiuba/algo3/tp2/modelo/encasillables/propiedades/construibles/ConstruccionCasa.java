@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 
 public class ConstruccionCasa implements Construible {
 	
@@ -50,13 +51,8 @@ public class ConstruccionCasa implements Construible {
 	}
 
 	@Override
-	public boolean esDuplex() {
-		return false;
-	}
-
-	@Override
-	public boolean esHotel() {
-		return false;
+	public void parejaQuiereConstruirHotel() {
+		throw new FaltanCasasException();
 	}
 	
 }

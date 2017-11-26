@@ -50,13 +50,8 @@ public class ConstruccionHotel implements Construible {
 	}
 
 	@Override
-	public boolean esDuplex() {
-		return false;
-	}
-
-	@Override
-	public boolean esHotel() {
-		return true;
+	public void parejaQuiereConstruirHotel() {
+		return;
 	}
 
 }
