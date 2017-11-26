@@ -21,7 +21,7 @@ public class JugadorHumano extends Jugador {
 	private ArrayList<Propiedad> propiedades;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
-		dinero = dinero_inicial;
+		dinero = dinero_inicial.clone();
 		propiedades = new ArrayList<Propiedad>();
 		this.movimiento = new Movimiento(tablero);
 	}
