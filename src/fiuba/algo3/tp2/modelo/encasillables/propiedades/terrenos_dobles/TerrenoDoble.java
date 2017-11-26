@@ -20,9 +20,9 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
 		Construible hotel = new Construccion(alquilerConHotel, new Dinero(0),  new ConstruccionNull(alquilerConHotel));
-		Construible casa2 = new Construccion(alquilerCon2Casas, costoConstruccionHotel,  hotel);
-		Construible casa1 = new Construccion(alquilerCon1Casa, costoConstruccionCasa, casa2);
-		construccion = new Construccion(alquiler, costoConstruccionCasa, casa1);
+		Construible duplex = new Construccion(alquilerCon2Casas, costoConstruccionHotel,  hotel);
+		Construible casa = new Construccion(alquilerCon1Casa, costoConstruccionCasa, duplex);
+		construccion = new Construccion(alquiler, costoConstruccionCasa, casa);
 	}
 	
 	@Override
@@ -32,6 +32,7 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
+		if(this.getPropietario().esNull()) return;
 		Dinero precio_alquiler = construccion.getAlquiler();
 		jugador.pagar(precio_alquiler);
 		this.getPropietario().cobrar(precio_alquiler);

@@ -18,8 +18,20 @@ public class DadoCargadoTest {
 	}
 	
 	@Test
+	public void testCrearUnDadoCargadoVectorNoEsNull() {
+		Lanzable dado = new DadoCargado(new int[] {2});
+		Assert.assertNotEquals(null, dado);
+	}
+	
+	@Test
 	public void testCrearUnDadoCargadoTieneUnEstadoValido() {
 		Lanzable dado = new DadoCargado(6);
+		Assert.assertEquals(6, dado.obtenerValor(), DELTA);
+	}
+	
+	@Test
+	public void testCrearUnDadoCargadoVectorTieneUnEstadoValido() {
+		Lanzable dado = new DadoCargado(new int[] {6});
 		Assert.assertEquals(6, dado.obtenerValor(), DELTA);
 	}
 
@@ -38,6 +50,16 @@ public class DadoCargadoTest {
 		for(int i = 0;i < 1000;i++) {
 			dado.lanzar();
 			Assert.assertEquals(8, dado.obtenerValor(), DELTA);
+		}
+	}
+	
+	@Test
+	public void testLanzarUnDadoCargadoConUnVectorSacaLaSecuenciaDelVector1000Veces() {
+		int[] secuencia = new int[] {0,1,2,3,4,5,6,7,8,9};
+		Lanzable dado = new DadoCargado(secuencia);
+		for(int i = 0;i < 1000;i++) {
+			Assert.assertEquals(i % secuencia.length, dado.obtenerValor(), DELTA);
+			dado.lanzar();
 		}
 	}
 

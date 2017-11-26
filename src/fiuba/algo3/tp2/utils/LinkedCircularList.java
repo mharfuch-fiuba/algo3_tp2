@@ -44,23 +44,25 @@ public class LinkedCircularList {
 		
 	}
 
+	private Node ultimo_nodo;
 	private Node primer_nodo;
 	private int len;
 	
 	public LinkedCircularList(){
 		primer_nodo = null;
+		ultimo_nodo = primer_nodo;
 		len = 0;
 	}
 	
 	public void add(Object element) {
 		Node nuevo_nodo = new Node(element);
 		len ++;
-		if(primer_nodo == null) {
+		if(primer_nodo == null)
 			primer_nodo = nuevo_nodo;
-			primer_nodo.next = primer_nodo;
-			return;
-		}
+		else
+			ultimo_nodo.next = nuevo_nodo;
 		nuevo_nodo.next = primer_nodo;
+		ultimo_nodo = nuevo_nodo;
 	}
 	
 	public LinkedCircularListIterator iterator() {
