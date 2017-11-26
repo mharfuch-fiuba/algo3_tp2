@@ -20,8 +20,8 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	public Servicio(Dinero precio_compra, int penalidad_1_servicio, int penalidad_2_servicios) {
 		super(precio_compra);
 		EstrategiaServicios estrategia_0 = new EstrategiaSinServicios();
-		EstrategiaServicios estrategia_1 = new EstrategiaUnServicio(this, penalidad_1_servicio, estrategia_0);
-		EstrategiaServicios estrategia_2 = new EstrategiaDosServicios(this, penalidad_2_servicios, estrategia_1);
+		EstrategiaServicios estrategia_1 = new EstrategiaUnServicio(penalidad_1_servicio, estrategia_0);
+		EstrategiaServicios estrategia_2 = new EstrategiaDosServicios(penalidad_2_servicios, estrategia_1);
 		estrategia = estrategia_2;
 		pareja = new PropiedadNull();
 	}
@@ -34,7 +34,7 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		if(this.getPropietario() == jugador || this.getPropietario().esNull()) return;
-		Dinero monto = estrategia.totalServicio(dados);
+		Dinero monto = estrategia.totalServicio(this, dados);
 		realizarCobros(jugador, this.getPropietario(), monto);
 	}
 	
