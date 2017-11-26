@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples;
+package fiuba.algo3.tp2.modelo.encasillables.propiedades;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;

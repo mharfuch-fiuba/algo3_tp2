@@ -3,12 +3,12 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionNull;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Emparejable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
 
