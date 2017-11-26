@@ -49,5 +49,10 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 	public TerrenoDoble getPareja() {
 		return (TerrenoDoble) pareja;
 	}
+	
+	@Override
+	public boolean esNull() {
+		return false;
+	}
 
 }

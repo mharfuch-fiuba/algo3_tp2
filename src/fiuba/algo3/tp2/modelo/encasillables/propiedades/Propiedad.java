@@ -4,6 +4,7 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public abstract class Propiedad implements Encasillable {
@@ -25,6 +26,7 @@ public abstract class Propiedad implements Encasillable {
 	}
 
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
+		if(!propietario.esNull()) throw new YaTienePropietarioException();
 		jugador.pagar(precio);
 		propietario = jugador;
 	}
@@ -32,5 +34,7 @@ public abstract class Propiedad implements Encasillable {
 	public Dinero getPrecio(){
 		return precio;
 	}
+	
+	public abstract boolean esNull();
 
 }

@@ -23,4 +23,9 @@ public class PropiedadNull extends Propiedad {
 		return;
 	}
 
+	@Override
+	public boolean esNull() {
+		return true;
+	}
+
 }

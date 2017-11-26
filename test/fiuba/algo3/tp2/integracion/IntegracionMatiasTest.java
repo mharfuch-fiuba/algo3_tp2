@@ -5,12 +5,13 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Subte;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Edesur;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
+import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import junit.framework.TestCase;
 
@@ -119,11 +120,12 @@ public class IntegracionMatiasTest extends TestCase {
 	}
 	
 	public void testJugador1CompraTodosLosServiciosJugador2AlquilaTodosLosServicios() throws JugadorEnCarcelException, DineroInsuficienteException {
-		int dinero_inicial = 10000000;
+		int dinero_inicial = 1000000;
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[] {3,5,4,4,4}));
 		
+		//JUGADOR 1 COMPRA LOS PRIMEROS SERVICIOS
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(dinero_inicial));
 		int monto_esperado_jugador_1 = dinero_inicial;
 		
@@ -134,10 +136,68 @@ public class IntegracionMatiasTest extends TestCase {
 		cubilete.lanzar();
 		
 		jugador1.avanzar(cubilete.sumarValores());
-		Subte subte = (Subte) jugador1.obtenerCasilleroActual();
 		jugador1.comprarCasilleroActual();
 		monto_esperado_jugador_1 -= 40000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador1.avanzar(cubilete.sumarValores());
+		cubilete.lanzar();
+		
+		jugador1.avanzar(cubilete.sumarValores());
+		cubilete.lanzar();
+		
+		//JUGADOR 2 RECORRE TODOS LOS CASILLEROS
+		Jugador jugador2 = new JugadorHumano(tablero, new Dinero(dinero_inicial));
+		int monto_esperado_jugador_2 = dinero_inicial;
+		Cubilete cubilete_saca_12 = new Cubilete();
+		cubilete_saca_12.agregar(new DadoCargado(12));
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 6000;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 7200;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		//JUGADOR 1 COMPRA EL RESTO DE LOS SERVICIOS
+		monto_esperado_jugador_1 = jugador1.obtenerDinero().obtenerMontoEntero();
+		jugador1.avanzar(cubilete.sumarValores());
+		cubilete.lanzar();
+		
+		jugador1.avanzar(cubilete.sumarValores());
+		try {
+		jugador1.comprarCasilleroActual();
+		monto_esperado_jugador_1 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		} catch (YaTienePropietarioException e) {}
+		cubilete.lanzar();
+		
+		jugador1.avanzar(cubilete.sumarValores());
+		try {
+		jugador1.obtenerCasilleroActual();
+		jugador1.comprarCasilleroActual();
+		monto_esperado_jugador_1 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		} catch (YaTienePropietarioException e) {}
 		cubilete.lanzar();
 		
 		jugador1.avanzar(cubilete.sumarValores());
@@ -150,6 +210,35 @@ public class IntegracionMatiasTest extends TestCase {
 		jugador1.comprarCasilleroActual();
 		monto_esperado_jugador_1 -= 38000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		
+		//JUGADOR 2 RECORRE TODOS LOS CASILLEROS
+		jugador2.avanzar(cubilete.sumarValores());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 12000;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 13200;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 6000;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
+		cubilete.lanzar();
+		
+		jugador2.avanzar(cubilete.sumarValores());
+		jugador2.aplicarEfectoDeCasilleroActual(cubilete_saca_12);
+		monto_esperado_jugador_2 -= 9600;
+		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
 		cubilete.lanzar();
 		
 	}

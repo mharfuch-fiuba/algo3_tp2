@@ -10,6 +10,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.estrategias.Es
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.estrategias.EstrategiaServicios;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.estrategias.EstrategiaUnServicio;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.YaTieneParejaException;
 
 public abstract class Servicio extends Propiedad implements Emparejable {
 
@@ -41,12 +42,18 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	
 	@Override
 	public void agregarPareja(Propiedad casillero) {
+		if(!pareja.esNull()) throw new YaTieneParejaException();
 		pareja = casillero;
 	}
 	
 	@Override
 	public Servicio getPareja() {
 		return (Servicio) pareja;
+	}
+	
+	@Override
+	public boolean esNull() {
+		return false;
 	}
 	
 }

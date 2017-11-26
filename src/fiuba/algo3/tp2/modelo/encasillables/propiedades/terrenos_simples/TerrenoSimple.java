@@ -31,5 +31,10 @@ public abstract class TerrenoSimple extends Propiedad implements Edificable {
 		this.getPropietario().pagar(construccion.getPrecioMejora());
 		construccion = construccion.getSiguienteConstruccion();
 	}
+	
+	@Override
+	public boolean esNull() {
+		return false;
+	}
 
 }
