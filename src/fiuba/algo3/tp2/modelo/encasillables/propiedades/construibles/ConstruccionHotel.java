@@ -17,6 +17,12 @@ public class ConstruccionHotel implements Construible {
 		precio_construccion = costo_construccion;
 	}
 
+	public ConstruccionHotel(Dinero costo_construccion, Dinero costo_alquiler) {
+		proxima_mejora = null;
+		precio_alquiler = costo_alquiler;
+		precio_construccion = costo_construccion;
+	}
+
 	@Override
 	public Dinero getAlquiler() {
 		return precio_alquiler;
