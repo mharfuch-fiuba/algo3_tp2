@@ -4,13 +4,10 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionNull;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Emparejable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
 
 public abstract class TerrenoDoble extends Propiedad implements Edificable, Emparejable {
 	
@@ -19,10 +16,10 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 
 	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
-		Construible hotel = new Construccion(alquilerConHotel, new Dinero(0),  new ConstruccionNull(alquilerConHotel));
-		Construible duplex = new Construccion(alquilerCon2Casas, costoConstruccionHotel,  hotel);
-		Construible casa = new Construccion(alquilerCon1Casa, costoConstruccionCasa, duplex);
-		construccion = new Construccion(alquiler, costoConstruccionCasa, casa);
+		Construible hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel, null);
+		Construible duplex = new ConstruccionDuplex(costoConstruccionCasa, alquilerCon2Casas, hotel);
+		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, duplex);
+		construccion = new ConstruccionBaldio(alquiler, casa);
 	}
 	
 	@Override
@@ -40,9 +37,9 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 	
 	@Override
 	public void construir() throws DineroInsuficienteException {
-		if(pareja.getPropietario() != this.getPropietario()) throw new PropietarioDeParejaNoEsElMismoException();
-		this.getPropietario().pagar(construccion.getPrecioMejora());
-		construccion = construccion.getSiguienteConstruccion();
+		Construible nueva_construccion = construccion.construirSiguiente(this, pareja);
+		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
+		construccion = nueva_construccion;
 	}
 	
 	@Override
@@ -53,6 +50,11 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 	@Override
 	public boolean esNull() {
 		return false;
+	}
+	
+	@Override
+	public Construible getConstruccion() {
+		return construccion;
 	}
 
 }

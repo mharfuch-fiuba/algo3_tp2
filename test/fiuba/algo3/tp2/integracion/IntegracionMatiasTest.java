@@ -5,12 +5,13 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Edesur;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
-import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import junit.framework.TestCase;
@@ -80,7 +81,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 		try {
 			bsas_sur.construir(); // <-- No deberia hacer nada
-		}catch(PropietarioDeParejaNoEsElMismoException e) {}
+		}catch(FaltaAdquirirParejaException e) {}
 		
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
@@ -96,9 +97,10 @@ public class IntegracionMatiasTest extends TestCase {
 		bsas_sur.construir();
 		monto_esperado_jugador_1 -= 5000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//bsas_sur.construir(); // <-- No deberia hacer nada
+		try {
+		bsas_sur.construir();
+		}catch(FaltanCasasException e) {}
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		
 		bsas_nor.construir();
 		monto_esperado_jugador_1 -= 5500;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
@@ -108,13 +110,16 @@ public class IntegracionMatiasTest extends TestCase {
 		bsas_nor.construir();
 		monto_esperado_jugador_1 -= 9000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		bsas_nor.construir(); // <-- No deberia hacer nada
+		try {
+		bsas_nor.construir();
+		}catch(NoHayMasMejorasException e) {}
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		
 		bsas_sur.construir();
 		monto_esperado_jugador_1 -= 8000;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		bsas_sur.construir(); // <-- No deberia hacer nada
+		try {
+		bsas_sur.construir();
+		}catch(NoHayMasMejorasException e) {}
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
 	}
@@ -491,11 +496,11 @@ public class IntegracionMatiasTest extends TestCase {
 		monto_esperado_jugador_1 -= 2200;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
-		//try {
-		//stafe.construir();
-		//monto_esperado_jugador_1 -= 4000;
-		//Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
-		//}catch(MaximoDeConstruccionesAlcanzadoException e) {}
+		try {
+		stafe.construir();
+		}catch(NoHayMasMejorasException e) {}
+		monto_esperado_jugador_1 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
 		saltanorte.construir();
 		monto_esperado_jugador_1 -= 4500;
@@ -505,13 +510,17 @@ public class IntegracionMatiasTest extends TestCase {
 		monto_esperado_jugador_1 -= 4500;
 		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
-		//neuquen.construir();
-		//monto_esperado_jugador_1 -= 4800;
-		//Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		try {
+		neuquen.construir();
+		}catch(NoHayMasMejorasException e) {}
+		monto_esperado_jugador_1 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 		
-		//tucuman.construir();
-		//monto_esperado_jugador_1 -= 7000;
-		//Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
+		try {
+		tucuman.construir();
+		}catch(NoHayMasMejorasException e) {}
+		monto_esperado_jugador_1 -= 0;
+		Assert.assertEquals(monto_esperado_jugador_1, jugador1.obtenerDinero().obtenerMontoEntero());
 
 		//JUGADOR 2 ALQUILA EN TODOS LOS TERRENOS DOS CASAS
 		monto_esperado_jugador_2 = jugador2.obtenerDinero().obtenerMontoEntero();

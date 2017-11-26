@@ -4,8 +4,9 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionNull;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.PropiedadNull;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionBaldio;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionCasa;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
@@ -15,8 +16,8 @@ public abstract class TerrenoSimple extends Propiedad implements Edificable {
 	
 	public TerrenoSimple(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero costoConstruccionCasa) {
 		super(precioTerreno);
-		Construible casa = new Construccion(alquilerCon1Casa, new Dinero(0),  new ConstruccionNull(alquilerCon1Casa));
-		construccion = new Construccion(alquiler, costoConstruccionCasa, casa);
+		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, null);
+		construccion = new ConstruccionBaldio(alquiler, casa);
 	}
 
 	@Override
@@ -27,9 +28,10 @@ public abstract class TerrenoSimple extends Propiedad implements Edificable {
 	}
 	
 	@Override
-	public void construir() throws DineroInsuficienteException {
-		this.getPropietario().pagar(construccion.getPrecioMejora());
-		construccion = construccion.getSiguienteConstruccion();
+	public void construir() throws DineroInsuficienteException {		
+		Construible nueva_construccion = construccion.construirSiguiente(this, new PropiedadNull());
+		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
+		construccion = nueva_construccion;
 	}
 	
 	@Override
@@ -37,4 +39,9 @@ public abstract class TerrenoSimple extends Propiedad implements Edificable {
 		return false;
 	}
 
+	@Override
+	public Construible getConstruccion() {
+		return construccion;
+	}
+	
 }
