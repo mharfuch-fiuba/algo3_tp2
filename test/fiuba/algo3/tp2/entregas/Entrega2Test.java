@@ -11,7 +11,6 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaNorte;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoDoble;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
@@ -414,7 +413,6 @@ public class Entrega2Test {
 		cordobaNorte.construir();
 		
 		jugador200k.avanzar(9);
-		CordobaNorte c = (CordobaNorte)jugador200k.obtenerCasilleroActual();
 		Dinero monto_inicial = jugador200k.obtenerDinero();
 		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero monto_final = jugador200k.obtenerDinero();

@@ -9,7 +9,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
-import fiuba.algo3.tp2.modelo.excepciones.MaximoDeConstruccionesAlcanzadoException;
 import fiuba.algo3.tp2.modelo.excepciones.PropietarioDeParejaNoEsElMismoException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import junit.framework.TestCase;
