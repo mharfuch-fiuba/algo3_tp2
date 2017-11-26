@@ -27,7 +27,7 @@ public class ConstruccionBaldio implements Construible {
 
 	@Override
 	public Dinero getPrecioMejora() {
-		return this.construirSiguiente().getPrecioConstruccion();
+		return this.construirMejora().getPrecioConstruccion();
 	}
 	
 	@Override
@@ -36,13 +36,13 @@ public class ConstruccionBaldio implements Construible {
 	}
 
 	@Override
-	public Construible construirSiguiente(Terreno actual, Terreno pareja) {
+	public Construible construirMejora(Terreno actual, Terreno pareja) {
 		actual.quiereContruir(pareja); // <-- SALTA EXCEPCION SI EL DUEÑO NO ES EL MISMO
-		return this.construirSiguiente(); // <-- SALTA EXCEPCION SI NO HAY MAS MEJORAS
+		return this.construirMejora(); // <-- SALTA EXCEPCION SI NO HAY MAS MEJORAS
 	}
 	
 	@Override
-	public Construible construirSiguiente() {
+	public Construible construirMejora() {
 		return proxima_mejora;
 	}
 

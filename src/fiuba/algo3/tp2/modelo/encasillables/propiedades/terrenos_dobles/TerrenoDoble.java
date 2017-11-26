@@ -28,7 +28,7 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	
 	@Override
 	public void construir() throws DineroInsuficienteException {
-		Construible nueva_construccion = this.getConstruccion().construirSiguiente(this, pareja);
+		Construible nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
 		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 		this.setConstruccion(nueva_construccion);
 	}

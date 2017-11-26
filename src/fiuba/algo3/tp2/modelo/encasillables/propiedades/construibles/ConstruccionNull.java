@@ -29,12 +29,12 @@ public class ConstruccionNull implements Construible {
 	}
 
 	@Override
-	public Construible construirSiguiente(Terreno actual, Terreno pareja) {
+	public Construible construirMejora(Terreno actual, Terreno pareja) {
 		throw new NoHayMasMejorasException();
 	}
 
 	@Override
-	public Construible construirSiguiente() {
+	public Construible construirMejora() {
 		throw new NoHayMasMejorasException();
 	}
 

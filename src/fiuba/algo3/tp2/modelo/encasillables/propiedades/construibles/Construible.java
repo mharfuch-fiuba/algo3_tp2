@@ -9,8 +9,8 @@ public interface Construible {
 	Dinero getAlquiler();
 	Dinero getPrecioMejora();
 	Dinero getPrecioConstruccion();
-	Construible construirSiguiente(Terreno actual, Terreno pareja);
-	Construible construirSiguiente();
+	Construible construirMejora(Terreno actual, Terreno pareja);
+	Construible construirMejora();
 	void parejaQuiereConstruirHotel();
 	
 }

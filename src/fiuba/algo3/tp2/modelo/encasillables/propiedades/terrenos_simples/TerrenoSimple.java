@@ -19,7 +19,7 @@ public abstract class TerrenoSimple extends Terreno {
 	
 	@Override
 	public void construir() throws DineroInsuficienteException {		
-		Construible nueva_construccion = this.getConstruccion().construirSiguiente();
+		Construible nueva_construccion = this.getConstruccion().construirMejora();
 		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 		this.setConstruccion(nueva_construccion);
 	}
