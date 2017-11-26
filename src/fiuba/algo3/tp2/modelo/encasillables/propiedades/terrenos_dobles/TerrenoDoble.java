@@ -43,5 +43,10 @@ public abstract class TerrenoDoble extends Propiedad implements Edificable, Empa
 		this.getPropietario().pagar(construccion.getPrecioMejora());
 		construccion = construccion.getSiguienteConstruccion();
 	}
+	
+	@Override
+	public TerrenoDoble getPareja() {
+		return (TerrenoDoble) pareja;
+	}
 
 }

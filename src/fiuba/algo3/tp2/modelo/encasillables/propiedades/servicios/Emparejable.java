@@ -4,4 +4,5 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Propied
 
 public interface Emparejable {
 	void agregarPareja(Propiedad casillero);
+	Emparejable getPareja();
 }
