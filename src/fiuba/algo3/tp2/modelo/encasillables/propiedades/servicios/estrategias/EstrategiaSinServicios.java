@@ -3,8 +3,11 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.estrategias;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 
-public interface EstrategiaServicios {
+public class EstrategiaSinServicios implements EstrategiaServicios {
 
-	Dinero totalServicio(Cubilete dados);
+	@Override
+	public Dinero totalServicio(Cubilete dados) {
+		return new Dinero(0);
+	}
 
 }

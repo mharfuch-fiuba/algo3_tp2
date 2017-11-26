@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.estrategias;
 
+import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Servicio;
 
 public class EstrategiaUnServicio implements EstrategiaServicios {
@@ -14,12 +16,19 @@ public class EstrategiaUnServicio implements EstrategiaServicios {
 		siguiente_estrategia = estrategia_siguiente;
 		
 	}
-	
+	/*
 	@Override
-	public int getPenalidad() {
+	public Dinero setEstrategia() {
 		Servicio propiedad_pareja = propiedad_actual.getPareja();
-		if(propiedad_actual.getPropietario() != propiedad_pareja.getPropietario()) return penalidad;
-		return siguiente_estrategia.getPenalidad();
+		if(propiedad_actual.getPropietario() != propiedad_pareja.getPropietario()) return new Dinero(penalidad * dados.sumarValores());
+		return siguiente_estrategia.totalServicio(dados);
+	}
+	*/
+	@Override
+	public Dinero totalServicio(Cubilete dados) {
+		Servicio propiedad_pareja = propiedad_actual.getPareja();
+		if(propiedad_actual.getPropietario() != propiedad_pareja.getPropietario()) return new Dinero(penalidad * dados.sumarValores());
+		return siguiente_estrategia.totalServicio(dados);
 	}
 
 }
