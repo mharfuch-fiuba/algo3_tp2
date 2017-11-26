@@ -5,7 +5,8 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public interface Edificable {
 
-	public abstract void construir() throws DineroInsuficienteException;
-	public abstract Construible getConstruccion();
+	void construir() throws DineroInsuficienteException;
+	Construible getConstruccion();
+	void setConstruccion(Construible construccion);
 
 }
