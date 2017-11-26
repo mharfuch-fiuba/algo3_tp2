@@ -42,5 +42,13 @@ public class ControladorRonda {
 		}
 
 	}
+	
+	public String getJugadorActual(){
+		try {
+			return this.ronda.obtenerJugadorActual().getNombre();
+		} catch (NoHayJugadoresException e) {
+			return "-";
+		}
+	}
 
 }

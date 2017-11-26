@@ -8,29 +8,30 @@
  
 *{
  	-fx-font-family: "Roboto";
- 	
  	-fx-alignment: center;
  }
  
 .TextFieldNombreJugador{
 	-fx-background-color: transparent;
 	-fx-alignment: center;
-	-fx-padding:5;
-	-fx-pref-width:80;
-	-fx-font-size: 16;
+	-fx-padding:5.0;
+	-fx-pref-width:80.0;
+	-fx-font-size: 16.0;
 }
  
 .VistaInicial{
 	-fx-background-color: #7EBD91;
 	-fx-alignment: center;
-	-fx-pref-width: 1366;
-	-fx-pref-height: 768;
+	-fx-pref-width: 1366.0;
+	-fx-pref-height: 768.0;
+	-fx-spacing: 80.0;
 
 }
 .BotonIniciarPartida{
 	-fx-background-color: transparent;
 	-fx-text-fill: #D8EDDF;	
 	-fx-font-size:48.0;
+	
 }
 .BotonNuevaPartida{
 	-fx-background-color: transparent;
@@ -44,55 +45,64 @@
 	-fx-font-size:36.0;
 }
 
+.BotonContinuar{
+	-fx-background-color: transparent;
+	-fx-text-fill: #D8EDDF;	
+	-fx-font-size:48.0;
+	-fx-border-color:black;
+	-fx-border-width: 1.0px;
+}
+
 .VistaConfiguracionPartida{
 	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;
-	-fx-pref-width: 1366;
-	-fx-pref-height: 768;
-	-fx-spacing: 30;
+	-fx-pref-width: 1366.0;
+	-fx-pref-height: 768.0;
+	-fx-spacing: 30.0;
 }
 
 .VistaPartida{
 	-fx-background-color: transparent;
 	-fx-alignment: center;
-	-fx-pref-width: 1366;
-	-fx-pref-height: 768;
+	-fx-pref-width: 1366.0;
+	-fx-pref-height: 768.0;
 }
 
 .VistaTablero{
 	-fx-background-color: lightgray;
 	-fx-alignment: center;
-	-fx-pref-width: 768;
-	-fx-pref-height: 768;
+	-fx-pref-width: 768.0;
+	-fx-pref-height: 768.0;
 }
 
 .VistaRonda{
 	-fx-background-color: white;
 	-fx-alignment: center;
-	-fx-pref-width: 598;	
-	-fx-pref-height: 256;
+	-fx-pref-width: 598.0;	
+	-fx-pref-height: 256.0;
 }
 
 .VistaTurnoTitulo{
 	-fx-background-color: lightgreen;
 	-fx-alignment: center;
-	-fx-pref-width: 598;	
-	-fx-pref-height: 100;	
+	-fx-pref-width: 598.0;	
+	-fx-pref-height: 100.0;	
 }
 
 .VistaTurnoDinamica{
 	-fx-background-color: green;
 	-fx-alignment: center;
-	-fx-pref-width: 598;	
-	-fx-pref-height: 476;
+	-fx-pref-width: 598.0;	
+	-fx-pref-height: 476.0;
+	-fx-spacing: 30.0;
 }
 
 .VistaCasillero{
 	-fx-border-color:black;
-	-fx-border-width:1px;
+	-fx-border-width:1.0px;
 	-fx-alignment: center;
-	-fx-pref-width: 128;	
-	-fx-pref-height: 128;
+	-fx-pref-width: 128.0;	
+	-fx-pref-height: 128.0;
 }
 
 
@@ -101,7 +111,18 @@
 }
 
 .VistaJugador{
-	-fx-font-size:16;
+	-fx-font-size:16.0;
 	-fx-border-color:black;
-	-fx-border-width: 1px;
+	-fx-border-width: 1.0px;
 }
+
+.LabelTurnoTitulo{
+	-fx-font-size:36.0;	
+	-fx-text-fill: white;
+}
+
+.LabelTurnoDinamica{
+	-fx-font-size:24.0;	
+	-fx-text-fill: white;
+}
+

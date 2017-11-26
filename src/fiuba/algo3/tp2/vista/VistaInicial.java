@@ -3,6 +3,8 @@ package fiuba.algo3.tp2.vista;
 import fiuba.algo3.tp2.vista.botones.BotonNuevaPartida;
 import fiuba.algo3.tp2.vista.eventos.BotonNuevaPartidaHandler;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 //import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -10,7 +12,9 @@ import javafx.stage.Stage;
 public class VistaInicial extends VBox {
 		
 	public VistaInicial(Stage stage) {
-		//Image logo = new Image("file:assets/logo.jpg");
+		Image logo = new Image("file:assets/logo.png");
+		ImageView vistaImagen = new ImageView(logo);
+		this.getChildren().add(vistaImagen);
 		agregarBotonNuevaPartida(stage);
 		this.getStyleClass().add("VistaInicial");
 	}
