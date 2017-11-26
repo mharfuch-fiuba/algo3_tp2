@@ -11,7 +11,7 @@ public abstract class TerrenoSimple extends Terreno {
 	
 	public TerrenoSimple(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero costoConstruccionCasa) {
 		super(precioTerreno);
-		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, null);
+		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa);
 		Construible baldio = new ConstruccionBaldio(alquiler, casa);
 		this.setConstruccion(baldio);
 	}

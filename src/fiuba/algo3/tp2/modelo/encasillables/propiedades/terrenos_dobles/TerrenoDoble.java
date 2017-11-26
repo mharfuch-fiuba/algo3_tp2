@@ -13,7 +13,7 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 
 	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
-		Construible hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel, null);
+		Construible hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel);
 		Construible duplex = new ConstruccionDuplex(costoConstruccionCasa, alquilerCon2Casas, hotel);
 		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, duplex);
 		Construible baldio = new ConstruccionBaldio(alquiler, casa);

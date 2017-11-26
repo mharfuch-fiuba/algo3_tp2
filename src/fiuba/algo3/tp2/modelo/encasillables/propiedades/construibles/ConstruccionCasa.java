@@ -2,8 +2,8 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 
 public class ConstruccionCasa implements Construible {
 	
@@ -17,6 +17,12 @@ public class ConstruccionCasa implements Construible {
 		precio_construccion = costo_construccion;
 	}
 
+	public ConstruccionCasa(Dinero costo_construccion, Dinero costo_alquiler) {
+		proxima_mejora = new ConstruccionNull(this);
+		precio_alquiler = costo_alquiler;
+		precio_construccion = costo_construccion;
+	}
+
 	@Override
 	public Dinero getAlquiler() {
 		return precio_alquiler;
@@ -24,7 +30,6 @@ public class ConstruccionCasa implements Construible {
 
 	@Override
 	public Construible construirSiguiente() {
-		if(proxima_mejora == null) throw new NoHayMasMejorasException();
 		return proxima_mejora;
 	}
 
@@ -46,13 +51,8 @@ public class ConstruccionCasa implements Construible {
 	}
 
 	@Override
-	public boolean esDuplex() {
-		return false;
-	}
-
-	@Override
-	public boolean esHotel() {
-		return false;
+	public void parejaQuiereConstruirHotel() {
+		throw new FaltanCasasException();
 	}
 	
 }

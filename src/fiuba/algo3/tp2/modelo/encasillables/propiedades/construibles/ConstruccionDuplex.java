@@ -3,8 +3,6 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Edificable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
-import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 
 public class ConstruccionDuplex implements Construible {
@@ -18,6 +16,12 @@ public class ConstruccionDuplex implements Construible {
 		precio_alquiler = costo_alquiler;
 		precio_construccion = costo_construccion;
 	}
+	
+	public ConstruccionDuplex(Dinero costo_construccion, Dinero costo_alquiler) {
+		proxima_mejora = new ConstruccionNull(this);;
+		precio_alquiler = costo_alquiler;
+		precio_construccion = costo_construccion;
+	}
 
 	@Override
 	public Dinero getAlquiler() {
@@ -26,7 +30,6 @@ public class ConstruccionDuplex implements Construible {
 
 	@Override
 	public Construible construirSiguiente() {
-		if(proxima_mejora == null) throw new NoHayMasMejorasException();
 		return proxima_mejora;
 	}
 
@@ -42,9 +45,8 @@ public class ConstruccionDuplex implements Construible {
 	
 	private Construible verificarDuplex(Edificable pareja) {
 		Construible construccion = pareja.getConstruccion();
-		if(construccion.esDuplex()) return this.construirSiguiente();
-		if(construccion.esHotel()) return this.construirSiguiente();
-		throw new FaltanCasasException();
+		construccion.parejaQuiereConstruirHotel();
+		return this.construirSiguiente();
 	}
 	
 	@Override
@@ -55,13 +57,8 @@ public class ConstruccionDuplex implements Construible {
 	}
 
 	@Override
-	public boolean esDuplex() {
-		return true;
-	}
-
-	@Override
-	public boolean esHotel() {
-		return false;
+	public void parejaQuiereConstruirHotel() {
+		return;
 	}
 
 }
