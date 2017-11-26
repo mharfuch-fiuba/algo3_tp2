@@ -77,16 +77,16 @@ public class Tablero {
 		casilleros.add(new RetrocesoDinamico());
 		casilleros.add(new Tucuman());
 
-		tren.agregarPareja(subte);
-		subte.agregarPareja(tren);
-		aysa.agregarPareja(edesur);
-		edesur.agregarPareja(aysa);
-		buenosairesnorte.agregarPareja(buenosairessur);
-		buenosairessur.agregarPareja(buenosairesnorte);
-		cordobanorte.agregarPareja(cordobasur);
-		cordobasur.agregarPareja(cordobanorte);
-		saltanorte.agregarPareja(saltasur);
-		saltasur.agregarPareja(saltanorte);
+		tren.setPareja(subte);
+		subte.setPareja(tren);
+		aysa.setPareja(edesur);
+		edesur.setPareja(aysa);
+		buenosairesnorte.setPareja(buenosairessur);
+		buenosairessur.setPareja(buenosairesnorte);
+		cordobanorte.setPareja(cordobasur);
+		cordobasur.setPareja(cordobanorte);
+		saltanorte.setPareja(saltasur);
+		saltasur.setPareja(saltanorte);
 	}
 
 	public IterTablero crearIterador() {

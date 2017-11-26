@@ -22,7 +22,7 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	}
 	
 	@Override
-	public void agregarPareja(Propiedad casillero) {
+	public void setPareja(Propiedad casillero) {
 		pareja = (Terreno)casillero;
 	}
 	

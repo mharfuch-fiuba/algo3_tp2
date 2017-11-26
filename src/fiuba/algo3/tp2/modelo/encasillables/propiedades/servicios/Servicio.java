@@ -39,7 +39,7 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	}
 	
 	@Override
-	public void agregarPareja(Propiedad casillero) {
+	public void setPareja(Propiedad casillero) {
 		if(!pareja.esNull()) throw new YaTieneParejaException();
 		pareja = casillero;
 	}
