@@ -23,14 +23,14 @@ public class ConstruccionHotel implements Construible {
 	}
 
 	@Override
-	public Construible getSiguienteConstruccion() {
+	public Construible construirSiguiente() {
 		if(proxima_mejora == null) throw new NoHayMasMejorasException();
 		return proxima_mejora;
 	}
 
 	@Override
 	public Dinero getPrecioMejora() {
-		return this.getSiguienteConstruccion().getPrecioConstruccion();
+		return this.construirSiguiente().getPrecioConstruccion();
 	}
 	
 	@Override
@@ -40,8 +40,8 @@ public class ConstruccionHotel implements Construible {
 	
 	@Override
 	public Construible construirSiguiente(Propiedad actual, Propiedad pareja) {
-		if(actual.getPropietario() == pareja.getPropietario()) return this.getSiguienteConstruccion();
-		if(pareja.esNull()) return this.getSiguienteConstruccion();
+		if(actual.getPropietario() == pareja.getPropietario()) return this.construirSiguiente();
+		if(pareja.esNull()) return this.construirSiguiente();
 		throw new FaltaAdquirirParejaException();
 	}
 

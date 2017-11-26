@@ -1,7 +1,6 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples;
 
 import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.PropiedadNull;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionBaldio;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionCasa;
@@ -19,7 +18,7 @@ public abstract class TerrenoSimple extends Terreno {
 	
 	@Override
 	public void construir() throws DineroInsuficienteException {		
-		Construible nueva_construccion = this.getConstruccion().construirSiguiente(this, new PropiedadNull());
+		Construible nueva_construccion = this.getConstruccion().construirSiguiente();
 		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 		this.setConstruccion(nueva_construccion);
 	}

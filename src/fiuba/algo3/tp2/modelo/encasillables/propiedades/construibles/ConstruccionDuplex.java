@@ -1,8 +1,8 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Edificable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Edificable;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
@@ -25,14 +25,14 @@ public class ConstruccionDuplex implements Construible {
 	}
 
 	@Override
-	public Construible getSiguienteConstruccion() {
+	public Construible construirSiguiente() {
 		if(proxima_mejora == null) throw new NoHayMasMejorasException();
 		return proxima_mejora;
 	}
 
 	@Override
 	public Dinero getPrecioMejora() {
-		return this.getSiguienteConstruccion().getPrecioConstruccion();
+		return this.construirSiguiente().getPrecioConstruccion();
 	}
 	
 	@Override
@@ -42,15 +42,15 @@ public class ConstruccionDuplex implements Construible {
 	
 	private Construible verificarDuplex(Edificable pareja) {
 		Construible construccion = pareja.getConstruccion();
-		if(construccion.esDuplex()) return this.getSiguienteConstruccion();
-		if(construccion.esHotel()) return this.getSiguienteConstruccion();
+		if(construccion.esDuplex()) return this.construirSiguiente();
+		if(construccion.esHotel()) return this.construirSiguiente();
 		throw new FaltanCasasException();
 	}
 	
 	@Override
 	public Construible construirSiguiente(Propiedad actual, Propiedad pareja) {
 		if(actual.getPropietario() == pareja.getPropietario()) return verificarDuplex((Edificable)pareja);
-		if(pareja.esNull()) return this.getSiguienteConstruccion();
+		if(pareja.esNull()) return this.construirSiguiente();
 		throw new FaltaAdquirirParejaException();
 	}
 
