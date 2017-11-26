@@ -16,7 +16,7 @@ public class BotonTirarDadosHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		VistaTurnoTirarDados vistaDados=new VistaTurnoTirarDados();
+		VistaTurnoTirarDados vistaDados=new VistaTurnoTirarDados(this.contenedorPadre);
 		this.contenedorPadre.cambiarVistaDinamica(vistaDados);
 	}
 

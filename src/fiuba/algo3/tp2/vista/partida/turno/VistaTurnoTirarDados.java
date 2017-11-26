@@ -8,12 +8,12 @@ import javafx.scene.layout.VBox;
 
 public class VistaTurnoTirarDados extends VBox{
 	
-	public VistaTurnoTirarDados(){
+	public VistaTurnoTirarDados(ContenedorTurno contenedorPadre){
 		
 		//ronda.tirarDados() o ronda.getJugadorActual().tirarDados()
 		this.getStyleClass().add("VistaTurnoDinamica");
 		HijoHorizontal sectorDados = new HijoHorizontal();
-		BotonContinuar continuar = new BotonContinuar();
+		BotonContinuar continuar = new BotonContinuar(contenedorPadre);
 		this.getChildren().addAll(sectorDados,continuar);
 	}
 	
