@@ -7,7 +7,7 @@ public class VistaTurnoIntercambiar extends VBox{
 	public VistaTurnoIntercambiar(ContenedorTurno contenedorPadre) {
 		this.getStyleClass().add("VistaTurnoDinamica");
 		LabelTurnoDinamica intercambiar = new LabelTurnoDinamica("Elija qué desea intercambiar");
-		this.getChildren().addAll(intercambiar);
+		this.getChildren().addAll(intercambiar,contenedorPadre.getBotonVolver());
 		}
 
 }
