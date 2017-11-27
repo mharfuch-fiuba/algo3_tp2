@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.modelo.movimiento;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
-import fiuba.algo3.tp2.modelo.excepciones.NoPuedeSalirDeCarcel;
+import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class MovimientoEnCarcelPrimerDia implements Movimiento {
@@ -36,7 +36,7 @@ public class MovimientoEnCarcelPrimerDia implements Movimiento {
 
 	@Override
 	public void desencarcelar(Jugador jugador) throws DineroInsuficienteException {
-		throw new NoPuedeSalirDeCarcel();
+		throw new NoPuedePagarFianzaException();
 	}
 
 	@Override
