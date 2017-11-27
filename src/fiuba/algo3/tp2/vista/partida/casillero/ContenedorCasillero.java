@@ -15,9 +15,12 @@ public class ContenedorCasillero extends VBox{
 		detalle = new VistaCasilleroDetalle();
 		jugadores = new VistaCasilleroJugadores();
 		
-		nombre.setPrefHeight(this.getPrefHeight()/3);
+		//nombre.setPrefHeight(this.getPrefHeight()/3);
 		detalle.setPrefHeight(this.getPrefHeight()/3);
 		jugadores.setPrefHeight(this.getPrefHeight()/3);
+		//nombre.setPrefWidth(this.getPrefWidth());
+		detalle.setPrefWidth(this.getPrefWidth());
+		jugadores.setPrefWidth(this.getPrefWidth());
 		this.getChildren().addAll(nombre,detalle,jugadores);
 
 	}
