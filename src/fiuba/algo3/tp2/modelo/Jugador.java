@@ -58,6 +58,6 @@ public abstract class Jugador extends Observable{
 
 	public abstract void setMovimiento(Movimiento movimiento);
 
-	public abstract void avanzarTurno();
+	public abstract void avisarCambioDeTurno();
 	
 }

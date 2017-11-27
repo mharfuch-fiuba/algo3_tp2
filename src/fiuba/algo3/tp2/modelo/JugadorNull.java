@@ -136,7 +136,7 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void avanzarTurno() {
+	public void avisarCambioDeTurno() {
 		// TODO Auto-generated method stub
 		
 	}

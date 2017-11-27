@@ -41,7 +41,7 @@ public class MovimientoEnCarcelTurnoDos implements Movimiento {
 	}
 
 	@Override
-	public void avanzarTurno(Jugador jugador) {
+	public void avisarCambioDeTurno(Jugador jugador) {
 		jugador.setMovimiento(new MovimientoEnCarcelTurnoTres(movimiento_original));
 	}
 

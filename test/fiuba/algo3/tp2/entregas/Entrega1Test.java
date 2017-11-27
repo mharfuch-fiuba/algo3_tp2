@@ -160,8 +160,8 @@ public class Entrega1Test {
 		cubilete.lanzar();
 		jugador40k.avanzar(cubilete.sumarValores());
 		jugador40k.aplicarEfectoDeCasilleroActual(cubilete);
-		jugador40k.avanzarTurno();
-		jugador40k.avanzarTurno();
+		jugador40k.avisarCambioDeTurno();
+		jugador40k.avisarCambioDeTurno();
 		try {
 			jugador40k.pagarFianza();
 		} catch (DineroInsuficienteException e) {

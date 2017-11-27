@@ -41,7 +41,7 @@ public class MovimientoNormal implements Movimiento {
 	}
 
 	@Override
-	public void avanzarTurno(Jugador jugador) {
+	public void avisarCambioDeTurno(Jugador jugador) {
 		return;
 	}
 

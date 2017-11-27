@@ -31,7 +31,7 @@ public class CarcelTest {
 	@Test
 	public void testElJugadorQueCaeEnCarcelNoPuedeAvanzarDuranteElPrimerTurno() {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
 		try{jugador.avanzar(10);}
 		catch(JugadorEnCarcelException e) {};
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
@@ -41,8 +41,8 @@ public class CarcelTest {
 	@Test
 	public void testElJugadorQueCaeEnCarcelNoPuedeAvanzarDuranteElSegundoTurno() {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		try{jugador.avanzar(10);}
 		catch(JugadorEnCarcelException e) {};
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
@@ -52,9 +52,9 @@ public class CarcelTest {
 	@Test
 	public void testElJugadorQueCaeEnCarcelNoPuedeAvanzarDuranteElTercerTurno() {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		try{jugador.avanzar(10);}
 		catch(JugadorEnCarcelException e) {};
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
@@ -64,10 +64,10 @@ public class CarcelTest {
 	@Test
 	public void testElJugadorQueCaeEnCarcelPuedeAvanzarDuranteElCuartoTurno() {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertNotEquals(casillero_esperado, casillero_actual);
@@ -80,22 +80,22 @@ public class CarcelTest {
 	
 	@Test(expected=NoPuedePagarFianzaException.class)
 	public void testElJugadorQueCaeEnCarcelNoPuedePagarFianzaDuranteElPrimerTurno() throws DineroInsuficienteException {
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
 		jugador.pagarFianza();
 	}
 	
 	@Test
 	public void testElJugadorQueCaeEnCarcelPuedePagarFianzaDuranteElSegundoTurno() throws DineroInsuficienteException {
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		jugador.pagarFianza();
 	}
 	
 	@Test
 	public void testElJugadorQuePagaFianzaPuedeAvanzar() throws DineroInsuficienteException {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		jugador.pagarFianza();
 		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
@@ -106,8 +106,8 @@ public class CarcelTest {
 	public void testElJugadorQueNoPuedePagarFianzaNoPuedeAvanzar() throws DineroInsuficienteException {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
 		jugador.pagar(jugador.obtenerDinero());
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		try{jugador.pagarFianza();}
 		catch(DineroInsuficienteException e) {};
 		try{jugador.avanzar(10);}
@@ -119,8 +119,8 @@ public class CarcelTest {
 	@Test
 	public void testElJugadorQuePagaFianzaPierde45000() throws DineroInsuficienteException {
 		Dinero monto_antes = jugador.obtenerDinero();
-		jugador.avanzarTurno();
-		jugador.avanzarTurno();
+		jugador.avisarCambioDeTurno();
+		jugador.avisarCambioDeTurno();
 		jugador.pagarFianza();
 		Dinero monto_despues = jugador.obtenerDinero();
 		Assert.assertEquals(monto_antes.obtenerMontoEntero() - 45000, monto_despues.obtenerMontoEntero());

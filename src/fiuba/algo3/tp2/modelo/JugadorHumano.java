@@ -145,8 +145,8 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void avanzarTurno() {
-		movimiento.avanzarTurno(this);
+	public void avisarCambioDeTurno() {
+		movimiento.avisarCambioDeTurno(this);
 	}
 	
 }

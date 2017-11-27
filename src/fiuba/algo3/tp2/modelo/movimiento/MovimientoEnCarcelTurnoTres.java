@@ -41,7 +41,7 @@ public class MovimientoEnCarcelTurnoTres implements Movimiento {
 	}
 
 	@Override
-	public void avanzarTurno(Jugador jugador) {
+	public void avisarCambioDeTurno(Jugador jugador) {
 		jugador.setMovimiento(movimiento_original);
 	}
 

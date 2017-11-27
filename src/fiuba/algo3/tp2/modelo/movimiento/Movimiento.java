@@ -12,6 +12,6 @@ public interface Movimiento {
 	void avanzar(int cantidadCasilleros) throws JugadorEnCarcelException;
 	void retroceder(int cant_casilleros) throws JugadorEnCarcelException;
 	void desencarcelar(Jugador jugador) throws DineroInsuficienteException;
-	void avanzarTurno(Jugador jugador);
+	void avisarCambioDeTurno(Jugador jugador);
 	
 }
