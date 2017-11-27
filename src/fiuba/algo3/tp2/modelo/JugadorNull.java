@@ -15,9 +15,9 @@ public class JugadorNull extends Jugador {
 		return null;
 	}
 
-	public void comprarCasilleroActual() {
+	public void comprarCasilleroActual() throws DineroInsuficienteException {
 		// TODO Auto-generated method stub
-
+		throw new DineroInsuficienteException();
 	}
 
 	@Override
@@ -27,9 +27,9 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void pagarFianza() {
+	public void pagarFianza() throws DineroInsuficienteException {
 		// TODO Auto-generated method stub
-
+		throw new DineroInsuficienteException();
 	}
 
 	@Override
@@ -44,7 +44,8 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void pagar(Dinero monto) {
+	public void pagar(Dinero monto) throws DineroInsuficienteException {
+		throw new DineroInsuficienteException();
 	}
 
 	@Override
@@ -74,7 +75,7 @@ public class JugadorNull extends Jugador {
 	@Override
 	public void comprar(Propiedad comprable) throws DineroInsuficienteException {
 		// TODO Auto-generated method stub
-
+		throw new DineroInsuficienteException();
 	}
 
 	@Override
@@ -97,6 +98,7 @@ public class JugadorNull extends Jugador {
 	@Override
 	public boolean esNull() {
 		return true;
+		//TODO VER CUAL SIRVE PORQUE ESTA REPETIDO
 	}
 
 	@Override
