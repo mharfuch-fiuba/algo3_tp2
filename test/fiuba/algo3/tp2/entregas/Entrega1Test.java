@@ -161,16 +161,7 @@ public class Entrega1Test {
 		cubilete.lanzar();
 		jugador40k.avanzar(cubilete.sumarValores());
 		jugador40k.aplicarEfectoDeCasilleroActual(cubilete);
-		try {
-			jugador40k.avanzar(cubilete.sumarValores());
-		} catch (JugadorEnCarcelException e) {
-			// ESTO ES ESPERABLE.
-		}
-		try {
-			jugador40k.pagarFianza();
-		} catch (NoPuedePagarFianzaException e) {
-			// ESTO ES ESPERABLE PORQUE EN EL DIA 1 DE CARCEL NO SE PUEDE PAGAR LA FIANZA
-		}
+		jugador40k.avanzarTurno();
 		jugador40k.avanzarTurno();
 		try {
 			jugador40k.pagarFianza();

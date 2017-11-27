@@ -6,11 +6,11 @@ import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
-public class MovimientoEnCarcelPrimerDia implements Movimiento {
+public class MovimientoEnCarcelTurnoCero implements Movimiento {
 
 	private Movimiento movimiento_original;
 	
-	public MovimientoEnCarcelPrimerDia(Movimiento movimiento_normal) {
+	public MovimientoEnCarcelTurnoCero(Movimiento movimiento_normal) {
 		movimiento_original = movimiento_normal;
 	}
 
@@ -40,8 +40,8 @@ public class MovimientoEnCarcelPrimerDia implements Movimiento {
 	}
 
 	@Override
-	public void avanzarDia(Jugador jugador) {
-		jugador.setMovimiento(new MovimientoEnCarcelSegundoDia(movimiento_original));
+	public void avanzarTurno(Jugador jugador) {
+		jugador.setMovimiento(new MovimientoEnCarcelTurnoUno(movimiento_original));
 	}
 	
 }

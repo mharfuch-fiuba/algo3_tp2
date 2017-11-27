@@ -146,7 +146,7 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void avanzarTurno() {
-		movimiento.avanzarDia(this);
+		movimiento.avanzarTurno(this);
 	}
 	
 }
