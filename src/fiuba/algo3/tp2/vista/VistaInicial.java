@@ -14,8 +14,8 @@ public class VistaInicial extends VBox {
 	public VistaInicial(Stage stage) {
 		Image logo = new Image("file:assets/logo.png");
 		ImageView vistaImagen = new ImageView(logo);
-		vistaImagen.setFitHeight(300);
-		vistaImagen.setFitWidth(1000);
+		vistaImagen.setFitHeight(240);
+		vistaImagen.setFitWidth(800);
 		this.getChildren().add(vistaImagen);
 		agregarBotonNuevaPartida(stage);
 		this.getStyleClass().add("VistaInicial");
