@@ -1,28 +1,39 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import javafx.scene.paint.Color;
 
-public class ControladorJugador {
+public class ControladorJugador implements Observer {
 
 	private Jugador jugador;
 	private VistaJugador vista;
-	
-	public ControladorJugador(Jugador jugador){
-		this.jugador=jugador;
+
+	public ControladorJugador(Jugador jugador) {
+		this.jugador = jugador;
 	}
-	
-	public String getNombre(){
+
+	public String getNombre() {
 		return this.jugador.getNombre();
 	}
-	
-	public Color getColor(){
+
+	public Color getColor() {
 		return this.jugador.getColor();
 	}
-	
-	public String getDinero(){
-		return "$"+String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
+
+	public String getDinero() {
+		return "$" + String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
 	}
-	
+
+	@Override
+	public void update(Observable o, Object arg) {
+		this.vista.actualizarDinero(this.getDinero());
+	}
+
+	public void asociarVista(VistaJugador vista) {
+		this.vista = vista;
+	}
 }

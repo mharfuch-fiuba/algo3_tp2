@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 public class VistaJugador extends VBox{
 	
 	ControladorJugador controladorJugador;
+	Label labelDinero;
 	
 
 	public VistaJugador(ControladorJugador controladorJugador){
@@ -28,7 +29,7 @@ public class VistaJugador extends VBox{
 	}
 	
 	private void mostrarDinero(){
-		Label labelDinero = new Label(controladorJugador.getDinero());
+		labelDinero = new Label(controladorJugador.getDinero());
 		this.getChildren().add(labelDinero);
 	}
 	
@@ -36,6 +37,10 @@ public class VistaJugador extends VBox{
 		Color color = controladorJugador.getColor();
 		Background background = new Background(new BackgroundFill(color,CornerRadii.EMPTY , Insets.EMPTY));
 		this.setBackground(background);
+	}
+	
+	public void actualizarDinero(String nuevoDinero){
+		this.labelDinero.setText(nuevoDinero);
 	}
 	
 	

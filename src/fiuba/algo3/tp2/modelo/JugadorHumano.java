@@ -45,6 +45,8 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void cobrar(Dinero monto) {
 		this.dinero.aumentarCantidad(monto);
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public void comprar(Propiedad comprable) throws DineroInsuficienteException{
@@ -76,6 +78,8 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void pagar(Dinero monto) throws DineroInsuficienteException {
 		this.dinero.disminuirCantidad(monto);
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override
