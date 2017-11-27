@@ -17,7 +17,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
-import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
