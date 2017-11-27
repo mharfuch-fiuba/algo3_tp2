@@ -8,6 +8,8 @@ public class ContenedorTableroCenter extends VBox{
 	public ContenedorTableroCenter(){
 		Image logo = new Image("file:assets/logo.png");
 		ImageView vistaImagen = new ImageView(logo);
+		vistaImagen.setFitHeight(150);
+		vistaImagen.setFitWidth(500);
 		this.getStyleClass().add("VistaTableroCentro");
 		this.getChildren().add(vistaImagen);
 	}
