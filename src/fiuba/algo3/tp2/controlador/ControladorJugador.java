@@ -5,6 +5,8 @@ import java.util.Observer;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.vista.partida.VistaJugador;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 
 public class ControladorJugador implements Observer {
@@ -36,4 +38,13 @@ public class ControladorJugador implements Observer {
 	public void asociarVista(VistaJugador vista) {
 		this.vista = vista;
 	}
+
+	public ObservableList<String> getConstruibles() {
+		//tengo que ver en jugador como hacerlo
+		ObservableList<String> fruits = FXCollections.observableArrayList( 
+				 "Apple", "Banana", "Pear", "Strawberry", "Peach", "Orange");
+		return fruits;
+	}
+	
+	
 }

@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.modelo;
 
 import java.util.Observable;
 
+import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
@@ -12,6 +13,8 @@ import javafx.scene.paint.Color;
 
 public abstract class Jugador extends Observable{
 
+	private ControladorJugador controlador;
+	
 	public abstract String getNombre();
 	
 	public abstract Color getColor();
@@ -59,5 +62,12 @@ public abstract class Jugador extends Observable{
 	public abstract void setMovimiento(Movimiento movimiento);
 
 	public abstract void avisarCambioDeTurno();
+
+	public ControladorJugador getControlador() {
+		return this.controlador;
+	}
 	
+	public void setControlador(ControladorJugador controlador){
+		this.controlador=controlador;
+	}
 }

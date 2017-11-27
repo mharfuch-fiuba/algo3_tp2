@@ -37,6 +37,7 @@ public class ControladorRonda implements Observer {
 		for (Jugador j : this.ronda) {
 			ControladorJugador controladorJugador = new ControladorJugador(j);
 			j.addObserver(controladorJugador);
+			j.setControlador(controladorJugador);
 			VistaJugador vista = new VistaJugador(controladorJugador);
 			controladorJugador.asociarVista(vista);
 			HBox.setHgrow(vista, Priority.ALWAYS);
@@ -45,6 +46,16 @@ public class ControladorRonda implements Observer {
 
 	}
 
+	public ControladorJugador getJugadorActual(){
+		try {
+			return ronda.obtenerJugadorActual().getControlador();
+		} catch (NoHayJugadoresException e) {
+			e.printStackTrace();
+			return null;	//provisorio
+		}
+		
+	}
+	
 	public String getNombreJugadorActual() {
 		try {
 			return this.ronda.obtenerJugadorActual().getNombre();
