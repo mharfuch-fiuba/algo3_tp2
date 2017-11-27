@@ -8,9 +8,12 @@ public class ContenedorTurno extends VBox {
 
 	VistaTurnoInicial vistaTurnoInicial;
 	Pane vistaActual;
+	ControladorRonda ronda;
 	
 	public ContenedorTurno(ControladorRonda ronda){
+		this.ronda=ronda;
 		VistaTurnoTitulo vistaTurnoTitulo=new VistaTurnoTitulo(ronda);
+		this.ronda.vincularTitulo(vistaTurnoTitulo.getLabelJugador());
 		this.vistaTurnoInicial = new VistaTurnoInicial(this);
 		this.getChildren().addAll(vistaTurnoTitulo,vistaTurnoInicial);
 		this.vistaActual=vistaTurnoInicial;
@@ -24,6 +27,10 @@ public class ContenedorTurno extends VBox {
 	
 	public VistaTurnoInicial getVistaInicial(){
 		return this.vistaTurnoInicial;
+	}
+	
+	public void terminarTurno(){
+		this.ronda.terminarTurno();
 	}
 	
 }

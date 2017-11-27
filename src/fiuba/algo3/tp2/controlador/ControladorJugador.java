@@ -22,7 +22,7 @@ public class ControladorJugador {
 	}
 	
 	public String getDinero(){
-		return String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
+		return "$"+String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
 	}
 	
 }

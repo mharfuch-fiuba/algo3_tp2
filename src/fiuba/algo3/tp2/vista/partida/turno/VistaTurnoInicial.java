@@ -19,13 +19,13 @@ public class VistaTurnoInicial extends VBox {
 	
 	private BotonTurnoInicial[] construirBotones(){
 		BotonTurnoInicial construir = new BotonTurnoInicial("Construir");
-		construir.setOnAction(new BotonConstruirHandler());
+		construir.setOnAction(new BotonConstruirHandler(this.contenedorPadre));
 		
 		BotonTurnoInicial vender = new BotonTurnoInicial("Vender");
-		vender.setOnAction(new BotonVenderHandler());
+		vender.setOnAction(new BotonVenderHandler(this.contenedorPadre));
 		
 		BotonTurnoInicial intercambiar = new BotonTurnoInicial("Intercambiar");
-		intercambiar.setOnAction(new BotonIntercambiarHandler());
+		intercambiar.setOnAction(new BotonIntercambiarHandler(this.contenedorPadre));
 		
 		BotonTurnoInicial tirarDados = new BotonTurnoInicial("Tirar Dados");
 		tirarDados.setOnAction(new BotonTirarDadosHandler(contenedorPadre));

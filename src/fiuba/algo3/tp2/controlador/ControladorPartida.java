@@ -5,7 +5,6 @@ import java.util.Random;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.Partida;
-import fiuba.algo3.tp2.vista.partida.ContenedorPartida;
 import javafx.scene.paint.Color;
 
 public class ControladorPartida {
@@ -19,18 +18,19 @@ public class ControladorPartida {
 
 	public void nuevaPartida(String[] jugadores){
 		this.partida=new Partida();
-		agregarJugadores(jugadores);
 		this.controladorRonda=new ControladorRonda(this.partida.getRonda());
+		agregarJugadores(jugadores);
 		this.controladorRonda.agregarVistasJugadores();
 		this.controladorTablero=new ControladorTablero(this.partida.getTablero());	
 	}
 	
 	private void agregarJugadores(String[] jugadores) {
 		for (String nombre : jugadores) {
-			Jugador jugador = new JugadorHumano(this.partida.getTablero(), this.partida.dineroInicial);
+			Jugador jugador = new JugadorHumano(this.partida.getTablero(), this.partida.dineroInicial);	
 			jugador.setNombre(nombre);
 			jugador.setColor(colorAleatorio());
 			this.partida.getRonda().agregarJugador(jugador);
+			jugador.addObserver(this.controladorRonda);
 		}
 	}
 

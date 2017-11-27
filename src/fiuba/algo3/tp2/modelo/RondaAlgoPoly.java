@@ -27,6 +27,9 @@ public class RondaAlgoPoly extends Ronda {
 	@Override
 	public void avanzarTurno() throws NoHayJugadoresException {
 		this.iterador.next();
+		this.setChanged();
+		this.notifyObservers();
+
 	}
 
 	@Override

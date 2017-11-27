@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.Observable;
+
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
@@ -7,7 +9,7 @@ import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import javafx.scene.paint.Color;
 
-public abstract class Jugador {
+public abstract class Jugador extends Observable{
 
 	public abstract String getNombre();
 	

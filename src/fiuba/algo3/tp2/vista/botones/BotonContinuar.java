@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.vista.botones;
 
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoEfecto;
-import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoTirarDados;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
