@@ -12,7 +12,7 @@ public class VistaTurnoTitulo extends HBox{
 		this.ronda=ronda;
 		this.getStyleClass().add("VistaTurnoTitulo");
 		LabelTituloTurno fijo = new LabelTituloTurno("Turno de: ");
-		this.jugador = new LabelTituloTurno(ronda.getJugadorActual());
+		this.jugador = new LabelTituloTurno(ronda.getNombreJugadorActual());
 		this.getChildren().addAll(fijo,jugador);
 	}
 	

@@ -6,9 +6,9 @@ import javafx.scene.layout.VBox;
 
 public class ContenedorTurno extends VBox {
 
-	VistaTurnoInicial vistaTurnoInicial;
-	Pane vistaActual;
-	ControladorRonda ronda;
+	private VistaTurnoInicial vistaTurnoInicial;
+	private Pane vistaActual;
+	private ControladorRonda ronda;
 	
 	public ContenedorTurno(ControladorRonda ronda){
 		this.ronda=ronda;
@@ -31,6 +31,10 @@ public class ContenedorTurno extends VBox {
 	
 	public void terminarTurno(){
 		this.ronda.terminarTurno();
+	}
+	
+	public ControladorRonda getControladorRonda(){
+		return this.ronda;
 	}
 	
 }

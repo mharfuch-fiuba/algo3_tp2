@@ -16,10 +16,12 @@ public class ControladorRonda implements Observer {
 
 	private Ronda ronda;
 	private LabelTituloTurno tituloTurno;
+	private ControladorDados dados;
 
 	public ControladorRonda(Ronda ronda) {
 		this.ronda = ronda;
 		this.ronda.addObserver(this);
+		this.dados= new ControladorDados();
 	}
 
 	public void vincularTitulo(LabelTituloTurno tituloTurno) {
@@ -43,13 +45,15 @@ public class ControladorRonda implements Observer {
 
 	}
 
-	public String getJugadorActual() {
+	public String getNombreJugadorActual() {
 		try {
 			return this.ronda.obtenerJugadorActual().getNombre();
 		} catch (NoHayJugadoresException e) {
 			return "-";
 		}
 	}
+	
+
 
 	public void terminarTurno() {
 		try {
@@ -66,6 +70,15 @@ public class ControladorRonda implements Observer {
 		} catch (NoHayJugadoresException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void tirarDados(){
+		//aca le digo a la ronda que tire los dados
+	}
+	
+	public ControladorDados getDados(){
+		
+		return this.dados;
 	}
 
 }

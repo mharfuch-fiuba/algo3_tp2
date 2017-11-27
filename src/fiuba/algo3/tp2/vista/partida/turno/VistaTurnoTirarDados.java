@@ -1,30 +1,26 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
+import fiuba.algo3.tp2.controlador.ControladorDados;
 import fiuba.algo3.tp2.vista.botones.BotonContinuar;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class VistaTurnoTirarDados extends VBox{
 	
 	public VistaTurnoTirarDados(ContenedorTurno contenedorPadre){
-		
-		//ronda.tirarDados() o ronda.getJugadorActual().tirarDados()
+		ControladorDados dados = contenedorPadre.getControladorRonda().getDados();
 		this.getStyleClass().add("VistaTurnoDinamica");
-		HijoHorizontal sectorDados = new HijoHorizontal();
+		HijoHorizontal sectorDados = new HijoHorizontal(dados);
 		BotonContinuar continuar = new BotonContinuar(contenedorPadre);
 		this.getChildren().addAll(sectorDados,continuar);
 	}
 	
 	private class HijoHorizontal extends HBox{
-		public HijoHorizontal(){
-			Image logo = new Image("file:assets/dados.png");
-			ImageView vistaImagen = new ImageView(logo);
-			vistaImagen.setFitHeight(100);
-			vistaImagen.setFitWidth(100);
-			LabelTurnoDinamica textoSacaste = new LabelTurnoDinamica("Sacaste 6");
-			this.getChildren().addAll(vistaImagen,textoSacaste);
+		public HijoHorizontal(ControladorDados dados){
+			VistaDado dadoUno=dados.getDadoUno();
+			VistaDado dadoDos=dados.getDadoDos();
+			LabelTurnoDinamica textoSacaste = new LabelTurnoDinamica("Sacaste 6 y 6");
+			this.getChildren().addAll(dadoUno,dadoDos,textoSacaste);
 		}
 	}
 
