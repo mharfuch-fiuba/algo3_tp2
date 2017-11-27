@@ -16,12 +16,12 @@ public class ControladorRonda implements Observer {
 
 	private Ronda ronda;
 	private LabelTituloTurno tituloTurno;
-	private ControladorDados dados;
+	private ControladorCubilete cubilete;
 
 	public ControladorRonda(Ronda ronda) {
 		this.ronda = ronda;
 		this.ronda.addObserver(this);
-		this.dados= new ControladorDados();
+		this.cubilete= new ControladorCubilete(ronda.getCubilete());
 	}
 
 	public void vincularTitulo(LabelTituloTurno tituloTurno) {
@@ -76,9 +76,9 @@ public class ControladorRonda implements Observer {
 		//aca le digo a la ronda que tire los dados
 	}
 	
-	public ControladorDados getDados(){
+	public ControladorCubilete getDados(){
 		
-		return this.dados;
+		return this.cubilete;
 	}
 
 }

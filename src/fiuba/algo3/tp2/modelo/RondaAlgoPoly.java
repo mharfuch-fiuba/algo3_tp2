@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
@@ -54,6 +55,12 @@ public class RondaAlgoPoly extends Ronda {
 	@Override
 	public Iterator<Jugador> iterator() {
 		return obtenerJugadores().iterator();
+	}
+
+	@Override
+	public Cubilete getCubilete() {
+		// TODO Auto-generated method stub
+		return new Cubilete();
 	}
 	
 	

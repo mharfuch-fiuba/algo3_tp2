@@ -5,13 +5,13 @@ import javafx.scene.image.ImageView;
 
 public class VistaDado extends ImageView {
 
-	public VistaDado(){
-		
-		Image logo = new Image("file:assets/dados.png");
+	public VistaDado(int numero){
+		Image logo = new Image("file:assets/dados/dado"+numero+".png");
 		this.setImage(logo);
 		this.setFitHeight(50);
 		this.setFitWidth(50);
 	}
+	
 	
 
 	
