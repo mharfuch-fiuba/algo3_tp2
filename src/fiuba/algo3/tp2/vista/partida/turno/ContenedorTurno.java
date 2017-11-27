@@ -1,6 +1,9 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.controlador.ControladorRonda;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -36,5 +39,33 @@ public class ContenedorTurno extends VBox {
 	public ControladorRonda getControladorRonda(){
 		return this.ronda;
 	}
+	
+	public Button getBotonVolver(){
+		return new BotonVolver(this);
+	}
+	
+	private class BotonVolver extends Button{
+		
+		public BotonVolver(ContenedorTurno contenedorPadre){
+			this.setText("Volver");
+			this.setOnAction(new BotonVolverHandler(contenedorPadre));
+		}
+	}
+	
+	public class BotonVolverHandler implements EventHandler<ActionEvent> {
+		
+		ContenedorTurno contenedorPadre;
+		
+		public BotonVolverHandler(ContenedorTurno contenedorPadre) {
+			this.contenedorPadre=contenedorPadre;
+		}
+		@Override
+		public void handle(ActionEvent event) {
+			this.contenedorPadre.cambiarVistaDinamica(this.contenedorPadre.getVistaInicial());
+		}
+		
+	}
+	
+	
 	
 }
