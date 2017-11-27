@@ -17,6 +17,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.excepciones.NoPuedeSalirDeCarcel;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
@@ -167,8 +168,14 @@ public class Entrega1Test {
 		}
 		try {
 			jugador40k.pagarFianza();
+		} catch (NoPuedeSalirDeCarcel e) {
+			// ESTO ES ESPERABLE PORQUE EN EL DIA 1 DE CARCEL NO SE PUEDE PAGAR LA FIANZA
+		}
+		jugador40k.avanzarTurno();
+		try {
+			jugador40k.pagarFianza();
 		} catch (DineroInsuficienteException e) {
-			// ESTO ES ESPERABLE.
+			// ESTO ES ESPERABLE PORQUE NO TIENE DINERO
 		}
 		cubilete.lanzar();
 		jugador40k.avanzar(cubilete.sumarValores());

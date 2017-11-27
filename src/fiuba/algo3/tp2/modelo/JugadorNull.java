@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import javafx.scene.paint.Color;
 
@@ -32,12 +33,6 @@ public class JugadorNull extends Jugador {
 	}
 
 	@Override
-	public void encarcelar() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public int getCantidadDePropiedades() {
 		return 0;
 	}
@@ -60,12 +55,6 @@ public class JugadorNull extends Jugador {
 
 	@Override
 	public void cobrar(Dinero monto) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void disminuirDiasDeCarcel() {
 		// TODO Auto-generated method stub
 
 	}
@@ -130,6 +119,24 @@ public class JugadorNull extends Jugador {
 
 	@Override
 	public void setColor(Color color) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Movimiento getMovimiento() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMovimiento(Movimiento movimiento) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void avanzarTurno() {
 		// TODO Auto-generated method stub
 		
 	}

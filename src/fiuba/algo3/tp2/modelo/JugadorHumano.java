@@ -6,6 +6,8 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
+import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
+import fiuba.algo3.tp2.modelo.movimiento.MovimientoNormal;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import javafx.scene.paint.Color;
@@ -17,25 +19,22 @@ public class JugadorHumano extends Jugador {
 	private String nombre;
 	private Color color;
 	
-
 	private ArrayList<Propiedad> propiedades;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		dinero = dinero_inicial.clone();
 		propiedades = new ArrayList<Propiedad>();
-		this.movimiento = new Movimiento(tablero);
+		movimiento = new MovimientoNormal(tablero);
 	}
 
 	@Override
 	public void avanzar(int cant_casilleros) throws JugadorEnCarcelException {
-		this.movimiento.avanzar(cant_casilleros);		
+		movimiento.avanzar(cant_casilleros);		
 	}
 
 	@Override
-	public void retroceder(int cant_casilleros) {
-		for (int i = 0; i < cant_casilleros; i++) {
-			this.movimiento.retroceder();
-		}
+	public void retroceder(int cant_casilleros) throws JugadorEnCarcelException {
+		movimiento.retroceder(cant_casilleros);
 	}
 
 	@Override
@@ -59,18 +58,6 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void pagarFianza() throws DineroInsuficienteException {	
-		if (this.movimiento.getTurnosPendientesDeCarcel() == 3)	return;
-		this.pagar(new Dinero(45000));
-		this.movimiento.desencarcelar();
-	}
-
-	@Override
-	public void encarcelar() {
-		this.movimiento.encarcelar();
-	}
-
-	@Override
 	public int getCantidadDePropiedades() {
 		return propiedades.size();
 	}
@@ -82,18 +69,13 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void avanzarHasta(Encasillable casillero) {
+	public void avanzarHasta(Encasillable casillero) throws JugadorEnCarcelException {
 		this.movimiento.avanzarHasta(casillero);
 	}
 
 	@Override
 	public void pagar(Dinero monto) throws DineroInsuficienteException {
 		this.dinero.disminuirCantidad(monto);
-	}
-
-	@Override
-	public void disminuirDiasDeCarcel(){
-		this.movimiento.disminuirDiasDeCarcel();
 	}
 
 	@Override
@@ -145,7 +127,26 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void setColor(Color color) {
 		this.color=color;
-		
+	}
+
+	@Override
+	public void pagarFianza() throws DineroInsuficienteException {
+		movimiento.desencarcelar(this);
+	}
+
+	@Override
+	public Movimiento getMovimiento() {
+		return movimiento;
+	}
+
+	@Override
+	public void setMovimiento(Movimiento nuevo_movimiento) {
+		movimiento = nuevo_movimiento;
+	}
+
+	@Override
+	public void avanzarTurno() {
+		movimiento.avanzarDia(this);
 	}
 	
 }

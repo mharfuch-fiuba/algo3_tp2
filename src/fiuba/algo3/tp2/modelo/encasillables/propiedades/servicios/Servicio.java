@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Emparejable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.PropiedadNull;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.estrategias.EstrategiaDosServicios;

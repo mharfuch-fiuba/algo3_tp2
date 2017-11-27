@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.modelo.excepciones;
 
 @SuppressWarnings("serial")
-public class JugadorEnCarcelException extends RuntimeException {
+public class NoPuedeSalirDeCarcel extends RuntimeException {
 
 }
