@@ -12,5 +12,7 @@ public interface Construible {
 	Construible construirMejora(Terreno actual, Terreno pareja);
 	Construible construirMejora();
 	void parejaQuiereConstruirHotel();
+	Construible demoler();
+	void setMejora(Construible prox);
 	
 }

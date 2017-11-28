@@ -11,6 +11,7 @@ import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 public abstract class Terreno extends Propiedad implements Edificable {
 	
 	private Construible construccion;
+	private static final int PTJ_DE_REINTEGRO = 85;
 	
 	public Terreno(Dinero precio_compra) {
 		super(precio_compra);
@@ -40,6 +41,14 @@ public abstract class Terreno extends Propiedad implements Edificable {
 
 	public void quiereContruir(Terreno pareja) {
 		if(pareja.getPropietario() != this.getPropietario()) throw new FaltaAdquirirParejaException(); 
+	}
+	
+	@Override
+	public void demoler() {
+		Dinero precio_construccion = construccion.getPrecioConstruccion();
+		Dinero monto_a_cobrar = precio_construccion.obtenerPorcentaje(PTJ_DE_REINTEGRO);
+		construccion = construccion.demoler();
+		this.getPropietario().cobrar(monto_a_cobrar);
 	}
 	
 }

@@ -14,10 +14,13 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 
 	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
-		Construible hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel);
-		Construible duplex = new ConstruccionDuplex(costoConstruccionCasa, alquilerCon2Casas, hotel);
-		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, duplex);
-		Construible baldio = new ConstruccionBaldio(alquiler, casa);
+		Construible baldio = new ConstruccionBaldio(alquiler);
+		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, baldio);
+		Construible duplex = new ConstruccionDuplex(costoConstruccionCasa, alquilerCon2Casas, casa);
+		Construible hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel, duplex);
+		baldio.setMejora(casa);
+		casa.setMejora(duplex);
+		duplex.setMejora(hotel);
 		this.setConstruccion(baldio);
 	}
 	
@@ -27,15 +30,15 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	}
 	
 	@Override
+	public TerrenoDoble getPareja() {
+		return (TerrenoDoble) pareja;
+	}
+	
+	@Override
 	public void construir() throws DineroInsuficienteException {
 		Construible nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
 		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 		this.setConstruccion(nueva_construccion);
-	}
-	
-	@Override
-	public TerrenoDoble getPareja() {
-		return (TerrenoDoble) pareja;
 	}
 
 }

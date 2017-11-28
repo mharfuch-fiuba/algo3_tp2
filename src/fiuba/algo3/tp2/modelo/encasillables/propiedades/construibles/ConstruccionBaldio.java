@@ -9,7 +9,7 @@ public class ConstruccionBaldio implements Construible {
 	
 	private Construible proxima_mejora;
 	private Dinero precio_alquiler;
-	
+
 	public ConstruccionBaldio(Dinero alquiler, Construible mejora) {
 		proxima_mejora = mejora;
 		precio_alquiler = alquiler;
@@ -49,6 +49,16 @@ public class ConstruccionBaldio implements Construible {
 	@Override
 	public void parejaQuiereConstruirHotel() {
 		throw new FaltanCasasException();
+	}
+	
+	@Override
+	public Construible demoler() {
+		return this;
+	}
+
+	@Override
+	public void setMejora(Construible prox) {
+		proxima_mejora = prox;
 	}
 
 }

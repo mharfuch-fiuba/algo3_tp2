@@ -43,4 +43,13 @@ public class ConstruccionNull implements Construible {
 		construccion.parejaQuiereConstruirHotel();
 	}
 
+	@Override
+	public Construible demoler() {
+		return construccion.demoler();
+	}
+
+	@Override
+	public void setMejora(Construible prox) {
+	}
+
 }

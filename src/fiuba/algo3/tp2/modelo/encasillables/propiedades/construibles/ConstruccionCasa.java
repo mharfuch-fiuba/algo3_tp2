@@ -7,20 +7,23 @@ import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 
 public class ConstruccionCasa implements Construible {
 	
+	private Construible mejora_anterior;
 	private Construible proxima_mejora;
 	private Dinero precio_alquiler;
 	private Dinero precio_construccion;
 	
-	public ConstruccionCasa(Dinero costo_construccion, Dinero costo_alquiler, Construible mejora) {
+	public ConstruccionCasa(Dinero costo_construccion, Dinero costo_alquiler, Construible anterior, Construible mejora) {
 		proxima_mejora = mejora;
 		precio_alquiler = costo_alquiler;
 		precio_construccion = costo_construccion;
+		mejora_anterior = anterior;
 	}
 
-	public ConstruccionCasa(Dinero costo_construccion, Dinero costo_alquiler) {
+	public ConstruccionCasa(Dinero costo_construccion, Dinero costo_alquiler, Construible anterior) {
 		proxima_mejora = new ConstruccionNull(this);
 		precio_alquiler = costo_alquiler;
 		precio_construccion = costo_construccion;
+		mejora_anterior = anterior;
 	}
 
 	@Override
@@ -52,6 +55,16 @@ public class ConstruccionCasa implements Construible {
 	@Override
 	public void parejaQuiereConstruirHotel() {
 		throw new FaltanCasasException();
+	}
+	
+	@Override
+	public Construible demoler() {
+		return mejora_anterior;
+	}
+
+	@Override
+	public void setMejora(Construible prox) {
+		proxima_mejora = prox;
 	}
 	
 }
