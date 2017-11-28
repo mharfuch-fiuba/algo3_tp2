@@ -72,4 +72,6 @@ public abstract class Jugador extends Observable{
 	public void setControlador(ControladorJugador controlador){
 		this.controlador=controlador;
 	}
+
+	public abstract void setDeuda(Deuda deuda);
 }

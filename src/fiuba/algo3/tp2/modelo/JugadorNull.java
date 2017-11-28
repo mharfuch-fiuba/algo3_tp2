@@ -149,4 +149,10 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public void setDeuda(Deuda deuda) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
