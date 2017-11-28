@@ -18,7 +18,7 @@ public class BotonNuevaPartidaHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		
 		stage.setScene(escenaConfigurarPartida);
-		stage.setFullScreen(true);
+		//stage.setFullScreen(true);
 	}
 
 }
