@@ -11,7 +11,7 @@ public class OpcionAcercaDeEventHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Acerca de...");
-		alert.setHeaderText("Programa DragonAlgoBall");
+		alert.setHeaderText("Programa Algopoly");
 		String mensaje = "75.07 Algoritmos y  programacion III.\n "
 				+ "Integrantes:\n Mateo HARFUCH\n Julian Martin\n Matias Ricaldone\n Federico Zugna";
 		alert.setContentText(mensaje);
