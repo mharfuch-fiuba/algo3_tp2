@@ -1,9 +1,5 @@
 package fiuba.algo3.tp2.modelo.tablero;
 
-import fiuba.algo3.tp2.modelo.encasillables.*;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.*;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
 
@@ -40,56 +36,40 @@ public class Tablero {
 	}
 
 	private DoublyLinkedCircularList casilleros;
+	private FactoryEncasillables factory;
 
 	public Tablero() {
 		casilleros = new DoublyLinkedCircularList();
-		Carcel carcel = new Carcel();
+		factory = new FactoryEncasillables();
 
-		Subte subte = new Subte();
-		Tren tren = new Tren();
-		Aysa aysa = new Aysa();
-		Edesur edesur = new Edesur();
-		BuenosAiresNorte buenosairesnorte = new BuenosAiresNorte();
-		BuenosAiresSur buenosairessur = new BuenosAiresSur();
-		CordobaNorte cordobanorte = new CordobaNorte();
-		CordobaSur cordobasur = new CordobaSur();
-		SaltaNorte saltanorte = new SaltaNorte();
-		SaltaSur saltasur = new SaltaSur();
-
-		casilleros.add(new Salida());
-		casilleros.add(new Quini6());
-		casilleros.add(buenosairessur);
-		casilleros.add(edesur);
-		casilleros.add(buenosairesnorte);
-		casilleros.add(carcel);
-		casilleros.add(cordobasur);
-		casilleros.add(new AvanceDinamico());
-		casilleros.add(subte);
-		casilleros.add(cordobanorte);
-		casilleros.add(new ImpuestoDeLujo());
-		casilleros.add(new SantaFe());
-		casilleros.add(aysa);
-		casilleros.add(saltanorte);
-		casilleros.add(saltasur);
-		casilleros.add(new Policia(carcel));
-		casilleros.add(tren);
-		casilleros.add(new Neuquen());
-		casilleros.add(new RetrocesoDinamico());
-		casilleros.add(new Tucuman());
-
-		tren.setPareja(subte);
-		subte.setPareja(tren);
-		aysa.setPareja(edesur);
-		edesur.setPareja(aysa);
-		buenosairesnorte.setPareja(buenosairessur);
-		buenosairessur.setPareja(buenosairesnorte);
-		cordobanorte.setPareja(cordobasur);
-		cordobasur.setPareja(cordobanorte);
-		saltanorte.setPareja(saltasur);
-		saltasur.setPareja(saltanorte);
+		casilleros.add(factory.getSalida());
+		casilleros.add(factory.getQuini6());
+		casilleros.add(factory.getBuenosAiresSur());
+		casilleros.add(factory.getEdesur());
+		casilleros.add(factory.getBuenosAiresNorte());
+		casilleros.add(factory.getCarcel());
+		casilleros.add(factory.getCordobaSur());
+		casilleros.add(factory.getAvanceDinamico());
+		casilleros.add(factory.getSubte());
+		casilleros.add(factory.getCordobaNorte());
+		casilleros.add(factory.getImpuestoDeLujo());
+		casilleros.add(factory.getSantaFe());
+		casilleros.add(factory.getAysa());
+		casilleros.add(factory.getSaltaNorte());
+		casilleros.add(factory.getSaltaSur());
+		casilleros.add(factory.getPolicia());
+		casilleros.add(factory.getTren());
+		casilleros.add(factory.getNeuquen());
+		casilleros.add(factory.getRestrocesoDinamico());
+		casilleros.add(factory.getTucuman());
 	}
 
 	public IterTablero crearIterador() {
 		return new IterTableroAlgoPoly();
 	}
+	
+	public FactoryEncasillables getFactory() {
+		return factory;
+	}
+	
 }
