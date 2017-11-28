@@ -36,5 +36,10 @@ public class Quini6 implements Encasillable{
 	public String getNombre() {
 		return "Quini 6";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 
 }

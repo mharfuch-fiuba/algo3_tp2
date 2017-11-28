@@ -19,4 +19,9 @@ public class BuenosAiresSur extends TerrenoDoble {
 	public String getNombre() {
 		return "Bs. As. Sur";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

@@ -20,11 +20,13 @@ public class JugadorHumano extends Jugador {
 	private Color color;
 	
 	private ArrayList<Propiedad> propiedades;
+	private ArrayList<String> propiedadesComprables;
 	private Deuda deuda;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		dinero = dinero_inicial.clone();
 		propiedades = new ArrayList<Propiedad>();
+		propiedadesComprables=new ArrayList<String>();
 		movimiento = new MovimientoNormal(tablero);
 		deuda = new Deuda(new Dinero(0));
 	}
@@ -107,8 +109,16 @@ public class JugadorHumano extends Jugador {
 	public void agregarPropiedad(Propiedad propiedad) {
 		propiedades.add(propiedad);
 		propiedad.setPropietario(this);
+		if(propiedad.esPropiedad()){
+			propiedadesComprables.add(propiedad.getNombre());
+		}
 	}
 
+	@Override
+	public ArrayList<String> getListaComprables(){
+		return this.propiedadesComprables;
+	}
+	
 	@Override
 	public boolean esNull() {
 		return false;

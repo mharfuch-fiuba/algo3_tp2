@@ -8,5 +8,5 @@ public interface Encasillable {
 	
 	public String getNombre();
 	void aplicarEfecto(Jugador jugador,  Cubilete dados) throws DineroInsuficienteException;
-	
+	boolean esPropiedad();
 }

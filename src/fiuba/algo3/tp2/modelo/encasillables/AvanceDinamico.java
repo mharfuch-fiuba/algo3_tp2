@@ -48,5 +48,10 @@ public class AvanceDinamico implements Encasillable{
 	public String getNombre() {
 		return "Avance Dinamico";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 
 }

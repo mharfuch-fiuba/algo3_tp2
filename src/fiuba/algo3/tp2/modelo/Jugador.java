@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 import fiuba.algo3.tp2.controlador.ControladorJugador;
@@ -74,4 +75,6 @@ public abstract class Jugador extends Observable{
 	}
 
 	public abstract void setDeuda(Deuda deuda);
+	
+	public abstract ArrayList<String> getListaComprables();
 }

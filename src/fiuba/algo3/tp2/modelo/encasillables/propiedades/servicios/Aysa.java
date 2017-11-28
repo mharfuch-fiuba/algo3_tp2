@@ -17,4 +17,9 @@ public class Aysa extends Servicio {
 	public String getNombre() {
 		return "AYSA";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

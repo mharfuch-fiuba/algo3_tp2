@@ -16,4 +16,8 @@ public class Edesur extends Servicio {
 	public String getNombre() {
 		return "EDESUR";
 	}
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

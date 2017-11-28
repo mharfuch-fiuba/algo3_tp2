@@ -18,4 +18,9 @@ public class ImpuestoDeLujo implements Encasillable {
 	public String getNombre() {
 		return "Impuesto De Lujo";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 }

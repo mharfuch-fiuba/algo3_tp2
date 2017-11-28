@@ -28,4 +28,8 @@ public class PropiedadNull extends Propiedad {
 		return true;
 	}
 
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 }

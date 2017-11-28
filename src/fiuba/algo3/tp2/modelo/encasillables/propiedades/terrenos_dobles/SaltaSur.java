@@ -19,4 +19,9 @@ public class SaltaSur extends TerrenoDoble {
 	public String getNombre() {
 		return "Salta Sur";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

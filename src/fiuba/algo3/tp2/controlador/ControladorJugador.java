@@ -49,7 +49,7 @@ public class ControladorJugador implements Observer {
 	public ObservableList<String> getConstruibles() {
 		//tengo que ver en jugador como hacerlo
 		ObservableList<String> fruits = FXCollections.observableArrayList( 
-				 "Apple", "Banana", "Pear", "Strawberry", "Peach", "Orange");
+				 jugador.getListaComprables());
 		return fruits;
 	}
 
