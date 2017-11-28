@@ -143,4 +143,10 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public void pagarDeuda() throws DineroInsuficienteException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

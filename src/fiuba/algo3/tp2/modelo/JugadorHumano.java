@@ -20,11 +20,13 @@ public class JugadorHumano extends Jugador {
 	private Color color;
 	
 	private ArrayList<Propiedad> propiedades;
+	private Adeudable deuda;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		dinero = dinero_inicial.clone();
 		propiedades = new ArrayList<Propiedad>();
 		movimiento = new MovimientoNormal(tablero);
+		deuda = new DeudaNull();
 	}
 
 	@Override
@@ -77,9 +79,14 @@ public class JugadorHumano extends Jugador {
 
 	@Override
 	public void pagar(Dinero monto) throws DineroInsuficienteException {
-		this.dinero.disminuirCantidad(monto);
-		this.setChanged();
-		this.notifyObservers();
+		try {
+			dinero.disminuirCantidad(monto);
+		}catch(DineroInsuficienteException e) {
+			deuda = new Deuda(monto);
+			throw new DineroInsuficienteException();
+		}
+		setChanged();
+		notifyObservers();
 	}
 
 	@Override
@@ -151,6 +158,11 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void avisarCambioDeTurno() {
 		movimiento.avisarCambioDeTurno(this);
+	}
+
+	@Override
+	public void pagarDeuda() throws DineroInsuficienteException {
+		deuda.pagarDeuda(this);
 	}
 	
 }

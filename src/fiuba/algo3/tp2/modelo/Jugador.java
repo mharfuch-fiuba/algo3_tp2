@@ -62,6 +62,8 @@ public abstract class Jugador extends Observable{
 	public abstract void setMovimiento(Movimiento movimiento);
 
 	public abstract void avisarCambioDeTurno();
+	
+	public abstract void pagarDeuda() throws DineroInsuficienteException;
 
 	public ControladorJugador getControlador() {
 		return this.controlador;
