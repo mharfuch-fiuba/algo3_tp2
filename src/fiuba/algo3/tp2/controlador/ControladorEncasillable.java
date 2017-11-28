@@ -14,6 +14,7 @@ public class ControladorEncasillable {
 	public ControladorEncasillable(Encasillable encasillable,VistaEfecto vistaEfecto){
 		this.modelo = encasillable;
 		this.vistaEfecto=vistaEfecto;
+		
 	}
 	
 	// mostrar en sector superior

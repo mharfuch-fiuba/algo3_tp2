@@ -26,7 +26,9 @@ public class ContenedorCasillero extends VBox{
 	}
 	
 	
-	
+	public VistaCasilleroJugadores getJugadores(){
+		return this.jugadores;
+	}
 	
 
 }
