@@ -53,6 +53,14 @@
 	-fx-border-width: 1.0px;
 }
 
+.BotonTerminarTurno{
+	-fx-background-color: transparent;
+	-fx-text-fill: #D8EDDF;	
+	-fx-font-size:24.0;
+	-fx-border-color:black;
+	-fx-border-width: 1.0px;
+}
+
 .VistaConfiguracionPartida{
 	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;

@@ -36,5 +36,20 @@ public class ControladorEncasillable {
 		this.vistaCasillero=c;
 	}
 
+	public void sacarJugador(ControladorJugador jugador){
+		
+	}
+	
+	public void ponerJugador(ControladorJugador jugador){
+		
+	}
+	
+	public Encasillable getEncasillable(){
+		return this.modelo;
+	}
+	
+	public VistaEfecto getVistaEfecto(){
+		return this.vistaEfecto;
+	}
 
 }

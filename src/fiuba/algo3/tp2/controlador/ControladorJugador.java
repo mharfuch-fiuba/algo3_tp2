@@ -4,6 +4,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import fiuba.algo3.tp2.controlador.ControladorEncasillable;
 import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -45,6 +47,13 @@ public class ControladorJugador implements Observer {
 				 "Apple", "Banana", "Pear", "Strawberry", "Peach", "Orange");
 		return fruits;
 	}
+
+	public Encasillable getCasillero() {
+		return this.jugador.obtenerCasilleroActual();
+	}
 	
+	public void avanzar(){
+		
+	}
 	
 }

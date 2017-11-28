@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.controlador;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.FactoryEncasillables;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.*;
@@ -9,12 +10,12 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.*;
 public class ControladorTablero {
 
 	private Tablero tablero;
-	
+
 	private ArrayList<ControladorEncasillable> controladoresAbajo;
 	private ArrayList<ControladorEncasillable> controladoresIzquierda;
 	private ArrayList<ControladorEncasillable> controladoresArriba;
 	private ArrayList<ControladorEncasillable> controladoresDerecha;
-	
+
 	public ControladorTablero(Tablero tablero) {
 		this.tablero = tablero;
 		this.controladoresAbajo = crearControladoresAbajo();
@@ -23,22 +24,22 @@ public class ControladorTablero {
 		this.controladoresDerecha = crearControladoresDerecha();
 	}
 
-	public ArrayList<ControladorEncasillable> getControladoresAbajo(){
+	public ArrayList<ControladorEncasillable> getControladoresAbajo() {
 		return this.controladoresAbajo;
 	}
 
-	public ArrayList<ControladorEncasillable> getControladoresIzquierda(){
+	public ArrayList<ControladorEncasillable> getControladoresIzquierda() {
 		return this.controladoresIzquierda;
 	}
-	
-	public ArrayList<ControladorEncasillable> getControladoresArriba(){
+
+	public ArrayList<ControladorEncasillable> getControladoresArriba() {
 		return this.controladoresArriba;
 	}
-	
-	public ArrayList<ControladorEncasillable> getControladoresDerecha(){
+
+	public ArrayList<ControladorEncasillable> getControladoresDerecha() {
 		return this.controladoresDerecha;
 	}
-	
+
 	private ArrayList<ControladorEncasillable> crearControladoresAbajo() {
 		ArrayList<ControladorEncasillable> controladores = new ArrayList<ControladorEncasillable>();
 		FactoryEncasillables factory = this.tablero.getFactory();
@@ -134,5 +135,18 @@ public class ControladorTablero {
 
 		return controladores;
 	}
+	
+	
+	
+	public ControladorEncasillable getEncasillableActual(ControladorJugador jugador){
+		Encasillable encasillable = jugador.getCasillero();
+		for(ControladorEncasillable controlador:controladoresAbajo)if(controlador.getEncasillable().equals(encasillable))return controlador;
+		for(ControladorEncasillable controlador:controladoresIzquierda)if(controlador.getEncasillable().equals(encasillable))return controlador;
+		for(ControladorEncasillable controlador:controladoresArriba)if(controlador.getEncasillable().equals(encasillable))return controlador;
+		for(ControladorEncasillable controlador:controladoresDerecha)if(controlador.getEncasillable().equals(encasillable))return controlador;
+		return null; //no lo encontro
+		
+	}
+	
 
 }

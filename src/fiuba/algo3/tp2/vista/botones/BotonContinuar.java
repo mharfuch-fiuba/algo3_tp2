@@ -1,7 +1,11 @@
 package fiuba.algo3.tp2.vista.botones;
 
+import fiuba.algo3.tp2.controlador.ControladorEncasillable;
+import fiuba.algo3.tp2.controlador.ControladorJugador;
+import fiuba.algo3.tp2.controlador.ControladorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoEfecto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -25,7 +29,16 @@ public class BotonContinuar extends Button {
 
 		@Override
 		public void handle(ActionEvent event) {
-			VistaTurnoEfecto vistaEfecto=new VistaTurnoEfecto(this.contenedorPadre);
+			ControladorTablero tablero = contenedorPadre.getControladorTablero();
+			ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
+			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(jugador);
+			viejoCasillero.sacarJugador(jugador);
+			jugador.avanzar();
+			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
+			nuevoCasillero.ponerJugador(jugador);
+			VistaEfecto vistaEfecto = nuevoCasillero.getVistaEfecto();
+			
+			VistaTurnoEfecto vistaTurnoEfecto=new VistaTurnoEfecto(this.contenedorPadre,vistaEfecto);
 			this.contenedorPadre.cambiarVistaDinamica(vistaEfecto);		
 		}
 		

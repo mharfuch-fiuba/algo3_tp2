@@ -9,7 +9,7 @@ public class BotonTerminarTurno extends Button {
 	
 	public BotonTerminarTurno(ContenedorTurno contenedorPadre){
 		this.setText("Terminar Turno");
-		this.getStyleClass().add("BotonContinuar");
+		this.getStyleClass().add("BotonTerminarTurno");
 		this.setOnAction(new BotonTerminarTurnoHandler(contenedorPadre));
 	}
 	
