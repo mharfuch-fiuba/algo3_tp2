@@ -5,11 +5,11 @@ import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
 
 public class Tablero {
 
-	public class IterTableroAlgoPoly implements IterTablero {
+	private class IterInternoTablero implements IterTablero {
 
 		private DoublyLinkedCircularListIterator iterador;
 
-		public IterTableroAlgoPoly() {
+		public IterInternoTablero() {
 			iterador = casilleros.iterator();
 		}
 
@@ -65,7 +65,7 @@ public class Tablero {
 	}
 
 	public IterTablero crearIterador() {
-		return new IterTableroAlgoPoly();
+		return new IterInternoTablero();
 	}
 	
 	public FactoryEncasillables getFactory() {
