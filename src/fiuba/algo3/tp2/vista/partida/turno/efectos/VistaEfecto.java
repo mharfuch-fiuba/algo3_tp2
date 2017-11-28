@@ -5,7 +5,7 @@ import javafx.scene.layout.VBox;
 public abstract class VistaEfecto extends VBox {
 	
 	public VistaEfecto(){
-		this.getStyleClass().add("VistaTurnoDinamica");
+		this.getStyleClass().add("VistaEfecto");
 	}
 	
 	

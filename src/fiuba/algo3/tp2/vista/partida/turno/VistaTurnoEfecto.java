@@ -8,7 +8,6 @@ public class VistaTurnoEfecto extends VBox {
 
 	public VistaTurnoEfecto(ContenedorTurno contenedorPadre,VistaEfecto vistaEfecto) {
 		this.getStyleClass().add("VistaTurnoDinamica");
-		
 		BotonTerminarTurno boton = new BotonTerminarTurno(contenedorPadre);
 		this.getChildren().addAll(vistaEfecto,boton);
 	}

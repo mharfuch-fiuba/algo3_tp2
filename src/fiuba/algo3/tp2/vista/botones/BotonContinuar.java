@@ -37,9 +37,8 @@ public class BotonContinuar extends Button {
 			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
 			nuevoCasillero.ponerJugador(jugador);
 			VistaEfecto vistaEfecto = nuevoCasillero.getVistaEfecto();
-			
 			VistaTurnoEfecto vistaTurnoEfecto=new VistaTurnoEfecto(this.contenedorPadre,vistaEfecto);
-			this.contenedorPadre.cambiarVistaDinamica(vistaEfecto);		
+			this.contenedorPadre.cambiarVistaDinamica(vistaTurnoEfecto);		
 		}
 		
 	}

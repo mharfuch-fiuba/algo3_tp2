@@ -53,7 +53,7 @@ public class ControladorJugador implements Observer {
 	}
 	
 	public void avanzar(){
-		
+		this.jugador.avanzar(5);
 	}
 	
 }
