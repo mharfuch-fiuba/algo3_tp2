@@ -11,7 +11,7 @@ public class ControladorPartida {
 
 	private Color color1 = Color.AZURE;
 	private Color color2 = Color.BLUEVIOLET;
-	private Color color3 = Color.CORAL;
+	private Color color3 = Color.CORNSILK;
 	private Stack<Color> colores = new Stack<Color>();
 	
 	

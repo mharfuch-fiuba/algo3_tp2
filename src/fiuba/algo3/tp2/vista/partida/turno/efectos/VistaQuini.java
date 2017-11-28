@@ -1,5 +1,5 @@
 package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
-public class VistaQuini extends VistaEfectoAbstracta{
+public class VistaQuini extends VistaEfecto{
 
 }

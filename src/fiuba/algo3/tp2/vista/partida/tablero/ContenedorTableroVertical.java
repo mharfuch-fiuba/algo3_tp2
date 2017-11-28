@@ -14,7 +14,7 @@ public class ContenedorTableroVertical extends VBox {
 		for (ControladorEncasillable controlador:controladores) {
 			ContenedorCasillero c = new ContenedorCasillero(controlador.getNombre());
 			HBox.setHgrow(c, Priority.ALWAYS);
-			controlador.asociarVista(c);
+			controlador.asociarVistaCasillero(c);
 			this.getChildren().add(c);
 		}
 	}
