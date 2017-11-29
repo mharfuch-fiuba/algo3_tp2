@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.unitarios;
+package fiuba.algo3.tp2.modelo;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,7 +18,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Terreno
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
-public class Construccion {
+public class ConstruccionTest {
 	private Tablero tablero = new Tablero();
 	private TerrenoSimple santaFe = new SantaFe();
 	private TerrenoDoble bsAsSur = new BuenosAiresSur();

@@ -13,24 +13,6 @@ public class CubileteTest {
 	
 	private static final double DELTA = 1e-6;
 	
-	@Test
-	public void testCubileteFalsoSeComportaIgualQueCubilete(){
-		Cubilete cubilete = Cubilete.getInstance();
-		CubileteFalso cubilete_falso = new CubileteFalso();
-		
-		Lanzable dado_cargado = new DadoCargado(4);
-		
-		cubilete.agregar(dado_cargado);
-		cubilete_falso.agregar(dado_cargado);
-		
-		cubilete.lanzar();
-		cubilete_falso.lanzar();
-		
-		int uno = cubilete.sumarValores();
-		int dos = cubilete_falso.sumarValores();
-		Assert.assertTrue(cubilete.sumarValores() == cubilete_falso.sumarValores());
-	}
-	
 	//TESTEO PATRON SINGLETON DE CUBILETE
 	
 	@Test

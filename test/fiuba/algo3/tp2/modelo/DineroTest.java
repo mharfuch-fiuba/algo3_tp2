@@ -6,7 +6,7 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroNegativoException;
 
-public class DineroAlgoPolyTest {
+public class DineroTest {
 	Dinero dinero100 = new Dinero(100);
 	Dinero dinero120 = new Dinero(120);
 	Dinero dinero0 = new Dinero(0);
