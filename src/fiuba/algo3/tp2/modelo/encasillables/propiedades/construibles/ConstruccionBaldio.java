@@ -3,20 +3,22 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayConstruccionesParaDemoler;
 
 
 public class ConstruccionBaldio implements Construible {
 	
 	private Construible proxima_mejora;
 	private Dinero precio_alquiler;
-
+	/*
 	public ConstruccionBaldio(Dinero alquiler, Construible mejora) {
 		proxima_mejora = mejora;
 		precio_alquiler = alquiler;
 	}
-	
+	*/
 	public ConstruccionBaldio(Dinero alquiler) {
 		proxima_mejora = new ConstruccionNull(this);
+		//proxima_mejora = this;
 		precio_alquiler = alquiler;
 	}
 
@@ -52,8 +54,9 @@ public class ConstruccionBaldio implements Construible {
 	}
 	
 	@Override
-	public Construible demoler() {
-		return this;
+	public Construible demoler() throws NoHayConstruccionesParaDemoler {
+		throw new NoHayConstruccionesParaDemoler();
+		//return this;
 	}
 
 	@Override

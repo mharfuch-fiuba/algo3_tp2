@@ -17,6 +17,7 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 
 	private EstrategiaServicios estrategia;
 	private Propiedad pareja;
+	private static final int PTJ_DE_REINTEGRO = 85;
 	
 	public Servicio(Dinero precio_compra, int penalidad_1_servicio, int penalidad_2_servicios) {
 		super(precio_compra);
@@ -53,6 +54,13 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	@Override
 	public boolean esNull() {
 		return false;
+	}
+	
+	@Override
+	public void vender() {
+		Dinero precio_terreno = this.getPrecio();
+		Dinero monto_a_cobrar = precio_terreno.obtenerPorcentaje(PTJ_DE_REINTEGRO);
+		this.getPropietario().cobrar(monto_a_cobrar);
 	}
 	
 }

@@ -28,4 +28,9 @@ public class PropiedadNull extends Propiedad {
 		return true;
 	}
 
+	@Override
+	public void vender() {
+		return;
+	}
+
 }

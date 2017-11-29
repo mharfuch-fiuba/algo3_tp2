@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 import fiuba.algo3.tp2.controlador.ControladorJugador;
@@ -64,6 +65,8 @@ public abstract class Jugador extends Observable{
 	public abstract void avisarCambioDeTurno();
 	
 	public abstract void pagarDeuda() throws DineroInsuficienteException;
+	
+	public abstract ArrayList<Propiedad> getPropiedades();
 
 	public ControladorJugador getControlador() {
 		return this.controlador;
@@ -74,4 +77,6 @@ public abstract class Jugador extends Observable{
 	}
 
 	public abstract void setDeuda(Deuda deuda);
+
+	public abstract void quitarPropiedad(Propiedad propiedad);
 }

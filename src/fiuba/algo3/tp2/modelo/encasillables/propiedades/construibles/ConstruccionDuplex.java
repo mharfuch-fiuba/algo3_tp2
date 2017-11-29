@@ -10,15 +10,16 @@ public class ConstruccionDuplex implements Construible {
 	private Construible proxima_mejora;
 	private Dinero precio_alquiler;
 	private Dinero precio_construccion;
-	
+	/*
 	public ConstruccionDuplex(Dinero costo_construccion, Dinero costo_alquiler, Construible anterior, Construible mejora) {
 		proxima_mejora = mejora;
 		precio_alquiler = costo_alquiler;
 		precio_construccion = costo_construccion;
 		mejora_anterior = anterior;
 	}
-	
+	*/
 	public ConstruccionDuplex(Dinero costo_construccion, Dinero costo_alquiler, Construible anterior) {
+		//proxima_mejora = this;
 		proxima_mejora = new ConstruccionNull(this);;
 		precio_alquiler = costo_alquiler;
 		precio_construccion = costo_construccion;

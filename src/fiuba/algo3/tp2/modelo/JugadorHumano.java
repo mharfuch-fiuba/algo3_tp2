@@ -164,5 +164,15 @@ public class JugadorHumano extends Jugador {
 	public void setDeuda(Deuda nueva_deuda) {
 		deuda = nueva_deuda.clone();
 	}
+
+	@Override
+	public ArrayList<Propiedad> getPropiedades() {
+		return propiedades;
+	}
+
+	@Override
+	public void quitarPropiedad(Propiedad propiedad) {
+		propiedades.remove(propiedad);
+	}
 	
 }

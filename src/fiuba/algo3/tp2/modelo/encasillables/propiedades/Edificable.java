@@ -8,6 +8,6 @@ public interface Edificable {
 	void construir() throws DineroInsuficienteException;
 	Construible getConstruccion();
 	void setConstruccion(Construible construccion);
-	void demoler();
+	boolean demoler();
 
 }

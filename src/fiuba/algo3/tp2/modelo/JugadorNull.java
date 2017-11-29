@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
@@ -151,6 +153,17 @@ public class JugadorNull extends Jugador {
 
 	@Override
 	public void setDeuda(Deuda deuda) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<Propiedad> getPropiedades() {
+		return new ArrayList<Propiedad>();
+	}
+
+	@Override
+	public void quitarPropiedad(Propiedad propiedad) {
 		// TODO Auto-generated method stub
 		
 	}

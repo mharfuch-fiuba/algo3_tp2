@@ -37,4 +37,6 @@ public abstract class Propiedad implements Encasillable {
 	
 	public abstract boolean esNull();
 
+	public abstract void vender();
+
 }
