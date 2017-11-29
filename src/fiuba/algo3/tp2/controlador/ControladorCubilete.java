@@ -1,6 +1,9 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.vista.partida.turno.VistaDado;
 
 public class ControladorCubilete {
@@ -21,11 +24,11 @@ public class ControladorCubilete {
 		return new VistaDado(cubilete.getDado2());
 	}
 
-	public String getValor1(){
-		return String.valueOf(cubilete.getDado1());
-	}
-	
-	public String getValor2(){
-		return String.valueOf(cubilete.getDado2());
+	public ArrayList<VistaDado> getVistasDados(){
+		ArrayList<VistaDado> vistas = new ArrayList<VistaDado>();
+		for(Lanzable dado: cubilete.getLanzables()){
+			vistas.add(new VistaDado(dado.obtenerValor()));
+		}	
+		return vistas;
 	}
 }

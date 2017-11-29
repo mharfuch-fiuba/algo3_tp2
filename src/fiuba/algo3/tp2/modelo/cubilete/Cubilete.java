@@ -47,4 +47,7 @@ public class Cubilete {
 		return 2;
 	}
 		
+	public ArrayList<Lanzable> getLanzables(){
+		return this.dados;
+	}
 }
