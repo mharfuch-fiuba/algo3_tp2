@@ -4,7 +4,7 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayConstruccionesParaDemoler;
@@ -12,14 +12,14 @@ import fiuba.algo3.tp2.modelo.excepciones.NoHayConstruccionesParaDemoler;
 
 public abstract class Terreno extends Propiedad implements Edificable {
 	
-	private Construible construccion;
+	private Construccion construccion;
 	private static final int PTJ_DE_REINTEGRO = 85;
 	
 	public Terreno(Dinero precio_compra) {
 		super(precio_compra);
 	}
 	
-	public void setConstruccion(Construible nueva_construccion) {
+	public void setConstruccion(Construccion nueva_construccion) {
 		construccion = nueva_construccion;
 	}
 	
@@ -29,7 +29,7 @@ public abstract class Terreno extends Propiedad implements Edificable {
 	}
 	
 	@Override
-	public Construible getConstruccion() {
+	public Construccion getConstruccion() {
 		return construccion;
 	}
 	

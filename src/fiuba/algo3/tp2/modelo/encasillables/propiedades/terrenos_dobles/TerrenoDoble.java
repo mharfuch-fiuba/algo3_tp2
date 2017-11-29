@@ -15,10 +15,10 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 
 	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
-		Construible baldio = new ConstruccionBaldio(alquiler);
-		Construible casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, baldio);
-		Construible duplex = new ConstruccionDuplex(costoConstruccionCasa, alquilerCon2Casas, casa);
-		Construible hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel, duplex);
+		Construccion baldio = new ConstruccionBaldio(alquiler);
+		Construccion casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, baldio);
+		Construccion duplex = new ConstruccionDuplex(costoConstruccionCasa, alquilerCon2Casas, casa);
+		Construccion hotel = new ConstruccionHotel(costoConstruccionHotel, alquilerConHotel, duplex);
 		baldio.setMejora(casa);
 		casa.setMejora(duplex);
 		duplex.setMejora(hotel);
@@ -38,7 +38,7 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	@Override
 	public void construir() throws DineroInsuficienteException {
 		try{
-			Construible nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
+			Construccion nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
 			this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 			this.setConstruccion(nueva_construccion);			
 		}

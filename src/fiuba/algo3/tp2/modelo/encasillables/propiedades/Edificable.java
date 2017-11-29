@@ -1,13 +1,13 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades;
 
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construible;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public interface Edificable {
 
 	void construir() throws DineroInsuficienteException;
-	Construible getConstruccion();
-	void setConstruccion(Construible construccion);
+	Construccion getConstruccion();
+	void setConstruccion(Construccion construccion);
 	boolean demoler();
 
 }

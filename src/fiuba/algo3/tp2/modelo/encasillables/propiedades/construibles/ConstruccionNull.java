@@ -6,22 +6,16 @@ import fiuba.algo3.tp2.modelo.excepciones.NoHayConstruccionesParaDemoler;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
 
-public class ConstruccionNull implements Construible {
+public class ConstruccionNull extends Construccion {
 
-	Construible construccion;
-	
-	public ConstruccionNull(Construible construccion_actual) {
-		construccion = construccion_actual;
-	}
-
-	@Override
-	public Dinero getAlquiler() {
-		return construccion.getAlquiler();
+	public ConstruccionNull() {
+		this.precio_alquiler = new Dinero(0);
+		this.precio_construccion = new Dinero(0);
 	}
 
 	@Override
 	public Dinero getPrecioMejora() {
-		return new Dinero(0);
+		throw new NoHayMasMejorasException();
 	}
 
 	@Override
@@ -30,33 +24,22 @@ public class ConstruccionNull implements Construible {
 	}
 
 	@Override
-	public Construible construirMejora(Terreno actual, Terreno pareja) {
+	public Construccion construirMejora(Terreno actual, Terreno pareja) {
 		throw new NoHayMasMejorasException();
 	}
 
 	@Override
-	public Construible construirMejora() {
-		throw new NoHayMasMejorasException();
+	public Construccion demoler() throws NoHayConstruccionesParaDemoler {
+		return this;
 	}
 
 	@Override
-	public void parejaQuiereConstruirHotel() {
-		construccion.parejaQuiereConstruirHotel();
-	}
-
-	@Override
-	public Construible demoler() throws NoHayConstruccionesParaDemoler {
-		return construccion.demoler();
-	}
-
-	@Override
-	public void setMejora(Construible prox) {
+	public void setMejora(Construccion prox) {
 	}
 
 	@Override
 	public Dinero getPrecioDemolicion() {
-		// TODO Auto-generated method stub
-		return construccion.getPrecioDemolicion();
+		return new Dinero(0);
 	}
 
 }
