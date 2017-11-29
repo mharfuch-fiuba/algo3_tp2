@@ -64,12 +64,7 @@ public abstract class Terreno extends Propiedad implements Edificable {
 		Dinero precio_terreno = this.getPrecio();
 		Dinero monto_a_cobrar = precio_terreno.obtenerPorcentaje(PTJ_DE_REINTEGRO);
 		propietario.cobrar(monto_a_cobrar);
-		System.out.println(propietario.obtenerDinero().obtenerMontoEntero());
-		//while(this.demoler()) {}
-		this.demoler();
-		this.demoler();
-		this.demoler();
-		System.out.println(propietario.obtenerDinero().obtenerMontoEntero());
+		while(this.demoler()) {}
 		this.setPropietario(new JugadorNull());
 		propietario.quitarPropiedad(this);
 	}
