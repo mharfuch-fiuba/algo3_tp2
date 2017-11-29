@@ -141,6 +141,12 @@
 	
 }
 
+.VistaCasilleroJugador{
+	-fx-background-color:transparent;
+	-fx-border-color:transparent;
+	-fx-alignment: center;
+	-fx-pref-height: 42.0;
+}
 
 .VistaTableroCentro{
 	-fx-background-color: white;

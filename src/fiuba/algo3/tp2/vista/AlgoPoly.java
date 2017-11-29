@@ -17,7 +17,7 @@ public class AlgoPoly extends Application {
 		stage.setTitle("AlgoPoly");
 		stage.setScene(escenaInicial);
 		stage.setFullScreen(false);
-		stage.setMaximized(true);
+		stage.setMaximized(false);
 		stage.setResizable(false);
 		stage.show();
 		
