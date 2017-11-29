@@ -53,4 +53,10 @@ public class ConstruccionNull implements Construible {
 	public void setMejora(Construible prox) {
 	}
 
+	@Override
+	public Dinero getPrecioDemolicion() {
+		// TODO Auto-generated method stub
+		return construccion.getPrecioDemolicion();
+	}
+
 }

@@ -67,4 +67,9 @@ public class ConstruccionHotel implements Construible {
 		proxima_mejora = prox;
 	}
 
+	@Override
+	public Dinero getPrecioDemolicion() {
+		return precio_construccion;
+	}
+
 }

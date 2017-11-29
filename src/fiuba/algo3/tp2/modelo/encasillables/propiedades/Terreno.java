@@ -47,7 +47,7 @@ public abstract class Terreno extends Propiedad implements Edificable {
 	
 	@Override
 	public boolean demoler() {
-		Dinero precio_construccion = construccion.getPrecioConstruccion();
+		Dinero precio_construccion = construccion.getPrecioDemolicion();
 		Dinero monto_a_cobrar = precio_construccion.obtenerPorcentaje(PTJ_DE_REINTEGRO);
 		try {
 			construccion = construccion.demoler();

@@ -15,5 +15,6 @@ public interface Construible {
 	void parejaQuiereConstruirHotel();
 	Construible demoler() throws NoHayConstruccionesParaDemoler;
 	void setMejora(Construible prox);
+	Dinero getPrecioDemolicion();
 	
 }

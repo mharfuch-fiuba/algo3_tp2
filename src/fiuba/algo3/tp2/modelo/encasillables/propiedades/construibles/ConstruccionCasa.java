@@ -67,5 +67,10 @@ public class ConstruccionCasa implements Construible {
 	public void setMejora(Construible prox) {
 		proxima_mejora = prox;
 	}
+
+	@Override
+	public Dinero getPrecioDemolicion() {
+		return precio_construccion;
+	}
 	
 }

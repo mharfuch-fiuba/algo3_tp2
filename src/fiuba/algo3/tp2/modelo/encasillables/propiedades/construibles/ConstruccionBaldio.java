@@ -64,4 +64,9 @@ public class ConstruccionBaldio implements Construible {
 		proxima_mejora = prox;
 	}
 
+	@Override
+	public Dinero getPrecioDemolicion() {
+		return new Dinero(0);
+	}
+
 }
