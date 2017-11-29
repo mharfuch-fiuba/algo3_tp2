@@ -6,7 +6,18 @@ public class Cubilete {
 	
 	private ArrayList<Lanzable> dados;
 	
-	public Cubilete() {
+    private static final Cubilete INSTANCE = new Cubilete();
+
+    public static Cubilete getInstance() {
+        return INSTANCE;
+    }
+		
+    // El constructor privado/protected no permite que se genere un constructor por defecto.
+	protected Cubilete() {
+		this.dados = new ArrayList<Lanzable>();
+	}
+	
+	public void vaciar(){
 		this.dados = new ArrayList<Lanzable>();
 	}
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
@@ -12,10 +13,14 @@ public class RondaAlgoPoly extends Ronda {
 
 	private DoublyLinkedCircularList datos;
 	private DoublyLinkedCircularListIterator iterador;
+	private Cubilete cubilete;
 
 	public RondaAlgoPoly() {
 		this.datos = new DoublyLinkedCircularList();
 		this.iterador = this.datos.iterator();
+		this.cubilete = Cubilete.getInstance();
+		this.cubilete.agregar(new DadoCubico());
+		this.cubilete.agregar(new DadoCubico());
 	}
 
 	@Override
@@ -59,10 +64,12 @@ public class RondaAlgoPoly extends Ronda {
 
 	@Override
 	public Cubilete getCubilete() {
-		// TODO Auto-generated method stub
-		return new Cubilete();
+		return this.cubilete;
 	}
 	
-	
+	public Cubilete lanzarDados(){
+		this.cubilete.lanzar();
+		return this.cubilete;
+	}
 
 }

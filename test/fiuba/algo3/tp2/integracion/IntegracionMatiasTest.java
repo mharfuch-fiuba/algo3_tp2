@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.integracion;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.CubileteFalso;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Edificable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
@@ -26,7 +26,7 @@ public class IntegracionMatiasTest extends TestCase {
 	public void testConstruirEnBuenosAires() throws JugadorEnCarcelException, DineroInsuficienteException {
 		final int monto_inicial = 200000;
 		
-		Cubilete cubilete_que_saca_2 = new Cubilete();
+		CubileteFalso cubilete_que_saca_2 = new CubileteFalso();
 		cubilete_que_saca_2.agregar(new DadoCargado(2));
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
@@ -66,7 +66,7 @@ public class IntegracionMatiasTest extends TestCase {
 		final int monto_inicial = 200000;
 		int monto_esperado_jugador_1 = monto_inicial;
 
-		Cubilete cubilete_que_saca_2 = new Cubilete();
+		CubileteFalso cubilete_que_saca_2 = new CubileteFalso();
 		cubilete_que_saca_2.agregar(new DadoCargado(2));
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
@@ -128,7 +128,7 @@ public class IntegracionMatiasTest extends TestCase {
 	public void testJugador1CompraTodosLosServiciosJugador2AlquilaTodosLosServicios() throws JugadorEnCarcelException, DineroInsuficienteException {
 		int dinero_inicial = 1000000;
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
-		Cubilete cubilete = new Cubilete();
+		CubileteFalso cubilete = new CubileteFalso();
 		cubilete.agregar(new DadoCargado(new int[] {3,5,4,4,4}));
 		
 		//JUGADOR 1 COMPRA LOS PRIMEROS SERVICIOS
@@ -156,7 +156,7 @@ public class IntegracionMatiasTest extends TestCase {
 		//JUGADOR 2 RECORRE TODOS LOS CASILLEROS
 		Jugador jugador2 = new JugadorHumano(tablero, new Dinero(dinero_inicial));
 		int monto_esperado_jugador_2 = dinero_inicial;
-		Cubilete cubilete_saca_12 = new Cubilete();
+		CubileteFalso cubilete_saca_12 = new CubileteFalso();
 		cubilete_saca_12.agregar(new DadoCargado(12));
 		cubilete.lanzar();
 		
@@ -252,7 +252,7 @@ public class IntegracionMatiasTest extends TestCase {
 	public void testJugador1CompraTodasLasPropiedadesJugador2AlquilaTodasLasPropiedades() throws JugadorEnCarcelException, DineroInsuficienteException {
 		int dinero_inicial = 10000000;
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
-		Cubilete cubilete = new Cubilete();
+		CubileteFalso cubilete = new CubileteFalso();
 		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(dinero_inicial));

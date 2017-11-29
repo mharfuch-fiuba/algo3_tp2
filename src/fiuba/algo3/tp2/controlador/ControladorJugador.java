@@ -58,12 +58,14 @@ public class ControladorJugador implements Observer {
 	}
 	
 	public void avanzar(){
-		Cubilete cubilete = new Cubilete();
+		Cubilete cubilete = Cubilete.getInstance();
+		/* ESTO AHORA LO HACE LA RONDA
 		Random r = new Random();
 		Lanzable dado1 = new DadoCargado(r.nextInt(6)+1);
 		Lanzable dado2 = new DadoCargado(r.nextInt(6)+1);
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
+		*/
 		this.jugador.avanzar(cubilete.sumarValores());
 		try {
 			this.jugador.aplicarEfectoDeCasilleroActual(cubilete);
