@@ -1,12 +1,9 @@
 package fiuba.algo3.tp2.controlador;
 
-import fiuba.algo3.tp2.modelo.Jugador;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedad;
 
 public class ControladorEncasillable {
 	
@@ -25,17 +22,6 @@ public class ControladorEncasillable {
 		return this.modelo.getNombre();
 	}
 
-	// mostrar en sector medio
-	public String getEstado(){
-		return this.modelo.toString()+": ESTADO";
-	}
-
-	// mostrar en sector inferior
-	public  Jugador[] getJugadores(){
-		Jugador[] jugadores={};
-		return jugadores;
-	}
-
 	public void asociarVistaCasillero(ContenedorCasillero c) {
 		this.vistaCasillero=c;
 	}
@@ -46,9 +32,11 @@ public class ControladorEncasillable {
 	}
 	
 	private void actualizarVistaEfecto(ControladorJugador jugador){
+		/*
 		Propiedad propiedad = (Propiedad) this.modelo;
 		VistaPropiedad vistaPropiedad = (VistaPropiedad) this.vistaEfecto;
-		//if(propiedad.getPropietario().getControlador().equals(jugador))return;	//es dueno, ver que hago. rompe		
+		if(propiedad.getPropietario().getControlador().equals(jugador))return;	//es dueno, ver que hago. rompe		
+		*/
 	}
 	
 	public void ponerJugador(ControladorJugador jugador){
