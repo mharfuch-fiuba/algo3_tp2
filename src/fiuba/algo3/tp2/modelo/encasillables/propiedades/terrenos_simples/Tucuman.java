@@ -17,4 +17,8 @@ public class Tucuman extends TerrenoSimple {
 	public String getNombre() {
 		return "Tucuman";
 	}
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

@@ -16,4 +16,9 @@ public class Salida implements Encasillable {
 	public String getNombre() {
 		return "Salida";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 }

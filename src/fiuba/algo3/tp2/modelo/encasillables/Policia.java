@@ -24,4 +24,8 @@ public class Policia implements Encasillable {
 		return "Policia";
 	}
 
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 }

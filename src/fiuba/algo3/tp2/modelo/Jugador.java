@@ -77,6 +77,8 @@ public abstract class Jugador extends Observable{
 	}
 
 	public abstract void setDeuda(Deuda deuda);
+	
+	public abstract ArrayList<String> getListaComprables();
 
 	public abstract void quitarPropiedad(Propiedad propiedad);
 }

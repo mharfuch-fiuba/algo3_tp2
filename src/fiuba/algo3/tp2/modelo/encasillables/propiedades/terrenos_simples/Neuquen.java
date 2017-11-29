@@ -17,4 +17,9 @@ public class Neuquen extends TerrenoSimple {
 	public String getNombre() {
 		return "Neuquen";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

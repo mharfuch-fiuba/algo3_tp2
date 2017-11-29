@@ -156,6 +156,12 @@ public class JugadorNull extends Jugador {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public ArrayList<String> getListaComprables(){
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public ArrayList<Propiedad> getPropiedades() {

@@ -46,4 +46,9 @@ public class RetrocesoDinamico implements Encasillable{
 	public String getNombre() {
 		return "Retroceso Dinamico";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 }

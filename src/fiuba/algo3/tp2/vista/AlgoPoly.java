@@ -13,11 +13,11 @@ public class AlgoPoly extends Application {
 		Scene escenaInicial = new Scene(vistaInicial);
 		escenaInicial.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
 		
-		//stage.setFullScreenExitHint("");
+		stage.setFullScreenExitHint("");
 		stage.setTitle("AlgoPoly");
 		stage.setScene(escenaInicial);
 		stage.setFullScreen(false);
-		stage.setMaximized(false);
+		stage.setMaximized(true);
 		stage.setResizable(false);
 		stage.show();
 		

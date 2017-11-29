@@ -24,4 +24,9 @@ public class Carcel implements Encasillable {
 	public String getNombre() {
 		return "Carcel";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return false;
+	}
 }

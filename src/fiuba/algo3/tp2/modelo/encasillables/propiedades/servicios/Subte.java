@@ -17,4 +17,8 @@ public class Subte extends Servicio {
 		return "Subte";
 	}
 	
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }

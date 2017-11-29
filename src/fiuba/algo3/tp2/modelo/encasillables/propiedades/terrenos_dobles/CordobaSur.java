@@ -19,4 +19,9 @@ public class CordobaSur extends TerrenoDoble {
 	public String getNombre() {
 		return "Cordoba Sur";
 	}
+	
+	@Override
+	public boolean esPropiedad(){
+		return true;
+	}
 }
