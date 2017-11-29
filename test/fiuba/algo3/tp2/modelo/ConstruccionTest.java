@@ -16,6 +16,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoD
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.TerrenoSimple;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class ConstruccionTest {
@@ -58,13 +59,18 @@ public class ConstruccionTest {
 	public void test04ConstruirDescuentaValorDeLaPropiedad() throws DineroInsuficienteException{
 		Jugador jugador = new JugadorHumano(tablero, new Dinero(100000));
 		jugador.comprar(santaFe);
-		
-		while(!(santaFe.getConstruccion() instanceof ConstruccionNull)){			
-			int dineroAntes = jugador.obtenerDinero().obtenerMontoEntero();
-			int costo = santaFe.getConstruccion().getPrecioMejora().obtenerMontoEntero();
-			santaFe.construir();
-			int dineroDespues = jugador.obtenerDinero().obtenerMontoEntero();
-			Assert.assertEquals(dineroAntes - costo, dineroDespues);
+		NoHayMasMejorasException error = null;
+		while(!(error==null)){
+			try{
+				int dineroAntes = jugador.obtenerDinero().obtenerMontoEntero();
+				int costo = santaFe.getConstruccion().getPrecioMejora().obtenerMontoEntero();
+				santaFe.construir();
+				int dineroDespues = jugador.obtenerDinero().obtenerMontoEntero();
+				Assert.assertEquals(dineroAntes - costo, dineroDespues);				
+			}
+			catch(NoHayMasMejorasException e){
+				error = e;
+			}
 		}
 	}
 	/*
