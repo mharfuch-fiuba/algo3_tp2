@@ -13,13 +13,19 @@ public class ControladorCubilete {
 	
 	public VistaDado getVistaDadoUno(){
 		
-		return new VistaDado(1);
+		return new VistaDado(cubilete.getDado1());
 	}
 	
 	public VistaDado getVistaDadoDos(){
 		
-		return new VistaDado(2);
+		return new VistaDado(cubilete.getDado2());
 	}
 
+	public String getValor1(){
+		return String.valueOf(cubilete.getDado1());
+	}
 	
+	public String getValor2(){
+		return String.valueOf(cubilete.getDado2());
+	}
 }

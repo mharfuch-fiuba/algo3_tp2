@@ -19,7 +19,7 @@ public class VistaTurnoTirarDados extends VBox{
 		public HijoHorizontal(ControladorCubilete dados){
 			VistaDado dadoUno=dados.getVistaDadoUno();
 			VistaDado dadoDos=dados.getVistaDadoDos();
-			LabelTurnoDinamica textoSacaste = new LabelTurnoDinamica("Sacaste 6 y 6");
+			LabelTurnoDinamica textoSacaste = new LabelTurnoDinamica("Sacaste "+dados.getValor1()+" y "+dados.getValor2());
 			this.getChildren().addAll(dadoUno,dadoDos,textoSacaste);
 		}
 	}

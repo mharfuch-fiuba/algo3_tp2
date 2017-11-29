@@ -38,5 +38,13 @@ public class Cubilete {
 		}
 		return valores_sumados;
 	}
+	
+	public int getDado1(){
+		return 1;
+	}
+	
+	public int getDado2(){
+		return 2;
+	}
 		
 }
