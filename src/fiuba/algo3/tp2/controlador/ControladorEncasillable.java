@@ -1,10 +1,12 @@
 package fiuba.algo3.tp2.controlador;
 
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedad;
 
 public class ControladorEncasillable {
 	
@@ -43,9 +45,16 @@ public class ControladorEncasillable {
 		vistaCasillero.getJugadores().sacarJugador(vista);
 	}
 	
+	private void actualizarVistaEfecto(ControladorJugador jugador){
+		Propiedad propiedad = (Propiedad) this.modelo;
+		VistaPropiedad vistaPropiedad = (VistaPropiedad) this.vistaEfecto;
+		//if(propiedad.getPropietario().getControlador().equals(jugador))return;	//es dueno, ver que hago. rompe		
+	}
+	
 	public void ponerJugador(ControladorJugador jugador){
 		VistaCasilleroJugador vista = jugador.getVistaCasilleroJugador();
-		vistaCasillero.getJugadores().ponerJugador(vista);		
+		vistaCasillero.getJugadores().ponerJugador(vista);
+		if(this.modelo.esPropiedad())actualizarVistaEfecto(jugador);
 	}
 	
 	public Encasillable getEncasillable(){
