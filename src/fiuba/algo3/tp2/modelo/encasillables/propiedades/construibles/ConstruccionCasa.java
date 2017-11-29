@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
 
 public class ConstruccionCasa implements Construible {
@@ -34,6 +35,8 @@ public class ConstruccionCasa implements Construible {
 
 	@Override
 	public Construible construirMejora() {
+		if(proxima_mejora instanceof ConstruccionNull)
+			throw new NoHayMasMejorasException();
 		return proxima_mejora;
 	}
 

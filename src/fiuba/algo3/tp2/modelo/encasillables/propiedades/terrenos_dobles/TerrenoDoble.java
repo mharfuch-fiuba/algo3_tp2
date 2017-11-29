@@ -6,6 +6,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
 
 public abstract class TerrenoDoble extends Terreno implements Emparejable {
@@ -36,9 +37,14 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 	
 	@Override
 	public void construir() throws DineroInsuficienteException {
-		Construible nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
-		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
-		this.setConstruccion(nueva_construccion);
+		try{
+			Construible nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
+			this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
+			this.setConstruccion(nueva_construccion);			
+		}
+		catch(NoHayMasMejorasException error){
+			//No hago nada porque no hay mejoras
+		}
 	}
 
 }

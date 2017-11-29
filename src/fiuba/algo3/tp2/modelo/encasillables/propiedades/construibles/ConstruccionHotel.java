@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
 
 public class ConstruccionHotel implements Construible {
@@ -33,7 +34,7 @@ public class ConstruccionHotel implements Construible {
 
 	@Override
 	public Construible construirMejora() {
-		return proxima_mejora;
+		throw new NoHayMasMejorasException();
 	}
 
 	@Override

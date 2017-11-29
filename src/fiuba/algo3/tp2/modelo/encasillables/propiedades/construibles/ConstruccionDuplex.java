@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
 
 public class ConstruccionDuplex implements Construible {
@@ -20,7 +21,7 @@ public class ConstruccionDuplex implements Construible {
 	*/
 	public ConstruccionDuplex(Dinero costo_construccion, Dinero costo_alquiler, Construible anterior) {
 		//proxima_mejora = this;
-		proxima_mejora = new ConstruccionNull(this);;
+		proxima_mejora = new ConstruccionNull(this);
 		precio_alquiler = costo_alquiler;
 		precio_construccion = costo_construccion;
 		mejora_anterior = anterior;
@@ -33,6 +34,8 @@ public class ConstruccionDuplex implements Construible {
 
 	@Override
 	public Construible construirMejora() {
+		if(proxima_mejora instanceof ConstruccionNull)
+			throw new NoHayMasMejorasException();
 		return proxima_mejora;
 	}
 
