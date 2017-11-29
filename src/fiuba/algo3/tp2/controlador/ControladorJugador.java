@@ -2,16 +2,13 @@ package fiuba.algo3.tp2.controlador;
 
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Random;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
-import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
-import fiuba.algo3.tp2.controlador.ControladorEncasillable;
 import fiuba.algo3.tp2.vista.partida.VistaJugador;
+import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
@@ -20,9 +17,11 @@ public class ControladorJugador implements Observer {
 
 	private Jugador jugador;
 	private VistaJugador vista;
+	private VistaCasilleroJugador vistaCasillero;
 
 	public ControladorJugador(Jugador jugador) {
 		this.jugador = jugador;
+		this.vistaCasillero = new VistaCasilleroJugador(jugador.getColor());
 	}
 
 	public String getNombre() {
@@ -66,13 +65,19 @@ public class ControladorJugador implements Observer {
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		*/
+		
 		this.jugador.avanzar(cubilete.sumarValores());
+		
 		try {
 			this.jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		} catch (DineroInsuficienteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public VistaCasilleroJugador getVistaCasilleroJugador() {
+		return this.vistaCasillero;
 	}
 	
 }

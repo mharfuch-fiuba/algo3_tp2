@@ -31,6 +31,7 @@ public class ControladorPartida {
 		agregarJugadores(jugadores);
 		this.controladorRonda.agregarVistasJugadores();
 		this.controladorTablero=new ControladorTablero(this.partida.getTablero());	
+		//this.controladorTablero.ubicarJugadoresInicial(controladorRonda);
 	}
 	
 	private void agregarJugadores(String[] jugadores) {

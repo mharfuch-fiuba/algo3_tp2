@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -46,6 +47,14 @@ public class ControladorRonda implements Observer {
 
 	}
 
+	public ArrayList<ControladorJugador> getJugadores(){
+		ArrayList<ControladorJugador> jugadores = new ArrayList<ControladorJugador>();
+		for (Jugador j : this.ronda){
+			jugadores.add(j.getControlador());
+		}
+		return jugadores;		
+	}
+	
 	public ControladorJugador getJugadorActual(){
 		try {
 			return ronda.obtenerJugadorActual().getControlador();

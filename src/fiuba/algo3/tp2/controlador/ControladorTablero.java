@@ -46,6 +46,7 @@ public class ControladorTablero {
 
 		ControladorEncasillable salida = new ControladorEncasillable(factory.getSalida(), new VistaSalida());
 		controladores.add(0, salida);
+		
 
 		ControladorEncasillable quini6 = new ControladorEncasillable(factory.getQuini6(), new VistaQuini());
 		controladores.add(0, quini6);
@@ -148,5 +149,11 @@ public class ControladorTablero {
 		
 	}
 	
+	public void ubicarJugadoresInicial(ControladorRonda ronda){
+	ControladorEncasillable salida = this.getEncasillableActual(ronda.getJugadorActual());
+	for (ControladorJugador j:ronda.getJugadores()){
+		salida.ponerJugador(j);
+	}
+	}
 
 }

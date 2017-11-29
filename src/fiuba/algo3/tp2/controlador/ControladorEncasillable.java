@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.controlador;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
+import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 
 public class ControladorEncasillable {
@@ -38,11 +39,13 @@ public class ControladorEncasillable {
 	}
 
 	public void sacarJugador(ControladorJugador jugador){
-		
+		VistaCasilleroJugador vista = jugador.getVistaCasilleroJugador();
+		vistaCasillero.getJugadores().sacarJugador(vista);
 	}
 	
 	public void ponerJugador(ControladorJugador jugador){
-		
+		VistaCasilleroJugador vista = jugador.getVistaCasilleroJugador();
+		vistaCasillero.getJugadores().ponerJugador(vista);		
 	}
 	
 	public Encasillable getEncasillable(){

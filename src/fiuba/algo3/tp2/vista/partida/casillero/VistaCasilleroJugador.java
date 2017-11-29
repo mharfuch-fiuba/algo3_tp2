@@ -7,14 +7,21 @@ import javafx.scene.shape.Circle;
 public class VistaCasilleroJugador extends BorderPane {
 
 	private Circle circulo;
-	
+
 	public VistaCasilleroJugador() {
 		this.getStyleClass().add("VistaCasillero");
-		this.circulo=crearCirculoVacio();
+		this.circulo = crearCirculoVacio();
 		this.setCenter(circulo);
-		
+
 	}
-	
+
+	public VistaCasilleroJugador(Color color) {
+		this.getStyleClass().add("VistaCasillero");
+		this.circulo = crearCirculoVacio();
+		this.setCenter(circulo);
+		this.circulo.setFill(color);
+	}
+
 	private Circle crearCirculoVacio() {
 		Circle circulo = new Circle();
 		circulo.setRadius(10);
@@ -22,12 +29,5 @@ public class VistaCasilleroJugador extends BorderPane {
 		circulo.setFill(Color.TRANSPARENT);
 		return circulo;
 	}
-	
-	public void despintarJugador(){
-		this.circulo.setFill(Color.TRANSPARENT);
-	}
-	
-	public void pintarJugador(Color color){
-		this.circulo.setFill(color);
-	}
+
 }
