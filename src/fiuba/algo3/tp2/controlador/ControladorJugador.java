@@ -58,6 +58,7 @@ public class ControladorJugador implements Observer {
 	
 	public void avanzar(){
 		Cubilete cubilete = Cubilete.getInstance();
+		cubilete.lanzar();
 		
 		this.jugador.avanzar(cubilete.sumarValores());
 		
