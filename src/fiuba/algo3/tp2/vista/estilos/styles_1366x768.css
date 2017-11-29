@@ -17,6 +17,7 @@
 	-fx-padding:5.0;
 	-fx-pref-width:80.0;
 	-fx-font-size: 16.0;
+	-fx-text-fill: white;
 }
  
 .VistaInicial{
@@ -153,6 +154,7 @@
 }
 
 .VistaJugador{
+	-fx-text-fill: white;
 	-fx-font-size:16.0;
 	-fx-border-color:black;
 	-fx-border-width: 1.0px;

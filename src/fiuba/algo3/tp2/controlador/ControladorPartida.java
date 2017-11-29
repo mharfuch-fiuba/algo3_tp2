@@ -9,9 +9,9 @@ import javafx.scene.paint.Color;
 
 public class ControladorPartida {
 
-	private Color color1 = Color.AZURE;
-	private Color color2 = Color.BLUEVIOLET;
-	private Color color3 = Color.CORNSILK;
+	private Color color1 = Color.DARKBLUE;
+	private Color color2 = Color.DARKGREEN;
+	private Color color3 = Color.DARKRED;
 	private Stack<Color> colores = new Stack<Color>();
 	
 	

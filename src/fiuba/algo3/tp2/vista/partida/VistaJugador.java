@@ -25,11 +25,13 @@ public class VistaJugador extends VBox{
 	
 	private void mostrarNombre(){
 		Label labelNombre = new Label(controladorJugador.getNombre());
+		labelNombre.setTextFill(Color.WHITE);
 		this.getChildren().add(labelNombre);
 	}
 	
 	private void mostrarDinero(){
 		labelDinero = new Label(controladorJugador.getDinero());
+		labelDinero.setTextFill(Color.WHITE);
 		this.getChildren().add(labelDinero);
 	}
 	
