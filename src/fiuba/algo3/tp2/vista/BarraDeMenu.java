@@ -6,6 +6,7 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import fiuba.algo3.tp2.vista.eventos.OpcionAcercaDeEventHandler;
 import fiuba.algo3.tp2.vista.eventos.OpcionPantallaCompletaEventHandler;
+import fiuba.algo3.tp2.vista.eventos.OpcionReiniciarEventHandler;
 import fiuba.algo3.tp2.vista.eventos.OpcionSalirEventHandler;
 
 
@@ -21,7 +22,12 @@ public class BarraDeMenu extends MenuBar {
 
 		MenuItem opcionSalir = new MenuItem("Salir");
 		MenuItem opcionAcercaDe = new MenuItem("Acerca de...");
+		MenuItem opcionReiniciar = new MenuItem("Reiniciar");
 
+		
+		OpcionReiniciarEventHandler opcionReiniciarHandler = new OpcionReiniciarEventHandler(stage);
+		opcionReiniciar.setOnAction(opcionReiniciarHandler);
+		
 		OpcionSalirEventHandler opcionSalirHandler = new OpcionSalirEventHandler();
 		opcionSalir.setOnAction(opcionSalirHandler);
 
@@ -34,7 +40,7 @@ public class BarraDeMenu extends MenuBar {
 
 		opcionPantallaCompleta.setDisable(true);
 
-		menuArchivo.getItems().addAll(opcionSalir);
+		menuArchivo.getItems().addAll(opcionReiniciar, opcionSalir);
 		menuAyuda.getItems().addAll(opcionAcercaDe);
 		menuVer.getItems().addAll(opcionPantallaCompleta);
 
