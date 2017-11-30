@@ -46,32 +46,30 @@ public class ControladorJugador implements Observer {
 	}
 
 	public ObservableList<String> getConstruibles() {
-		//tengo que ver en jugador como hacerlo
-		ObservableList<String> fruits = FXCollections.observableArrayList( 
-				 jugador.getListaComprables());
+		// tengo que ver en jugador como hacerlo
+		ObservableList<String> fruits = FXCollections.observableArrayList(jugador.getListaComprables());
 		return fruits;
 	}
 
 	public Encasillable getCasillero() {
 		return this.jugador.obtenerCasilleroActual();
 	}
-	
-	public void avanzar(ControladorTablero tablero){
+
+	public void avanzar(ControladorTablero tablero) {
 		Cubilete cubilete = Cubilete.getInstance();
-		//cubilete.lanzar();
+		// cubilete.lanzar();
 		System.out.println("Jugador lanza: " + cubilete.sumarValores());
-		//this.jugador.avanzar(cubilete.sumarValores());
-		//ESTO ES PARA QUE NO SE TELETRANSPORTE
-		
-		for(int i = 0;i < cubilete.sumarValores();i++) {
-			try        
-			{
-			    Thread.sleep(250);
-			} 
-			catch(InterruptedException ex) 
-			{
-			    Thread.currentThread().interrupt();
+		// this.jugador.avanzar(cubilete.sumarValores());
+		// ESTO ES PARA QUE NO SE TELETRANSPORTE
+
+		for (int i = 0; i < cubilete.sumarValores(); i++) {
+		/*
+			try {
+				Thread.sleep(250);
+			} catch (InterruptedException ex) {
+				Thread.currentThread().interrupt();
 			}
+			*/
 			System.out.println("Jugador avanza");
 			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(this);
 			viejoCasillero.sacarJugador(this);
@@ -79,9 +77,9 @@ public class ControladorJugador implements Observer {
 			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(this);
 			nuevoCasillero.ponerJugador(this);
 		}
-		
+
 		System.out.println("Jugador cae en " + jugador.obtenerCasilleroActual().getNombre());
-		
+
 		try {
 			this.jugador.aplicarEfectoDeCasilleroActual(cubilete);
 		} catch (DineroInsuficienteException e) {
@@ -93,5 +91,5 @@ public class ControladorJugador implements Observer {
 	public VistaCasilleroJugador getVistaCasilleroJugador() {
 		return this.vistaCasillero;
 	}
-	
+
 }

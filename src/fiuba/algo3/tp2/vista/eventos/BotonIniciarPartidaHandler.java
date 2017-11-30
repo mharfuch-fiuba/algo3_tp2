@@ -28,7 +28,8 @@ public class BotonIniciarPartidaHandler implements EventHandler<ActionEvent> {
 		escenaPartida.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
 
 		stage.setScene(escenaPartida);
-		
+		stage.setFullScreenExitHint("");
+		stage.setFullScreen(true);
 		//stage.setFullScreen(true);
 	}
 

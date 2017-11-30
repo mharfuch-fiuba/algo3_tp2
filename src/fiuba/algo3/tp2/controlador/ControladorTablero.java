@@ -121,7 +121,7 @@ public class ControladorTablero {
 
 		FactoryEncasillables factory = this.tablero.getFactory();
 
-		ControladorEncasillable tren = new ControladorEncasillable(factory.getCordobaSur(), new VistaPropiedad());
+		ControladorEncasillable tren = new ControladorEncasillable(factory.getTren(), new VistaPropiedad());
 		controladores.add(tren);
 
 		ControladorEncasillable neuquen = new ControladorEncasillable(factory.getNeuquen(), new VistaPropiedad());
