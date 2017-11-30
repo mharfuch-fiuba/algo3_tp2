@@ -8,8 +8,8 @@ public class VistaDado extends ImageView {
 	public VistaDado(int numero){
 		Image logo = new Image("file:assets/dados/dado"+numero+".png");
 		this.setImage(logo);
-		this.setFitHeight(50);
-		this.setFitWidth(50);
+		this.setFitHeight(100);
+		this.setFitWidth(100);
 	}
 	
 	
