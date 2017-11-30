@@ -14,12 +14,8 @@ public class Policia implements Encasillable {
 
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados){
-		try {
-			jugador.avanzarHasta(carcel);
-			jugador.aplicarEfectoDeCasilleroActual(dados);
-		} catch (Exception e) {
-			//NO PUEDE OCURRIR NINGUNA DE LAS 2 EXCEPCIONES
-		}
+		jugador.avanzarHasta(carcel);
+		jugador.aplicarEfectoDeCasilleroActual(dados);
 	}
 	
 	@Override
