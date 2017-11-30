@@ -29,11 +29,12 @@ public class BotonContinuar extends Button {
 
 		@Override
 		public void handle(ActionEvent event) {
+			//PARA MI TODO ESTO TENDRIA QUE DELEGARSE EN OTRO METODO DE OTRA CLASE MAS OBVIA
 			ControladorTablero tablero = contenedorPadre.getControladorTablero();
 			ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
 			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(jugador);
 			viejoCasillero.sacarJugador(jugador);
-			jugador.avanzar();
+			jugador.avanzar(); // <-- FALTA HACER TRY CATCH PARA QUE NO SALTE LA EXCEPCION DE MOVER
 			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
 			nuevoCasillero.ponerJugador(jugador);
 			VistaEfecto vistaEfecto = nuevoCasillero.getVistaEfecto();
