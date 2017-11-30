@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import javafx.scene.paint.Color;
@@ -80,4 +81,8 @@ public abstract class Jugador extends Observable{
 	public abstract ArrayList<String> getListaComprables();
 
 	public abstract void quitarPropiedad(Propiedad propiedad);
+
+	public Intercambio generarIntercambio(Propiedad propiedad, Dinero precio) {
+		return new Intercambio(propiedad, precio);
+	}
 }
