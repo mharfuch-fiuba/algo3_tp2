@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.modelo.movimiento;
 
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class MovimientoEnCarcelTurnoUno implements Movimiento {
@@ -33,7 +34,7 @@ public class MovimientoEnCarcelTurnoUno implements Movimiento {
 
 	@Override
 	public void desencarcelar(Jugador jugador) {
-		return;
+		throw new NoPuedePagarFianzaException();
 	}
 
 	@Override
