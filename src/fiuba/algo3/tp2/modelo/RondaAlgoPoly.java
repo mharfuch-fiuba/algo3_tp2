@@ -19,6 +19,7 @@ public class RondaAlgoPoly extends Ronda {
 		this.datos = new DoublyLinkedCircularList();
 		this.iterador = this.datos.iterator();
 		this.cubilete = Cubilete.getInstance();
+		this.cubilete.vaciar();
 		this.cubilete.agregar(new DadoCubico());
 		this.cubilete.agregar(new DadoCubico());
 	}

@@ -9,23 +9,23 @@ public class VistaCasilleroJugador extends BorderPane {
 	private Circle circulo;
 
 	public VistaCasilleroJugador() {
-		this.getStyleClass().add("VistaCasillero");
+		this.getStyleClass().add("VistaCasilleroJugador");
 		this.circulo = crearCirculoVacio();
 		this.setCenter(circulo);
-
 	}
 
 	public VistaCasilleroJugador(Color color) {
-		this.getStyleClass().add("VistaCasillero");
+		this.getStyleClass().add("VistaCasilleroJugador");
 		this.circulo = crearCirculoVacio();
 		this.setCenter(circulo);
 		this.circulo.setFill(color);
+		this.circulo.setStroke(Color.TRANSPARENT);
 	}
 
 	private Circle crearCirculoVacio() {
 		Circle circulo = new Circle();
 		circulo.setRadius(10);
-		circulo.setStroke(Color.BLACK);
+		circulo.setStroke(Color.TRANSPARENT);
 		circulo.setFill(Color.TRANSPARENT);
 		return circulo;
 	}

@@ -33,7 +33,7 @@ public class ControladorPartida {
 		this.controladorTablero=new ControladorTablero(this.partida.getTablero());	
 		//this.controladorTablero.ubicarJugadoresInicial(controladorRonda);
 	}
-	
+
 	private void agregarJugadores(String[] jugadores) {
 		for (String nombre : jugadores) {
 			Jugador jugador = new JugadorHumano(this.partida.getTablero(), this.partida.dineroInicial);	
@@ -43,11 +43,11 @@ public class ControladorPartida {
 			jugador.addObserver(this.controladorRonda);
 		}
 	}
-	
+
 	public ControladorRonda getControladorRonda(){
 		return this.controladorRonda;
 	}
-	
+
 	public ControladorTablero getControladorTablero(){
 		return this.controladorTablero;
 	}

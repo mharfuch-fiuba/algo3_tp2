@@ -46,7 +46,6 @@ public class ControladorTablero {
 
 		ControladorEncasillable salida = new ControladorEncasillable(factory.getSalida(), new VistaSalida());
 		controladores.add(0, salida);
-		
 
 		ControladorEncasillable quini6 = new ControladorEncasillable(factory.getQuini6(), new VistaQuini());
 		controladores.add(0, quini6);
@@ -136,24 +135,37 @@ public class ControladorTablero {
 
 		return controladores;
 	}
-	
-	
-	
-	public ControladorEncasillable getEncasillableActual(ControladorJugador jugador){
+
+	public ControladorEncasillable getEncasillableActual(ControladorJugador jugador) {
+		System.out.println("busco encasillable");
 		Encasillable encasillable = jugador.getCasillero();
-		for(ControladorEncasillable controlador:controladoresAbajo)if(controlador.getEncasillable().equals(encasillable))return controlador;
-		for(ControladorEncasillable controlador:controladoresIzquierda)if(controlador.getEncasillable().equals(encasillable))return controlador;
-		for(ControladorEncasillable controlador:controladoresArriba)if(controlador.getEncasillable().equals(encasillable))return controlador;
-		for(ControladorEncasillable controlador:controladoresDerecha)if(controlador.getEncasillable().equals(encasillable))return controlador;
-		return null; //no lo encontro
-		
+		System.out.println("encontre encasillable");
+		for (ControladorEncasillable controlador : controladoresAbajo)
+			if (controlador.getEncasillable().equals(encasillable))
+				return controlador;
+		for (ControladorEncasillable controlador : controladoresIzquierda)
+			if (controlador.getEncasillable().equals(encasillable))
+				return controlador;
+		for (ControladorEncasillable controlador : controladoresArriba)
+			if (controlador.getEncasillable().equals(encasillable))
+				return controlador;
+		for (ControladorEncasillable controlador : controladoresDerecha)
+			if (controlador.getEncasillable().equals(encasillable))
+				return controlador;
+		System.out.println("no encontre controlador encasillable");
+		return null; // no lo encontro
+
 	}
-	
-	public void ubicarJugadoresInicial(ControladorRonda ronda){
-	ControladorEncasillable salida = this.getEncasillableActual(ronda.getJugadorActual());
-	for (ControladorJugador j:ronda.getJugadores()){
-		salida.ponerJugador(j);
-	}
+
+	public void ubicarJugadoresInicial(ControladorRonda ronda) {
+		ControladorJugador jugador = ronda.getJugadorActual();
+		System.out.println("JUGADOR: " + jugador.getNombre());
+		ControladorEncasillable salida = this.getEncasillableActual(jugador);
+
+		for (ControladorJugador j : ronda.getJugadores()) {
+			System.out.println(j);
+			salida.ponerJugador(j);
+		}
 	}
 
 }

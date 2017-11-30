@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
+import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.controlador.ControladorRonda;
 import fiuba.algo3.tp2.controlador.ControladorTablero;
 import javafx.event.ActionEvent;
@@ -32,7 +33,12 @@ public class ContenedorTurno extends VBox {
 	}
 	
 	public VistaTurnoInicial getVistaInicial(){
-		return this.vistaTurnoInicial;
+		VistaTurnoInicial vistaInicial=this.vistaTurnoInicial;
+		ControladorJugador jugador = this.ronda.getJugadorActual();
+		if(jugador.estaEncarcelado()){
+			vistaInicial= new VistaJugadorEnCarcel(this,jugador);
+		}
+		return vistaInicial;
 	}
 	
 	public void terminarTurno(){

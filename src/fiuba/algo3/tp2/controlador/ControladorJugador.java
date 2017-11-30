@@ -63,13 +63,7 @@ public class ControladorJugador implements Observer {
 		// ESTO ES PARA QUE NO SE TELETRANSPORTE
 
 		for (int i = 0; i < cubilete.sumarValores(); i++) {
-		/*
-			try {
-				Thread.sleep(250);
-			} catch (InterruptedException ex) {
-				Thread.currentThread().interrupt();
-			}
-			*/
+        
 			System.out.println("Jugador avanza");
 			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(this);
 			viejoCasillero.sacarJugador(this);
@@ -81,7 +75,14 @@ public class ControladorJugador implements Observer {
 		System.out.println("Jugador cae en " + jugador.obtenerCasilleroActual().getNombre());
 
 		try {
+			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(this);
+			viejoCasillero.sacarJugador(this);
 			this.jugador.aplicarEfectoDeCasilleroActual(cubilete);
+			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(this);
+			nuevoCasillero.ponerJugador(this);
+			
+			
+			
 		} catch (DineroInsuficienteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,6 +91,10 @@ public class ControladorJugador implements Observer {
 
 	public VistaCasilleroJugador getVistaCasilleroJugador() {
 		return this.vistaCasillero;
+	}
+
+	public boolean estaEncarcelado() {
+		return this.jugador.estaEncarcelado();
 	}
 
 }

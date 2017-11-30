@@ -60,6 +60,7 @@ public class ControladorRonda implements Observer {
 			return ronda.obtenerJugadorActual().getControlador();
 		} catch (NoHayJugadoresException e) {
 			e.printStackTrace();
+			System.out.println("NO HAY JUGADORES EN RONDA");
 			return null;	//provisorio
 		}
 		

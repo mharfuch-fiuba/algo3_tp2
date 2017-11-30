@@ -85,4 +85,9 @@ public abstract class Jugador extends Observable{
 	public Intercambio generarIntercambio(Propiedad propiedad, Dinero precio) {
 		return new Intercambio(propiedad, precio);
 	}
+
+	public boolean estaEncarcelado() {
+		// MATI
+		return false;
+	}
 }
