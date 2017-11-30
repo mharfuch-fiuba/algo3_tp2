@@ -15,7 +15,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoDoble;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class Entrega2Test {
@@ -37,7 +36,7 @@ public class Entrega2Test {
 	private TerrenoSimple neuquen;
 	private TerrenoSimple tucuman;
 	
-	public Entrega2Test() throws JugadorEnCarcelException{
+	public Entrega2Test() {
 		CubileteFalso cubilete = new CubileteFalso();
 		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
 		jugador100k.avanzar(cubilete.sumarValores());
@@ -137,7 +136,7 @@ public class Entrega2Test {
 
 	@Test
 	public void test03_jugadorQueCaeEnBuenosAiresSurConUnaCasaPaga3k()
-			throws DineroInsuficienteException, JugadorEnCarcelException {
+			throws DineroInsuficienteException {
 
 		jugador100k.avanzar(2);
 		TerrenoDoble terreno = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
@@ -156,7 +155,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test04_jugadorQueCaeEnBuenosAiresDeOtroCon1CasaEnNorteYDosEnSurPaga3500EnCadaUna() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test04_jugadorQueCaeEnBuenosAiresDeOtroCon1CasaEnNorteYDosEnSurPaga3500EnCadaUna() throws DineroInsuficienteException {
 		CubileteFalso cubilete = new CubileteFalso();
 		Lanzable dadoSiempre2 = new DadoCargado(2);
 		cubilete.agregar(dadoSiempre2);
@@ -187,7 +186,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test05_SiJugadorTieneAmbosBuenosAiresPeroNoLaMaximaCantidadDeCasasYConstruyeHotelSuDineroNoBaja() throws DineroInsuficienteException {
 		// por como lo tenemos implementado, el jugador no puede elegir qu� construir. La inmobiliaria decide esto.
 		
 		//Si decidimos cambiarlo, aca una posible implementacion del test:
@@ -260,7 +259,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test07_SiUnJugadorCaeEnBuenosAiresSurDeOtroConHotelPaga5k() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test07_SiUnJugadorCaeEnBuenosAiresSurDeOtroConHotelPaga5k() throws DineroInsuficienteException {
 		
 		CubileteFalso cubilete = new CubileteFalso();
 		Lanzable dadoSiempre2 = new DadoCargado(2);
@@ -291,7 +290,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test08_JugadorCaeEnCordobaSurDeOtroPropietarioYPagaAlquilerDeHotel() throws JugadorEnCarcelException, DineroInsuficienteException{
+	public void test08_JugadorCaeEnCordobaSurDeOtroPropietarioYPagaAlquilerDeHotel() throws DineroInsuficienteException{
 		CubileteFalso cubilete = new CubileteFalso();
 		Lanzable dado_siempre_6 = new DadoCargado(6);
 		Lanzable dado_siempre_3 = new DadoCargado(3);
@@ -320,7 +319,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test08_JugadorCaeEnSaltaNorteDeOtroPropietarioYPagaAlquilerDeHotel() throws JugadorEnCarcelException, DineroInsuficienteException{
+	public void test08_JugadorCaeEnSaltaNorteDeOtroPropietarioYPagaAlquilerDeHotel() throws DineroInsuficienteException{
 		CubileteFalso cubilete = new CubileteFalso();
 		cubilete.agregar(new DadoCargado(new int[]{13,1}));
 		
@@ -355,12 +354,12 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() throws JugadorEnCarcelException, DineroInsuficienteException{
+	public void test10_SiJugadorCaeEnCualquierTerrenoConConstruccionesPagaLoQueCorresponde() throws DineroInsuficienteException{
 		//Tests realizados en clase aparte porque hay que verificar todos los casos.
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnBuenosAiresSurConUnaConstruccionSuDineroSeReduce3000() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnBuenosAiresSurConUnaConstruccionSuDineroSeReduce3000() throws DineroInsuficienteException {
 		jugador100k.avanzar(2);
 		jugador100k.comprarCasilleroActual();
 		TerrenoDoble bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
@@ -375,7 +374,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnBuenosAiresNorteConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnBuenosAiresNorteConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException {
 		jugador100k.avanzar(2);
 		jugador100k.comprarCasilleroActual();
 		jugador100k.avanzar(2);
@@ -390,7 +389,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnCordobaSurConUnaConstruccionSuDineroSeReduce1500() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnCordobaSurConUnaConstruccionSuDineroSeReduce1500() throws DineroInsuficienteException {
 		jugador100k.avanzar(6);
 		jugador100k.comprarCasilleroActual();
 		TerrenoDoble cordobaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
@@ -405,7 +404,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnCordobaNorteConUnaConstruccionSuDineroSeReduce1800() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnCordobaNorteConUnaConstruccionSuDineroSeReduce1800() throws DineroInsuficienteException {
 		jugador100k.avanzar(6);
 		jugador100k.comprarCasilleroActual();
 		jugador100k.avanzar(3);
@@ -422,7 +421,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnSantaFeConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnSantaFeConUnaConstruccionSuDineroSeReduce3500() throws DineroInsuficienteException {
 		jugador100k.avanzar(11);
 		jugador100k.comprarCasilleroActual();
 		TerrenoSimple santaFe = (TerrenoSimple) jugador100k.obtenerCasilleroActual();
@@ -435,7 +434,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnSaltaNorteConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnSaltaNorteConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException {
 		jugador100k.avanzar(13);
 		jugador100k.comprarCasilleroActual();
 		TerrenoDoble saltaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
@@ -451,7 +450,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnSaltaSurConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnSaltaSurConUnaConstruccionSuDineroSeReduce3250() throws DineroInsuficienteException {
 		jugador100k.avanzar(13);
 		jugador100k.comprarCasilleroActual();
 		jugador100k.avanzar(1);
@@ -466,7 +465,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnNeuquenConUnaConstruccionSuDineroSeReduce3800() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnNeuquenConUnaConstruccionSuDineroSeReduce3800() throws DineroInsuficienteException {
 		jugador100k.avanzar(17);
 		jugador100k.comprarCasilleroActual();
 		TerrenoSimple neuquen = (TerrenoSimple) jugador100k.obtenerCasilleroActual();
@@ -479,7 +478,7 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test10_SiJugadorCaeEnTucumanConUnaConstruccionSuDineroSeReduce4500() throws DineroInsuficienteException, JugadorEnCarcelException {
+	public void test10_SiJugadorCaeEnTucumanConUnaConstruccionSuDineroSeReduce4500() throws DineroInsuficienteException {
 		jugador100k.avanzar(19);
 		jugador100k.comprarCasilleroActual();
 		TerrenoSimple tucuman = (TerrenoSimple) jugador100k.obtenerCasilleroActual();
@@ -492,7 +491,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test11_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioNoTieneSubteSuDineroSeReduce5400() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test11_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioNoTieneSubteSuDineroSeReduce5400() throws DineroInsuficienteException {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 5400;
 		CubileteFalso cubilete_que_saca_12 = new CubileteFalso();
@@ -511,7 +510,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test12_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioTieneSubteSuDineroSeReduce9600() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test12_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioTieneSubteSuDineroSeReduce9600() throws DineroInsuficienteException {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 9600;
 		
@@ -536,7 +535,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test13_JugadoresIntercambianPropiedadesElTercerJugadorLePagaAlNuevoPropietario() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test13_JugadoresIntercambianPropiedadesElTercerJugadorLePagaAlNuevoPropietario() throws DineroInsuficienteException {
 		final int monto_inicial = 100000;
 		final int monto_esperado = monto_inicial - 20000 + 1500;
 		
@@ -572,7 +571,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test15_JugadorCaeEnImpuestoAlLujoYSuDineroDisminuye10Porciento() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test15_JugadorCaeEnImpuestoAlLujoYSuDineroDisminuye10Porciento() throws DineroInsuficienteException {
 		final int monto_inicial = 10000;
 		final int monto_esperado = monto_inicial - (int) (monto_inicial * 0.1);
 		
@@ -586,7 +585,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test16_jugadorSacaDoceCaeEnEdesurYaAdquiridoSuPropietarioNoTieneAyseSuDineroSeReduce6000() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test16_jugadorSacaDoceCaeEnEdesurYaAdquiridoSuPropietarioNoTieneAyseSuDineroSeReduce6000() throws DineroInsuficienteException {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 6000;
 		
@@ -606,7 +605,7 @@ public class Entrega2Test {
 	}
 
 	@Test
-	public void test17_jugadorSacaDoceCaeEnEdesurYaAdquiridoSuPropietarioTieneAysaSuDineroSeReduce12000() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test17_jugadorSacaDoceCaeEnEdesurYaAdquiridoSuPropietarioTieneAysaSuDineroSeReduce12000() throws DineroInsuficienteException {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 12000;
 		

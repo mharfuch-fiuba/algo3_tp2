@@ -10,7 +10,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
@@ -23,7 +22,7 @@ public class IntegracionMatiasTest extends TestCase {
 	
 	private Tablero tablero = new Tablero();
 	
-	public void testConstruirEnBuenosAires() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void testConstruirEnBuenosAires() throws DineroInsuficienteException {
 		final int monto_inicial = 200000;
 		
 		CubileteFalso cubilete_que_saca_2 = new CubileteFalso();
@@ -61,7 +60,7 @@ public class IntegracionMatiasTest extends TestCase {
 		Assert.assertEquals(monto_esperado_jugador_2, jugador2.obtenerDinero().obtenerMontoEntero());
 	}
 	
-	public void testConstruirEnBuenosAires2() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void testConstruirEnBuenosAires2() throws DineroInsuficienteException {
 		
 		final int monto_inicial = 200000;
 		int monto_esperado_jugador_1 = monto_inicial;
@@ -125,7 +124,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 	}
 	
-	public void testJugador1CompraTodosLosServiciosJugador2AlquilaTodosLosServicios() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void testJugador1CompraTodosLosServiciosJugador2AlquilaTodosLosServicios() throws DineroInsuficienteException {
 		int dinero_inicial = 1000000;
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
 		CubileteFalso cubilete = new CubileteFalso();
@@ -249,7 +248,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 	}
 	
-	public void testJugador1CompraTodasLasPropiedadesJugador2AlquilaTodasLasPropiedades() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void testJugador1CompraTodasLasPropiedadesJugador2AlquilaTodasLasPropiedades() throws DineroInsuficienteException {
 		int dinero_inicial = 10000000;
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
 		CubileteFalso cubilete = new CubileteFalso();

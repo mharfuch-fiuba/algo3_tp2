@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.modelo.movimiento;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.IterTablero;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -16,12 +15,12 @@ public class MovimientoNormal implements Movimiento {
 	}
 	
 	@Override
-	public void avanzar(int cantidadCasilleros) throws JugadorEnCarcelException{
+	public void avanzar(int cantidadCasilleros) {
 		for (int i = 0; i < cantidadCasilleros; i++) posicion.avanzar();
 	}
 	
 	@Override
-	public void retroceder(int cantidadCasilleros) throws JugadorEnCarcelException{
+	public void retroceder(int cantidadCasilleros) {
 		for (int i = 0; i < cantidadCasilleros; i++) posicion.retroceder();
 	}
 	

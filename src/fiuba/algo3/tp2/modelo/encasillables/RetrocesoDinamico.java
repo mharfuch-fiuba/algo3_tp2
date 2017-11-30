@@ -25,7 +25,7 @@ public class RetrocesoDinamico implements Encasillable{
 		jugador.retroceder(dineroJugador.obtenerMontoEntero() % sumaDados);
 	}
 	
-	private void efectoRetrocedeSumaDadosMenosDos(Jugador jugador, int sumaDados){
+	private void efectoRetrocedeSumaDadosMenosDos(Jugador jugador, int sumaDados) {
 		jugador.retroceder(sumaDados-2);
 	}
 	

@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.modelo.movimiento;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
@@ -20,18 +19,18 @@ public class MovimientoEnCarcelTurnoCero implements Movimiento {
 	}
 
 	@Override
-	public void avanzarHasta(Encasillable casillero) throws JugadorEnCarcelException {
-		throw new JugadorEnCarcelException();
+	public void avanzarHasta(Encasillable casillero) {
+		return;
 	}
 
 	@Override
-	public void avanzar(int cantidadCasilleros) throws JugadorEnCarcelException {
-		throw new JugadorEnCarcelException();
+	public void avanzar(int cantidadCasilleros) {
+		return;
 	}
 	
 	@Override
-	public void retroceder(int cant_casilleros) throws JugadorEnCarcelException {
-		throw new JugadorEnCarcelException();
+	public void retroceder(int cant_casilleros) {
+		return;
 	}
 
 	@Override

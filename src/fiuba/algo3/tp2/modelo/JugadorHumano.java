@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.movimiento.MovimientoNormal;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
@@ -32,12 +31,12 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void avanzar(int cant_casilleros) throws JugadorEnCarcelException {
+	public void avanzar(int cant_casilleros) {
 		movimiento.avanzar(cant_casilleros);		
 	}
 
 	@Override
-	public void retroceder(int cant_casilleros) throws JugadorEnCarcelException {
+	public void retroceder(int cant_casilleros) {
 		movimiento.retroceder(cant_casilleros);
 	}
 
@@ -75,7 +74,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void avanzarHasta(Encasillable casillero) throws JugadorEnCarcelException {
+	public void avanzarHasta(Encasillable casillero) {
 		this.movimiento.avanzarHasta(casillero);
 	}
 

@@ -9,7 +9,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class JugadorHumanoTest {
@@ -53,7 +52,7 @@ public class JugadorHumanoTest {
 	}
 	
 	@Test
-	public void testRecorrerTablero() throws JugadorEnCarcelException {
+	public void testRecorrerTablero() {
 		Jugador jugador = new JugadorHumano(tablero, new Dinero(10000));
 		Assert.assertTrue(jugador.obtenerCasilleroActual() instanceof Salida);
 		jugador.avanzar(1);

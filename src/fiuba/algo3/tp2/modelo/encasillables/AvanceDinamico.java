@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.modelo.encasillables;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class AvanceDinamico implements Encasillable{
@@ -17,30 +16,18 @@ public class AvanceDinamico implements Encasillable{
 			case 4:
 			case 5:
 			case 6:
-			try {
-				jugador.avanzar(valor_obtenido - 2);
-			} catch (JugadorEnCarcelException e) {
-				e.printStackTrace();
-			}
-				break;
+			jugador.avanzar(valor_obtenido - 2);
+			break;
 			case 7:
 			case 8:
 			case 9:
 			case 10:
-			try {
-				jugador.avanzar(jugador.obtenerDinero().obtenerMontoEntero() % valor_obtenido);
-			} catch (JugadorEnCarcelException e) {
-				e.printStackTrace();
-			}
-				break;
+			jugador.avanzar(jugador.obtenerDinero().obtenerMontoEntero() % valor_obtenido);
+			break;
 			case 11:
 			case 12:
-			try {
-				jugador.avanzar(valor_obtenido - jugador.getCantidadDePropiedades());
-			} catch (JugadorEnCarcelException e) {
-				e.printStackTrace();
-			}
-				break;
+			jugador.avanzar(valor_obtenido - jugador.getCantidadDePropiedades());
+			break;
 		}
 	}
 

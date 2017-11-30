@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -22,8 +21,7 @@ public class CarcelTest {
 	@Test
 	public void testElJugadorQueCaeEnCarcelNoPuedeAvanzar() {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
-		try{jugador.avanzar(10);}
-		catch(JugadorEnCarcelException e) {};
+		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
@@ -32,8 +30,7 @@ public class CarcelTest {
 	public void testElJugadorQueCaeEnCarcelNoPuedeAvanzarDuranteElPrimerTurno() {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
 		jugador.avisarCambioDeTurno();
-		try{jugador.avanzar(10);}
-		catch(JugadorEnCarcelException e) {};
+		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
@@ -43,8 +40,7 @@ public class CarcelTest {
 		Encasillable casillero_esperado = jugador.obtenerCasilleroActual();
 		jugador.avisarCambioDeTurno();
 		jugador.avisarCambioDeTurno();
-		try{jugador.avanzar(10);}
-		catch(JugadorEnCarcelException e) {};
+		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
@@ -55,8 +51,7 @@ public class CarcelTest {
 		jugador.avisarCambioDeTurno();
 		jugador.avisarCambioDeTurno();
 		jugador.avisarCambioDeTurno();
-		try{jugador.avanzar(10);}
-		catch(JugadorEnCarcelException e) {};
+		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
@@ -110,8 +105,7 @@ public class CarcelTest {
 		jugador.avisarCambioDeTurno();
 		try{jugador.pagarFianza();}
 		catch(DineroInsuficienteException e) {};
-		try{jugador.avanzar(10);}
-		catch(JugadorEnCarcelException e) {};
+		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}

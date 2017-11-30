@@ -8,7 +8,6 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import javafx.scene.paint.Color;
 
@@ -40,15 +39,15 @@ public abstract class Jugador extends Observable{
 	
 	public abstract void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException;
 
-	public abstract void avanzarHasta(Encasillable casillero) throws JugadorEnCarcelException;
+	public abstract void avanzarHasta(Encasillable casillero);
 	
 	public abstract void pagar(Dinero monto) throws DineroInsuficienteException;
 	
 	public abstract void cobrar(Dinero monto);
 
-	public abstract void avanzar(int cant_casilleros)throws JugadorEnCarcelException;
+	public abstract void avanzar(int cant_casilleros);
 
-	public abstract void retroceder(int cant_casilleros) throws JugadorEnCarcelException;
+	public abstract void retroceder(int cant_casilleros);
 	
 	public abstract boolean isNull();
 

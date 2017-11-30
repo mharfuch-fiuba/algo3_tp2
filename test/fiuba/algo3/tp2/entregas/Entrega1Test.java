@@ -16,7 +16,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
@@ -115,7 +114,7 @@ public class Entrega1Test {
 		Assert.assertEquals(comprable.getPropietario(), jugador100k);
 	}
 
-	@Test(expected=JugadorEnCarcelException.class)
+	@Test
 	public void test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws Exception {
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
@@ -125,8 +124,11 @@ public class Entrega1Test {
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete);
+		Encasillable casillero_esperado = jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
+		Encasillable casillero_actual = jugador100k.obtenerCasilleroActual();
+		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
 
 	@Test
@@ -147,7 +149,7 @@ public class Entrega1Test {
 		Assert.assertNotEquals(casillero_carcel, casillero_actual);
 	}
 
-	@Test(expected=JugadorEnCarcelException.class)
+	@Test
 	public void test07_ElJugadorQueNoPuedePagarLaFianzaPorFaltaDeFondosNoPuedeMoverse() throws Exception {
 		Dinero dinero40k = new Dinero(40000);
 		Jugador jugador40k = new JugadorHumano(tablero,dinero40k);
@@ -167,12 +169,15 @@ public class Entrega1Test {
 		} catch (DineroInsuficienteException e) {
 			// ESTO ES ESPERABLE PORQUE NO TIENE DINERO
 		}
+		Encasillable casillero_esperado = jugador40k.obtenerCasilleroActual();
 		cubilete.lanzar();
 		jugador40k.avanzar(cubilete.sumarValores());
+		Encasillable casillero_actual = jugador40k.obtenerCasilleroActual();
+		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
 
 	@Test
-	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException {
 		CubileteFalso cubilete_que_saca_1 = new CubileteFalso();
 		cubilete_que_saca_1.agregar(new DadoCargado(1));
 		CubileteFalso cubilete_que_saca_6 = new CubileteFalso();
@@ -189,8 +194,7 @@ public class Entrega1Test {
 	}
 
 	@Test
-	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000()
-			throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() throws DineroInsuficienteException {
 		CubileteFalso cubilete_que_saca_7 = new CubileteFalso();
 		cubilete_que_saca_7.agregar(new DadoCargado(1));
 		cubilete_que_saca_7.agregar(new DadoCargado(6));
@@ -204,7 +208,7 @@ public class Entrega1Test {
 
 	@Test
 	public void test10_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado12Avanza10CasillerosSiTiene2Propiedades()
-			throws DineroInsuficienteException, JugadorEnCarcelException {
+			throws DineroInsuficienteException {
 
 		jugador100k.comprar(new SantaFe());
 		jugador100k.comprar(new Neuquen());
@@ -232,7 +236,7 @@ public class Entrega1Test {
 
 	@Test
 	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel()
-			throws JugadorEnCarcelException, DineroInsuficienteException {
+			throws DineroInsuficienteException {
 		CubileteFalso cubilete_que_saca_15 = new CubileteFalso();
 		cubilete_que_saca_15.agregar(new DadoCargado(15));
 		cubilete_que_saca_15.lanzar();
@@ -242,14 +246,17 @@ public class Entrega1Test {
 		Assert.assertTrue(casillero_actual instanceof Carcel);// <-- REVISAR
 	}
 
-	@Test(expected = JugadorEnCarcelException.class)
+	@Test
 	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() throws Exception {
 		CubileteFalso cubilete_que_saca_15 = new CubileteFalso();
 		cubilete_que_saca_15.agregar(new DadoCargado(15));
 		cubilete_que_saca_15.lanzar();
 		jugador100k.avanzar(cubilete_que_saca_15.sumarValores());
 		jugador100k.aplicarEfectoDeCasilleroActual(cubilete_que_saca_15);
+		Encasillable casillero_esperado = jugador100k.obtenerCasilleroActual();
 		jugador100k.avanzar(cubilete_que_saca_15.sumarValores());
+		Encasillable casillero_actual = jugador100k.obtenerCasilleroActual();
+		Assert.assertEquals(casillero_esperado, casillero_actual);
 	}
 
 }

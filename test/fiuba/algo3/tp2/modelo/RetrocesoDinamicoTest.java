@@ -14,7 +14,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaS
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.excepciones.JugadorEnCarcelException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
@@ -41,7 +40,7 @@ public class RetrocesoDinamicoTest{
 	}
 
 	@Test
-	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws DineroInsuficienteException, JugadorEnCarcelException  {
+	public void test02unJugadorCon1PropiedadQueSaca2Retrocede1Lugar() throws DineroInsuficienteException  {
 		Propiedad comprable = new Tucuman();
 		jugador.comprar(comprable);
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
@@ -56,7 +55,7 @@ public class RetrocesoDinamicoTest{
 	}
 
 	@Test
-	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws JugadorEnCarcelException, DineroInsuficienteException {
+	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws DineroInsuficienteException {
 		
 		
 		Propiedad comprable1 = new Tucuman();

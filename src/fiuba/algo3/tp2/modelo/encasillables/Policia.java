@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.modelo.encasillables;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class Policia implements Encasillable {
@@ -14,9 +13,13 @@ public class Policia implements Encasillable {
 	}
 
 	@Override
-	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
-		jugador.avanzarHasta(carcel);
-		jugador.aplicarEfectoDeCasilleroActual(dados);
+	public void aplicarEfecto(Jugador jugador, Cubilete dados){
+		try {
+			jugador.avanzarHasta(carcel);
+			jugador.aplicarEfectoDeCasilleroActual(dados);
+		} catch (Exception e) {
+			//NO PUEDE OCURRIR NINGUNA DE LAS 2 EXCEPCIONES
+		}
 	}
 	
 	@Override
