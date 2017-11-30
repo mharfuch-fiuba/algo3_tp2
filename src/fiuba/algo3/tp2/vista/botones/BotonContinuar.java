@@ -32,11 +32,12 @@ public class BotonContinuar extends Button {
 			//PARA MI TODO ESTO TENDRIA QUE DELEGARSE EN OTRO METODO DE OTRA CLASE MAS OBVIA
 			ControladorTablero tablero = contenedorPadre.getControladorTablero();
 			ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
-			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(jugador);
-			viejoCasillero.sacarJugador(jugador);
-			jugador.avanzar(); // <-- FALTA HACER TRY CATCH PARA QUE NO SALTE LA EXCEPCION DE MOVER
+			//ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(jugador);
+			//viejoCasillero.sacarJugador(jugador);
+			jugador.avanzar(tablero); // <-- FALTA HACER TRY CATCH PARA QUE NO SALTE LA EXCEPCION DE MOVER
+			//ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
+			//nuevoCasillero.ponerJugador(jugador);
 			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
-			nuevoCasillero.ponerJugador(jugador);
 			VistaEfecto vistaEfecto = nuevoCasillero.getVistaEfecto();
 			VistaTurnoEfecto vistaTurnoEfecto=new VistaTurnoEfecto(this.contenedorPadre,vistaEfecto);
 			this.contenedorPadre.cambiarVistaDinamica(vistaTurnoEfecto);		

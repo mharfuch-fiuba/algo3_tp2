@@ -56,11 +56,30 @@ public class ControladorJugador implements Observer {
 		return this.jugador.obtenerCasilleroActual();
 	}
 	
-	public void avanzar(){
+	public void avanzar(ControladorTablero tablero){
 		Cubilete cubilete = Cubilete.getInstance();
 		cubilete.lanzar();
 		System.out.println("Jugador lanza: " + cubilete.sumarValores());
-		this.jugador.avanzar(cubilete.sumarValores());
+		//this.jugador.avanzar(cubilete.sumarValores());
+		//ESTO ES PARA QUE NO SE TELETRANSPORTE
+		
+		for(int i = 0;i < cubilete.sumarValores();i++) {
+			try        
+			{
+			    Thread.sleep(250);
+			} 
+			catch(InterruptedException ex) 
+			{
+			    Thread.currentThread().interrupt();
+			}
+			System.out.println("Jugador avanza");
+			ControladorEncasillable viejoCasillero = tablero.getEncasillableActual(this);
+			viejoCasillero.sacarJugador(this);
+			this.jugador.avanzar(1);
+			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(this);
+			nuevoCasillero.ponerJugador(this);
+		}
+		
 		System.out.println("Jugador cae en " + jugador.obtenerCasilleroActual().getNombre());
 		
 		try {
