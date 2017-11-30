@@ -58,7 +58,7 @@ public class ControladorJugador implements Observer {
 	
 	public void avanzar(ControladorTablero tablero){
 		Cubilete cubilete = Cubilete.getInstance();
-		cubilete.lanzar();
+		//cubilete.lanzar();
 		System.out.println("Jugador lanza: " + cubilete.sumarValores());
 		//this.jugador.avanzar(cubilete.sumarValores());
 		//ESTO ES PARA QUE NO SE TELETRANSPORTE

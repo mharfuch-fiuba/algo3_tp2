@@ -94,6 +94,7 @@ public class ControladorRonda implements Observer {
 	
 	public void tirarDados(){
 		//aca le digo a la ronda que tire los dados
+		this.cubilete.lanzar();
 	}
 	
 	public ControladorCubilete getDados(){
