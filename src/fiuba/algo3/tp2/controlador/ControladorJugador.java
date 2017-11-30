@@ -59,8 +59,9 @@ public class ControladorJugador implements Observer {
 	public void avanzar(){
 		Cubilete cubilete = Cubilete.getInstance();
 		cubilete.lanzar();
-		
+		System.out.println("Jugador lanza: " + cubilete.sumarValores());
 		this.jugador.avanzar(cubilete.sumarValores());
+		System.out.println("Jugador cae en " + jugador.obtenerCasilleroActual().getNombre());
 		
 		try {
 			this.jugador.aplicarEfectoDeCasilleroActual(cubilete);
