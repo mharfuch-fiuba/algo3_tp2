@@ -73,4 +73,16 @@ public class RondaAlgoPoly extends Ronda {
 		return this.cubilete;
 	}
 
+	@Override
+	public void quitarJugador(Jugador jugador_actual) {
+		//datos.remove(jugador_actual);
+		//HAY QUE VERIFICAR QUE EL ITERADOR NO QUEDE EN UN ESTADO INVALIDO
+	}
+
+	@Override
+	public int contarJugadores() {
+		// TODO Auto-generated method stub
+		return iterador.size();
+	}
+
 }

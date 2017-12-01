@@ -174,4 +174,9 @@ public class JugadorNull extends Jugador {
 		
 	}
 
+	@Override
+	public Dinero obtenerPatrimonio() {
+		return new Dinero(0);
+	}
+
 }

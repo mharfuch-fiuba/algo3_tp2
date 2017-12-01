@@ -5,6 +5,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
+import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayConstruccionesParaDemoler;
@@ -34,7 +35,7 @@ public abstract class Terreno extends Propiedad implements Edificable {
 	}
 	
 	@Override
-	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
+	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException, BancaRotaException {
 		if(this.getPropietario().esNull()) return;
 		Dinero precio_alquiler = construccion.getAlquiler();
 		jugador.pagar(precio_alquiler);

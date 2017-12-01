@@ -36,4 +36,8 @@ public class Dinero {
 		return new Dinero(this.cantidad);
 	}
 
+	public boolean esMayorQue(Dinero otro_monto) {
+		return cantidad > otro_monto.obtenerMontoEntero();
+	}
+
 }

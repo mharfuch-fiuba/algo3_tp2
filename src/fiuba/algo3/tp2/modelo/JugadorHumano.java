@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
+import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.movimiento.MovimientoNormal;
@@ -21,6 +22,8 @@ public class JugadorHumano extends Jugador {
 	private ArrayList<Propiedad> propiedades;
 	private ArrayList<String> propiedadesComprables;
 	private Deuda deuda;
+	
+	private static final int PTJ_REINTEGRO_VENTA_DE_PROPIEDADES = 85;
 
 	public JugadorHumano(Tablero tablero, Dinero dinero_inicial) {
 		dinero = dinero_inicial.clone();
@@ -68,7 +71,16 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException {
+	public Dinero obtenerPatrimonio() {
+		Dinero patrimonio = this.obtenerDinero();
+		for(Propiedad propiedad:propiedades) {
+			patrimonio.aumentarCantidad(propiedad.getPrecio().obtenerPorcentaje(PTJ_REINTEGRO_VENTA_DE_PROPIEDADES));
+		}
+		return patrimonio;
+	}
+	
+	@Override
+	public void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException, BancaRotaException {
 		Encasillable casillero = this.movimiento.verActual();
 		casillero.aplicarEfecto(this, cubilete);
 	}
@@ -79,7 +91,8 @@ public class JugadorHumano extends Jugador {
 	}
 
 	@Override
-	public void pagar(Dinero monto) throws DineroInsuficienteException {
+	public void pagar(Dinero monto) throws DineroInsuficienteException, BancaRotaException {
+		if(monto.esMayorQue(this.obtenerPatrimonio())) throw new BancaRotaException();
 		dinero.disminuirCantidad(monto);
 		setChanged();
 		notifyObservers();

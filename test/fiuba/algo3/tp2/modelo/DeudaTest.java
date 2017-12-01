@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
@@ -30,8 +31,8 @@ public class DeudaTest {
 		Assert.assertEquals(0, deuda.getDeuda().obtenerMontoEntero());
 	}
 	
-	@Test (expected = DineroInsuficienteException.class)
-	public void testPagarDeudaLanzaDineroInsuficienteExceptionSiElJugadorNoTineSaldo() throws DineroInsuficienteException {
+	@Test (expected = BancaRotaException.class)
+	public void testPagarDeudaLanzaBancaRotaExceptionSiElJugadorNoTineSaldoNiPropiedades() throws DineroInsuficienteException {
 		Deuda deuda = new Deuda(new Dinero(10000));
 		Jugador jugador = new JugadorHumano(tablero, new Dinero(2000));
 		deuda.pagarDeuda(jugador);

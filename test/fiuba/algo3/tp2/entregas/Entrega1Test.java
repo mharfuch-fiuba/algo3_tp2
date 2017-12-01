@@ -15,6 +15,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Aysa;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
+import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -167,6 +168,8 @@ public class Entrega1Test {
 		try {
 			jugador40k.pagarFianza();
 		} catch (DineroInsuficienteException e) {
+			// ESTO ES ESPERABLE PORQUE NO TIENE DINERO
+		} catch (BancaRotaException e) {
 			// ESTO ES ESPERABLE PORQUE NO TIENE DINERO
 		}
 		Encasillable casillero_esperado = jugador40k.obtenerCasilleroActual();

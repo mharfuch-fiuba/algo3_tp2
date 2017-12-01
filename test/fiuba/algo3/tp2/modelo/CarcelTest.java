@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
@@ -104,7 +105,7 @@ public class CarcelTest {
 		jugador.avisarCambioDeTurno();
 		jugador.avisarCambioDeTurno();
 		try{jugador.pagarFianza();}
-		catch(DineroInsuficienteException e) {};
+		catch(BancaRotaException e) {};
 		jugador.avanzar(10);
 		Encasillable casillero_actual = jugador.obtenerCasilleroActual();
 		Assert.assertEquals(casillero_esperado, casillero_actual);

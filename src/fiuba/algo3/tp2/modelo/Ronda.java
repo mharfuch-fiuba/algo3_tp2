@@ -12,4 +12,6 @@ public abstract class Ronda extends Observable implements Iterable<Jugador>{
 	public abstract Jugador obtenerJugadorActual() throws NoHayJugadoresException;
 	public abstract Cubilete getCubilete();
 	public abstract Cubilete lanzarDados();
+	public abstract void quitarJugador(Jugador jugador_actual);
+	public abstract int contarJugadores();
 }

@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresSur;
+import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import javafx.scene.paint.Color;
@@ -38,11 +39,11 @@ public abstract class Jugador extends Observable{
 
 	public abstract void pagarFianza() throws DineroInsuficienteException;
 	
-	public abstract void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException;
+	public abstract void aplicarEfectoDeCasilleroActual(Cubilete cubilete) throws DineroInsuficienteException, BancaRotaException;
 
 	public abstract void avanzarHasta(Encasillable casillero);
 	
-	public abstract void pagar(Dinero monto) throws DineroInsuficienteException;
+	public abstract void pagar(Dinero monto) throws DineroInsuficienteException, BancaRotaException;
 	
 	public abstract void cobrar(Dinero monto);
 
@@ -90,4 +91,7 @@ public abstract class Jugador extends Observable{
 		// MATI
 		return false;
 	}
+
+	public abstract Dinero obtenerPatrimonio();
+	
 }
