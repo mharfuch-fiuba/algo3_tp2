@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.controlador.ControladorJugador;
+import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -30,13 +31,13 @@ public class VistaTurnoConstruir extends VBox{
 	private class Botonera extends HBox{
 		
 		public Botonera(ContenedorTurno contenedorPadre){
-			this.getChildren().add(new Button("Construir"));
+			this.getChildren().add(new BotonAlgoPoly("Construir"));
 			this.getChildren().add(contenedorPadre.getBotonVolver());
 			this.setSpacing(20);
 		}
 		
 	}
-	
+		
 	private class ConstruccionPermitida extends HBox{
 		
 		public ConstruccionPermitida(){

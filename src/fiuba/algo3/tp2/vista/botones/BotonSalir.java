@@ -9,6 +9,6 @@ public class BotonSalir extends Button{
 
 	public BotonSalir(){
 		this.setText("SALIR");
-		this.getStyleClass().add("BotonSalir");
+		this.getStyleClass().add("Boton");
 	}
 }

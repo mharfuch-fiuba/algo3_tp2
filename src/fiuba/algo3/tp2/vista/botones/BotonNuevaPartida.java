@@ -6,7 +6,7 @@ public class BotonNuevaPartida extends Button{
 
 	public BotonNuevaPartida(){
 		this.setText("NUEVA PARTIDA");
-		this.getStyleClass().add("BotonNuevaPartida");
+		this.getStyleClass().add("Boton");
 	}
 	
 }

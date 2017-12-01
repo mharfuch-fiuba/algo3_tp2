@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 public class BotonTurnoInicial extends Button{
 
 	public BotonTurnoInicial(String texto){
-		this.getStyleClass().add("BotonTurnoInicial");
+		this.getStyleClass().add("Boton");
 		this.setText(texto);
 	}
 

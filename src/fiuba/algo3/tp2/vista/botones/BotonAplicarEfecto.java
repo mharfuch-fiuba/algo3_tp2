@@ -10,11 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class BotonContinuar extends Button {
+public class BotonAplicarEfecto extends Button {
 	
-	public BotonContinuar(ContenedorTurno contenedorPadre){
+	public BotonAplicarEfecto(ContenedorTurno contenedorPadre){
 		this.setText("Continuar");
-		this.getStyleClass().add("BotonContinuar");
+		this.getStyleClass().add("Boton");
 		this.setOnAction(new BotonContinuarHandler(contenedorPadre));
 	}
 	

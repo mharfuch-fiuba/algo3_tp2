@@ -28,38 +28,21 @@
 	-fx-spacing: 80.0;
 
 }
-.BotonIniciarPartida{
-	-fx-background-color: transparent;
-	-fx-text-fill: #D8EDDF;	
-	-fx-font-size:48.0;
-	
-}
-.BotonNuevaPartida{
-	-fx-background-color: transparent;
-	-fx-text-fill: #2A7E43;	
-	-fx-font-size:48.0;
-}
 
-.BotonTurnoInicial{
-	-fx-background-color: transparent;
-	-fx-text-fill: black;	
-	-fx-font-size:36.0;
-}
+.Boton{
+	-fx-pref-width: 200;
+	-fx-pref-height: 20;
+	-fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
 
-.BotonContinuar{
-	-fx-background-color: transparent;
-	-fx-text-fill: #D8EDDF;	
-	-fx-font-size:48.0;
-	-fx-border-color:black;
-	-fx-border-width: 1.0px;
-}
-
-.BotonTerminarTurno{
-	-fx-background-color: transparent;
-	-fx-text-fill: #D8EDDF;	
-	-fx-font-size:24.0;
-	-fx-border-color:black;
-	-fx-border-width: 1.0px;
+    -fx-font-size: 1.1em;
 }
 
 .VistaConfiguracionPartida{

@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.controlador.ControladorCubilete;
-import fiuba.algo3.tp2.vista.botones.BotonContinuar;
+import fiuba.algo3.tp2.vista.botones.BotonAplicarEfecto;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -12,7 +12,7 @@ public class VistaTurnoTirarDados extends VBox{
 		this.getStyleClass().add("VistaTurnoDinamica");
 		
 		HijoHorizontal sectorDados = new HijoHorizontal(dados);
-		BotonContinuar continuar = new BotonContinuar(contenedorPadre);
+		BotonAplicarEfecto continuar = new BotonAplicarEfecto(contenedorPadre);
 		this.getChildren().addAll(sectorDados,continuar);
 	}
 	

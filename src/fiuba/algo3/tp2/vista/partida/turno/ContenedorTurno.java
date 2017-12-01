@@ -60,6 +60,7 @@ public class ContenedorTurno extends VBox {
 	private class BotonVolver extends Button{
 		
 		public BotonVolver(ContenedorTurno contenedorPadre){
+			this.getStyleClass().add("Boton");
 			this.setText("Volver");
 			this.setOnAction(new BotonVolverHandler(contenedorPadre));
 		}

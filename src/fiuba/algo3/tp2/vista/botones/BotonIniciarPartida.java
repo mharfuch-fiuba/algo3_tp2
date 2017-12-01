@@ -6,7 +6,7 @@ public class BotonIniciarPartida extends Button {
 	
 	public BotonIniciarPartida() {
 		this.setText("INICIAR PARTIDA");
-		this.getStyleClass().add("BotonIniciarPartida");
+		this.getStyleClass().add("Boton");
 	}
 	
 }
