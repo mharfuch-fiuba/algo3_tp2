@@ -8,13 +8,11 @@ import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoEfecto;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 
-public class BotonAplicarEfecto extends Button {
+public class BotonAplicarEfecto extends BotonAlgoPoly {
 	
 	public BotonAplicarEfecto(ContenedorTurno contenedorPadre){
 		this.setText("Continuar");
-		this.getStyleClass().add("Boton");
 		this.setOnAction(new BotonContinuarHandler(contenedorPadre));
 	}
 	

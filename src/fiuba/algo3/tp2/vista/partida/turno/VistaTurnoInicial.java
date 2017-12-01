@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import fiuba.algo3.tp2.vista.botones.BotonTurnoInicial;
+import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.eventos.BotonConstruirHandler;
 import fiuba.algo3.tp2.vista.eventos.BotonIntercambiarHandler;
 import fiuba.algo3.tp2.vista.eventos.BotonTirarDadosHandler;
@@ -17,20 +17,20 @@ public class VistaTurnoInicial extends VBox {
 		this.getChildren().addAll(construirBotones());
 	}
 	
-	private BotonTurnoInicial[] construirBotones(){
-		BotonTurnoInicial construir = new BotonTurnoInicial("Construir");
+	private BotonAlgoPoly[] construirBotones(){
+		BotonAlgoPoly construir = new BotonAlgoPoly("Construir");
 		construir.setOnAction(new BotonConstruirHandler(this.contenedorPadre));
 		
-		BotonTurnoInicial vender = new BotonTurnoInicial("Vender");
+		BotonAlgoPoly vender = new BotonAlgoPoly("Vender");
 		vender.setOnAction(new BotonVenderHandler(this.contenedorPadre));
 		
-		BotonTurnoInicial intercambiar = new BotonTurnoInicial("Intercambiar");
+		BotonAlgoPoly intercambiar = new BotonAlgoPoly("Intercambiar");
 		intercambiar.setOnAction(new BotonIntercambiarHandler(this.contenedorPadre));
 		
-		BotonTurnoInicial tirarDados = new BotonTurnoInicial("Tirar Dados");
+		BotonAlgoPoly tirarDados = new BotonAlgoPoly("Tirar Dados");
 		tirarDados.setOnAction(new BotonTirarDadosHandler(contenedorPadre));
 		
-		BotonTurnoInicial[] botones = {construir,vender,intercambiar,tirarDados};
+		BotonAlgoPoly[] botones = {construir,vender,intercambiar,tirarDados};
 		return botones;
 	}
 }

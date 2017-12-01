@@ -1,4 +1,10 @@
 /* Paleta de colores: 	http://paletton.com/#uid=12V0u0kaFwc2SSy6pI0fDr7ljlq
+ * 
+ * 
+ * #287447
+ * #4C966A
+ * #D0EDDC
+ * 
  * Oracle Reference: 	https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html
  * W3 Reference: 		https://www.w3.org/TR/CSS21/
  * 
@@ -30,7 +36,7 @@
 }
 
 .Boton{
-	-fx-pref-width: 200;
+	-fx-pref-width: 250;
 	-fx-pref-height: 20;
 	-fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
@@ -42,7 +48,7 @@
         radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
 
-    -fx-font-size: 1.1em;
+    -fx-font-size: 24;
 }
 
 .VistaConfiguracionPartida{

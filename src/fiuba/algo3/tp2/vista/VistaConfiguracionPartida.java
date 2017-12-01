@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.vista;
 
-import fiuba.algo3.tp2.vista.botones.BotonIniciarPartida;
+import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.eventos.BotonIniciarPartidaHandler;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -18,7 +18,7 @@ public class VistaConfiguracionPartida extends VBox {
 	}
 
 	private void agregarBotonIniciarPartida(Stage stage){
-		BotonIniciarPartida botonIniciarPartida = new BotonIniciarPartida();
+		BotonAlgoPoly botonIniciarPartida = new BotonAlgoPoly("INICIAR PARTIDA");
 		botonIniciarPartida.setOnAction(new BotonIniciarPartidaHandler(stage,textFieldNombres));
 		this.getChildren().addAll(botonIniciarPartida);
 	}
