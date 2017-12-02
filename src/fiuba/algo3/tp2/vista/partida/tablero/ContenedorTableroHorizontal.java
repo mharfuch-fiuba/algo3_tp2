@@ -11,7 +11,7 @@ public class ContenedorTableroHorizontal extends HBox {
 
 	public ContenedorTableroHorizontal(ArrayList<ControladorEncasillable> controladores) {
 		for (ControladorEncasillable controlador:controladores) {
-			ContenedorCasillero c = new ContenedorCasillero(controlador.getNombre());
+			ContenedorCasillero c = new ContenedorCasillero(controlador.getNombre(),controlador.getColor());
 			HBox.setHgrow(c, Priority.ALWAYS);
 			controlador.asociarVistaCasillero(c);
 			this.getChildren().add(c);

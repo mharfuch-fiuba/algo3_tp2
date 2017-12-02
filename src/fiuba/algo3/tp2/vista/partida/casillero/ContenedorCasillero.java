@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista.partida.casillero;
 
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class ContenedorCasillero extends VBox{
 	
@@ -9,9 +10,9 @@ public class ContenedorCasillero extends VBox{
 	private VistaCasilleroJugadores jugadores ;	
 	
 	
-	public ContenedorCasillero(String nombreCasillero){
+	public ContenedorCasillero(String nombreCasillero,Color color){
 		this.getStyleClass().add("VistaCasillero");
-		nombre = new VistaCasilleroNombre(nombreCasillero);
+		nombre = new VistaCasilleroNombre(nombreCasillero,color);
 		detalle = new VistaCasilleroDetalle();
 		jugadores = new VistaCasilleroJugadores();
 		
@@ -30,6 +31,11 @@ public class ContenedorCasillero extends VBox{
 		return this.jugadores;
 	}
 	
+	public void actualizarDetalle(VistaCasilleroDetalle vistaDetalle){
+		this.detalle=vistaDetalle;
+		//remplazar la vista detalle
+		//this.getChildren().replaceAll(operator);
+	}
 
 	
 }

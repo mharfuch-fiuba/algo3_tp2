@@ -112,7 +112,7 @@ public class JugadorNull extends Jugador {
 	@Override
 	public Color getColor() {
 		// TODO Auto-generated method stub
-		return null;
+		return Color.GRAY;
 	}
 
 	@Override
