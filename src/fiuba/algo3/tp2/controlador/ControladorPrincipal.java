@@ -75,7 +75,7 @@ public class ControladorPrincipal {
 		try {
 			jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);
 		}catch(DineroInsuficienteException e) {
-			efecto_pendiente = true;
+			efecto_pendiente = true;// < - cambiar
 			//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
 		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
@@ -103,8 +103,7 @@ public class ControladorPrincipal {
 		//DEBERIA VOLVER A LA VISTA PREDADOS
 	}
 	
-	public void construir() {
-		Terreno terreno = (Terreno) jugador_actual.obtenerCasilleroActual();
+	public void construir(Terreno terreno) {
 		try {terreno.construir();} catch(DineroInsuficienteException e) {
 			//MOSTRAR MENSAJE DE ERROR, TAMBIEN PUEDE SALIR ALGUN MENSAJE RELACIONADO CON LAS PROPIEDADES PAREJA
 		}
@@ -127,7 +126,8 @@ public class ControladorPrincipal {
 	public void vender(Terreno terreno) {
 		terreno.vender();
 		//ACTUALIZAR VISTA TABLERO (PODRIA LLEGAR A CAMBIAR LA CANTIDAD DE CONSTRUCCIONES)
-		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA)
+		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA) no hace falta
+		
 	}
 	
 	public void intercambiar(Jugador destinatario, Propiedad entregada, Propiedad pedida) {
