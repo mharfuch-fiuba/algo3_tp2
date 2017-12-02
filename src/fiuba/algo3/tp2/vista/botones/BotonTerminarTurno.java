@@ -5,11 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class BotonTerminarTurno extends Button {
+public class BotonTerminarTurno extends BotonAlgoPoly {
 	
 	public BotonTerminarTurno(ContenedorTurno contenedorPadre){
 		this.setText("Terminar Turno");
-		this.getStyleClass().add("Boton");
 		this.setOnAction(new BotonTerminarTurnoHandler(contenedorPadre));
 	}
 	

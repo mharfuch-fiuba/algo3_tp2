@@ -5,7 +5,8 @@ import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 public class VistaCarcel extends VistaEfecto{
 
 	public VistaCarcel(){
-		LabelTurnoDinamica label = new LabelTurnoDinamica("CAISTE EN LA CARCEL");
+		LabelTurnoDinamica label = new LabelTurnoDinamica("ESTAS EN LA CARCEL");
+		BotonPagarFianza boton = new BotonPagarFianza();
 		this.getChildren().addAll(label);
 	}
 	
