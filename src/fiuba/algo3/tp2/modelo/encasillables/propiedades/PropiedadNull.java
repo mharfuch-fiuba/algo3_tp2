@@ -12,6 +12,12 @@ public class PropiedadNull extends Propiedad {
 		super(new Dinero(0));
 		this.setPropietario(new JugadorNull());
 	}
+	
+	@Override
+	public void setPropietario(Jugador nuevo_propietario) {
+		this.propietario = nuevo_propietario;
+
+	}
 
 	@Override
 	public String getNombre() {

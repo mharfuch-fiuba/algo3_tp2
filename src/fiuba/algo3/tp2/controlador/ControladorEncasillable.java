@@ -1,5 +1,8 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
@@ -7,7 +10,7 @@ import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.scene.paint.Color;
 
-public class ControladorEncasillable {
+public class ControladorEncasillable implements Observer {
 
 	private Encasillable modelo;
 	private ContenedorCasillero vistaCasillero;
@@ -63,6 +66,12 @@ public class ControladorEncasillable {
 		Propiedad propiedad = (Propiedad) this.modelo;
 		Color color = propiedad.getPropietario().getColor();
 		return color;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
