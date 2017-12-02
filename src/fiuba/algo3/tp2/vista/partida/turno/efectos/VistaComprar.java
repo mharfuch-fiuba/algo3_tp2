@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
+import fiuba.algo3.tp2.vista.botones.BotonComprar;
 import fiuba.algo3.tp2.vista.botones.BotonTerminarTurno;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 
