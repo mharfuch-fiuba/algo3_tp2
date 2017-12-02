@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.controlador;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.FactoryEncasillables;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -46,20 +47,27 @@ public class ControladorTablero {
 
 		ControladorEncasillable salida = new ControladorEncasillable(factory.getSalida(), new VistaSalida());
 		controladores.add(0, salida);
-
+		
 		ControladorEncasillable quini6 = new ControladorEncasillable(factory.getQuini6(), new VistaQuini());
 		controladores.add(0, quini6);
+		
 
 		ControladorEncasillable bsAsSur = new ControladorEncasillable(factory.getBuenosAiresSur(),
 				new VistaPropiedad());
 		controladores.add(0, bsAsSur);
+		Propiedad propiedad = (Propiedad) factory.getBuenosAiresSur();
+		propiedad.addObserver(bsAsSur);
 
 		ControladorEncasillable edesur = new ControladorEncasillable(factory.getEdesur(), new VistaPropiedad());
 		controladores.add(0, edesur);
+		propiedad = (Propiedad) factory.getEdesur();
+		propiedad.addObserver(edesur);
 
 		ControladorEncasillable bsAsNorte = new ControladorEncasillable(factory.getBuenosAiresNorte(),
 				new VistaPropiedad());
 		controladores.add(0, bsAsNorte);
+		propiedad = (Propiedad) factory.getBuenosAiresNorte();
+		propiedad.addObserver(bsAsNorte);
 
 		ControladorEncasillable carcel = new ControladorEncasillable(factory.getCarcel(), new VistaCarcel());
 		controladores.add(0, carcel);
@@ -74,16 +82,22 @@ public class ControladorTablero {
 
 		ControladorEncasillable cordobaSur = new ControladorEncasillable(factory.getCordobaSur(), new VistaPropiedad());
 		controladores.add(0, cordobaSur);
+		Propiedad propiedad = (Propiedad) factory.getCordobaSur();
+		propiedad.addObserver(cordobaSur);
 
 		ControladorEncasillable avance = new ControladorEncasillable(factory.getAvanceDinamico(), new VistaAvance());
 		controladores.add(0, avance);
 
 		ControladorEncasillable subte = new ControladorEncasillable(factory.getSubte(), new VistaPropiedad());
 		controladores.add(0, subte);
+		propiedad = (Propiedad) factory.getSubte();
+		propiedad.addObserver(subte);
 
 		ControladorEncasillable cordobaNorte = new ControladorEncasillable(factory.getCordobaNorte(),
 				new VistaPropiedad());
 		controladores.add(0, cordobaNorte);
+		propiedad = (Propiedad) factory.getCordobaNorte();
+		propiedad.addObserver(cordobaNorte);
 
 		return controladores;
 	}
@@ -99,15 +113,23 @@ public class ControladorTablero {
 
 		ControladorEncasillable santaFe = new ControladorEncasillable(factory.getSantaFe(), new VistaPropiedad());
 		controladores.add(santaFe);
+		Propiedad propiedad = (Propiedad) factory.getSantaFe();
+		propiedad.addObserver(santaFe);
 
 		ControladorEncasillable aysa = new ControladorEncasillable(factory.getAysa(), new VistaPropiedad());
 		controladores.add(aysa);
+		propiedad = (Propiedad) factory.getAysa();
+		propiedad.addObserver(aysa);
 
 		ControladorEncasillable saltaNorte = new ControladorEncasillable(factory.getSaltaNorte(), new VistaPropiedad());
 		controladores.add(saltaNorte);
+		propiedad = (Propiedad) factory.getSaltaNorte();
+		propiedad.addObserver(saltaNorte);
 
 		ControladorEncasillable saltaSur = new ControladorEncasillable(factory.getSaltaSur(), new VistaPropiedad());
 		controladores.add(saltaSur);
+		propiedad = (Propiedad) factory.getSaltaSur();
+		propiedad.addObserver(saltaSur);
 
 		ControladorEncasillable policia = new ControladorEncasillable(factory.getPolicia(), new VistaPolicia());
 		controladores.add(policia);
@@ -122,9 +144,13 @@ public class ControladorTablero {
 
 		ControladorEncasillable tren = new ControladorEncasillable(factory.getTren(), new VistaPropiedad());
 		controladores.add(tren);
+		Propiedad propiedad = (Propiedad) factory.getTren();
+		propiedad.addObserver(tren);
 
 		ControladorEncasillable neuquen = new ControladorEncasillable(factory.getNeuquen(), new VistaPropiedad());
 		controladores.add(neuquen);
+		propiedad = (Propiedad) factory.getNeuquen();
+		propiedad.addObserver(neuquen);
 
 		ControladorEncasillable retroceso = new ControladorEncasillable(factory.getRestrocesoDinamico(),
 				new VistaRetroceso());
@@ -132,6 +158,8 @@ public class ControladorTablero {
 
 		ControladorEncasillable tucuman = new ControladorEncasillable(factory.getTucuman(), new VistaPropiedad());
 		controladores.add(tucuman);
+		propiedad = (Propiedad) factory.getTucuman();
+		propiedad.addObserver(tucuman);
 
 		return controladores;
 	}
