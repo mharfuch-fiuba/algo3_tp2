@@ -3,12 +3,16 @@ package fiuba.algo3.tp2.controlador;
 import java.util.Observable;
 import java.util.Observer;
 
+import fiuba.algo3.tp2.modelo.encasillables.Carcel;
+import fiuba.algo3.tp2.modelo.encasillables.ImpuestoDeLujo;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadAjena;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadPropia;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadVacia;
@@ -68,6 +72,12 @@ public class ControladorEncasillable implements Observer {
 			if (prop.getPropietario().esNull())
 				return new VistaPropiedadVacia(contenedorPadre);
 			return new VistaPropiedadAjena(contenedorPadre);
+		}
+		if(this.modelo instanceof Carcel){
+			return new VistaCarcel(contenedorPadre);
+		}
+		if(this.modelo instanceof ImpuestoDeLujo){
+			return new VistaImpuesto(contenedorPadre);
 		}
 		return this.vistaEfecto;
 	}
