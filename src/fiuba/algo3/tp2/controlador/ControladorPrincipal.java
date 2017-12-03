@@ -6,21 +6,16 @@ import java.util.Stack;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
-import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.Ronda;
-import fiuba.algo3.tp2.modelo.RondaAlgoPoly;
 import fiuba.algo3.tp2.modelo.cubilete.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.partida.*;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
-import javafx.scene.Node;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -30,7 +25,7 @@ public class ControladorPrincipal {
 	
 	//private Tablero modelo_tablero;
 	//private Ronda modelo_ronda;
-	private Cubilete cubilete;
+	//private Cubilete cubilete;
 	private Jugador jugador_actual;
 	private ControladorTablero controlador_tablero;
 	private ControladorCubilete controlador_cubilete;
@@ -41,13 +36,16 @@ public class ControladorPrincipal {
 	private ControladorRonda controlador_ronda;
 	private ContenedorDinamico contenedorDinamico;
 	
-	public ControladorPrincipal() {
+	private ControladorPrincipal() {
+		System.out.println("CONTSTRUCTOR CONTROLADOR PRINCIPAL");
+		controladores_jugadores = new ArrayList<ControladorJugador>(); 
 		//modelo_ronda = new RondaAlgoPoly();
-		cubilete = Cubilete.getInstance();
+		Cubilete cubilete = Cubilete.getInstance();
 		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
 			cubilete.agregar(new DadoCubico());
 			cubilete.agregar(new DadoCubico());
 		}
+		controlador_cubilete = new ControladorCubilete(cubilete);
 		//INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
 		//modelo_tablero = controlador_tablero.getModelo();
@@ -62,11 +60,18 @@ public class ControladorPrincipal {
 		// - TABLERO
 	}
 	
+	private static final ControladorPrincipal INSTANCE = new ControladorPrincipal();
+	 
+	public static ControladorPrincipal getInstance() {
+		return INSTANCE;
+	}
+	
 	public void agregarJugadores(ArrayList<String> nombres) {
+		System.out.println("AGREGANDO JUGADORES...");
 		System.out.println(nombres);
 		Collections.shuffle(nombres);
 		System.out.println(nombres);
-		Stack colores = new Stack();
+		Stack<Color> colores = new Stack<Color>();
 		colores.push(Color.GREEN);
 		colores.push(Color.RED);
 		colores.push(Color.BLUE);
@@ -75,33 +80,33 @@ public class ControladorPrincipal {
 			controlador_ronda.agregarJugador(controlador_jugador.getModelo());
 			System.out.println("Agrego : " + controlador_jugador.getNombre());
 			controladores_jugadores.add(controlador_jugador);
-			//FALTA ASOCIAR NOMBRE CON JUGADOR
 		}
-		controladores_jugadores = controlador_ronda.getJugadores();
 	}
 	
-	public void iniciar_partida(ContenedorPrincipal stage) {
-		jugador_actual = controlador_ronda.obtenerJugadorActual();
-		contenedor_acciones = new VistaAcciones(jugador_actual);
-		/** PRUEBA **/
-		System.out.println("Jugador actual" + jugador_actual.getNombre());
-		System.out.println(" -> " + controladores_jugadores.get(0).getModelo().getNombre());
-		/** **/
+	public void iniciar_partida(ContenedorPrincipal contenedor_principal) {
+		System.out.println("INICIANDO PARTIDA...");
+		//ESTO DIBUJA LA PARTIDA
+		contenedor_acciones = new VistaAcciones();
+		contenedor_acciones.colocarVistaNormal();
+		PantallaPartida vistaPartida = new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones, contenedor_ronda);
+		
 		//DIBUJAR A LOS JUGADORES EN EL TALBERO:
 	    controlador_tablero.dibujarJugadores(controladores_jugadores);
-		
-		
-		//ESTO DIBUJA LA PARTIDA
-		
-		
-		PantallaPartida vistaPartida = new PantallaPartida(stage, this);
-		stage.cambiarVistaDinamica(vistaPartida);
-		
-
+	    
+		this.iniciar_ronda();
+	}
+	
+	public void iniciar_ronda() {
+		System.out.println("INICIA RONDA...");
+		jugador_actual = controlador_ronda.obtenerJugadorActual();
+		System.out.println("El jugador actual es: " + jugador_actual.getNombre());
+		//MOSTRAR NOMBRE DEL JUGADOR ACTUAL
+		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
 	}
 	
 	public void lanzar_dado() {
-		cubilete.lanzar();
+		controlador_cubilete.lanzar();
+		contenedor_acciones.colocarVistaDados();
 		//DIBUJAR VISTA DADOS, VER SI SE DIBUJA SOLA O LA DIBUJAMOS DESDE ACA
 		//contenedor_turno.cambiarVistaDinamica(controlador_cubilete.getVista());
 	}
@@ -117,12 +122,12 @@ public class ControladorPrincipal {
 	}
 	
 	public void avanzar_segun_dados() {
-		for(int i = 0; i < cubilete.sumarValores(); i++) {
+		for(int i = 0; i < controlador_cubilete.getModelo().sumarValores(); i++) {
 			jugador_actual.avanzar(1);
 			//ACTUALIZAR VISTA DE TABLERO
 		}
 		try {
-			jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);
+			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
 		}catch(DineroInsuficienteException e) {
 			//DIBUJAR VISTA DINERO INSUFICIENTE
 			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
@@ -133,7 +138,7 @@ public class ControladorPrincipal {
 	
 	public void terminar_turno() {
 		
-		try {jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);}
+		try {jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());}
 		catch (DineroInsuficienteException e) {
 			//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
 			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
@@ -191,6 +196,11 @@ public class ControladorPrincipal {
 	public ContenedorDinamico getContenedorDinamico() {
 		// TODO Auto-generated method stub
 		return this.contenedorDinamico;
+	}
+
+	public ControladorCubilete getControladorDados() {
+		// TODO Auto-generated method stub
+		return this.controlador_cubilete;
 	}
 	
 	/*
@@ -264,5 +274,10 @@ public class ControladorPrincipal {
 		
 		ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
 	*/
+	
+	@Override
+	public void finalize() {
+		System.out.println("DESTRUCTOR");
+	}
 	
 }

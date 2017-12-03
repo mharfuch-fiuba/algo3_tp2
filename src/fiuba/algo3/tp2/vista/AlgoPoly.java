@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.vista;
 
+import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,6 +10,7 @@ public class AlgoPoly extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		
+		//ControladorPrincipal controlador_principal = new ControladorPrincipal();
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
 		contenedorPrincipal.inicializar();
 		
@@ -28,6 +30,7 @@ public class AlgoPoly extends Application {
 
 	public static void main(String[] args) throws Exception {
 		launch(args);
+		System.out.println("FIN DEL PROGRAMA");
 	}
 	
 	

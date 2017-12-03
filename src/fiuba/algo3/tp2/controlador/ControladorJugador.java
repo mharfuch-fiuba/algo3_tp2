@@ -26,6 +26,7 @@ public class ControladorJugador implements Observer {
 		modelo = new JugadorHumano(tablero, dinero_inicial);
 		modelo.setNombre(nombre);
 		modelo.setColor(color);
+		vistaCasillero = new VistaCasilleroJugador(color);
 	}
 
 	/*

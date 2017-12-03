@@ -1,9 +1,9 @@
 package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
 
-import fiuba.algo3.tp2.vista.VistaConfiguracionPartida;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.eventos.OpcionReiniciarEventHandler;
+import fiuba.algo3.tp2.vista.pantallas.PantallaConfiguracionPartida;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

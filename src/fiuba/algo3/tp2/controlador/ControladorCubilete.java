@@ -26,4 +26,8 @@ public class ControladorCubilete {
 		this.cubilete.lanzar();
 	}
 
+	public Cubilete getModelo() {
+		return this.cubilete;
+	}
+
 }

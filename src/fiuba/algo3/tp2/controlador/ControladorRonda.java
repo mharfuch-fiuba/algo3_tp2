@@ -113,8 +113,7 @@ public class ControladorRonda implements Observer {
 	}
 	
 	public void agregarJugador(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+		modelo_ronda.agregarJugador(jugador);	
 	}
 	public Jugador obtenerJugadorActual() {
 		return modelo_ronda.obtenerJugadorActual();

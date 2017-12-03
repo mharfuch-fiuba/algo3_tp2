@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.FactoryEncasillables;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
+import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.tablero.FactoryCasilleros;
 
@@ -54,6 +55,14 @@ public class ControladorTablero {
 	
 	private void dibujarJugador(ControladorJugador controlador_jugador){
 		System.out.println("Dibujar: " + controlador_jugador.getModelo().getNombre());
+		Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
+		ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
+		VistaCasilleroJugador puntito = controlador_jugador.getVista();
+		vista_casillero_actual.dibujarJugador(puntito);
+		System.out.println(modelo_casillero_actual.getNombre());
+		
+		
+		//ESTO DIBUJA OTRA COSA:
 		//Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
 		//ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
 		//vista_casillero_actual.dibujarJugador(controlador_jugador.getVista());
