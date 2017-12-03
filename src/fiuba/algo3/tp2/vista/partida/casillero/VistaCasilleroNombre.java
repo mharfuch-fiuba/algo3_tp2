@@ -11,7 +11,12 @@ public class VistaCasilleroNombre extends Label{
 
 	public VistaCasilleroNombre(String nombre,Color color){
 		this.getStyleClass().add("VistaCasilleroNombre");
-		this.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
 		this.setText(nombre);
+		this.actualizarColor(color);
+	}
+	
+	public void actualizarColor(Color color){
+		this.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
+
 	}
 }

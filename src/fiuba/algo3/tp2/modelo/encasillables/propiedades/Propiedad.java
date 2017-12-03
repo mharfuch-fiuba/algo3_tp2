@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades;
 
+import java.util.Observable;
+
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
@@ -7,7 +9,7 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
-public abstract class Propiedad implements Encasillable {
+public abstract class Propiedad extends Observable implements Encasillable {
 
 	private Jugador propietario;
 	private Dinero precio;
@@ -19,6 +21,8 @@ public abstract class Propiedad implements Encasillable {
 
 	public void setPropietario(Jugador nuevo_propietario) {
 		propietario = nuevo_propietario;
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	public Jugador getPropietario() {

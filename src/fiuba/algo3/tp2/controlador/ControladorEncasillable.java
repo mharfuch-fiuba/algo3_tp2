@@ -1,16 +1,20 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadAjena;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadPropia;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadVacia;
 import javafx.scene.paint.Color;
 
-public class ControladorEncasillable {
+public class ControladorEncasillable implements Observer {
 
 	private Encasillable modelo;
 	private ContenedorCasillero vistaCasillero;
@@ -57,11 +61,13 @@ public class ControladorEncasillable {
 	}
 
 	public VistaEfecto getVistaEfecto(ControladorJugador jugador, ContenedorTurno contenedorPadre) {
-		if(this.modelo.esPropiedad()) {
-			if(this.modelo.equals(jugador))
+		if (this.modelo instanceof Propiedad) {
+			if (this.modelo.equals(jugador))
 				return new VistaPropiedadPropia(contenedorPadre);
-			//FALTA SI ES PROPIEDAD DE OTRO
-			return new VistaPropiedadVacia(contenedorPadre);
+			Propiedad prop = (Propiedad) this.modelo;
+			if (prop.getPropietario().esNull())
+				return new VistaPropiedadVacia(contenedorPadre);
+			return new VistaPropiedadAjena(contenedorPadre);
 		}
 		return this.vistaEfecto;
 	}
@@ -72,6 +78,13 @@ public class ControladorEncasillable {
 		Propiedad propiedad = (Propiedad) this.modelo;
 		Color color = propiedad.getPropietario().getColor();
 		return color;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		Propiedad prop =(Propiedad) this.modelo;
+		this.vistaCasillero.actualizarColor(prop.getPropietario().getColor());
+
 	}
 
 }

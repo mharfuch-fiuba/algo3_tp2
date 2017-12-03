@@ -37,5 +37,7 @@ public class ContenedorCasillero extends VBox{
 		//this.getChildren().replaceAll(operator);
 	}
 
-	
+	public void actualizarColor(Color color){
+		this.nombre.actualizarColor(color);
+	}
 }
