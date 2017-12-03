@@ -74,13 +74,18 @@ public class ControladorPrincipal {
 	
 	private void crearControladoresJugadores(){
 		for(Jugador jugador:ronda.obtenerJugadores()){
-			System.out.println(jugador.getNombre());
-			jugadores.add(new ControladorJugador(jugador));
+			ControladorJugador controlador_jugador = new ControladorJugador(jugador);
+			System.out.println("Crear controlador para: " + controlador_jugador.getNombre());
+			jugadores.add(controlador_jugador);
 		}
 	}
 	
 	public void iniciar_partida(ContenedorPrincipal stage) {
 		jugador_actual = ronda.obtenerJugadorActual();
+		/** PRUEBA **/
+		System.out.println("Jugador actual" + jugador_actual.getNombre());
+		System.out.println(" -> " + jugadores.get(0).getNombre());
+		/** **/
 		//DIBUJAR A LOS JUGADORES EN EL TALBERO:
 	    controlador_tablero.dibujarJugadores(jugadores);
 		
