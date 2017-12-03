@@ -96,5 +96,9 @@ public class ControladorJugador implements Observer {
 	public boolean estaEncarcelado() {
 		return this.jugador.estaEncarcelado();
 	}
+	
+	public void comprarCasilleroActual(){
+		this.jugador.comprarCasilleroActual();
+	}
 
 }

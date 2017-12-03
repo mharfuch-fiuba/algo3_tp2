@@ -9,7 +9,7 @@ public class VistaPropiedadVacia extends VistaEfecto {
 
 	public VistaPropiedadVacia(ContenedorTurno padre) {		
 		Label label = new Label("Caiste en una propiedad vacia che");
-		BotonComprar boton_comprar = new BotonComprar(null);
+		BotonComprar boton_comprar = new BotonComprar(padre);
 		BotonTerminarTurno boton_terminar = new BotonTerminarTurno(padre);
 		this.getChildren().addAll(label,boton_comprar, boton_terminar);
 	}
