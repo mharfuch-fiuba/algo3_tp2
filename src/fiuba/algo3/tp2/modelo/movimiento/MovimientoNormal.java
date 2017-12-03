@@ -44,4 +44,10 @@ public class MovimientoNormal implements Movimiento {
 		return;
 	}
 
+	@Override
+	public boolean estaEnCarcel() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -196,5 +196,10 @@ public class JugadorHumano extends Jugador {
 	public void quitarPropiedad(Propiedad propiedad) {
 		propiedades.remove(propiedad);
 	}
+
+	@Override
+	public boolean estaEncarcelado() {
+		return this.movimiento.estaEnCarcel();
+	}
 	
 }

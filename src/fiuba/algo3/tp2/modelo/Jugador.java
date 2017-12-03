@@ -87,10 +87,7 @@ public abstract class Jugador extends Observable{
 		return new Intercambio(propiedad, precio);
 	}
 
-	public boolean estaEncarcelado() {
-		// MATI
-		return false;
-	}
+	public abstract boolean estaEncarcelado();
 
 	public abstract Dinero obtenerPatrimonio();
 	

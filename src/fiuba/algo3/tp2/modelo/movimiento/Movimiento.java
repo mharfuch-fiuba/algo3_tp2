@@ -12,5 +12,6 @@ public interface Movimiento {
 	void retroceder(int cant_casilleros);
 	void desencarcelar(Jugador jugador) throws DineroInsuficienteException;
 	void avisarCambioDeTurno(Jugador jugador);
+	boolean estaEnCarcel();
 	
 }

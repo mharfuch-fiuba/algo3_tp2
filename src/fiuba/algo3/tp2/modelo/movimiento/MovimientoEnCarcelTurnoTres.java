@@ -44,4 +44,10 @@ public class MovimientoEnCarcelTurnoTres implements Movimiento {
 		jugador.setMovimiento(movimiento_original);
 	}
 
+	@Override
+	public boolean estaEnCarcel() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }
