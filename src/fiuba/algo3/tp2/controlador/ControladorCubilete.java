@@ -25,5 +25,9 @@ public class ControladorCubilete {
 	public void lanzar() {
 		this.cubilete.lanzar();
 	}
+	
+	public Cubilete getCubilete(){
+		return cubilete;
+	}
 
 }

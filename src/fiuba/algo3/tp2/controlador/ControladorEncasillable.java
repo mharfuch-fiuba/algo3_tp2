@@ -3,16 +3,19 @@ package fiuba.algo3.tp2.controlador;
 import java.util.Observable;
 import java.util.Observer;
 
+import fiuba.algo3.tp2.modelo.encasillables.AvanceDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
 import fiuba.algo3.tp2.modelo.encasillables.ImpuestoDeLujo;
 import fiuba.algo3.tp2.modelo.encasillables.Policia;
 import fiuba.algo3.tp2.modelo.encasillables.Quini6;
+import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.Salida;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAvance;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
@@ -21,6 +24,7 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadAjena;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadPropia;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadVacia;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaQuini;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaRetroceso;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaSalida;
 import javafx.scene.paint.Color;
 
@@ -90,6 +94,12 @@ public class ControladorEncasillable implements Observer {
 		}
 		if(this.modelo instanceof Quini6){
 			return new VistaQuini(contenedorPadre);
+		}
+		if(this.modelo instanceof AvanceDinamico){
+			return new VistaAvance(contenedorPadre);
+		}
+		if(this.modelo instanceof RetrocesoDinamico){
+			return new VistaRetroceso(contenedorPadre);
 		}
 		return this.vistaEfecto;
 	}

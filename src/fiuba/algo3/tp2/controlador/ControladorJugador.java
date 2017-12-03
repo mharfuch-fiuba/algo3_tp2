@@ -11,6 +11,8 @@ import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
 public class ControladorJugador implements Observer {
@@ -56,6 +58,9 @@ public class ControladorJugador implements Observer {
 	}
 
 	public void avanzar(ControladorTablero tablero) {
+		if(jugador.estaEncarcelado()){
+			return;
+		}
 		Cubilete cubilete = Cubilete.getInstance();
 		// cubilete.lanzar();
 		System.out.println("Jugador lanza: " + cubilete.sumarValores());
@@ -99,6 +104,19 @@ public class ControladorJugador implements Observer {
 	
 	public void comprarCasilleroActual(){
 		this.jugador.comprarCasilleroActual();
+	}
+
+	public void pagarFianza() {
+		try{
+			this.jugador.pagarFianza();
+		}catch (Exception e){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Acerca de...");
+			alert.setHeaderText("Programa Algopoly");
+			String mensaje = "Recien entras a la carcel campeon";
+			alert.setContentText(mensaje);
+			alert.show();
+		}
 	}
 
 }

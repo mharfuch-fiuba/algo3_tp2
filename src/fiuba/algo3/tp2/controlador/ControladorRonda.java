@@ -66,6 +66,10 @@ public class ControladorRonda implements Observer {
 		
 	}
 	
+	public Jugador devuelveJugador(){
+		return ronda.obtenerJugadorActual();
+	}
+	
 	public String getNombreJugadorActual() {
 		try {
 			return this.ronda.obtenerJugadorActual().getNombre();
