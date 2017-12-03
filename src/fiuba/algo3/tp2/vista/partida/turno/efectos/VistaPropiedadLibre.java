@@ -10,7 +10,7 @@ public class VistaPropiedadLibre extends VistaAccion{
 		Label label = new Label("Caiste en una propiedad libre.");
 		BotonComprar comprar = new BotonComprar();
 		BotonTerminarTurno boton = new BotonTerminarTurno();
-		this.getChildren().addAll(label,boton);
+		this.getChildren().addAll(label,comprar,boton);
 	}
 	
 }
