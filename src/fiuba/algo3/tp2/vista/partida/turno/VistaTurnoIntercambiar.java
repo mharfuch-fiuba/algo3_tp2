@@ -4,10 +4,10 @@ import javafx.scene.layout.VBox;
 
 public class VistaTurnoIntercambiar extends VBox{
 
-	public VistaTurnoIntercambiar(ContenedorTurno contenedorPadre) {
+	public VistaTurnoIntercambiar(VistaAcciones contenedorPadre) {
 		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica intercambiar = new LabelTurnoDinamica("Elija qué desea intercambiar");
-		this.getChildren().addAll(intercambiar,contenedorPadre.getBotonVolver());
+		LabelTurnoDinamica intercambiar = new LabelTurnoDinamica("Elija quï¿½ desea intercambiar");
+		//this.getChildren().addAll(intercambiar,contenedorPadre.getBotonVolver());
 		}
 
 }

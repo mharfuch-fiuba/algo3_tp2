@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.vista.partida;
 
-import fiuba.algo3.tp2.controlador.ControladorPartida;
 import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import fiuba.algo3.tp2.controlador.ControladorTablero;
 import fiuba.algo3.tp2.vista.BarraDeMenu;

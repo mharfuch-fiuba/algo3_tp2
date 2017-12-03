@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 
 public class VistaJugadorEnCarcel extends VistaTurnoInicial {
 
-	public VistaJugadorEnCarcel(ContenedorTurno contenedorPadre,ControladorJugador jugador) {
+	public VistaJugadorEnCarcel(VistaAcciones contenedorPadre,ControladorJugador jugador) {
 		super(contenedorPadre);
 		this.getChildren().removeAll(this.getChildren());
 		this.getChildren().add(new Label("ESTOY EN CARCEL"));

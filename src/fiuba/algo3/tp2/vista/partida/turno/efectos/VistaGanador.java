@@ -33,9 +33,9 @@ public class VistaGanador extends VBox{
 	}
 	
 	private void agregarBotonReiniciar(Stage stage){	
-		VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage);
-		Scene escenaConfiguracionPartida = new Scene(vistaConfiguracionPartida);
-		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
+		//VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage);
+		//Scene escenaConfiguracionPartida = new Scene(vistaConfiguracionPartida);
+		//escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
 
 		BotonAlgoPoly botonReiniciar = new BotonAlgoPoly("Reiniciar");
 		botonReiniciar.setOnAction(new OpcionReiniciarEventHandler(stage));

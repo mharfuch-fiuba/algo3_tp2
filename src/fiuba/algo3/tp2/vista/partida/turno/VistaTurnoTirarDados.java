@@ -7,13 +7,13 @@ import javafx.scene.layout.VBox;
 
 public class VistaTurnoTirarDados extends VBox{
 	
-	public VistaTurnoTirarDados(ContenedorTurno contenedorPadre){
-		ControladorCubilete dados = contenedorPadre.getControladorRonda().getDados();
+	public VistaTurnoTirarDados(VistaAcciones contenedorPadre){
+		//ControladorCubilete dados = contenedorPadre.getControladorRonda().getDados();
 		this.getStyleClass().add("VistaTurnoDinamica");
 		
-		HijoHorizontal sectorDados = new HijoHorizontal(dados);
+		//HijoHorizontal sectorDados = new HijoHorizontal(dados);
 		BotonAplicarEfecto continuar = new BotonAplicarEfecto(contenedorPadre);
-		this.getChildren().addAll(sectorDados,continuar);
+		//this.getChildren().addAll(sectorDados,continuar);
 	}
 	
 	private class HijoHorizontal extends HBox{

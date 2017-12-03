@@ -5,14 +5,13 @@ import fiuba.algo3.tp2.vista.botones.eventos.BotonConstruirHandler;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonIntercambiarHandler;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonTirarDadosHandler;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonVenderHandler;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
-import javafx.scene.layout.VBox;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 
-public class VistaTurnoInicial extends VistaEfecto {
+public class VistaTurnoInicial extends VistaAccion {
 	
-	private ContenedorTurno contenedorPadre;
+	private VistaAcciones contenedorPadre;
 
-	public VistaTurnoInicial(ContenedorTurno contenedorPadre){
+	public VistaTurnoInicial(VistaAcciones contenedorPadre){
 		this.contenedorPadre = contenedorPadre;
 		this.getStyleClass().add("VistaTurnoDinamica");
 		this.getChildren().addAll(construirBotones());

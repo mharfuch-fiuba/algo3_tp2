@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.controlador;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Stack;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
@@ -18,40 +19,44 @@ import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.partida.*;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
-import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
+import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
 	
 	private static final int CANTIDAD_DE_DADOS = 2;
 	private static final int DINERO_INICIAL = 100000;
 	
-	private Tablero tablero;
-	private Ronda ronda;
+	//private Tablero modelo_tablero;
+	//private Ronda modelo_ronda;
 	private Cubilete cubilete;
 	private Jugador jugador_actual;
 	private ControladorTablero controlador_tablero;
 	private ControladorCubilete controlador_cubilete;
 	//TODO: VER COMO LLEGA LA REFERENCIA DEL CONTENEDOR TURNO QUE MUESTRA LAS VISTAS QUE ARMAMOS EN PAPEL
-	private ContenedorTurno contenedor_acciones;
+	private VistaAcciones contenedor_acciones;
 	private ContenedorRonda contenedor_ronda;
-	private ArrayList<ControladorJugador> jugadores;
+	private ArrayList<ControladorJugador> controladores_jugadores;
 	private ControladorRonda controlador_ronda;
 	private ContenedorDinamico contenedorDinamico;
 	
 	public ControladorPrincipal() {
-		ronda = new RondaAlgoPoly();
+		//modelo_ronda = new RondaAlgoPoly();
 		cubilete = Cubilete.getInstance();
 		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
 			cubilete.agregar(new DadoCubico());
 			cubilete.agregar(new DadoCubico());
 		}
+		//INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
-		tablero = controlador_tablero.getModelo();
-		controlador_ronda = new ControladorRonda(ronda);
+		//modelo_tablero = controlador_tablero.getModelo();
+		//INICIALIZAR RONDA
+		controlador_ronda = new ControladorRonda();
+		//modelo_ronda = controlador_ronda.getModelo();
 		contenedor_ronda = new ContenedorRonda(controlador_ronda);
-		contenedor_acciones = new ContenedorTurno(controlador_ronda, controlador_tablero);
-		contenedorDinamico = new ContenedorDinamico(contenedor_ronda,contenedor_acciones);
+		
+		//contenedorDinamico = new ContenedorDinamico(contenedor_ronda,contenedor_acciones);
 		//TAL VEZ INICIALIZAR LOS CONTROLADORES DE
 		// - CUBILETE
 		// - TABLERO
@@ -61,33 +66,29 @@ public class ControladorPrincipal {
 		System.out.println(nombres);
 		Collections.shuffle(nombres);
 		System.out.println(nombres);
+		Stack colores = new Stack();
+		colores.push(Color.GREEN);
+		colores.push(Color.RED);
+		colores.push(Color.BLUE);
 		for(String nombre:nombres) {
-			Jugador jugador = new JugadorHumano(this.tablero, new Dinero(DINERO_INICIAL));
-			jugador.setNombre(nombre); // Esto ponerlo en el constructor
-			ronda.agregarJugador(jugador);
+			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre, new Dinero(DINERO_INICIAL), (Color) colores.pop());
+			controlador_ronda.agregarJugador(controlador_jugador.getModelo());
+			System.out.println("Agrego : " + controlador_jugador.getNombre());
+			controladores_jugadores.add(controlador_jugador);
 			//FALTA ASOCIAR NOMBRE CON JUGADOR
 		}
-		jugadores = controlador_ronda.getJugadores();
-		controlador_ronda.agregarJugadores(contenedor_ronda);
-		crearControladoresJugadores();
-	}
-	
-	private void crearControladoresJugadores(){
-		for(Jugador jugador:ronda.obtenerJugadores()){
-			ControladorJugador controlador_jugador = new ControladorJugador(jugador);
-			System.out.println("Crear controlador para: " + controlador_jugador.getNombre());
-			jugadores.add(controlador_jugador);
-		}
+		controladores_jugadores = controlador_ronda.getJugadores();
 	}
 	
 	public void iniciar_partida(ContenedorPrincipal stage) {
-		jugador_actual = ronda.obtenerJugadorActual();
+		jugador_actual = controlador_ronda.obtenerJugadorActual();
+		contenedor_acciones = new VistaAcciones(jugador_actual);
 		/** PRUEBA **/
 		System.out.println("Jugador actual" + jugador_actual.getNombre());
-		System.out.println(" -> " + jugadores.get(0).getNombre());
+		System.out.println(" -> " + controladores_jugadores.get(0).getModelo().getNombre());
 		/** **/
 		//DIBUJAR A LOS JUGADORES EN EL TALBERO:
-	    controlador_tablero.dibujarJugadores(jugadores);
+	    controlador_tablero.dibujarJugadores(controladores_jugadores);
 		
 		
 		//ESTO DIBUJA LA PARTIDA
@@ -106,17 +107,13 @@ public class ControladorPrincipal {
 	}
 	
 	private void jugador_fuera_de_juego() {
-		ronda.quitarJugador(jugador_actual);
-		switch(ronda.contarJugadores()){
-			case 1:
-				//Dibujar vista ganador
-				//contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
-			break;
-			default:
-				//Dibujar vista jugador eliminado
-				//contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual.getNombre()));
-			break;
-		}		
+		controlador_ronda.quitarJugador(jugador_actual);
+		if(controlador_ronda.contarJugadores() == 1){
+			//Dibujar vista ganador
+			//contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
+		}
+		//Dibujar vista jugador eliminado
+		//contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual.getNombre()));	
 	}
 	
 	public void avanzar_segun_dados() {
@@ -145,8 +142,8 @@ public class ControladorPrincipal {
 			jugador_fuera_de_juego();
 		}
 		
-		ronda.avanzarTurno();
-		jugador_actual = ronda.obtenerJugadorActual();
+		controlador_ronda.avanzarTurno();
+		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		//ACTUALIZAR VISTA QUE MUESTRA AL JUGADOR ACTUAL
 		//DEBERIA VOLVER A LA VISTA PREDADOS
 	}

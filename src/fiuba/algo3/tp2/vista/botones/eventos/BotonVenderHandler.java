@@ -1,15 +1,15 @@
 package fiuba.algo3.tp2.vista.botones.eventos;
 
-import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
+import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoVender;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonVenderHandler implements EventHandler<ActionEvent> {
 
-	ContenedorTurno contenedorPadre;
+	VistaAcciones contenedorPadre;
 	
-	public BotonVenderHandler(ContenedorTurno contenedorPadre) {
+	public BotonVenderHandler(VistaAcciones contenedorPadre) {
 		this.contenedorPadre=contenedorPadre;
 	}
 	

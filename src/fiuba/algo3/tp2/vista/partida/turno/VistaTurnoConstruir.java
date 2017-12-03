@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.controlador.ControladorJugador;
+import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -11,14 +12,13 @@ import javafx.scene.layout.VBox;
 
 public class VistaTurnoConstruir extends VBox{
 
-	public VistaTurnoConstruir(ContenedorTurno contenedorPadre) {
+	public VistaTurnoConstruir(ControladorJugador jugador) {
 		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija dónde desea construir");
-		ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
+		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija donde desea construir");
 		ComboPropiedades comboPropiedades = new ComboPropiedades(jugador);
-		Botonera botones = new Botonera(contenedorPadre);
+		//Botonera botones = new Botonera(contenedorPadre);
 		ConstruccionPermitida construccionPermitida = new ConstruccionPermitida();
-		this.getChildren().addAll(mensaje,comboPropiedades,construccionPermitida,botones);
+		//this.getChildren().addAll(mensaje,comboPropiedades,construccionPermitida,botones);
 		}
 	
 	private class ComboPropiedades extends ComboBox<String>{	
@@ -30,9 +30,9 @@ public class VistaTurnoConstruir extends VBox{
 	
 	private class Botonera extends HBox{
 		
-		public Botonera(ContenedorTurno contenedorPadre){
+		public Botonera(VistaAcciones contenedorPadre){
 			this.getChildren().add(new BotonAlgoPoly("Construir"));
-			this.getChildren().add(contenedorPadre.getBotonVolver());
+			//this.getChildren().add(contenedorPadre.getBotonVolver());
 			this.setSpacing(20);
 		}
 		

@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
 import javafx.scene.control.Label;
 
-public class VistaPropiedad extends VistaEfecto{
+public class VistaPropiedad extends VistaAccion{
 	
 	private SubVista subVista;
 	

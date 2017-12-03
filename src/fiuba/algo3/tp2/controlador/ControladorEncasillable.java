@@ -8,16 +8,16 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import javafx.scene.paint.Color;
 
 public class ControladorEncasillable implements Observer {
 
 	private Encasillable modelo;
 	private ContenedorCasillero vistaCasillero;
-	private VistaEfecto vista;
+	private VistaAccion vista;
 
-	public ControladorEncasillable(Encasillable encasillable, VistaEfecto vistaEfecto) {
+	public ControladorEncasillable(Encasillable encasillable, VistaAccion vistaEfecto) {
 		//refactor vistaefecto vistaencasillable
 		this.modelo = encasillable;
 		this.vista = vistaEfecto;

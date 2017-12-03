@@ -4,7 +4,7 @@ import fiuba.algo3.tp2.vista.botones.BotonComprar;
 import fiuba.algo3.tp2.vista.botones.BotonTerminarTurno;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 
-public class VistaComprar extends VistaEfecto{
+public class VistaComprar extends VistaAccion{
 
 	public VistaComprar(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("Esta propiedad cuesta ");

@@ -3,10 +3,13 @@ package fiuba.algo3.tp2.controlador;
 import java.util.Observable;
 import java.util.Observer;
 
+import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
+import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
 import javafx.collections.FXCollections;
@@ -19,6 +22,13 @@ public class ControladorJugador implements Observer {
 	//private VistaJugador vista;
 	private VistaCasilleroJugador vistaCasillero;
 
+	public ControladorJugador(Tablero tablero, String nombre, Dinero dinero_inicial, Color color) {
+		modelo = new JugadorHumano(tablero, dinero_inicial);
+		modelo.setNombre(nombre);
+		modelo.setColor(color);
+	}
+
+	/*
 	public ControladorJugador(Jugador jugador) {
 		this.modelo = jugador;
 		this.vistaCasillero = new VistaCasilleroJugador(jugador.getColor());
@@ -35,7 +45,7 @@ public class ControladorJugador implements Observer {
 	public String getDinero() {
 		return "$" + String.valueOf(this.modelo.obtenerDinero().obtenerMontoEntero());
 	}
-
+*/
 	@Override
 	public void update(Observable o, Object arg) {
 		//this.vista.actualizarDinero(jugador.obtenerDinero());
@@ -105,5 +115,17 @@ public class ControladorJugador implements Observer {
 		return jugador.obtenerCasilleroActual();
 	}
 */
+
+	public String getNombre() {
+		return this.modelo.getNombre();
+	}
+
+	public String getDinero() {
+		return this.getDinero();
+	}
+
+	public Color getColor() {
+		return this.getColor();
+	}
 
 }

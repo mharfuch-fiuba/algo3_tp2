@@ -59,11 +59,15 @@ public class ControladorTablero {
 		//vista_casillero_actual.dibujarJugador(controlador_jugador.getVista());
 	}
 
-	public Tablero getModelo() {
-		return modelo_tablero;
-	}
+	//public Tablero getModelo() {
+		//return modelo_tablero;
+	//}
 
 	public ContenedorTablero getVista() {
 		return vista_tablero;
+	}
+
+	public Tablero getModelo() {
+		return modelo_tablero;
 	}
 }

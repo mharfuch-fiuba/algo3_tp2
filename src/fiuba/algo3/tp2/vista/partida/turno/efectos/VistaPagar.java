@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.vista.partida.turno.efectos;
 import fiuba.algo3.tp2.vista.botones.BotonPagar;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 
-public class VistaPagar extends VistaEfecto{
+public class VistaPagar extends VistaAccion{
 
 	public VistaPagar(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("Esta propiedad tiene due�o. Deberas pagarle X");

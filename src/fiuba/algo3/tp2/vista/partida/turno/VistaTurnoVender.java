@@ -11,14 +11,14 @@ import javafx.scene.layout.VBox;
 
 public class VistaTurnoVender extends VBox{
 
-	public VistaTurnoVender(ContenedorTurno contenedorPadre) {
+	public VistaTurnoVender(VistaAcciones contenedorPadre) {
 		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija qué desea vender");
-		ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
-		ComboPropiedades comboPropiedades = new ComboPropiedades(jugador);
+		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija quï¿½ desea vender");
+		//ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
+		//ComboPropiedades comboPropiedades = new ComboPropiedades(jugador);
 		Botonera botones = new Botonera(contenedorPadre);
 		ConstruccionPermitida construccionPermitida = new ConstruccionPermitida();
-		this.getChildren().addAll(mensaje,comboPropiedades,construccionPermitida,botones);
+		//this.getChildren().addAll(mensaje,comboPropiedades,construccionPermitida,botones);
 		}
 	
 	private class ComboPropiedades extends ComboBox<String>{	
@@ -30,9 +30,9 @@ public class VistaTurnoVender extends VBox{
 	
 	private class Botonera extends HBox{
 		
-		public Botonera(ContenedorTurno contenedorPadre){
+		public Botonera(VistaAcciones contenedorPadre){
 			this.getChildren().add(new BotonAlgoPoly("Vender"));
-			this.getChildren().add(contenedorPadre.getBotonVolver());
+			//this.getChildren().add(contenedorPadre.getBotonVolver());
 			this.setSpacing(20);
 		}
 		
