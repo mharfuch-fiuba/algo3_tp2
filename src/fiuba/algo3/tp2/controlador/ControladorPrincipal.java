@@ -197,6 +197,8 @@ public class ControladorPrincipal {
 		
 		controlador_ronda.avanzarTurno();
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
+		//Agrega el nombre del siguiente
+		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
 		
 		contenedor_acciones.colocarVistaNormal(); // <-- DEPENDE SI ESTA EN LA CARCEL
 	}
