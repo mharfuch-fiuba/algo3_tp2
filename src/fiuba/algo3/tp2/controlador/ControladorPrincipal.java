@@ -14,6 +14,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 
 public class ControladorPrincipal {
 	
@@ -22,14 +23,17 @@ public class ControladorPrincipal {
 	
 	private Ronda ronda;
 	private Tablero tablero;
-	private CubileteFalso cubilete;
+	private Cubilete cubilete;
 	private Jugador jugador_actual;
-	private boolean efecto_pendiente;
+	private ControladorTablero controlador_tablero;
+	private ControladorCubilete controlador_cubilete;
+	//TODO: VER COMO LLEGA LA REFERENCIA DEL CONTENEDOR TURNO QUE MUESTRA LAS VISTAS QUE ARMAMOS EN PAPEL
+	private ContenedorTurno contenedor_acciones;
 	
 	public ControladorPrincipal() {
 		ronda = new RondaAlgoPoly();
 		tablero = new Tablero();
-		cubilete = new CubileteFalso();
+		cubilete = Cubilete.getInstance();
 		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
 			cubilete.agregar(new DadoCubico());
 			cubilete.agregar(new DadoCubico());
@@ -51,23 +55,31 @@ public class ControladorPrincipal {
 	
 	public void iniciar_partida() {
 		jugador_actual = ronda.obtenerJugadorActual();
-		efecto_pendiente = false;
+	    
 		//DIBUJAR A LOS JUGADORES EN EL TALBERO ControladorTablero().update()
 	}
 	
 	public void lanzar_dado() {
 		cubilete.lanzar();
-		//DIBUJAR VISTA DADOS ControladorCubilete().update()
+		//DIBUJAR VISTA DADOS, VER SI SE DIBUJA SOLA O LA DIBUJAMOS DESDE ACA
+		//contenedor_turno.cambiarVistaDinamica(controlador_cubilete.getVista());
 	}
 	
 	private void jugador_fuera_de_juego() {
 		ronda.quitarJugador(jugador_actual);
-		//MUESTRA MENSAJE DE QUE EL JUGADOR PERDIO Y SIGUE CON LA EJECUCION DE LA PARTIDA
+		switch(ronda.contarJugadores()){
+			case 1:
+				//Dibujar vista ganador
+				contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
+			break;
+			default:
+				//Dibujar vista jugador eliminado
+				contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual));
+			break;
+		}		
 	}
 	
 	public void avanzar_segun_dados() {
-		efecto_pendiente = false;
-		//Esto sería el boton continuar desp de lanzar los dados
 		for(int i = 0; i < cubilete.sumarValores(); i++) {
 			jugador_actual.avanzar(1);
 			//ACTUALIZAR VISTA DE TABLERO
@@ -75,30 +87,26 @@ public class ControladorPrincipal {
 		try {
 			jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);
 		}catch(DineroInsuficienteException e) {
-			efecto_pendiente = true;// < - cambiar
-			//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
+			//DIBUJAR VISTA DINERO INSUFICIENTE
+			contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
 		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
 	}
 	
 	public void terminar_turno() {
-		if(efecto_pendiente) {
+		
 			try {jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);}
 			catch (DineroInsuficienteException e) {
 				//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
+				contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
 			}
 			catch (BancaRotaException e) {
 				jugador_fuera_de_juego();
 			}
-			
-		}
 		
 		ronda.avanzarTurno();
 		jugador_actual = ronda.obtenerJugadorActual();
-		if(ronda.contarJugadores() == 1) {
-			//MOSTRAR GANADOR
-		}
 		//ACTUALIZAR VISTA QUE MUESTRA AL JUGADOR ACTUAL
 		//DEBERIA VOLVER A LA VISTA PREDADOS
 	}
