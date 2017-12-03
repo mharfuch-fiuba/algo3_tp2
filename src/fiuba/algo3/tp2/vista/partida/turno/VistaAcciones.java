@@ -70,6 +70,10 @@ public class VistaAcciones extends VBox {
 	public void colocarVistaPropiedadLibre() {
 		this.cambiarVistaAccion(new VistaPropiedadLibre());
 	}
+
+	public void colocarVistaGenerica(VistaAccion vista_siguiente) {
+		this.cambiarVistaAccion(vista_siguiente);
+	}
 	
 	
 	/*

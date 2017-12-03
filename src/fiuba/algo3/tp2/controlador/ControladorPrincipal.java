@@ -12,11 +12,16 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.partida.*;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -235,8 +240,13 @@ public class ControladorPrincipal {
 	}
 	
 	public void pagar_fianza() {
-		jugador_actual.pagarFianza();
-		//LLEVA A VISTA PRE DADO NORMAL
+		try {
+			jugador_actual.pagarFianza();
+		}catch(NoPuedePagarFianzaException e) {
+			contenedor_acciones.colocarVistaGenerica(new VistaMensajeGenerico("No se puede pagar la fianza en este turno.", new VistaCarcel()));
+			return;
+		}
+		contenedor_acciones.colocarVistaNormal();
 	}
 
 	public ContenedorTablero getVistaTablero() {
@@ -251,6 +261,10 @@ public class ControladorPrincipal {
 	public ControladorCubilete getControladorDados() {
 		// TODO Auto-generated method stub
 		return this.controlador_cubilete;
+	}
+
+	public void cambiarVistaAccion(VistaAccion vista_siguiente) {
+		contenedor_acciones.colocarVistaGenerica(vista_siguiente);	
 	}
 	
 	/*

@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonConstruirHandler;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonIntercambiarHandler;
@@ -11,7 +10,7 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 public class VistaTurnoInicial extends VistaAccion {
 
 	public VistaTurnoInicial(){
-		this.getStyleClass().add("VistaTurnoDinamica");
+		
 		this.getChildren().addAll(construirBotones());
 	}
 

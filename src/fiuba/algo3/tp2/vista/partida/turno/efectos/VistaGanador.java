@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
 
-public class VistaGanador extends VBox{
+public class VistaGanador extends VistaAccion {
 
 	public VistaGanador(Stage stage) {
 		Image logo = new Image("file:assets/logo.png");

@@ -11,7 +11,8 @@ public abstract class VistaAccion extends VBox {
 	}
 	
 	public VistaAccion(){
-		this.getStyleClass().add("VistaEfecto");
+		this.getStyleClass().add("VistaTurnoDinamica");
+		//this.getStyleClass().add("VistaEfecto");
 	}
 	
 	
