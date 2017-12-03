@@ -7,7 +7,7 @@ public class VistaImpuesto extends VistaAccion{
 
 	public VistaImpuesto(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("CAISTE EN IMPUESTO. PAGAR�S 10% DE TU EFECTIVO");
-		BotonTerminarTurno boton = new BotonTerminarTurno(null);
+		BotonTerminarTurno boton = new BotonTerminarTurno();
 		this.getChildren().addAll(label,boton);
 	}
 }

@@ -7,6 +7,7 @@ import java.util.Stack;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.*;
+import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
@@ -26,7 +27,7 @@ public class ControladorPrincipal {
 	//private Tablero modelo_tablero;
 	//private Ronda modelo_ronda;
 	//private Cubilete cubilete;
-	private Jugador jugador_actual;
+	private ControladorJugador jugador_actual;
 	private ControladorTablero controlador_tablero;
 	private ControladorCubilete controlador_cubilete;
 	//TODO: VER COMO LLEGA LA REFERENCIA DEL CONTENEDOR TURNO QUE MUESTRA LAS VISTAS QUE ARMAMOS EN PAPEL
@@ -77,7 +78,7 @@ public class ControladorPrincipal {
 		colores.push(Color.BLUE);
 		for(String nombre:nombres) {
 			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre, new Dinero(DINERO_INICIAL), (Color) colores.pop());
-			controlador_ronda.agregarJugador(controlador_jugador.getModelo());
+			controlador_ronda.agregarJugador(controlador_jugador);
 			System.out.println("Agrego : " + controlador_jugador.getNombre());
 			controladores_jugadores.add(controlador_jugador);
 		}
@@ -121,9 +122,51 @@ public class ControladorPrincipal {
 		//contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual.getNombre()));	
 	}
 	
+	private void cambiar_vista_efecto() {
+		if(jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
+			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
+			if(propiedad.getPropietario().esNull()) {
+				contenedor_acciones.colocarVistaPropiedadLibre();
+				return;
+			}
+			if(propiedad.getPropietario() == jugador_actual.getModelo()) {
+				contenedor_acciones.colocarVistaPropiedadPropia();
+			} else {
+				contenedor_acciones.colocarVistaPropiedadAjena();
+			}
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof Carcel) {
+			contenedor_acciones.colocarVistaCarcel();
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof ImpuestoDeLujo) {
+			contenedor_acciones.colocarVistaImpuesto();
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof AvanceDinamico) {
+			contenedor_acciones.colocarVistaAvance();
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof Salida) {
+			contenedor_acciones.colocarVistaSalida();
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof Quini6) {
+			contenedor_acciones.colocarVistaQuini();
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof Policia) {
+			contenedor_acciones.colocarVistaPolicia();
+		}
+		
+	}
+	
 	public void avanzar_segun_dados() {
 		for(int i = 0; i < controlador_cubilete.getModelo().sumarValores(); i++) {
+			controlador_tablero.borrarJugador(jugador_actual);
 			jugador_actual.avanzar(1);
+			controlador_tablero.dibujarJugador(jugador_actual);
 			//ACTUALIZAR VISTA DE TABLERO
 		}
 		try {
@@ -134,23 +177,28 @@ public class ControladorPrincipal {
 		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
+		
+		this.cambiar_vista_efecto();
+		
 	}
 	
 	public void terminar_turno() {
-		
+		controlador_tablero.borrarJugador(jugador_actual);
 		try {jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());}
 		catch (DineroInsuficienteException e) {
+			controlador_tablero.dibujarJugador(jugador_actual);
 			//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
 			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
 		}
 		catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
+		controlador_tablero.dibujarJugador(jugador_actual);
 		
 		controlador_ronda.avanzarTurno();
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
-		//ACTUALIZAR VISTA QUE MUESTRA AL JUGADOR ACTUAL
-		//DEBERIA VOLVER A LA VISTA PREDADOS
+		
+		contenedor_acciones.colocarVistaNormal(); // <-- DEPENDE SI ESTA EN LA CARCEL
 	}
 	
 	public void construir(Terreno terreno) {
@@ -274,10 +322,5 @@ public class ControladorPrincipal {
 		
 		ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
 	*/
-	
-	@Override
-	public void finalize() {
-		System.out.println("DESTRUCTOR");
-	}
 	
 }

@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.controlador;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -8,21 +9,18 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.RondaAlgoPoly;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
-import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
-import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTituloTurno;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 public class ControladorRonda implements Observer {
 
 	private Ronda modelo_ronda;
 	private LabelTituloTurno tituloTurno;
 	//private ControladorCubilete cubilete;
-	private ArrayList<ControladorJugador> jugadores;
+	private HashMap<Jugador, ControladorJugador> jugadores;
 	
 
 	public ControladorRonda() {
+		this.jugadores = new HashMap<Jugador, ControladorJugador>();
 		this.modelo_ronda = new RondaAlgoPoly();
 		this.modelo_ronda.addObserver(this);
 		//this.cubilete= new ControladorCubilete(ronda.getCubilete());
@@ -91,7 +89,7 @@ public class ControladorRonda implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		try {
-			this.tituloTurno.cambiarTexto(this.modelo_ronda.obtenerJugadorActual().getNombre());
+			//this.tituloTurno.cambiarTexto(this.modelo_ronda.obtenerJugadorActual().getNombre());
 		} catch (NoHayJugadoresException e) {
 			e.printStackTrace();
 		}
@@ -109,20 +107,23 @@ public class ControladorRonda implements Observer {
 	*/
 	
 	public ArrayList<ControladorJugador> getJugadores() {
-		return jugadores;
+		return new ArrayList<ControladorJugador>(jugadores.values());
 	}
 	
-	public void agregarJugador(Jugador jugador) {
-		modelo_ronda.agregarJugador(jugador);	
+	public void agregarJugador(ControladorJugador controlador_jugador) {
+		Jugador jugador = controlador_jugador.getModelo();
+		modelo_ronda.agregarJugador(jugador);
+		jugadores.put(jugador, controlador_jugador);
 	}
-	public Jugador obtenerJugadorActual() {
-		return modelo_ronda.obtenerJugadorActual();
+	public ControladorJugador obtenerJugadorActual() {
+		return jugadores.get(modelo_ronda.obtenerJugadorActual());
 	}
 	public ArrayList<Jugador> obtenerJugadores() {
 		return modelo_ronda.obtenerJugadores();
 	}
-	public void quitarJugador(Jugador jugador_actual) {
-		modelo_ronda.quitarJugador(jugador_actual);
+	public void quitarJugador(ControladorJugador jugador_actual) {
+		modelo_ronda.quitarJugador(jugador_actual.getModelo());
+		jugadores.remove(jugador_actual);
 	}
 	public int contarJugadores() {
 		return modelo_ronda.contarJugadores();

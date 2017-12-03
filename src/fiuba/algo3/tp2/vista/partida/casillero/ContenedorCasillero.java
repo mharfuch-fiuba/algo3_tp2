@@ -34,6 +34,10 @@ public class ContenedorCasillero extends VBox{
 		//remplazar la vista detalle
 		//this.getChildren().replaceAll(operator);
 	}
+	
+	public void borrarJugador(VistaCasilleroJugador vista) {
+		jugadores.sacarJugador(vista);
+	}
 
 	public void dibujarJugador(VistaCasilleroJugador vista) {
 		jugadores.ponerJugador(vista);

@@ -7,7 +7,7 @@ public class VistaQuini extends VistaAccion{
 
 	public VistaQuini(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("Caiste en el Quini6. Ganaste X");
-		BotonTerminarTurno boton = new BotonTerminarTurno(null);
+		BotonTerminarTurno boton = new BotonTerminarTurno();
 		this.getChildren().addAll(label);
 	}
 }

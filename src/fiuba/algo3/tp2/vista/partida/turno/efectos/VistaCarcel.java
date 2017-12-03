@@ -7,7 +7,7 @@ public class VistaCarcel extends VistaAccion{
 
 	public VistaCarcel(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("ESTAS EN LA CARCEL");
-		BotonPagarFianza boton = new BotonPagarFianza(null);
+		BotonPagarFianza boton = new BotonPagarFianza();
 		this.getChildren().addAll(label);
 	}
 	

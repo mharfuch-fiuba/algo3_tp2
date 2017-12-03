@@ -4,8 +4,10 @@ import fiuba.algo3.tp2.vista.botones.eventos.BotonPagarFianzaHandler;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 
 public class BotonPagarFianza extends BotonAlgoPoly{
-	public BotonPagarFianza(VistaAcciones contenedorPadre){
+	
+	public BotonPagarFianza(){
 		this.setText("Pagar Fianza");
-		this.setOnAction(new BotonPagarFianzaHandler(contenedorPadre));
+		this.setOnAction(new BotonPagarFianzaHandler());
 	}
+	
 }

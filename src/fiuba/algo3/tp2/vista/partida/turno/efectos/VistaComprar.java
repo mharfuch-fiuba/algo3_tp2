@@ -8,8 +8,8 @@ public class VistaComprar extends VistaAccion{
 
 	public VistaComprar(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("Esta propiedad cuesta ");
-		BotonComprar botonComprar = new BotonComprar(null);
-		BotonTerminarTurno botonTerminarTurno = new BotonTerminarTurno(null);
+		BotonComprar botonComprar = new BotonComprar();
+		BotonTerminarTurno botonTerminarTurno = new BotonTerminarTurno();
 		this.getChildren().addAll(label,botonComprar,botonTerminarTurno);
 	}
 }

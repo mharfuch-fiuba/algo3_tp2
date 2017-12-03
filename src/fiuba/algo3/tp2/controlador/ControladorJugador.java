@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -127,6 +128,26 @@ public class ControladorJugador implements Observer {
 
 	public Color getColor() {
 		return this.getColor();
+	}
+
+	public void avanzar(int i) {
+		this.modelo.avanzar(i);
+	}
+
+	public void aplicarEfectoDeCasilleroActual(Cubilete cubilete) {
+		this.modelo.aplicarEfectoDeCasilleroActual(cubilete);
+	}
+
+	public Encasillable obtenerCasilleroActual() {
+		return this.modelo.obtenerCasilleroActual();
+	}
+
+	public void comprar(Propiedad propiedad) {
+		this.modelo.comprar(propiedad);
+	}
+
+	public void pagarFianza() {
+		this.modelo.pagarFianza();
 	}
 
 }

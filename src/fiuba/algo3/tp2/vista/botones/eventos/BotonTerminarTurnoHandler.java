@@ -4,11 +4,11 @@ import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonPagarFianzaHandler implements EventHandler<ActionEvent> {
+public class BotonTerminarTurnoHandler implements EventHandler<ActionEvent> {
 
 	@Override
-	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().pagar_fianza();
+	public void handle(ActionEvent arg0) {
+		ControladorPrincipal.getInstance().terminar_turno();
 	}
 
 }
