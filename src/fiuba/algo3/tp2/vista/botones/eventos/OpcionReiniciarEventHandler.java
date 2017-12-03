@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.vista.eventos;
+package fiuba.algo3.tp2.vista.botones.eventos;
 
 import fiuba.algo3.tp2.vista.VistaInicial;
 import javafx.event.ActionEvent;
@@ -15,6 +15,7 @@ public class OpcionReiniciarEventHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent actionEvent){
+		/*
 		VistaInicial vistaInicial = new VistaInicial(stage);
 		Scene escenaInicial = new Scene(vistaInicial);
 		escenaInicial.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
@@ -27,5 +28,6 @@ public class OpcionReiniciarEventHandler implements EventHandler<ActionEvent> {
 		stage.setMaximized(false);
 		stage.setResizable(false);
 		stage.show();
+		*/
 	}
 }

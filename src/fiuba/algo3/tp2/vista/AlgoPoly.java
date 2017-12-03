@@ -21,7 +21,7 @@ public class AlgoPoly extends Application {
 		stage.setScene(escenaPrincipal);
 		
 		stage.setMaximized(false);
-		stage.setResizable(false);
+		stage.setResizable(true);
 		stage.show();
 		
 	}

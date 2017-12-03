@@ -1,10 +1,10 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
-import fiuba.algo3.tp2.vista.eventos.BotonConstruirHandler;
-import fiuba.algo3.tp2.vista.eventos.BotonIntercambiarHandler;
-import fiuba.algo3.tp2.vista.eventos.BotonTirarDadosHandler;
-import fiuba.algo3.tp2.vista.eventos.BotonVenderHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonConstruirHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonIntercambiarHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonTirarDadosHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonVenderHandler;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.scene.layout.VBox;
 

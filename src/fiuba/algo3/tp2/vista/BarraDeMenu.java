@@ -1,13 +1,13 @@
 package fiuba.algo3.tp2.vista;
 
+import fiuba.algo3.tp2.vista.botones.eventos.OpcionAcercaDeEventHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.OpcionPantallaCompletaEventHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.OpcionReiniciarEventHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.OpcionSalirEventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-import fiuba.algo3.tp2.vista.eventos.OpcionAcercaDeEventHandler;
-import fiuba.algo3.tp2.vista.eventos.OpcionPantallaCompletaEventHandler;
-import fiuba.algo3.tp2.vista.eventos.OpcionReiniciarEventHandler;
-import fiuba.algo3.tp2.vista.eventos.OpcionSalirEventHandler;
 
 
 public class BarraDeMenu extends MenuBar {

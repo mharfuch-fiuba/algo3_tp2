@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.vista.botones;
 
-import fiuba.algo3.tp2.vista.eventos.BotonPagarHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonPagarHandler;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 
 public class BotonPagar extends BotonAlgoPoly{

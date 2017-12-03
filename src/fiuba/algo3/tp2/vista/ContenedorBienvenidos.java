@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.vista;
 
+import fiuba.algo3.tp2.vista.botones.eventos.BotonEntrarEventHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.OpcionSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,9 +18,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import fiuba.algo3.tp2.vista.eventos.BotonEntrarEventHandler;
-import fiuba.algo3.tp2.vista.eventos.OpcionSalirEventHandler;
 
 public class ContenedorBienvenidos extends VBox {
 

@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.vista.eventos;
+package fiuba.algo3.tp2.vista.botones.eventos;
 
 import fiuba.algo3.tp2.controlador.ControladorRonda;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;

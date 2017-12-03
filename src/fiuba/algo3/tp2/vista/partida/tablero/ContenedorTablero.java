@@ -51,18 +51,18 @@ public class ContenedorTablero extends BorderPane {
 	
 	private VBox crearContenedorTableroDerecha() {
 		VBox caja = new VBox();
-		caja.getChildren().add(factory.getTucuman());
-		caja.getChildren().add(factory.getRestrocesoDinamico());
-		caja.getChildren().add(factory.getNeuquen());
 		caja.getChildren().add(factory.getTren());
+		caja.getChildren().add(factory.getNeuquen());
+		caja.getChildren().add(factory.getRestrocesoDinamico());
+		caja.getChildren().add(factory.getTucuman());
 		return caja;
 	}
 	
 	private VBox crearContenedorTableroIzquierda() {
 		VBox caja = new VBox();
-		caja.getChildren().add(factory.getCordobaSur());
-		caja.getChildren().add(factory.getAvanceDinamico());
+		caja.getChildren().add(factory.getCordobaNorte());
 		caja.getChildren().add(factory.getSubte());
+		caja.getChildren().add(factory.getAvanceDinamico());
 		caja.getChildren().add(factory.getCordobaSur());
 		return caja;
 	}

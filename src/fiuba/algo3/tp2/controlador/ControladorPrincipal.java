@@ -14,17 +14,20 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.vista.ContenedorPrincipal;
+import fiuba.algo3.tp2.vista.partida.*;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
+import javafx.scene.Node;
 
 public class ControladorPrincipal {
 	
 	private static final int CANTIDAD_DE_DADOS = 2;
 	private static final int DINERO_INICIAL = 100000;
 	
-	private Ronda ronda;
 	private Tablero tablero;
+	private Ronda ronda;
 	private Cubilete cubilete;
 	private Jugador jugador_actual;
 	private ControladorTablero controlador_tablero;
@@ -33,43 +36,62 @@ public class ControladorPrincipal {
 	private ContenedorTurno contenedor_acciones;
 	private ContenedorRonda contenedor_ronda;
 	private ArrayList<ControladorJugador> jugadores;
+	private ControladorRonda controlador_ronda;
+	private ContenedorDinamico contenedorDinamico;
 	
 	public ControladorPrincipal() {
 		ronda = new RondaAlgoPoly();
-		tablero = new Tablero();
 		cubilete = Cubilete.getInstance();
 		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
 			cubilete.agregar(new DadoCubico());
 			cubilete.agregar(new DadoCubico());
 		}
+		controlador_tablero = new ControladorTablero();
+		tablero = controlador_tablero.getModelo();
+		controlador_ronda = new ControladorRonda(ronda);
+		contenedor_ronda = new ContenedorRonda(controlador_ronda);
+		contenedor_acciones = new ContenedorTurno(controlador_ronda, controlador_tablero);
+		contenedorDinamico = new ContenedorDinamico(contenedor_ronda,contenedor_acciones);
 		//TAL VEZ INICIALIZAR LOS CONTROLADORES DE
 		// - CUBILETE
 		// - TABLERO
 	}
 	
 	public void agregarJugadores(ArrayList<String> nombres) {
+		System.out.println(nombres);
 		Collections.shuffle(nombres);
+		System.out.println(nombres);
 		for(String nombre:nombres) {
 			Jugador jugador = new JugadorHumano(this.tablero, new Dinero(DINERO_INICIAL));
+			jugador.setNombre(nombre); // Esto ponerlo en el constructor
 			ronda.agregarJugador(jugador);
 			//FALTA ASOCIAR NOMBRE CON JUGADOR
 		}
-		
+		jugadores = controlador_ronda.getJugadores();
+		controlador_ronda.agregarJugadores(contenedor_ronda);
+		crearControladoresJugadores();
 	}
 	
 	private void crearControladoresJugadores(){
 		for(Jugador jugador:ronda.obtenerJugadores()){
+			System.out.println(jugador.getNombre());
 			jugadores.add(new ControladorJugador(jugador));
 		}
 	}
 	
-	public void iniciar_partida() {
-		crearControladoresJugadores();
+	public void iniciar_partida(ContenedorPrincipal stage) {
 		jugador_actual = ronda.obtenerJugadorActual();
-		
 		//DIBUJAR A LOS JUGADORES EN EL TALBERO:
 	    controlador_tablero.dibujarJugadores(jugadores);
-	    
+		
+		
+		//ESTO DIBUJA LA PARTIDA
+		
+		
+		PantallaPartida vistaPartida = new PantallaPartida(stage, this);
+		stage.cambiarVistaDinamica(vistaPartida);
+		
+
 	}
 	
 	public void lanzar_dado() {
@@ -158,6 +180,15 @@ public class ControladorPrincipal {
 	public void pagar_fianza() {
 		jugador_actual.pagarFianza();
 		//LLEVA A VISTA PRE DADO NORMAL
+	}
+
+	public ContenedorTablero getVistaTablero() {
+		return controlador_tablero.getVista();
+	}
+
+	public ContenedorDinamico getContenedorDinamico() {
+		// TODO Auto-generated method stub
+		return this.contenedorDinamico;
 	}
 	
 	/*

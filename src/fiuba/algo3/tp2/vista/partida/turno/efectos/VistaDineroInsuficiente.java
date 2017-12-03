@@ -8,8 +8,8 @@ public class VistaDineroInsuficiente extends VistaEfecto {
 
 	public VistaDineroInsuficiente(){
 		Label label = new Label("No tenes Dinero para pagar!");
-		BotonVender botonVender = new BotonVender();
-		BotonContinuar botonContinuar = new BotonContinuar();
+		BotonVender botonVender = new BotonVender(null);
+		BotonContinuar botonContinuar = new BotonContinuar(null);
 		this.getChildren().addAll(label,botonVender,botonContinuar);
 	}
 }

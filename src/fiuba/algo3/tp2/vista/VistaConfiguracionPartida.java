@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.vista;
 
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.BotonIniciarPartida;
-import fiuba.algo3.tp2.vista.eventos.BotonIniciarPartidaHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonIniciarPartidaHandler;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 

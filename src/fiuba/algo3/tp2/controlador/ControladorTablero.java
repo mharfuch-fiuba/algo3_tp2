@@ -44,7 +44,6 @@ public class ControladorTablero {
 		casilleros.put(fmodelos.getSubte(), fvistas.getSubte());
 		casilleros.put(fmodelos.getTren(), fvistas.getTren());
 		casilleros.put(fmodelos.getTucuman(), fvistas.getTucuman());
-		
 	}
 
 	public void dibujarJugadores(ArrayList<ControladorJugador> obtenerJugadores) {
@@ -54,8 +53,16 @@ public class ControladorTablero {
 	}
 	
 	private void dibujarJugador(ControladorJugador controlador_jugador){
-		Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
-		ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
-		vista_casillero_actual.dibujarJugador(controlador_jugador.getVista());
+		//Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
+		//ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
+		//vista_casillero_actual.dibujarJugador(controlador_jugador.getVista());
+	}
+
+	public Tablero getModelo() {
+		return modelo_tablero;
+	}
+
+	public ContenedorTablero getVista() {
+		return vista_tablero;
 	}
 }

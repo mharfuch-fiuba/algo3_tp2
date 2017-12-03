@@ -1,12 +1,12 @@
-package fiuba.algo3.tp2.vista.eventos;
+package fiuba.algo3.tp2.vista.botones.eventos;
 
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class BotonRetrocesoDinamicoHandler implements EventHandler<ActionEvent> {
+public class BotonPagarHandler implements EventHandler<ActionEvent> {
 
-	public BotonRetrocesoDinamicoHandler(ContenedorTurno contenedorPadre) {
+	public BotonPagarHandler(ContenedorTurno contenedorPadre) {
 		// TODO Auto-generated constructor stub
 	}
 

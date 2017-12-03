@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.vista.botones;
 
-import fiuba.algo3.tp2.vista.eventos.BotonPagarFianzaHandler;
+import fiuba.algo3.tp2.vista.botones.eventos.BotonPagarFianzaHandler;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 
 public class BotonPagarFianza extends BotonAlgoPoly{

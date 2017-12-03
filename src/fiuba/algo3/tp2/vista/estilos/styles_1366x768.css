@@ -139,6 +139,8 @@
 
 .VistaTableroCentro{
 	-fx-background-color: white;
+		-fx-pref-width: 512;	
+	-fx-pref-height: 512;
 }
 
 .VistaJugador{
