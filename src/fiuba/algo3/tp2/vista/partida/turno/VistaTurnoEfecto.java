@@ -1,3 +1,4 @@
+/*
 package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.vista.botones.BotonTerminarTurno;
@@ -14,3 +15,4 @@ public class VistaTurnoEfecto extends VBox {
 
 	
 }
+*/

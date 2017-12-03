@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -9,11 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class VistaTurnoVender extends VBox{
+public class VistaTurnoVender extends VistaEfecto{
 
 	public VistaTurnoVender(ContenedorTurno contenedorPadre) {
-		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija qué desea vender");
+		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija quï¿½ desea vender");
 		ControladorJugador jugador = contenedorPadre.getControladorRonda().getJugadorActual();
 		ComboPropiedades comboPropiedades = new ComboPropiedades(jugador);
 		Botonera botones = new Botonera(contenedorPadre);

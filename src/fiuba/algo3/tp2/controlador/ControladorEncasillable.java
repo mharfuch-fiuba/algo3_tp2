@@ -4,7 +4,10 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
+import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadPropia;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadVacia;
 import javafx.scene.paint.Color;
 
 public class ControladorEncasillable {
@@ -53,7 +56,13 @@ public class ControladorEncasillable {
 		return this.modelo;
 	}
 
-	public VistaEfecto getVistaEfecto() {
+	public VistaEfecto getVistaEfecto(ControladorJugador jugador, ContenedorTurno contenedorPadre) {
+		if(this.modelo.esPropiedad()) {
+			if(this.modelo.equals(jugador))
+				return new VistaPropiedadPropia(contenedorPadre);
+			//FALTA SI ES PROPIEDAD DE OTRO
+			return new VistaPropiedadVacia(contenedorPadre);
+		}
 		return this.vistaEfecto;
 	}
 

@@ -1,12 +1,11 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import javafx.scene.layout.VBox;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 
-public class VistaTurnoIntercambiar extends VBox{
+public class VistaTurnoIntercambiar extends VistaEfecto{
 
 	public VistaTurnoIntercambiar(ContenedorTurno contenedorPadre) {
-		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica intercambiar = new LabelTurnoDinamica("Elija qué desea intercambiar");
+		LabelTurnoDinamica intercambiar = new LabelTurnoDinamica("Elija quï¿½ desea intercambiar");
 		this.getChildren().addAll(intercambiar,contenedorPadre.getBotonVolver());
 		}
 

@@ -4,7 +4,6 @@ import fiuba.algo3.tp2.controlador.ControladorEncasillable;
 import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.controlador.ControladorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
-import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoEfecto;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -36,9 +35,8 @@ public class BotonAplicarEfecto extends BotonAlgoPoly {
 			//ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
 			//nuevoCasillero.ponerJugador(jugador);
 			ControladorEncasillable nuevoCasillero = tablero.getEncasillableActual(jugador);
-			VistaEfecto vistaEfecto = nuevoCasillero.getVistaEfecto();
-			VistaTurnoEfecto vistaTurnoEfecto=new VistaTurnoEfecto(this.contenedorPadre,vistaEfecto);
-			this.contenedorPadre.cambiarVistaDinamica(vistaTurnoEfecto);		
+			VistaEfecto vistaEfecto = nuevoCasillero.getVistaEfecto(jugador,this.contenedorPadre);
+			this.contenedorPadre.cambiarVistaDinamica(vistaEfecto);		
 		}
 		
 	}
