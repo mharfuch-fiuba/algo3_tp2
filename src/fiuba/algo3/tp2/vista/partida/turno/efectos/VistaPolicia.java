@@ -7,7 +7,7 @@ public class VistaPolicia extends VistaEfecto{
 
 	public VistaPolicia(){
 		LabelTurnoDinamica label = new LabelTurnoDinamica("Caiste en la Policia. A la carcel!");
-		BotonPolicia boton = new BotonPolicia();
+		BotonPolicia boton = new BotonPolicia(null);
 		this.getChildren().addAll(label,boton);
 	}
 }

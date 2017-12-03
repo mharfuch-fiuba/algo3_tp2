@@ -5,9 +5,10 @@ import fiuba.algo3.tp2.vista.eventos.BotonConstruirHandler;
 import fiuba.algo3.tp2.vista.eventos.BotonIntercambiarHandler;
 import fiuba.algo3.tp2.vista.eventos.BotonTirarDadosHandler;
 import fiuba.algo3.tp2.vista.eventos.BotonVenderHandler;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.scene.layout.VBox;
 
-public class VistaTurnoInicial extends VBox {
+public class VistaTurnoInicial extends VistaEfecto {
 	
 	private ContenedorTurno contenedorPadre;
 

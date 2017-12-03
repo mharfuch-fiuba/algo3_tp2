@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
@@ -14,4 +15,5 @@ public abstract class Ronda extends Observable implements Iterable<Jugador>{
 	public abstract Cubilete lanzarDados();
 	public abstract void quitarJugador(Jugador jugador_actual);
 	public abstract int contarJugadores();
+	public abstract ArrayList<Jugador> obtenerJugadores();
 }

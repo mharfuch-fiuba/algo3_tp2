@@ -17,7 +17,7 @@ public class BotonVenderHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		VistaTurnoVender vistaVender=new VistaTurnoVender(this.contenedorPadre);
-		this.contenedorPadre.cambiarVistaDinamica(vistaVender);
+		//this.contenedorPadre.cambiarVistaDinamica(vistaVender);
 	}
 
 }

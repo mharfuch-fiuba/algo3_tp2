@@ -9,7 +9,6 @@ public class ContenedorCasillero extends VBox{
 	private VistaCasilleroDetalle detalle ;
 	private VistaCasilleroJugadores jugadores ;	
 	
-	
 	public ContenedorCasillero(String nombreCasillero,Color color){
 		this.getStyleClass().add("VistaCasillero");
 		nombre = new VistaCasilleroNombre(nombreCasillero,color);
@@ -26,7 +25,6 @@ public class ContenedorCasillero extends VBox{
 
 	}
 	
-	
 	public VistaCasilleroJugadores getJugadores(){
 		return this.jugadores;
 	}
@@ -37,5 +35,8 @@ public class ContenedorCasillero extends VBox{
 		//this.getChildren().replaceAll(operator);
 	}
 
+	public void dibujarJugador(VistaCasilleroJugador vista) {
+		jugadores.ponerJugador(vista);
+	}
 	
 }

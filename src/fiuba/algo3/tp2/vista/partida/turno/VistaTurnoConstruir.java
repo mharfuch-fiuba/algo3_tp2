@@ -23,8 +23,8 @@ public class VistaTurnoConstruir extends VBox{
 	
 	private class ComboPropiedades extends ComboBox<String>{	
 		public ComboPropiedades(ControladorJugador jugador){
-			ObservableList<String> propiedades = jugador.getConstruibles();
-			this.setItems(propiedades);
+			//ObservableList<String> propiedades = jugador.getConstruibles();
+			//this.setItems(propiedades);
 		}
 	}
 	

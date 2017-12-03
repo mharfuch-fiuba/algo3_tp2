@@ -40,7 +40,7 @@ public class ControladorRonda implements Observer {
 			j.addObserver(controladorJugador);
 			j.setControlador(controladorJugador);
 			VistaJugador vista = new VistaJugador(controladorJugador);
-			controladorJugador.asociarVista(vista);
+			//controladorJugador.asociarVista(vista);
 			HBox.setHgrow(vista, Priority.ALWAYS);
 			contenedorRonda.getChildren().add(vista);
 		}

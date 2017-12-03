@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.vista.partida.turno;
 import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.controlador.ControladorRonda;
 import fiuba.algo3.tp2.controlador.ControladorTablero;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaEfecto;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -12,7 +13,7 @@ import javafx.scene.layout.VBox;
 public class ContenedorTurno extends VBox {
 
 	private VistaTurnoInicial vistaTurnoInicial;
-	private Pane vistaActual;
+	private VistaEfecto vistaActual;
 	private ControladorRonda ronda;
 	private ControladorTablero tablero;
 	
@@ -26,7 +27,7 @@ public class ContenedorTurno extends VBox {
 		this.vistaActual=vistaTurnoInicial;
 	}
 	
-	public void cambiarVistaDinamica(Pane nuevaVista){
+	public void cambiarVistaDinamica(VistaEfecto nuevaVista){
 		this.getChildren().remove(this.vistaActual);
 		this.getChildren().add(nuevaVista);
 		this.vistaActual=nuevaVista;
@@ -35,9 +36,11 @@ public class ContenedorTurno extends VBox {
 	public VistaTurnoInicial getVistaInicial(){
 		VistaTurnoInicial vistaInicial=this.vistaTurnoInicial;
 		ControladorJugador jugador = this.ronda.getJugadorActual();
+		/*
 		if(jugador.estaEncarcelado()){
 			vistaInicial= new VistaJugadorEnCarcel(this,jugador);
 		}
+		*/
 		return vistaInicial;
 	}
 	

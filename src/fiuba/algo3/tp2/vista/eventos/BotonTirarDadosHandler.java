@@ -20,7 +20,7 @@ public class BotonTirarDadosHandler implements EventHandler<ActionEvent> {
 		ControladorRonda ronda = this.contenedorPadre.getControladorRonda();
 		ronda.tirarDados();
 		VistaTurnoTirarDados vistaDados=new VistaTurnoTirarDados(this.contenedorPadre);
-		this.contenedorPadre.cambiarVistaDinamica(vistaDados);
+		//this.contenedorPadre.cambiarVistaDinamica(vistaDados);
 	}
 
 }

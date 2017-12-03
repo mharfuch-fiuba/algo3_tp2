@@ -17,7 +17,7 @@ public class BotonIntercambiarHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		VistaTurnoIntercambiar vistaIntercambiar=new VistaTurnoIntercambiar(this.contenedorPadre);
-		this.contenedorPadre.cambiarVistaDinamica(vistaIntercambiar);
+		//this.contenedorPadre.cambiarVistaDinamica(vistaIntercambiar);
 	}
 
 }

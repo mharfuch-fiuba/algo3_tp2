@@ -22,7 +22,7 @@ public abstract class Propiedad extends Observable implements Encasillable {
 	public void setPropietario(Jugador nuevo_propietario) {
 		propietario = nuevo_propietario;
 		this.setChanged();
-		this.notifyAll();
+		//this.notifyAll();
 	}
 	
 	public Jugador getPropietario() {

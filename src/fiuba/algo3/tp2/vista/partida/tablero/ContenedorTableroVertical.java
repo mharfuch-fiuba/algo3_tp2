@@ -9,7 +9,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class ContenedorTableroVertical extends VBox {
-
+/*
 	public ContenedorTableroVertical(ArrayList<ControladorEncasillable> controladores) {
 		for (ControladorEncasillable controlador:controladores) {
 			ContenedorCasillero c = new ContenedorCasillero(controlador.getNombre(),controlador.getColor());
@@ -18,5 +18,5 @@ public class ContenedorTableroVertical extends VBox {
 			this.getChildren().add(c);
 		}
 	}
-
+*/
 }

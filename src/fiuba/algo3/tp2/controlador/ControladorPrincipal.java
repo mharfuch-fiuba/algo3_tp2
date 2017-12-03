@@ -14,6 +14,8 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
+import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
+import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.ContenedorTurno;
 
 public class ControladorPrincipal {
@@ -29,6 +31,8 @@ public class ControladorPrincipal {
 	private ControladorCubilete controlador_cubilete;
 	//TODO: VER COMO LLEGA LA REFERENCIA DEL CONTENEDOR TURNO QUE MUESTRA LAS VISTAS QUE ARMAMOS EN PAPEL
 	private ContenedorTurno contenedor_acciones;
+	private ContenedorRonda contenedor_ronda;
+	private ArrayList<ControladorJugador> jugadores;
 	
 	public ControladorPrincipal() {
 		ronda = new RondaAlgoPoly();
@@ -53,10 +57,19 @@ public class ControladorPrincipal {
 		
 	}
 	
+	private void crearControladoresJugadores(){
+		for(Jugador jugador:ronda.obtenerJugadores()){
+			jugadores.add(new ControladorJugador(jugador));
+		}
+	}
+	
 	public void iniciar_partida() {
+		crearControladoresJugadores();
 		jugador_actual = ronda.obtenerJugadorActual();
+		
+		//DIBUJAR A LOS JUGADORES EN EL TALBERO:
+	    controlador_tablero.dibujarJugadores(jugadores);
 	    
-		//DIBUJAR A LOS JUGADORES EN EL TALBERO ControladorTablero().update()
 	}
 	
 	public void lanzar_dado() {
@@ -70,11 +83,11 @@ public class ControladorPrincipal {
 		switch(ronda.contarJugadores()){
 			case 1:
 				//Dibujar vista ganador
-				contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
+				//contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
 			break;
 			default:
 				//Dibujar vista jugador eliminado
-				contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual));
+				//contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual.getNombre()));
 			break;
 		}		
 	}
@@ -88,7 +101,7 @@ public class ControladorPrincipal {
 			jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);
 		}catch(DineroInsuficienteException e) {
 			//DIBUJAR VISTA DINERO INSUFICIENTE
-			contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
+			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
 		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
@@ -96,14 +109,14 @@ public class ControladorPrincipal {
 	
 	public void terminar_turno() {
 		
-			try {jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);}
-			catch (DineroInsuficienteException e) {
-				//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
-				contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
-			}
-			catch (BancaRotaException e) {
-				jugador_fuera_de_juego();
-			}
+		try {jugador_actual.aplicarEfectoDeCasilleroActual(cubilete);}
+		catch (DineroInsuficienteException e) {
+			//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
+			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
+		}
+		catch (BancaRotaException e) {
+			jugador_fuera_de_juego();
+		}
 		
 		ronda.avanzarTurno();
 		jugador_actual = ronda.obtenerJugadorActual();

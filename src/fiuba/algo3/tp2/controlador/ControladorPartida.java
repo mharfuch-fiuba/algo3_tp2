@@ -30,7 +30,7 @@ public class ControladorPartida {
 		this.controladorRonda=new ControladorRonda(this.partida.getRonda());
 		agregarJugadores(jugadores);
 		this.controladorRonda.agregarVistasJugadores();
-		this.controladorTablero=new ControladorTablero(this.partida.getTablero());	
+		this.controladorTablero=new ControladorTablero();	
 		//this.controladorTablero.ubicarJugadoresInicial(controladorRonda);
 	}
 

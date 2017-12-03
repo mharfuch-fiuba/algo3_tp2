@@ -49,7 +49,7 @@ public class RondaAlgoPoly extends Ronda {
 		}
 	}
 	
-	private ArrayList<Jugador> obtenerJugadores(){
+	public ArrayList<Jugador> obtenerJugadores(){
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		for(int i = 0; i < iterador.size(); i++) {
 			jugadores.add((Jugador)iterador.actual());
@@ -84,5 +84,4 @@ public class RondaAlgoPoly extends Ronda {
 		// TODO Auto-generated method stub
 		return iterador.size();
 	}
-
 }

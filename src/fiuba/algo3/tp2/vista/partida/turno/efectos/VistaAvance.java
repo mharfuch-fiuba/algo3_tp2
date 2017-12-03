@@ -8,7 +8,7 @@ public class VistaAvance extends VistaEfecto {
 	public VistaAvance() {
 	
 		LabelTurnoDinamica label = new LabelTurnoDinamica("Caiste en Avance Dinamico. Avanzaras x casilleros");
-		BotonAvanceDinamico boton = new BotonAvanceDinamico();
+		BotonAvanceDinamico boton = new BotonAvanceDinamico(null);
 		this.getChildren().addAll(label,boton);
 		
 	}

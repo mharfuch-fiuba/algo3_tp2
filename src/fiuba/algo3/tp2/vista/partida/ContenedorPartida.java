@@ -20,8 +20,8 @@ public class ContenedorPartida extends BorderPane {
 		
 		public Hijo(Stage stage, ControladorPartida controladorPartida){
 			ContenedorDinamico contenedorDinamico = new ContenedorDinamico(controladorPartida);
-			ContenedorTablero vistaTablero = new ContenedorTablero(controladorPartida.getControladorTablero());
-			this.getChildren().addAll(contenedorDinamico, vistaTablero);
+			//ContenedorTablero vistaTablero = new ContenedorTablero(controladorPartida.getControladorTablero());
+			//this.getChildren().addAll(contenedorDinamico, vistaTablero);
 		}
 		
 	}

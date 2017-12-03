@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
 public class ContenedorTableroHorizontal extends HBox {
-
+/*
 	public ContenedorTableroHorizontal(ArrayList<ControladorEncasillable> controladores) {
 		for (ControladorEncasillable controlador:controladores) {
 			ContenedorCasillero c = new ContenedorCasillero(controlador.getNombre(),controlador.getColor());
@@ -17,4 +17,5 @@ public class ContenedorTableroHorizontal extends HBox {
 			this.getChildren().add(c);
 		}
 	}
+*/
 }

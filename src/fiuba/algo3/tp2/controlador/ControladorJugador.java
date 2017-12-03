@@ -15,32 +15,32 @@ import javafx.scene.paint.Color;
 
 public class ControladorJugador implements Observer {
 
-	private Jugador jugador;
-	private VistaJugador vista;
+	private Jugador modelo;
+	//private VistaJugador vista;
 	private VistaCasilleroJugador vistaCasillero;
 
 	public ControladorJugador(Jugador jugador) {
-		this.jugador = jugador;
+		this.modelo = jugador;
 		this.vistaCasillero = new VistaCasilleroJugador(jugador.getColor());
 	}
 
 	public String getNombre() {
-		return this.jugador.getNombre();
+		return this.modelo.getNombre();
 	}
 
 	public Color getColor() {
-		return this.jugador.getColor();
+		return this.modelo.getColor();
 	}
 
 	public String getDinero() {
-		return "$" + String.valueOf(this.jugador.obtenerDinero().obtenerMontoEntero());
+		return "$" + String.valueOf(this.modelo.obtenerDinero().obtenerMontoEntero());
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		this.vista.actualizarDinero(this.getDinero());
+		//this.vista.actualizarDinero(jugador.obtenerDinero());
 	}
-
+/*
 	public void asociarVista(VistaJugador vista) {
 		this.vista = vista;
 	}
@@ -88,13 +88,22 @@ public class ControladorJugador implements Observer {
 			e.printStackTrace();
 		}
 	}
-
-	public VistaCasilleroJugador getVistaCasilleroJugador() {
+*/
+	public VistaCasilleroJugador getVista() {
 		return this.vistaCasillero;
 	}
-
+	
+	public Jugador getModelo() {
+		return this.modelo;
+	}
+/*
 	public boolean estaEncarcelado() {
 		return this.jugador.estaEncarcelado();
 	}
+
+	public Encasillable obtenerModeloCasilleroActual() {
+		return jugador.obtenerCasilleroActual();
+	}
+*/
 
 }
