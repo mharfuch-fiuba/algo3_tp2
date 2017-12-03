@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class VistaInicial extends VBox {
 		
-	public VistaInicial(Stage stage) {
+	public VistaInicial(ContenedorPrincipal stage) {
 		Image logo = new Image("file:assets/logo.png");
 		ImageView vistaImagen = new ImageView(logo);
 		vistaImagen.setFitHeight(240);
@@ -21,14 +21,12 @@ public class VistaInicial extends VBox {
 		this.getStyleClass().add("VistaInicial");
 	}
 	
-	private void agregarBotonNuevaPartida(Stage stage){	
+	private void agregarBotonNuevaPartida(ContenedorPrincipal stage){	
 		VistaConfiguracionPartida vistaConfiguracionPartida= new VistaConfiguracionPartida(stage);
-		Scene escenaConfiguracionPartida = new Scene(vistaConfiguracionPartida);
-		escenaConfiguracionPartida.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
 
 		BotonAlgoPoly botonNuevaPartida = new BotonAlgoPoly("Nueva Partida");
-		botonNuevaPartida.setOnAction(new BotonNuevaPartidaHandler(stage,escenaConfiguracionPartida));
-		this.getChildren().add(botonNuevaPartida);	
+		botonNuevaPartida.setOnAction(new BotonNuevaPartidaHandler(stage,vistaConfiguracionPartida));
+		this.getChildren().add(botonNuevaPartida);
 	}
 	
 }

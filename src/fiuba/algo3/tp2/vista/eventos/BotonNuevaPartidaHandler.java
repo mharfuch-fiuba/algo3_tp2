@@ -1,26 +1,23 @@
 package fiuba.algo3.tp2.vista.eventos;
 
+import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 
 public class BotonNuevaPartidaHandler implements EventHandler<ActionEvent> {
-	private Stage stage;
-	private Scene escenaConfigurarPartida;
+	
+	private ContenedorPrincipal stage;
+	private Pane escenaConfigurarPartida;
 
-	public BotonNuevaPartidaHandler(Stage stage, Scene escenaConfigurarPartida) {
+	public BotonNuevaPartidaHandler(ContenedorPrincipal stage,Pane  escenaConfigurarPartida) {
 		this.stage = stage;
 		this.escenaConfigurarPartida = escenaConfigurarPartida;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		
-		stage.setScene(escenaConfigurarPartida);
-		stage.setFullScreenExitHint("");
-		stage.setFullScreen(true);
-		//stage.setFullScreen(true);
+		this.stage.cambiarVistaDinamica(this.escenaConfigurarPartida);
 	}
 
 }

@@ -20,8 +20,11 @@ public class TextFieldNombres extends ArrayList<Node> {
 		this.add(nombreJugador3);
 	}
 
-	public String[] getNombres(){
-		String[] nombres = {nombreJugador1.getText(),nombreJugador2.getText(),nombreJugador3.getText()};
+	public ArrayList<String> getNombres(){
+		ArrayList<String> nombres = new ArrayList<String>();
+		nombres.add(nombreJugador1.getText());
+		nombres.add(nombreJugador2.getText());
+		nombres.add(nombreJugador3.getText());
 		return nombres;
 	}
 	
