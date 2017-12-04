@@ -24,12 +24,12 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
-import javafx.concurrent.Task;
 
 public class ControladorPrincipal {
 	
 	private static final int CANTIDAD_DE_DADOS = 2;
 	private static final int DINERO_INICIAL = 100000;
+	private static final int VELOCIDAD_ANIMACION = 200;
 	
 	private ControladorJugador jugador_actual;
 	private ControladorTablero controlador_tablero;
@@ -338,11 +338,12 @@ public class ControladorPrincipal {
 	
 	private class AnimacionAvanzar extends AnimationTimer {
 
-		int iteraciones_restantes = 0;
-		static final int tiempo_espera = 200;
+		int iteraciones_restantes;
+		int tiempo_espera;
 		
-		public AnimacionAvanzar(int iteraciones_restantes) {
+		public AnimacionAvanzar(int iteraciones_restantes, int tiempo_espera) {
 			this.iteraciones_restantes = iteraciones_restantes;
+			this.tiempo_espera = tiempo_espera;
 			this.start();
 		}
 		
@@ -362,7 +363,6 @@ public class ControladorPrincipal {
 
 		@Override
 		public void handle(long arg0) {
-			System.out.println("NUEVO THREAD" + iteraciones_restantes);
 			if(iteraciones_restantes <= 0) {
 				this.finalizar();
 				return;
@@ -377,7 +377,7 @@ public class ControladorPrincipal {
 	}
 	
 	public void avanzar_segun_dados() {
-		new AnimacionAvanzar(controlador_cubilete.sumarValores());
+		new AnimacionAvanzar(controlador_cubilete.sumarValores(), VELOCIDAD_ANIMACION);
 	}
 	
 }

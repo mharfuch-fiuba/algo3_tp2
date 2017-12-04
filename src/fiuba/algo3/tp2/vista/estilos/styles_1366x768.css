@@ -27,7 +27,7 @@
 }
  
 .VistaInicial{
-	-fx-background-color: #7EBD91;
+	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;
 	-fx-pref-width: 1366.0;
 	-fx-pref-height: 768.0;
@@ -88,7 +88,7 @@
 }
 
 .VistaTurnoDinamica{
-	-fx-background-color: green;
+	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;
 	-fx-pref-width: 598.0;	
 	-fx-pref-height: 476.0;
