@@ -14,6 +14,7 @@ import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
+import fiuba.algo3.tp2.vista.pantallas.PantallaPartida;
 import fiuba.algo3.tp2.vista.partida.*;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
@@ -23,6 +24,7 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
+import javafx.concurrent.Task;
 
 public class ControladorPrincipal {
 	
@@ -52,6 +54,7 @@ public class ControladorPrincipal {
 		//INICIALIZAR RONDA
 		controlador_ronda = new ControladorRonda();
 		contenedor_ronda = new ContenedorRonda(controlador_ronda);
+		contenedor_acciones = new VistaAcciones();
 	}
 	
 	private static final ControladorPrincipal INSTANCE = new ControladorPrincipal();
@@ -79,26 +82,19 @@ public class ControladorPrincipal {
 	
 	public void iniciar_partida(ContenedorPrincipal contenedor_principal) {
 		System.out.println("INICIANDO PARTIDA...");
-		//ESTO DIBUJA LA PARTIDA
-		contenedor_acciones = new VistaAcciones();
-		contenedor_acciones.colocarVistaNormal();
-		PantallaPartida vistaPartida = new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones, contenedor_ronda);
-		
-		//DIBUJAR A LOS JUGADORES EN EL TALBERO:
+		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones, contenedor_ronda);
 	    controlador_tablero.dibujarJugadores(controladores_jugadores);
-	    
 		this.iniciar_ronda();
 	}
 	
 	public void iniciar_ronda() {
 		System.out.println("INICIA RONDA...");
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
-		System.out.println("El jugador actual es: " + jugador_actual.getNombre());
-		//MOSTRAR NOMBRE DEL JUGADOR ACTUAL
 		if(jugador_actual.estaEnCarcel())
 			contenedor_acciones.colocarVistaCarcel();
 		else
 			contenedor_acciones.colocarVistaNormal();
+		//MOSTRAR NOMBRE DEL JUGADOR ACTUAL
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
 	}
 	
@@ -340,54 +336,48 @@ public class ControladorPrincipal {
 		ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
 	*/
 	
-private class AnimacionAvanzar extends AnimationTimer {
+	private class AnimacionAvanzar extends AnimationTimer {
+
+		int iteraciones_restantes = 0;
+		static final int tiempo_espera = 200;
 		
-		private int repeticiones = 0;
-		private int i;
-		private long tiempo;
+		public AnimacionAvanzar(int iteraciones_restantes) {
+			this.iteraciones_restantes = iteraciones_restantes;
+			this.start();
+		}
 		
-		public AnimacionAvanzar(int repeticiones, long tiempo) {
-			this.repeticiones = repeticiones;
-			this.tiempo = tiempo;
-			this.i = 0;
+		private void finalizar() {
+			this.stop();
+			//ControladorPrincipal.getInstance().aplicar_efecto();
+			ControladorPrincipal.getInstance().cambiar_vista_efecto();
 		}
 		
 		private void delay() {
 			try {
-				Thread.sleep(tiempo);
+				Thread.sleep(tiempo_espera);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		private void aplicar_efecto() {
-			try {
-				jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
-			}catch(DineroInsuficienteException e) {
-				contenedor_acciones.colocarVistaDineroInsuficiente();
-			} catch (BancaRotaException e) {
-				jugador_fuera_de_juego();
+
+		@Override
+		public void handle(long arg0) {
+			System.out.println("NUEVO THREAD" + iteraciones_restantes);
+			if(iteraciones_restantes <= 0) {
+				this.finalizar();
+				return;
 			}
-			ControladorPrincipal.getInstance().cambiar_vista_efecto();
-		}
-		
-		@Override public void handle(long currentNanoTime) {
-        	if(i >= repeticiones) {
-        		this.stop();
-        		aplicar_efecto();
-        	}
-    		controlador_tablero.borrarJugador(jugador_actual);
+			controlador_tablero.borrarJugador(jugador_actual);
     		jugador_actual.avanzar(1);
     		controlador_tablero.dibujarJugador(jugador_actual);
-    		this.i++;
     		this.delay();
-        }
+    		this.iteraciones_restantes--;
+		}
 		
 	}
 	
 	public void avanzar_segun_dados() {
-		AnimacionAvanzar animacion = new AnimacionAvanzar(controlador_cubilete.getModelo().sumarValores(), 100);
-		animacion.start();
+		new AnimacionAvanzar(controlador_cubilete.sumarValores());
 	}
 	
 }

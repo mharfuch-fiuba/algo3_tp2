@@ -30,4 +30,8 @@ public class ControladorCubilete {
 		return this.cubilete;
 	}
 
+	public int sumarValores() {
+		return this.cubilete.sumarValores();
+	}
+
 }
