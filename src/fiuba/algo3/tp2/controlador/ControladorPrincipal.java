@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.controlador;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
@@ -21,9 +20,7 @@ import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 
@@ -172,8 +169,8 @@ public class ControladorPrincipal {
 		}
 		
 	}
-
-	public void terminar_turno() {
+	
+	public void aplicar_efecto() {
 		controlador_tablero.borrarJugador(jugador_actual);
 		try {jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());}
 		catch (DineroInsuficienteException e) {
@@ -185,7 +182,9 @@ public class ControladorPrincipal {
 			jugador_fuera_de_juego();
 		}
 		controlador_tablero.dibujarJugador(jugador_actual);
-		
+	}
+
+	public void terminar_turno() {
 		controlador_ronda.avanzarTurno();
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		//Agrega el nombre del siguiente
@@ -386,11 +385,9 @@ private class AnimacionAvanzar extends AnimationTimer {
 		
 	}
 	
-	
-	
 	public void avanzar_segun_dados() {
 		AnimacionAvanzar animacion = new AnimacionAvanzar(controlador_cubilete.getModelo().sumarValores(), 100);
-		animacion.start();		
+		animacion.start();
 	}
 	
 }
