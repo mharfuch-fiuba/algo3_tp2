@@ -101,8 +101,6 @@ public class ControladorPrincipal {
 	public void lanzar_dado() {
 		controlador_cubilete.lanzar();
 		contenedor_acciones.colocarVistaDados();
-		//DIBUJAR VISTA DADOS, VER SI SE DIBUJA SOLA O LA DIBUJAMOS DESDE ACA
-		//contenedor_turno.cambiarVistaDinamica(controlador_cubilete.getVista());
 	}
 	
 	private void jugador_fuera_de_juego() {
@@ -122,7 +120,6 @@ public class ControladorPrincipal {
 				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.getNombre(),propiedad.getPrecio().obtenerMontoEntero());
 				return;
 			}
-			System.out.println(propiedad.getPropietario() + " == " + jugador_actual.getModelo());
 			if(propiedad.getPropietario() == jugador_actual.getModelo()) {
 				contenedor_acciones.colocarVistaPropiedadPropia();
 			} else {
@@ -227,6 +224,9 @@ public class ControladorPrincipal {
 			jugador_actual.pagarFianza();
 		}catch(NoPuedePagarFianzaException e) {
 			contenedor_acciones.colocarVistaGenerica(new VistaMensajeGenerico("No se puede pagar la fianza en este turno.", new VistaCarcel()));
+			return;
+		}catch(DineroInsuficienteException e) {
+			contenedor_acciones.colocarVistaGenerica(new VistaMensajeGenerico("Dinero insuficiente.", new VistaCarcel()));
 			return;
 		}
 		contenedor_acciones.colocarVistaNormal();
