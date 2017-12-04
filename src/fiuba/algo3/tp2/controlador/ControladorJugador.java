@@ -158,4 +158,8 @@ public class ControladorJugador implements Observer {
 		return this.modelo.estaEncarcelado();
 	}
 
+	public void retroceder(int cant_casilleros) {
+		this.modelo.retroceder(cant_casilleros);
+	}
+
 }

@@ -1,18 +1,20 @@
 package fiuba.algo3.tp2.vista.botones.eventos;
 
-import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
+import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonRetrocesoDinamicoHandler implements EventHandler<ActionEvent> {
 
-	public BotonRetrocesoDinamicoHandler(VistaAcciones contenedorPadre) {
-		// TODO Auto-generated constructor stub
+	private int cant_casilleros;
+	
+	public BotonRetrocesoDinamicoHandler(int cant_casilleros) {
+		this.cant_casilleros = cant_casilleros;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
+		ControladorPrincipal.getInstance().retroceder(cant_casilleros);
 
 	}
 

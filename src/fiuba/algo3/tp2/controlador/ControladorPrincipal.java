@@ -14,6 +14,8 @@ import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
+import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
+import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
 import fiuba.algo3.tp2.vista.pantallas.PantallaPartida;
 import fiuba.algo3.tp2.vista.partida.*;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
@@ -115,7 +117,7 @@ public class ControladorPrincipal {
 		//contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual.getNombre()));	
 	}
 	
-	private void cambiar_vista_efecto() {
+	public void cambiar_vista_efecto() {
 		if(jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
 			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 			if(propiedad.getPropietario().esNull()) {
@@ -147,7 +149,7 @@ public class ControladorPrincipal {
 		if(jugador_actual.obtenerCasilleroActual() instanceof RetrocesoDinamico) {
 			RetrocesoDinamico casillero = (RetrocesoDinamico) jugador_actual.obtenerCasilleroActual();
 			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
-			contenedor_acciones.colocarVistaAvance(cant_casilleros);
+			contenedor_acciones.colocarVistaRetroceso(cant_casilleros);
 		}
 		
 		if(jugador_actual.obtenerCasilleroActual() instanceof Salida) {
@@ -336,48 +338,20 @@ public class ControladorPrincipal {
 		ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
 	*/
 	
-	private class AnimacionAvanzar extends AnimationTimer {
-
-		int iteraciones_restantes;
-		int tiempo_espera;
-		
-		public AnimacionAvanzar(int iteraciones_restantes, int tiempo_espera) {
-			this.iteraciones_restantes = iteraciones_restantes;
-			this.tiempo_espera = tiempo_espera;
-			this.start();
-		}
-		
-		private void finalizar() {
-			this.stop();
-			//ControladorPrincipal.getInstance().aplicar_efecto();
-			ControladorPrincipal.getInstance().cambiar_vista_efecto();
-		}
-		
-		private void delay() {
-			try {
-				Thread.sleep(tiempo_espera);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-		@Override
-		public void handle(long arg0) {
-			if(iteraciones_restantes <= 0) {
-				this.finalizar();
-				return;
-			}
-			controlador_tablero.borrarJugador(jugador_actual);
-    		jugador_actual.avanzar(1);
-    		controlador_tablero.dibujarJugador(jugador_actual);
-    		this.delay();
-    		this.iteraciones_restantes--;
-		}
-		
+	public void avanzar(int cant_casilleros) {
+		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
 	
 	public void avanzar_segun_dados() {
-		new AnimacionAvanzar(controlador_cubilete.sumarValores(), VELOCIDAD_ANIMACION);
+		this.avanzar(controlador_cubilete.sumarValores());
+	}
+
+	public void retroceder(int cant_casilleros) {
+		new AnimacionRetroceder(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
+	}
+
+	public void cambiar_vista_vacia() {
+		contenedor_acciones.colocarVistaVacia();
 	}
 	
 }

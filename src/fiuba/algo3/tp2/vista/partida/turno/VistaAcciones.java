@@ -82,6 +82,10 @@ public class VistaAcciones extends VBox {
 	public void colocarVistaDineroInsuficiente() {
 		this.cambiarVistaAccion(new VistaDineroInsuficiente());
 	}
+
+	public void colocarVistaVacia() {
+		this.cambiarVistaAccion(new VistaVacia());
+	}
 	
 	
 	/*

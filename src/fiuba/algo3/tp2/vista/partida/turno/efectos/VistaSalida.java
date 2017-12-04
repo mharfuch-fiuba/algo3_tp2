@@ -6,9 +6,10 @@ import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 public class VistaSalida extends VistaAccion{
 
 	public VistaSalida(){
-		LabelTurnoDinamica label = new LabelTurnoDinamica("Caiste en Salida. Descansa que no pasa nada.");
+		LabelTurnoDinamica label1 = new LabelTurnoDinamica("Caiste en Salida.");
+		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Descansa que no pasa nada.");
 		BotonTerminarTurno boton = new BotonTerminarTurno();
-		this.getChildren().addAll(label, boton);
+		this.getChildren().addAll(label1, label2, boton);
 	}
 	
 }

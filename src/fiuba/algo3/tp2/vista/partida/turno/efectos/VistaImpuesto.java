@@ -6,8 +6,9 @@ import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 public class VistaImpuesto extends VistaAccion{
 
 	public VistaImpuesto(){
-		LabelTurnoDinamica label = new LabelTurnoDinamica("CAISTE EN IMPUESTO. PAGAR�S 10% DE TU EFECTIVO");
+		LabelTurnoDinamica label1 = new LabelTurnoDinamica("CAISTE EN IMPUESTO.");
+		LabelTurnoDinamica label2 = new LabelTurnoDinamica("PAGARÁS 10% DE TU EFECTIVO.");
 		BotonTerminarTurno boton = new BotonTerminarTurno();
-		this.getChildren().addAll(label,boton);
+		this.getChildren().addAll(label1,label2,boton);
 	}
 }
