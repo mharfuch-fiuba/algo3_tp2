@@ -30,7 +30,7 @@ public class VistaJugador extends VBox{
 	}
 	
 	private void mostrarDinero(){
-		labelDinero = new Label(controladorJugador.getDinero());
+		labelDinero = new Label(String.valueOf(controladorJugador.getDinero().obtenerMontoEntero()));
 		labelDinero.setTextFill(Color.WHITE);
 		this.getChildren().add(labelDinero);
 	}

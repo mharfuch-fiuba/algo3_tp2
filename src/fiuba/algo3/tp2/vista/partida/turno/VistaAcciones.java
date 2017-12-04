@@ -2,33 +2,38 @@ package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.vista.partida.turno.efectos.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class VistaAcciones extends VBox {
 
-	private VistaAccion vista_actual;
-	private VistaTurnoTitulo vista_titulo;
+	private String jugador_actual;
+	private Color color_jugador;
 	
 	public VistaAcciones(){
-		vista_titulo=new VistaTurnoTitulo("Sin Jugador");
+		jugador_actual = "Sin Jugador";
 		this.colocarVistaNormal();
-		//VistaTurnoInicial vista_actual = new VistaTurnoInicial(this);
-		//this.getChildren().addAll(vista_titulo, vista_actual);
 	}
 	
-	public void setJugadorActual(String jugador_actual) {
-		vista_titulo.setTitulo(jugador_actual);
+	public void setJugadorActual(String jugador_actual, Color color_jugador) {
+		this.jugador_actual = jugador_actual;
+		this.color_jugador = color_jugador;
 	}
-	
-	public void colocarVistaCarcel() {
-		this.cambiarVistaAccion(new VistaCarcel());
-	}
-	
+
 	private void cambiarVistaAccion(VistaAccion nueva_vista){
+		this.getChildren().clear();
+		this.getChildren().add(new VistaTurnoTitulo(jugador_actual, color_jugador));
+		this.getChildren().add(nueva_vista);
+		/*
 		System.out.println("Saco" + this.vista_actual);
 		this.getChildren().remove(this.vista_actual);
 		System.out.println("pongo" + nueva_vista);
 		this.getChildren().add(nueva_vista);
 		this.vista_actual = nueva_vista;
+		*/
+	}
+	
+	public void colocarVistaCarcel() {
+		this.cambiarVistaAccion(new VistaCarcel());
 	}
 	
 	public void colocarVistaNormal() {
@@ -86,52 +91,5 @@ public class VistaAcciones extends VBox {
 	public void colocarVistaVacia() {
 		this.cambiarVistaAccion(new VistaVacia());
 	}
-	
-	
-	/*
-	public VistaTurnoInicial getVistaInicial(){
-		VistaTurnoInicial vistaInicial=this.vistaTurnoInicial;
-		//ControladorJugador jugador = this.ronda.getJugadorActual();
-		/*
-		if(jugador.estaEncarcelado()){
-			vistaInicial= new VistaJugadorEnCarcel(this,jugador);
-		}
-		
-		return vistaInicial;
-	}
-*/
-	/*
-	public Button getBotonVolver(){
-		return new BotonVolver(this);
-	}
-	
-	private class BotonVolver extends Button{
-		
-		public BotonVolver(ContenedorAcciones contenedorPadre){
-			this.getStyleClass().add("Boton");
-			this.setText("Volver");
-			this.setOnAction(new BotonVolverHandler(contenedorPadre));
-		}
-	}
-	
-	public class BotonVolverHandler implements EventHandler<ActionEvent> {
-		
-		ContenedorAcciones contenedorPadre;
-		
-		public BotonVolverHandler(ContenedorAcciones contenedorPadre) {
-			this.contenedorPadre=contenedorPadre;
-		}
-		@Override
-		public void handle(ActionEvent event) {
-			this.contenedorPadre.cambiarVistaDinamica(this.contenedorPadre.getVistaInicial());
-		}
-		
-	}
-	*/
-
-	
-
-	
-	
 	
 }

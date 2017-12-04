@@ -24,7 +24,6 @@ import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
-import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -92,12 +91,11 @@ public class ControladorPrincipal {
 	public void iniciar_ronda() {
 		System.out.println("INICIA RONDA...");
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
+		contenedor_acciones.setJugadorActual(jugador_actual.getNombre(), jugador_actual.getColor());
 		if(jugador_actual.estaEnCarcel())
 			contenedor_acciones.colocarVistaCarcel();
 		else
 			contenedor_acciones.colocarVistaNormal();
-		//MOSTRAR NOMBRE DEL JUGADOR ACTUAL
-		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
 	}
 	
 	public void lanzar_dado() {
@@ -185,8 +183,6 @@ public class ControladorPrincipal {
 	public void terminar_turno() {
 		controlador_ronda.avanzarTurno();
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
-		//Agrega el nombre del siguiente
-		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
 		this.iniciar_ronda();
 	}
 	

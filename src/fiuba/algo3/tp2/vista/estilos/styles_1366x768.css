@@ -77,14 +77,14 @@
 	-fx-background-color: white;
 	-fx-alignment: center;
 	-fx-pref-width: 598.0;	
-	-fx-pref-height: 256.0;
+	-fx-pref-height: 200.0;
 }
 
 .VistaTurnoTitulo{
-	-fx-background-color: lightgreen;
+	-fx-background-color: #d86e3a;
 	-fx-alignment: center;
 	-fx-pref-width: 598.0;	
-	-fx-pref-height: 100.0;	
+	-fx-pref-height: 91.0;	
 }
 
 .VistaTurnoDinamica{

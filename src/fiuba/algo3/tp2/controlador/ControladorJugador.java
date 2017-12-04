@@ -118,12 +118,8 @@ public class ControladorJugador implements Observer {
 		return this.modelo.getNombre();
 	}
 
-	public String getDinero() {
-		return this.getDinero();
-	}
-
 	public Color getColor() {
-		return this.getColor();
+		return this.modelo.getColor();
 	}
 
 	public void avanzar(int i) {
@@ -160,6 +156,10 @@ public class ControladorJugador implements Observer {
 
 	public void retroceder(int cant_casilleros) {
 		this.modelo.retroceder(cant_casilleros);
+	}
+
+	public Dinero getDinero() {
+		return this.modelo.obtenerDinero();
 	}
 
 }
