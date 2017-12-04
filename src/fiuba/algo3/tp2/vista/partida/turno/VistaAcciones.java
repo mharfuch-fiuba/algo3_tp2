@@ -71,8 +71,8 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaPropiedadAjena());
 	}
 	
-	public void colocarVistaPropiedadLibre() {
-		this.cambiarVistaAccion(new VistaPropiedadLibre());
+	public void colocarVistaPropiedadLibre(String nombre, int precio) {
+		this.cambiarVistaAccion(new VistaPropiedadLibre(nombre, precio));
 	}
 
 	public void colocarVistaGenerica(VistaAccion vista_siguiente) {

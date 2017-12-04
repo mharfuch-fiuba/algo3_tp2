@@ -123,7 +123,7 @@ public class ControladorPrincipal {
 		if(jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
 			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 			if(propiedad.getPropietario().esNull()) {
-				contenedor_acciones.colocarVistaPropiedadLibre();
+				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.getNombre(),propiedad.getPrecio().obtenerMontoEntero());
 				return;
 			}
 			System.out.println(propiedad.getPropietario() + " == " + jugador_actual.getModelo());
