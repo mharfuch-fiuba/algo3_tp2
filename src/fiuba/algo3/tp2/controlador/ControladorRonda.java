@@ -7,7 +7,7 @@ import java.util.Observer;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
-import fiuba.algo3.tp2.modelo.RondaAlgoPoly;
+import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTituloTurno;
 
@@ -21,7 +21,7 @@ public class ControladorRonda implements Observer {
 
 	public ControladorRonda() {
 		this.jugadores = new HashMap<Jugador, ControladorJugador>();
-		this.modelo_ronda = new RondaAlgoPoly();
+		this.modelo_ronda = new Ronda();
 		this.modelo_ronda.addObserver(this);
 		//this.cubilete= new ControladorCubilete(ronda.getCubilete());
 	}

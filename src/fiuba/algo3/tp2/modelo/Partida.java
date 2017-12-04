@@ -9,7 +9,7 @@ public class Partida {
 	public final Dinero dineroInicial = new Dinero(100000);
 
 	public Partida() {
-		this.ronda = new RondaAlgoPoly();
+		this.ronda = new Ronda();
 		this.tablero = new Tablero();
 	}
 

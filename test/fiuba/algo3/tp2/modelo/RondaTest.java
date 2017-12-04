@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import org.junit.Assert;
 
-public class RondaAlgoPolyTest {
+public class RondaTest {
 
 	@Test
 	public void testAgregarJugadorEnUnaRondaVaciaDevuelveElJugadorAgregado() throws NoHayJugadoresException {
