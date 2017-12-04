@@ -95,7 +95,7 @@ public class ControladorPrincipal {
 		if(jugador_actual.estaEnCarcel())
 			contenedor_acciones.colocarVistaCarcel();
 		else
-			contenedor_acciones.colocarVistaNormal();
+			contenedor_acciones.colocarVistaNormal(jugador_actual.getPropiedades());
 	}
 	
 	public void lanzar_dado() {
@@ -185,7 +185,7 @@ public class ControladorPrincipal {
 	
 	public void construir(Terreno terreno) {
 		try {terreno.construir();} catch(DineroInsuficienteException e) {
-			contenedor_acciones.colocarVistaDineroInsuficiente();
+			contenedor_acciones.colocarVistaDineroInsuficiente(jugador_actual.getPropiedades());
 			//TAMBIEN PUEDE SALIR ALGUN MENSAJE RELACIONADO CON LAS PROPIEDADES PAREJA
 		}
 		//ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
@@ -201,15 +201,17 @@ public class ControladorPrincipal {
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 		try {jugador_actual.comprar(propiedad);} catch(DineroInsuficienteException e) {
-			contenedor_acciones.colocarVistaDineroInsuficiente();
+			contenedor_acciones.colocarVistaDineroInsuficiente(jugador_actual.getPropiedades());
 			return;
 		}
 		terminar_turno();
 		//ACTUALIZAR VISTA DINERO JUGADORES (PUEDE CAMBIAR LA PLATA)
 	}
 	
-	public void vender(Terreno terreno) {
-		terreno.vender();
+	public void vender(Propiedad propiedad) {
+		System.out.println(propiedad.getNombre());
+		propiedad.vender();
+		contenedor_acciones.colocarVistaNormal(jugador_actual.getPropiedades());
 		//ACTUALIZAR VISTA TABLERO (PODRIA LLEGAR A CAMBIAR LA CANTIDAD DE CONSTRUCCIONES)
 		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA) no hace falta
 		
@@ -229,7 +231,7 @@ public class ControladorPrincipal {
 			contenedor_acciones.colocarVistaGenerica(new VistaMensajeGenerico("Dinero insuficiente.", new VistaCarcel()));
 			return;
 		}
-		contenedor_acciones.colocarVistaNormal();
+		contenedor_acciones.colocarVistaNormal(jugador_actual.getPropiedades());
 	}
 
 	public ContenedorTablero getVistaTablero() {

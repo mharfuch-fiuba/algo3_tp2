@@ -1,5 +1,8 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
+import java.util.ArrayList;
+
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -11,7 +14,7 @@ public class VistaAcciones extends VBox {
 	
 	public VistaAcciones(){
 		jugador_actual = "Sin Jugador";
-		this.colocarVistaNormal();
+		this.colocarVistaNormal(new ArrayList<Propiedad>());
 	}
 	
 	public void setJugadorActual(String jugador_actual, Color color_jugador) {
@@ -36,8 +39,8 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaCarcel());
 	}
 	
-	public void colocarVistaNormal() {
-		this.cambiarVistaAccion(new VistaTurnoInicial());
+	public void colocarVistaNormal(ArrayList<Propiedad> propiedades) {
+		this.cambiarVistaAccion(new VistaTurnoInicial(propiedades));
 	}
 	
 	public void colocarVistaDados() {
@@ -84,8 +87,8 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(vista_siguiente);
 	}
 
-	public void colocarVistaDineroInsuficiente() {
-		this.cambiarVistaAccion(new VistaDineroInsuficiente());
+	public void colocarVistaDineroInsuficiente(ArrayList<Propiedad> propiedades) {
+		this.cambiarVistaAccion(new VistaDineroInsuficiente(propiedades));
 	}
 
 	public void colocarVistaVacia() {

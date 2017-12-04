@@ -21,7 +21,7 @@ public class ControladorEncasillable implements Observer {
 		//refactor vistaefecto vistaencasillable
 		this.modelo = encasillable;
 		this.vista = vistaEfecto;
-		vista.setDescrpcion(modelo.getNombre());
+		//vista.setDescrpcion(modelo.getNombre());
 	}
 /*
 	// mostrar en sector superior

@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -160,6 +161,10 @@ public class ControladorJugador implements Observer {
 
 	public Dinero getDinero() {
 		return this.modelo.obtenerDinero();
+	}
+	
+	public ArrayList<Propiedad> getPropiedades() {
+		return this.modelo.getPropiedades();
 	}
 
 }

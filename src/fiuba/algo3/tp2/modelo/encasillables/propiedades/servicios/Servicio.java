@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.JugadorNull;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Emparejable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
@@ -62,9 +63,12 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 	
 	@Override
 	public void vender() {
+		Jugador propietario = this.getPropietario();
 		Dinero precio_terreno = this.getPrecio();
 		Dinero monto_a_cobrar = precio_terreno.obtenerPorcentaje(PTJ_DE_REINTEGRO);
 		this.getPropietario().cobrar(monto_a_cobrar);
+		this.setPropietario(new JugadorNull());
+		propietario.quitarPropiedad(this);
 	}
 	
 }
