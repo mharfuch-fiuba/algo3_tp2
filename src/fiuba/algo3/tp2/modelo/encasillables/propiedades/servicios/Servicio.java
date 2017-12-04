@@ -33,6 +33,10 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 		propietario.cobrar(monto);
 	}
 	
+	public Dinero getAlquiler(Cubilete dados) {
+		return estrategia.totalServicio(this, dados);
+	}
+	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) throws DineroInsuficienteException {
 		if(this.getPropietario() == jugador || this.getPropietario().esNull()) return;

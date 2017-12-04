@@ -5,6 +5,7 @@ import java.util.Observable;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorNull;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
@@ -42,5 +43,7 @@ public abstract class Propiedad extends Observable implements Encasillable {
 	public abstract boolean esNull();
 
 	public abstract void vender();
+
+	public abstract Dinero getAlquiler(Cubilete dados);
 
 }

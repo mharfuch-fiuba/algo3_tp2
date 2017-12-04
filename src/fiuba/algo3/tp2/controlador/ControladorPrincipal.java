@@ -126,7 +126,7 @@ public class ControladorPrincipal {
 			if(propiedad.getPropietario() == jugador_actual.getModelo()) {
 				contenedor_acciones.colocarVistaPropiedadPropia();
 			} else {
-				contenedor_acciones.colocarVistaPropiedadAjena();
+				contenedor_acciones.colocarVistaPropiedadAjena(propiedad.getPropietario().getNombre(), propiedad.getAlquiler(controlador_cubilete.getModelo()).obtenerMontoEntero());
 			}
 		}
 		

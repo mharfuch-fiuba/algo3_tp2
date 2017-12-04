@@ -70,4 +70,9 @@ public abstract class Terreno extends Propiedad implements Edificable {
 		propietario.quitarPropiedad(this);
 	}
 	
+	@Override
+	public Dinero getAlquiler(Cubilete dados) {
+		return this.construccion.getAlquiler();
+	}
+	
 }

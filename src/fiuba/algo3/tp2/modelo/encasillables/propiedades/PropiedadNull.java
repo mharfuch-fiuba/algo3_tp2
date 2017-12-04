@@ -45,4 +45,9 @@ public class PropiedadNull extends Propiedad {
 		return false;
 	}
 
+	@Override
+	public Dinero getAlquiler(Cubilete dados) {
+		return new Dinero(0);
+	}
+
 }

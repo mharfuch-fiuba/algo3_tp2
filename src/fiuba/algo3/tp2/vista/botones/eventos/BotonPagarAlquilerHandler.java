@@ -9,6 +9,7 @@ public class BotonPagarAlquilerHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent arg0) {
 		ControladorPrincipal.getInstance().aplicar_efecto();
+		ControladorPrincipal.getInstance().terminar_turno();
 	}
 
 }
