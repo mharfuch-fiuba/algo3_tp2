@@ -41,5 +41,10 @@ public class MovimientoEnCarcelTurnoUno implements Movimiento {
 	public void avisarCambioDeTurno(Jugador jugador) {
 		jugador.setMovimiento(new MovimientoEnCarcelTurnoDos(movimiento_original));
 	}
+
+	@Override
+	public boolean estaEnCarcel() {
+		return true;
+	}
 	
 }

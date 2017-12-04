@@ -44,4 +44,9 @@ public class MovimientoEnCarcelTurnoTres implements Movimiento {
 		jugador.setMovimiento(movimiento_original);
 	}
 
+	@Override
+	public boolean estaEnCarcel() {
+		return true;
+	}
+
 }

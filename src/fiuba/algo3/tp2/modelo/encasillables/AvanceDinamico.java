@@ -6,29 +6,10 @@ import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class AvanceDinamico implements Encasillable{
 
-
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
-		int valor_obtenido = dados.sumarValores();
-		switch(valor_obtenido){
-			case 2:
-			case 3:
-			case 4:
-			case 5:
-			case 6:
-			jugador.avanzar(valor_obtenido - 2);
-			break;
-			case 7:
-			case 8:
-			case 9:
-			case 10:
-			jugador.avanzar(jugador.obtenerDinero().obtenerMontoEntero() % valor_obtenido);
-			break;
-			case 11:
-			case 12:
-			jugador.avanzar(valor_obtenido - jugador.getCantidadDePropiedades());
-			break;
-		}
+		int cant_casilleros = this.obtenerCantCasilleros(jugador, dados);
+		jugador.avanzar(cant_casilleros);
 	}
 
 	@Override
@@ -39,6 +20,17 @@ public class AvanceDinamico implements Encasillable{
 	@Override
 	public boolean esPropiedad(){
 		return false;
+	}
+
+	public int obtenerCantCasilleros(Jugador jugador, Cubilete dados) {
+		int cant_casilleros = 0;
+		int cant_propiedades = jugador.getCantidadDePropiedades();
+		int cant_efectivo = jugador.obtenerDinero().obtenerMontoEntero();
+		int nro_sacado = dados.sumarValores();
+		if(nro_sacado > 1 && nro_sacado < 7) cant_casilleros = nro_sacado - 2;
+		if(nro_sacado > 6 && nro_sacado < 11) cant_casilleros = cant_efectivo % nro_sacado ;
+		if(nro_sacado > 10 && nro_sacado < 13) cant_casilleros = nro_sacado - cant_propiedades;
+		return cant_casilleros;
 	}
 
 }

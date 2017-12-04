@@ -42,4 +42,13 @@ public class Quini6 implements Encasillable{
 		return false;
 	}
 
+	public Dinero obtenerPremio(Jugador jugador) {
+		if(!jugadoresGanadores.containsKey(jugador)) {
+			jugadoresGanadores.put(jugador, new Premio());
+		}
+		
+		Premio premio_actual = jugadoresGanadores.get(jugador);
+		return premio_actual.obtenerMonto();
+	}
+
 }

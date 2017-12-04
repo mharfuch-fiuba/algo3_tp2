@@ -5,9 +5,9 @@ import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 
 public class VistaQuini extends VistaAccion{
 
-	public VistaQuini(){
-		LabelTurnoDinamica label = new LabelTurnoDinamica("Caiste en el Quini6. Ganaste X");
+	public VistaQuini(int monto_ganado){
+		LabelTurnoDinamica label = new LabelTurnoDinamica("Caiste en el Quini6. Ganaste $" + monto_ganado);
 		BotonTerminarTurno boton = new BotonTerminarTurno();
-		this.getChildren().addAll(label);
+		this.getChildren().addAll(label,boton);
 	}
 }

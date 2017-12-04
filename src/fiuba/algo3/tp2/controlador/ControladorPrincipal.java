@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.controlador;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
@@ -20,8 +21,10 @@ import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
+import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -29,13 +32,9 @@ public class ControladorPrincipal {
 	private static final int CANTIDAD_DE_DADOS = 2;
 	private static final int DINERO_INICIAL = 100000;
 	
-	//private Tablero modelo_tablero;
-	//private Ronda modelo_ronda;
-	//private Cubilete cubilete;
 	private ControladorJugador jugador_actual;
 	private ControladorTablero controlador_tablero;
 	private ControladorCubilete controlador_cubilete;
-	//TODO: VER COMO LLEGA LA REFERENCIA DEL CONTENEDOR TURNO QUE MUESTRA LAS VISTAS QUE ARMAMOS EN PAPEL
 	private VistaAcciones contenedor_acciones;
 	private ContenedorRonda contenedor_ronda;
 	private ArrayList<ControladorJugador> controladores_jugadores;
@@ -44,8 +43,7 @@ public class ControladorPrincipal {
 	
 	private ControladorPrincipal() {
 		System.out.println("CONTSTRUCTOR CONTROLADOR PRINCIPAL");
-		controladores_jugadores = new ArrayList<ControladorJugador>(); 
-		//modelo_ronda = new RondaAlgoPoly();
+		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = Cubilete.getInstance();
 		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
 			cubilete.agregar(new DadoCubico());
@@ -54,16 +52,9 @@ public class ControladorPrincipal {
 		controlador_cubilete = new ControladorCubilete(cubilete);
 		//INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
-		//modelo_tablero = controlador_tablero.getModelo();
 		//INICIALIZAR RONDA
 		controlador_ronda = new ControladorRonda();
-		//modelo_ronda = controlador_ronda.getModelo();
 		contenedor_ronda = new ContenedorRonda(controlador_ronda);
-		
-		//contenedorDinamico = new ContenedorDinamico(contenedor_ronda,contenedor_acciones);
-		//TAL VEZ INICIALIZAR LOS CONTROLADORES DE
-		// - CUBILETE
-		// - TABLERO
 	}
 	
 	private static final ControladorPrincipal INSTANCE = new ControladorPrincipal();
@@ -107,6 +98,10 @@ public class ControladorPrincipal {
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		System.out.println("El jugador actual es: " + jugador_actual.getNombre());
 		//MOSTRAR NOMBRE DEL JUGADOR ACTUAL
+		if(jugador_actual.estaEnCarcel())
+			contenedor_acciones.colocarVistaCarcel();
+		else
+			contenedor_acciones.colocarVistaNormal();
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
 	}
 	
@@ -134,6 +129,7 @@ public class ControladorPrincipal {
 				contenedor_acciones.colocarVistaPropiedadLibre();
 				return;
 			}
+			System.out.println(propiedad.getPropietario() + " == " + jugador_actual.getModelo());
 			if(propiedad.getPropietario() == jugador_actual.getModelo()) {
 				contenedor_acciones.colocarVistaPropiedadPropia();
 			} else {
@@ -150,7 +146,15 @@ public class ControladorPrincipal {
 		}
 		
 		if(jugador_actual.obtenerCasilleroActual() instanceof AvanceDinamico) {
-			contenedor_acciones.colocarVistaAvance();
+			AvanceDinamico casillero = (AvanceDinamico) jugador_actual.obtenerCasilleroActual();
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			contenedor_acciones.colocarVistaAvance(cant_casilleros);
+		}
+		
+		if(jugador_actual.obtenerCasilleroActual() instanceof RetrocesoDinamico) {
+			RetrocesoDinamico casillero = (RetrocesoDinamico) jugador_actual.obtenerCasilleroActual();
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			contenedor_acciones.colocarVistaAvance(cant_casilleros);
 		}
 		
 		if(jugador_actual.obtenerCasilleroActual() instanceof Salida) {
@@ -158,7 +162,9 @@ public class ControladorPrincipal {
 		}
 		
 		if(jugador_actual.obtenerCasilleroActual() instanceof Quini6) {
-			contenedor_acciones.colocarVistaQuini();
+			Quini6 casillero = (Quini6) this.controlador_tablero.getModelo().getFactory().getQuini6();
+			Dinero monto_ganado = casillero.obtenerPremio(jugador_actual.getModelo());
+			contenedor_acciones.colocarVistaQuini(monto_ganado.obtenerMontoEntero());
 		}
 		
 		if(jugador_actual.obtenerCasilleroActual() instanceof Policia) {
@@ -166,27 +172,7 @@ public class ControladorPrincipal {
 		}
 		
 	}
-	
-	public void avanzar_segun_dados() {
-		for(int i = 0; i < controlador_cubilete.getModelo().sumarValores(); i++) {
-			controlador_tablero.borrarJugador(jugador_actual);
-			jugador_actual.avanzar(1);
-			controlador_tablero.dibujarJugador(jugador_actual);
-			//ACTUALIZAR VISTA DE TABLERO
-		}
-		try {
-			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
-		}catch(DineroInsuficienteException e) {
-			//DIBUJAR VISTA DINERO INSUFICIENTE
-			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
-		} catch (BancaRotaException e) {
-			jugador_fuera_de_juego();
-		}
-		
-		this.cambiar_vista_efecto();
-		
-	}
-	
+
 	public void terminar_turno() {
 		controlador_tablero.borrarJugador(jugador_actual);
 		try {jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());}
@@ -204,13 +190,13 @@ public class ControladorPrincipal {
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		//Agrega el nombre del siguiente
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre());
-		
-		contenedor_acciones.colocarVistaNormal(); // <-- DEPENDE SI ESTA EN LA CARCEL
+		this.iniciar_ronda();
 	}
 	
 	public void construir(Terreno terreno) {
 		try {terreno.construir();} catch(DineroInsuficienteException e) {
-			//MOSTRAR MENSAJE DE ERROR, TAMBIEN PUEDE SALIR ALGUN MENSAJE RELACIONADO CON LAS PROPIEDADES PAREJA
+			contenedor_acciones.colocarVistaDineroInsuficiente();
+			//TAMBIEN PUEDE SALIR ALGUN MENSAJE RELACIONADO CON LAS PROPIEDADES PAREJA
 		}
 		//ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
 		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA)
@@ -224,8 +210,12 @@ public class ControladorPrincipal {
 	
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
-		jugador_actual.comprar(propiedad);
-		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA)
+		try {jugador_actual.comprar(propiedad);} catch(DineroInsuficienteException e) {
+			contenedor_acciones.colocarVistaDineroInsuficiente();
+			return;
+		}
+		terminar_turno();
+		//ACTUALIZAR VISTA DINERO JUGADORES (PUEDE CAMBIAR LA PLATA)
 	}
 	
 	public void vender(Terreno terreno) {
@@ -265,6 +255,18 @@ public class ControladorPrincipal {
 
 	public void cambiarVistaAccion(VistaAccion vista_siguiente) {
 		contenedor_acciones.colocarVistaGenerica(vista_siguiente);	
+	}
+
+	public int getCubilete() {
+		return this.controlador_cubilete.getModelo().sumarValores();
+	}
+
+	public int getCantidadPropiedadesJugadorActual() {
+		return this.controlador_ronda.obtenerJugadorActual().getCantidadPropiedades();
+	}
+
+	public int getCantidadEfectivoJugadorActual() {
+		return this.controlador_ronda.obtenerJugadorActual().getCantidadEfectivo();
 	}
 	
 	/*
@@ -338,5 +340,57 @@ public class ControladorPrincipal {
 		
 		ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
 	*/
+	
+private class AnimacionAvanzar extends AnimationTimer {
+		
+		private int repeticiones = 0;
+		private int i;
+		private long tiempo;
+		
+		public AnimacionAvanzar(int repeticiones, long tiempo) {
+			this.repeticiones = repeticiones;
+			this.tiempo = tiempo;
+			this.i = 0;
+		}
+		
+		private void delay() {
+			try {
+				Thread.sleep(tiempo);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		private void aplicar_efecto() {
+			try {
+				jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
+			}catch(DineroInsuficienteException e) {
+				contenedor_acciones.colocarVistaDineroInsuficiente();
+			} catch (BancaRotaException e) {
+				jugador_fuera_de_juego();
+			}
+			ControladorPrincipal.getInstance().cambiar_vista_efecto();
+		}
+		
+		@Override public void handle(long currentNanoTime) {
+        	if(i >= repeticiones) {
+        		this.stop();
+        		aplicar_efecto();
+        	}
+    		controlador_tablero.borrarJugador(jugador_actual);
+    		jugador_actual.avanzar(1);
+    		controlador_tablero.dibujarJugador(jugador_actual);
+    		this.i++;
+    		this.delay();
+        }
+		
+	}
+	
+	
+	
+	public void avanzar_segun_dados() {
+		AnimacionAvanzar animacion = new AnimacionAvanzar(controlador_cubilete.getModelo().sumarValores(), 100);
+		animacion.start();		
+	}
 	
 }

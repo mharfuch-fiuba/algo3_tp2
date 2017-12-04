@@ -8,13 +8,9 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 
 public class ControladorJugador implements Observer {
@@ -148,6 +144,18 @@ public class ControladorJugador implements Observer {
 
 	public void pagarFianza() {
 		this.modelo.pagarFianza();
+	}
+
+	public int getCantidadPropiedades() {
+		return this.modelo.getCantidadDePropiedades();
+	}
+
+	public int getCantidadEfectivo() {
+		return this.modelo.obtenerDinero().obtenerMontoEntero();
+	}
+
+	public boolean estaEnCarcel() {
+		return this.modelo.estaEncarcelado();
 	}
 
 }

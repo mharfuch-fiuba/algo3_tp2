@@ -44,4 +44,9 @@ public class MovimientoNormal implements Movimiento {
 		return;
 	}
 
+	@Override
+	public boolean estaEnCarcel() {
+		return false;
+	}
+
 }

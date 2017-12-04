@@ -179,4 +179,9 @@ public class JugadorNull extends Jugador {
 		return new Dinero(0);
 	}
 
+	@Override
+	public boolean estaEncarcelado() {
+		return false;
+	}
+
 }

@@ -43,16 +43,20 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaImpuesto());
 	}
 
-	public void colocarVistaAvance() {
-		this.cambiarVistaAccion(new VistaAvance());
+	public void colocarVistaAvance(int cant_casilleros) {
+		this.cambiarVistaAccion(new VistaAvance(cant_casilleros));
+	}
+	
+	public void colocarVistaRetroceso(int cant_casilleros) {
+		this.cambiarVistaAccion(new VistaRetroceso(cant_casilleros));
 	}
 
 	public void colocarVistaSalida() {
 		this.cambiarVistaAccion(new VistaSalida());
 	}
 
-	public void colocarVistaQuini() {
-		this.cambiarVistaAccion(new VistaQuini());
+	public void colocarVistaQuini(int monto_ganado) {
+		this.cambiarVistaAccion(new VistaQuini(monto_ganado));
 	}
 
 	public void colocarVistaPolicia() {
@@ -73,6 +77,10 @@ public class VistaAcciones extends VBox {
 
 	public void colocarVistaGenerica(VistaAccion vista_siguiente) {
 		this.cambiarVistaAccion(vista_siguiente);
+	}
+
+	public void colocarVistaDineroInsuficiente() {
+		this.cambiarVistaAccion(new VistaDineroInsuficiente());
 	}
 	
 	

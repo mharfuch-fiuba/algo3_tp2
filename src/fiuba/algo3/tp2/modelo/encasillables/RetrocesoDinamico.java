@@ -1,47 +1,17 @@
 package fiuba.algo3.tp2.modelo.encasillables;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 
 public class RetrocesoDinamico implements Encasillable{
-	private ArrayList<Integer> dadosEfecto1 = new ArrayList<>(Arrays.asList(2,3,4,5,6));
-	private ArrayList<Integer> dadosEfecto2 = new ArrayList<>(Arrays.asList(6,7,8,9,10));
-	private ArrayList<Integer> dadosEfecto3 = new ArrayList<>(Arrays.asList(11,12));
-	
-	private void efectoRetrocedeSumaDadosMenosCantidadPropiedades(Jugador jugador, int sumaDados){
-		int cantidadPropiedades = jugador.getCantidadDePropiedades();
-		int casillerosPorRetroceder = sumaDados-cantidadPropiedades;
-		casillerosPorRetroceder = (casillerosPorRetroceder<0)?0:casillerosPorRetroceder;
-		jugador.retroceder(casillerosPorRetroceder);
-	}
-	
-	private void efectoRetrocedeCantidadEfectivoRestoSumaDados(Jugador jugador, int sumaDados){
-		Dinero dineroJugador =jugador.obtenerDinero();
-		jugador.retroceder(dineroJugador.obtenerMontoEntero() % sumaDados);
-	}
-	
-	private void efectoRetrocedeSumaDadosMenosDos(Jugador jugador, int sumaDados) {
-		jugador.retroceder(sumaDados-2);
-	}
 	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Cubilete dados) {
-		int sumaDados = dados.sumarValores();
-		if(dadosEfecto1.contains(sumaDados)){
-			efectoRetrocedeSumaDadosMenosCantidadPropiedades(jugador, sumaDados);
-		}
-		else if(dadosEfecto2.contains(sumaDados)){
-			efectoRetrocedeCantidadEfectivoRestoSumaDados(jugador, sumaDados);
-		}
-		else if(dadosEfecto3.contains(sumaDados)){
-			efectoRetrocedeSumaDadosMenosDos(jugador, sumaDados);
-		}
+		int cant_casilleros = obtenerCantCasilleros(jugador, dados);
+		jugador.retroceder(cant_casilleros);
 	}
+	
 	@Override
 	public String getNombre() {
 		return "Retroceso Dinamico";
@@ -51,4 +21,16 @@ public class RetrocesoDinamico implements Encasillable{
 	public boolean esPropiedad(){
 		return false;
 	}
+	
+	public int obtenerCantCasilleros(Jugador jugador, Cubilete dados) {
+		int cant_casilleros = 0;
+		int cant_propiedades = jugador.getCantidadDePropiedades();
+		int cant_efectivo = jugador.obtenerDinero().obtenerMontoEntero();
+		int nro_sacado = dados.sumarValores();
+		if(nro_sacado > 1 && nro_sacado < 7) cant_casilleros = nro_sacado - cant_propiedades;
+		if(nro_sacado > 6 && nro_sacado < 11) cant_casilleros = cant_efectivo % nro_sacado;
+		if(nro_sacado > 10 && nro_sacado < 13) cant_casilleros = nro_sacado - 2;
+		return cant_casilleros;
+	}
+
 }
