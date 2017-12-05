@@ -49,6 +49,16 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
 
     -fx-font-size: 24;
+    -fx-cursor:default;
+}
+
+.Boton:hover{
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #b45424 0%, #a14c23 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #e97f4b, #d65f3d);
+    -fx-cursor:hand;
 }
 
 .VistaConfiguracionPartida{
