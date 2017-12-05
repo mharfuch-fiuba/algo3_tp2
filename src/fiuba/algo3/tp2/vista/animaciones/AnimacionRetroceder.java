@@ -23,7 +23,6 @@ public class AnimacionRetroceder extends AnimationTimer {
 	
 	private void finalizar() {
 		this.stop();
-		//ControladorPrincipal.getInstance().aplicar_efecto();
 		ControladorPrincipal.getInstance().cambiar_vista_efecto();
 	}
 	

@@ -125,19 +125,18 @@ public class ControladorPrincipal {
 		if (jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
 			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 			if (propiedad.getPropietario().esNull()) {
-				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.toString(),
-						propiedad.getPrecio().obtenerMontoEntero());
+				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.toString(), propiedad.getPrecio().obtenerMontoEntero());
 				return;
 			}
 			if (propiedad.getPropietario() == jugador_actual.getModelo()) {
 				contenedor_acciones.colocarVistaPropiedadPropia();
 			} else {
-				contenedor_acciones.colocarVistaPropiedadAjena(propiedad.getPropietario().getNombre(),
-						propiedad.getAlquiler(controlador_cubilete.getModelo()).obtenerMontoEntero());
+				contenedor_acciones.colocarVistaPropiedadAjena(propiedad.getPropietario().getNombre(), propiedad.getAlquiler(controlador_cubilete.getModelo()).obtenerMontoEntero());
 			}
 		}
 
 		if (jugador_actual.obtenerCasilleroActual() instanceof Carcel) {
+			this.aplicar_efecto();
 			contenedor_acciones.colocarVistaCarcel();
 		}
 
@@ -176,18 +175,19 @@ public class ControladorPrincipal {
 	}
 
 	public void aplicar_efecto() {
+		if(jugador_actual.estaEnCarcel()) {this.terminar_turno(); return;}
+		System.out.println("APLICA EFECTIO!");
 		controlador_tablero.borrarJugador(jugador_actual);
 		try {
 			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
 		} catch (DineroInsuficienteException e) {
-			// controlador_tablero.dibujarJugador(jugador_actual);
-			// DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
 			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaVenderObligatoriamente());
 			return;
 		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
 		controlador_tablero.dibujarJugador(jugador_actual);
+		this.terminar_turno();
 	}
 
 	public void terminar_turno() {
@@ -257,6 +257,9 @@ public class ControladorPrincipal {
 			contenedor_acciones.colocarVistaGenerica("No se puede pagar la fianza en este turno.", new VistaCarcel());
 			return;
 		} catch (DineroInsuficienteException e) {
+			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaCarcel());
+			return;
+		} catch (BancaRotaException e) {
 			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaCarcel());
 			return;
 		}
