@@ -145,17 +145,17 @@ public class ControladorPrincipal {
 			contenedor_acciones.colocarVistaImpuesto();
 		}
 
-		if (jugador_actual.obtenerCasilleroActual() instanceof AvanceDinamico) {
+		if (jugador_actual.obtenerCasilleroActual() instanceof AvanceDinamico) {	
 			AvanceDinamico casillero = (AvanceDinamico) jugador_actual.obtenerCasilleroActual();
-			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(),
-					controlador_cubilete.getModelo());
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			//if(cant_casilleros == 0){this.terminar_turno();return;}
 			contenedor_acciones.colocarVistaAvance(cant_casilleros);
 		}
 
 		if (jugador_actual.obtenerCasilleroActual() instanceof RetrocesoDinamico) {
 			RetrocesoDinamico casillero = (RetrocesoDinamico) jugador_actual.obtenerCasilleroActual();
-			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(),
-					controlador_cubilete.getModelo());
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			//if(cant_casilleros == 0) {this.terminar_turno();return;}
 			contenedor_acciones.colocarVistaRetroceso(cant_casilleros);
 		}
 
@@ -344,6 +344,7 @@ public class ControladorPrincipal {
 	 */
 
 	public void avanzar(int cant_casilleros) {
+		if(cant_casilleros == 0){this.terminar_turno();return;}
 		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
 
@@ -352,6 +353,7 @@ public class ControladorPrincipal {
 	}
 
 	public void retroceder(int cant_casilleros) {
+		if(cant_casilleros == 0){this.terminar_turno();return;}
 		new AnimacionRetroceder(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
 
