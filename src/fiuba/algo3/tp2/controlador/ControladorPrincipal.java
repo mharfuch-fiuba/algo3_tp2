@@ -21,13 +21,11 @@ import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
 import fiuba.algo3.tp2.vista.pantallas.PantallaPartida;
 import fiuba.algo3.tp2.vista.partida.*;
-import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -72,11 +70,11 @@ public class ControladorPrincipal {
 		Collections.shuffle(nombres);
 		System.out.println(nombres);
 		Stack<Color> colores = new Stack<Color>();
-		colores.push(Color.GREEN);
-		colores.push(Color.RED);
-		colores.push(Color.BLUE);
+		colores.push(Color.SEAGREEN);
+		colores.push(Color.STEELBLUE);
+		colores.push(Color.TOMATO);
 		for(String nombre:nombres) {
-			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre, new Dinero(DINERO_INICIAL), (Color) colores.pop());
+			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre, new Dinero(DINERO_INICIAL), colores.pop());
 			controlador_jugador.asociarVista();
 			controlador_ronda.agregarJugador(controlador_jugador);
 			System.out.println("Agrego : " + controlador_jugador.getNombre());

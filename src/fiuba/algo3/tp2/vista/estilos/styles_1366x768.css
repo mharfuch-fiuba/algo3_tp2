@@ -36,28 +36,28 @@
 }
 
 .Boton{
-	-fx-pref-width: 250;
-	-fx-pref-height: 20;
-	-fx-padding: 8 15 15 15;
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-    -fx-background-radius: 8;
+	-fx-pref-width: 250.0;
+	-fx-pref-height: 20.0;
+	-fx-padding: 8.0 15.0 15.0 15.0;
+    -fx-background-insets: 0.0,0.0 0.0 5.0 0.0, 0.0 0.0 6.0 0.0, 0.0 0.0 7.0 0.0;
+    -fx-background-radius: 8.0;
     -fx-background-color: 
-        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        linear-gradient(from 0.0% 93.0% to 0.0% 100.0%, #a34313 0.0%, #903b12 100.0%),
         #9d4024,
         #d86e3a,
-        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+        radial-gradient(center 50.0% 50.0%, radius 100.0%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow( gaussian , rgba(0.0,0.0,0.0,0.75) , 4.0,0.0,0.0,1.0 );
 
-    -fx-font-size: 24;
+    -fx-font-size: 24.0;
     -fx-cursor:default;
 }
 
 .Boton:hover{
     -fx-background-color: 
-        linear-gradient(from 0% 93% to 0% 100%, #b45424 0%, #a14c23 100%),
+        linear-gradient(from 0.0% 93.0% to 0.0% 100.0%, #b45424 0.0%, #a14c23 100.0%),
         #9d4024,
         #d86e3a,
-        radial-gradient(center 50% 50%, radius 100%, #e97f4b, #d65f3d);
+        radial-gradient(center 50.0% 50.0%, radius 100.0%, #e97f4b, #d65f3d);
     -fx-cursor:hand;
 }
 
@@ -90,6 +90,15 @@
 	-fx-pref-height: 200.0;
 }
 
+.VistaJugador{
+	-fx-text-fill: white;
+	-fx-font-size:16.0;
+	-fx-border-color:black;
+	-fx-border-width: 1.0px;
+	-fx-pref-width: 200.0;
+	-fx-pref-height: 200.0;
+}
+
 .VistaTurnoTitulo{
 	-fx-background-color: #d86e3a;
 	-fx-alignment: center;
@@ -107,15 +116,15 @@
 
 .VistaCasillero{
 	-fx-border-color:transparent;
-	-fx-border-width:0px;
+	-fx-border-width:0.0px;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 128.0;
-	-fx-background-color:rgb(238,238,236);
+	-fx-background-color:rgb(238.0,238.0,236.0);
 }
 
 .VistaCasilleroNombre{
 	-fx-border-color:transparent;
-	-fx-border-width:0px;
+	-fx-border-width:0.0px;
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
@@ -125,48 +134,48 @@
 .VistaCasilleroDetalle{
 	-fx-background-color:transparent;
 	-fx-border-color:transparent;
-	-fx-border-width:0px;
+	-fx-border-width:0.0px;
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
 	-fx-background-position: center center;
     -fx-background-repeat:no-repeat;
-    -fx-background-size: 70%;
+    -fx-background-size: 70.0%;
 }
 .VistaCasilleroDetalleCasa {
 	-fx-background-color:transparent;
 	-fx-border-color:transparent;
-	-fx-border-width:0px;
+	-fx-border-width:0.0px;
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
 	-fx-background-position: center center;
     -fx-background-repeat:no-repeat;
-    -fx-background-size: 70%;
+    -fx-background-size: 70.0%;
     -fx-background-image:url(construcciones/algopoly-casa.png);
 }
 .VistaCasilleroDetalleDuplex{
 	-fx-background-color:transparent;
 	-fx-border-color:transparent;
-	-fx-border-width:0px;
+	-fx-border-width:0.0px;
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
 	-fx-background-position: center center;
     -fx-background-repeat:no-repeat;
-    -fx-background-size: 70%;
+    -fx-background-size: 70.0%;
     -fx-background-image:url(construcciones/algopoly-duplex.png);
 }
 .VistaCasilleroDetalleHotel{
 	-fx-background-color:transparent;
 	-fx-border-color:transparent;
-	-fx-border-width:0px;
+	-fx-border-width:0.0px;
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
 	-fx-background-position: center center;
     -fx-background-repeat:no-repeat;
-    -fx-background-size: 70%;
+    -fx-background-size: 70.0%;
     -fx-background-image:url(construcciones/algopoly-hotel.png);
 }
 .VistaCasilleroJugadores{
@@ -176,7 +185,7 @@
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
-	-fx-spacing: 5;
+	-fx-spacing: 5.0;
 	
 }
 
@@ -189,16 +198,10 @@
 
 .VistaTableroCentro{
 	-fx-background-color: white;
-		-fx-pref-width: 512;	
-	-fx-pref-height: 512;
+		-fx-pref-width: 512.0;	
+	-fx-pref-height: 512.0;
 }
 
-.VistaJugador{
-	-fx-text-fill: white;
-	-fx-font-size:16.0;
-	-fx-border-color:black;
-	-fx-border-width: 1.0px;
-}
 
 .LabelTurnoTitulo{
 	-fx-font-size:36.0;	

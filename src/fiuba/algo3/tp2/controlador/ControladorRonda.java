@@ -33,7 +33,55 @@ public class ControladorRonda implements Observer {
 	public ContenedorRonda getVistaRonda(){
 		return this.vistaRonda;
 	}
-/*
+
+	@Override
+	public void update(Observable o, Object arg) {
+		try {
+			//this.tituloTurno.cambiarTexto(this.modelo_ronda.obtenerJugadorActual().getNombre());
+		} catch (NoHayJugadoresException e) {
+			e.printStackTrace();
+		}
+	}
+	/*
+	public void tirarDados(){
+		//aca le digo a la ronda que tire los dados
+		this.cubilete.lanzar();
+	}
+	/*
+	public ControladorCubilete getDados(){
+		
+		return this.cubilete;
+	}
+	*/
+	
+	public ArrayList<ControladorJugador> getJugadores() {
+		return new ArrayList<ControladorJugador>(jugadores.values());
+	}
+	
+	public void agregarJugador(ControladorJugador controlador_jugador) {
+		Jugador jugador = controlador_jugador.getModelo();
+		modelo_ronda.agregarJugador(jugador);
+		jugadores.put(jugador, controlador_jugador);
+		this.vistaRonda.ponerJugador(controlador_jugador.getVista());
+	}
+	public ControladorJugador obtenerJugadorActual() {
+		return jugadores.get(modelo_ronda.obtenerJugadorActual());
+	}
+	public ArrayList<Jugador> obtenerJugadores() {
+		return modelo_ronda.obtenerJugadores();
+	}
+	public void quitarJugador(ControladorJugador jugador_actual) {
+		modelo_ronda.quitarJugador(jugador_actual.getModelo());
+		jugadores.remove(jugador_actual);
+	}
+	public int contarJugadores() {
+		return modelo_ronda.contarJugadores();
+	}
+	public void avanzarTurno() {
+		modelo_ronda.avanzarTurno();
+	}
+	
+	/*
 	public void vincularTitulo(LabelTituloTurno tituloTurno) {
 		this.tituloTurno = tituloTurno;
 	}
@@ -94,51 +142,5 @@ public class ControladorRonda implements Observer {
 		}
 	}
 */
-	@Override
-	public void update(Observable o, Object arg) {
-		try {
-			//this.tituloTurno.cambiarTexto(this.modelo_ronda.obtenerJugadorActual().getNombre());
-		} catch (NoHayJugadoresException e) {
-			e.printStackTrace();
-		}
-	}
-	/*
-	public void tirarDados(){
-		//aca le digo a la ronda que tire los dados
-		this.cubilete.lanzar();
-	}
-	/*
-	public ControladorCubilete getDados(){
-		
-		return this.cubilete;
-	}
-	*/
-	
-	public ArrayList<ControladorJugador> getJugadores() {
-		return new ArrayList<ControladorJugador>(jugadores.values());
-	}
-	
-	public void agregarJugador(ControladorJugador controlador_jugador) {
-		Jugador jugador = controlador_jugador.getModelo();
-		modelo_ronda.agregarJugador(jugador);
-		jugadores.put(jugador, controlador_jugador);
-		this.vistaRonda.ponerJugador(controlador_jugador.getVista());
-	}
-	public ControladorJugador obtenerJugadorActual() {
-		return jugadores.get(modelo_ronda.obtenerJugadorActual());
-	}
-	public ArrayList<Jugador> obtenerJugadores() {
-		return modelo_ronda.obtenerJugadores();
-	}
-	public void quitarJugador(ControladorJugador jugador_actual) {
-		modelo_ronda.quitarJugador(jugador_actual.getModelo());
-		jugadores.remove(jugador_actual);
-	}
-	public int contarJugadores() {
-		return modelo_ronda.contarJugadores();
-	}
-	public void avanzarTurno() {
-		modelo_ronda.avanzarTurno();
-	}
 
 }
