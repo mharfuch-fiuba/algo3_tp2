@@ -28,26 +28,26 @@ public class FactoryCasilleros {
 	private ContenedorCasillero tucuman;
 	
 	public FactoryCasilleros() {
-		carcel = new ContenedorCasillero("Carcel", Color.ORANGE);
-		subte = new ContenedorCasillero("Subte", Color.ORANGE);
-		tren = new ContenedorCasillero("tren", Color.ORANGE);
-		aysa = new ContenedorCasillero("aysa", Color.ORANGE);
-		edesur = new ContenedorCasillero("edesur", Color.ORANGE);
-		buenosairesnorte = new ContenedorCasillero("buenos aires norte", Color.ORANGE);
-		buenosairessur = new ContenedorCasillero("buenos aires sur", Color.ORANGE);
-		cordobanorte = new ContenedorCasillero("cordoba norte", Color.ORANGE);
-		cordobasur = new ContenedorCasillero("cordoba sur", Color.ORANGE);
-		saltanorte = new ContenedorCasillero("salta norte", Color.ORANGE);
-		saltasur = new ContenedorCasillero("salta sur", Color.ORANGE);
-		salida = new ContenedorCasillero("salida", Color.ORANGE);
-		quini6 = new ContenedorCasillero("quini 6", Color.ORANGE);
-		avancedinamico = new ContenedorCasillero("avance dinamico", Color.ORANGE);
-		impuestodelujo = new ContenedorCasillero("impuesto de lujo", Color.ORANGE);
-		santafe = new ContenedorCasillero("santa fe", Color.ORANGE);
-		policia = new ContenedorCasillero("policia", Color.ORANGE);
-		neuquen = new ContenedorCasillero("nququen", Color.ORANGE);
-		retrocesodinamico = new ContenedorCasillero("retro", Color.ORANGE);
-		tucuman = new ContenedorCasillero("tucu", Color.ORANGE);
+		carcel = new ContenedorCasillero("Carcel", Color.GAINSBORO);
+		subte = new ContenedorCasillero("Subte", Color.LIGHTBLUE);
+		tren = new ContenedorCasillero("Tren", Color.LIGHTBLUE);
+		aysa = new ContenedorCasillero("Aysa", Color.LIGHTBLUE);
+		edesur = new ContenedorCasillero("Edesur", Color.LIGHTBLUE);
+		buenosairesnorte = new ContenedorCasillero("Buenos Aires\nNorte", Color.ORANGE);
+		buenosairessur = new ContenedorCasillero("Buenos Aires\nSur", Color.ORANGE);
+		cordobanorte = new ContenedorCasillero("Cordoba\nNorte", Color.ORANGE);
+		cordobasur = new ContenedorCasillero("Cordoba\nSur", Color.ORANGE);
+		saltanorte = new ContenedorCasillero("Salta Norte", Color.ORANGE);
+		saltasur = new ContenedorCasillero("Salta Sur", Color.ORANGE);
+		salida = new ContenedorCasillero("Salida", Color.GAINSBORO);
+		quini6 = new ContenedorCasillero("Quini 6", Color.GAINSBORO);
+		avancedinamico = new ContenedorCasillero("Avance\nDinamico", Color.GAINSBORO);
+		impuestodelujo = new ContenedorCasillero("Impuesto\nal Lujo", Color.GAINSBORO);
+		santafe = new ContenedorCasillero("Santa Fe", Color.ORANGE);
+		policia = new ContenedorCasillero("Policia", Color.GAINSBORO);
+		neuquen = new ContenedorCasillero("Neuquen", Color.ORANGE);
+		retrocesodinamico = new ContenedorCasillero("Retroceso\nDinamico", Color.GAINSBORO);
+		tucuman = new ContenedorCasillero("Tucuman", Color.ORANGE);
 	}
 
 	public ContenedorCasillero getCarcel() {return carcel;}
