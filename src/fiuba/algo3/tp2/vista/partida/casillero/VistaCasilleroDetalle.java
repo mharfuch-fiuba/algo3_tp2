@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.vista.partida.casillero;
 
-import fiuba.algo3.tp2.vista.partida.casillero.Construcciones.VistaConstruccion;
-
 import javafx.scene.layout.HBox;
 
 public class VistaCasilleroDetalle extends HBox {
@@ -19,7 +17,6 @@ public class VistaCasilleroDetalle extends HBox {
 		this.getChildren().remove(this.vistaActual);
 		this.getChildren().add(vistaNueva);
 		this.vistaActual = vistaNueva;
-
 	}
 
 }

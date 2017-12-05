@@ -88,6 +88,7 @@ public class ControladorPrincipal {
 		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones,
 				controlador_ronda.getVistaRonda());
 		controlador_tablero.dibujarJugadores(controladores_jugadores);
+		this.controlador_tablero.asociarCasilleros();
 		this.iniciar_ronda();
 	}
 

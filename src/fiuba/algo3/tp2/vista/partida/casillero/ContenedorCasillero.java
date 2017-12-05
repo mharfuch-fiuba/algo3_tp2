@@ -8,7 +8,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccio
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionCasa;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionDuplex;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionHotel;
-import fiuba.algo3.tp2.vista.partida.casillero.Construcciones.VistaConstruccion;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 

@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.controlador;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.FactoryEncasillables;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -45,6 +46,27 @@ public class ControladorTablero {
 		casilleros.put(fmodelos.getSubte(), fvistas.getSubte());
 		casilleros.put(fmodelos.getTren(), fvistas.getTren());
 		casilleros.put(fmodelos.getTucuman(), fvistas.getTucuman());
+	}
+	
+
+	public void asociarCasilleros(){
+		FactoryEncasillables fmodelos = modelo_tablero.getFactory();
+		
+		Terreno bsAsSur = (Terreno) fmodelos.getBuenosAiresSur();
+		FactoryCasilleros fvistas = vista_tablero.getFactory();
+		bsAsSur.addObserver(fvistas.getBuenosAiresSur());
+		
+		Terreno bsAsNorte = (Terreno) fmodelos.getBuenosAiresNorte();
+		bsAsNorte.addObserver(fvistas.getBuenosAiresNorte());
+
+		Terreno santaFe = (Terreno) fmodelos.getSantaFe();
+		santaFe.addObserver(fvistas.getSantaFe());
+		
+		Terreno neuquen = (Terreno) fmodelos.getNeuquen();
+		neuquen.addObserver(fvistas.getNeuquen());
+
+		Terreno tucuman = (Terreno) fmodelos.getTucuman();
+		tucuman.addObserver(fvistas.getTucuman());
 	}
 
 	public void dibujarJugadores(ArrayList<ControladorJugador> jugadores) {
