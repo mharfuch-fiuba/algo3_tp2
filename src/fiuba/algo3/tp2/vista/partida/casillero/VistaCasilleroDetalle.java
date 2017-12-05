@@ -1,11 +1,25 @@
 package fiuba.algo3.tp2.vista.partida.casillero;
 
-import javafx.scene.control.Label;
+import fiuba.algo3.tp2.vista.partida.casillero.Construcciones.VistaConstruccion;
 
-public class VistaCasilleroDetalle extends Label {
+import javafx.scene.layout.HBox;
 
-	public VistaCasilleroDetalle(){
+public class VistaCasilleroDetalle extends HBox {
+
+	VistaConstruccion vistaActual;
+
+	public VistaCasilleroDetalle() {
 		this.getStyleClass().add("VistaCasilleroDetalle");
-		this.setText("");
+		VistaConstruccion noConstruccion = new VistaConstruccion("file:assets/construcciones/noConstruccion.png");
+		this.getChildren().add(noConstruccion);
+		this.vistaActual=noConstruccion;
 	}
+
+	public void cambiarVista(VistaConstruccion vistaNueva) {
+		this.getChildren().remove(this.vistaActual);
+		this.getChildren().add(vistaNueva);
+		this.vistaActual = vistaNueva;
+
+	}
+
 }

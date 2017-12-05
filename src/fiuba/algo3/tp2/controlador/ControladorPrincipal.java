@@ -29,11 +29,11 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
-	
+
 	private static final int CANTIDAD_DE_DADOS = 2;
 	private static final int DINERO_INICIAL = 100000;
 	private static final int VELOCIDAD_ANIMACION = 200;
-	
+
 	private ControladorJugador jugador_actual;
 	private ControladorTablero controlador_tablero;
 	private ControladorCubilete controlador_cubilete;
@@ -41,29 +41,29 @@ public class ControladorPrincipal {
 	private ArrayList<ControladorJugador> controladores_jugadores;
 	private ControladorRonda controlador_ronda;
 	private ContenedorDinamico contenedorDinamico;
-	
+
 	private ControladorPrincipal() {
 		System.out.println("CONSTRUCTOR CONTROLADOR PRINCIPAL");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = Cubilete.getInstance();
-		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
+		for (int i = 0; i < CANTIDAD_DE_DADOS; i++) {
 			cubilete.agregar(new DadoCubico());
 			cubilete.agregar(new DadoCubico());
 		}
 		controlador_cubilete = new ControladorCubilete(cubilete);
-		//INICIALIZAR TABLERO:
+		// INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
-		//INICIALIZAR RONDA
+		// INICIALIZAR RONDA
 		controlador_ronda = new ControladorRonda();
 		contenedor_acciones = new VistaAcciones();
 	}
-	
+
 	private static final ControladorPrincipal INSTANCE = new ControladorPrincipal();
-	 
+
 	public static ControladorPrincipal getInstance() {
 		return INSTANCE;
 	}
-	
+
 	public void agregarJugadores(ArrayList<String> nombres) {
 		System.out.println("AGREGANDO JUGADORES...");
 		System.out.println(nombres);
@@ -73,106 +73,114 @@ public class ControladorPrincipal {
 		colores.push(Color.SEAGREEN);
 		colores.push(Color.STEELBLUE);
 		colores.push(Color.TOMATO);
-		for(String nombre:nombres) {
-			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre, new Dinero(DINERO_INICIAL), colores.pop());
+		for (String nombre : nombres) {
+			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre,
+					new Dinero(DINERO_INICIAL), colores.pop());
 			controlador_jugador.asociarVista();
 			controlador_ronda.agregarJugador(controlador_jugador);
 			System.out.println("Agrego : " + controlador_jugador.getNombre());
 			controladores_jugadores.add(controlador_jugador);
 		}
 	}
-	
+
 	public void iniciar_partida(ContenedorPrincipal contenedor_principal) {
 		System.out.println("INICIANDO PARTIDA...");
-		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones, controlador_ronda.getVistaRonda());
-	    controlador_tablero.dibujarJugadores(controladores_jugadores);
+		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones,
+				controlador_ronda.getVistaRonda());
+		controlador_tablero.dibujarJugadores(controladores_jugadores);
 		this.iniciar_ronda();
 	}
-	
+
 	public void iniciar_ronda() {
 		System.out.println("INICIA RONDA...");
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre(), jugador_actual.getColor());
-		if(jugador_actual.estaEnCarcel())
+		if (jugador_actual.estaEnCarcel())
 			contenedor_acciones.colocarVistaCarcel();
 		else
 			contenedor_acciones.colocarVistaNormal();
 	}
-	
+
 	public void lanzar_dado() {
 		controlador_cubilete.lanzar();
 		contenedor_acciones.colocarVistaDados();
 	}
-	
+
 	private void jugador_fuera_de_juego() {
 		controlador_ronda.quitarJugador(jugador_actual);
-		if(controlador_ronda.contarJugadores() == 1){
-			//Dibujar vista ganador
-			//contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
+		if (controlador_ronda.contarJugadores() == 1) {
+			// Dibujar vista ganador
+			// contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
 		}
-		//Dibujar vista jugador eliminado
-		//contenedor_acciones.cambiarVistaDinamica(new VistaJugadorEliminado(jugador_actual.getNombre()));	
+		// Dibujar vista jugador eliminado
+		// contenedor_acciones.cambiarVistaDinamica(new
+		// VistaJugadorEliminado(jugador_actual.getNombre()));
 	}
-	
+
 	public void cambiar_vista_efecto() {
-		if(jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
+		if (jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
 			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
-			if(propiedad.getPropietario().esNull()) {
-				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.toString(),propiedad.getPrecio().obtenerMontoEntero());
+			if (propiedad.getPropietario().esNull()) {
+				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.toString(),
+						propiedad.getPrecio().obtenerMontoEntero());
 				return;
 			}
-			if(propiedad.getPropietario() == jugador_actual.getModelo()) {
+			if (propiedad.getPropietario() == jugador_actual.getModelo()) {
 				contenedor_acciones.colocarVistaPropiedadPropia();
 			} else {
-				contenedor_acciones.colocarVistaPropiedadAjena(propiedad.getPropietario().getNombre(), propiedad.getAlquiler(controlador_cubilete.getModelo()).obtenerMontoEntero());
+				contenedor_acciones.colocarVistaPropiedadAjena(propiedad.getPropietario().getNombre(),
+						propiedad.getAlquiler(controlador_cubilete.getModelo()).obtenerMontoEntero());
 			}
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof Carcel) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof Carcel) {
 			contenedor_acciones.colocarVistaCarcel();
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof ImpuestoDeLujo) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof ImpuestoDeLujo) {
 			contenedor_acciones.colocarVistaImpuesto();
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof AvanceDinamico) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof AvanceDinamico) {
 			AvanceDinamico casillero = (AvanceDinamico) jugador_actual.obtenerCasilleroActual();
-			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(),
+					controlador_cubilete.getModelo());
 			contenedor_acciones.colocarVistaAvance(cant_casilleros);
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof RetrocesoDinamico) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof RetrocesoDinamico) {
 			RetrocesoDinamico casillero = (RetrocesoDinamico) jugador_actual.obtenerCasilleroActual();
-			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(),
+					controlador_cubilete.getModelo());
 			contenedor_acciones.colocarVistaRetroceso(cant_casilleros);
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof Salida) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof Salida) {
 			contenedor_acciones.colocarVistaSalida();
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof Quini6) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof Quini6) {
 			Quini6 casillero = (Quini6) this.controlador_tablero.getModelo().getFactory().getQuini6();
 			Dinero monto_ganado = casillero.obtenerPremio(jugador_actual.getModelo());
 			contenedor_acciones.colocarVistaQuini(monto_ganado.obtenerMontoEntero());
 		}
-		
-		if(jugador_actual.obtenerCasilleroActual() instanceof Policia) {
+
+		if (jugador_actual.obtenerCasilleroActual() instanceof Policia) {
 			contenedor_acciones.colocarVistaPolicia();
 		}
-		
+
 	}
-	
+
 	public void aplicar_efecto() {
 		controlador_tablero.borrarJugador(jugador_actual);
-		try {jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());}
-		catch (DineroInsuficienteException e) {
+		try {
+			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
+		} catch (DineroInsuficienteException e) {
 			controlador_tablero.dibujarJugador(jugador_actual);
-			//DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
-			//contenedor_acciones.cambiarVistaDinamica(new VistaDineroInsuficiente());
-		}
-		catch (BancaRotaException e) {
+			// DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
+			// contenedor_acciones.cambiarVistaDinamica(new
+			// VistaDineroInsuficiente());
+		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
 		controlador_tablero.dibujarJugador(jugador_actual);
@@ -183,60 +191,66 @@ public class ControladorPrincipal {
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		this.iniciar_ronda();
 	}
-	
+
 	public void construir(Terreno terreno) {
-		try {terreno.construir();} catch(DineroInsuficienteException e) {
+		try {
+			terreno.construir();
+			
+		} catch (DineroInsuficienteException e) {
 			contenedor_acciones.colocarVistaDineroInsuficiente();
-		}catch(FaltaAdquirirParejaException e) {
+		} catch (FaltaAdquirirParejaException e) {
 			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
-			contenedor_acciones.colocarVistaGenerica("Falta adquirir " + terreno_doble.getPareja(), new VistaConstruir());
+			contenedor_acciones.colocarVistaGenerica("Falta adquirir " + terreno_doble.getPareja(),
+					new VistaConstruir());
 			return;
-		}catch(FaltanCasasException e) {
+		} catch (FaltanCasasException e) {
 			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
-			contenedor_acciones.colocarVistaGenerica("Faltan casas en " + terreno_doble.getPareja(), new VistaConstruir());
+			contenedor_acciones.colocarVistaGenerica("Faltan casas en " + terreno_doble.getPareja(),
+					new VistaConstruir());
 			return;
 		}
 		contenedor_acciones.colocarVistaNormal();
-		//ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
-		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA)
+		// ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
 	}
-	
+
 	public void demoler(Terreno terreno) {
-		terreno.demoler();//ACA PUEDE SALTAR EXCEPCION
-		//ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
-		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA)
+		terreno.demoler();// ACA PUEDE SALTAR EXCEPCION
+		// ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
 	}
-	
+
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
-		try {jugador_actual.comprar(propiedad);} catch(DineroInsuficienteException e) {
+		try {
+			jugador_actual.comprar(propiedad);
+		} catch (DineroInsuficienteException e) {
 			contenedor_acciones.colocarVistaDineroInsuficiente();
 			return;
 		}
 		terminar_turno();
-		//ACTUALIZAR VISTA DINERO JUGADORES (PUEDE CAMBIAR LA PLATA)
+		// ACTUALIZAR VISTA DINERO JUGADORES (PUEDE CAMBIAR LA PLATA)
 	}
-	
+
 	public void vender(Propiedad propiedad) {
 		System.out.println(propiedad.toString());
 		propiedad.vender();
 		contenedor_acciones.colocarVistaNormal();
-		//ACTUALIZAR VISTA TABLERO (PODRIA LLEGAR A CAMBIAR LA CANTIDAD DE CONSTRUCCIONES)
-		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA) no hace falta
-		
+		// ACTUALIZAR VISTA TABLERO (PODRIA LLEGAR A CAMBIAR LA CANTIDAD DE
+		// CONSTRUCCIONES)
+		// ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA) no hace falta
+
 	}
-	
+
 	public void intercambiar(Jugador destinatario, Propiedad entregada, Propiedad pedida) {
-		//ESTO ES MEDIO LIO DEJEMOSLO PARA EL FINAL !!!
+		// ESTO ES MEDIO LIO DEJEMOSLO PARA EL FINAL !!!
 	}
-	
+
 	public void pagar_fianza() {
 		try {
 			jugador_actual.pagarFianza();
-		}catch(NoPuedePagarFianzaException e) {
+		} catch (NoPuedePagarFianzaException e) {
 			contenedor_acciones.colocarVistaGenerica("No se puede pagar la fianza en este turno.", new VistaCarcel());
 			return;
-		}catch(DineroInsuficienteException e) {
+		} catch (DineroInsuficienteException e) {
 			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaCarcel());
 			return;
 		}
@@ -258,7 +272,7 @@ public class ControladorPrincipal {
 	}
 
 	public void cambiarVistaAccion(VistaAccion vista_siguiente) {
-		contenedor_acciones.colocarVista(vista_siguiente);	
+		contenedor_acciones.colocarVista(vista_siguiente);
 	}
 
 	public int getCubilete() {
@@ -272,87 +286,61 @@ public class ControladorPrincipal {
 	public int getCantidadEfectivoJugadorActual() {
 		return this.controlador_ronda.obtenerJugadorActual().getCantidadEfectivo();
 	}
-	
-	public ArrayList<Terreno> getTerrenos(){
+
+	public ArrayList<Terreno> getTerrenos() {
 		return this.jugador_actual.getTerrenos();
 	}
-	
+
 	/*
-	  
-	 	### VISTAS PRE DADOS:
-	 
-	 	NORMAL:
-	 	- BOTON: CONSTRUIR
-	 	- BOTON: VENDER
-	 	- BOTON: INTERCAMBIAR
-	 	- BOTON: DEMOLER
-	 	- BOTON: TIRAR DADOS
-	 	
-	 	CARCEL:
-	 	- PASA A VISTA POSTDADOS CARCEL
-	 
-		### VISTAS POST DADOS:
-		
-		CARCEL:
-		- MENSAJE: ENCARCELADO!
-		- PAGAR FIANZA
-		- TERMINAR TURNO
-		
-		PROPIEDADES OCUPADAS (POR OTRO JUGADOR!!!):
-		- MENSAJE: PAGA ALQUILER $$
-		- BOTON: PAGAR Y TERMINAR TURNO
-		
-		PROPIEDADES LIBRES:
-		- MENSAJE: PRECIO DE COMPRA $$
-		- BOTON: COMPRAR
-		- BOTON: TERMINAR TURNO
-		
-		IMPUESTO DE LUJO:
-		- MENSAJE: IMPUESTO $$
-		- BOTON: PAGAR Y TERMINAR TURNO
-		
-		AVANCE DINAMICO:
-		- MENSAJE AVANZASTE N CASILLEROS
-		- BOTON: TERMINAR TURNO
-		
-		RETROCESO DINAMICO
-		- MENSAJE: RETROCEDISTE N CASILLEROS
-		- BOTON: TERMINAR TURNO
-		
-		SALIDA
-		- MENSAJE: EL CIRCULO DE LA VIDA
-		- BOTON: TERMINAR TURNO
-		
-		QUINI6
-		- MENSAJE: GANASTE $$!!!
-		- BOTON: TERMINAR TURNO
-		
-		POLICIA:
-		- MENSAJE: A LA CARCEL!!!
-		- BOTON: TERMINAR TURNO
-		
-		DOBLE POR SEGUNDA VEZ:
-		- MENSAJE: TRAMPOSO
-		- BOTON: TERMINAR TURNO
-		
-		### VISTAS ESPECIALES ###
-		
-		SALDO INSUFICIENTE:
-		- MENSAJE DEBE VENDER ALGO PARA CONTINUAR EN JUEGO
-		- BOTON: DEMOLER
-		- BOTON: VENDER
-		
-		JUGADOR ELIMINADO:
-		- MENSAJE: JUGADOR HA SIDO ELIMINADO
-		- BOTON: CONTINUAR
-		
-		ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
-	*/
-	
+	 * 
+	 * ### VISTAS PRE DADOS:
+	 * 
+	 * NORMAL: - BOTON: CONSTRUIR - BOTON: VENDER - BOTON: INTERCAMBIAR - BOTON:
+	 * DEMOLER - BOTON: TIRAR DADOS
+	 * 
+	 * CARCEL: - PASA A VISTA POSTDADOS CARCEL
+	 * 
+	 * ### VISTAS POST DADOS:
+	 * 
+	 * CARCEL: - MENSAJE: ENCARCELADO! - PAGAR FIANZA - TERMINAR TURNO
+	 * 
+	 * PROPIEDADES OCUPADAS (POR OTRO JUGADOR!!!): - MENSAJE: PAGA ALQUILER $$ -
+	 * BOTON: PAGAR Y TERMINAR TURNO
+	 * 
+	 * PROPIEDADES LIBRES: - MENSAJE: PRECIO DE COMPRA $$ - BOTON: COMPRAR -
+	 * BOTON: TERMINAR TURNO
+	 * 
+	 * IMPUESTO DE LUJO: - MENSAJE: IMPUESTO $$ - BOTON: PAGAR Y TERMINAR TURNO
+	 * 
+	 * AVANCE DINAMICO: - MENSAJE AVANZASTE N CASILLEROS - BOTON: TERMINAR TURNO
+	 * 
+	 * RETROCESO DINAMICO - MENSAJE: RETROCEDISTE N CASILLEROS - BOTON: TERMINAR
+	 * TURNO
+	 * 
+	 * SALIDA - MENSAJE: EL CIRCULO DE LA VIDA - BOTON: TERMINAR TURNO
+	 * 
+	 * QUINI6 - MENSAJE: GANASTE $$!!! - BOTON: TERMINAR TURNO
+	 * 
+	 * POLICIA: - MENSAJE: A LA CARCEL!!! - BOTON: TERMINAR TURNO
+	 * 
+	 * DOBLE POR SEGUNDA VEZ: - MENSAJE: TRAMPOSO - BOTON: TERMINAR TURNO
+	 * 
+	 * ### VISTAS ESPECIALES ###
+	 * 
+	 * SALDO INSUFICIENTE: - MENSAJE DEBE VENDER ALGO PARA CONTINUAR EN JUEGO -
+	 * BOTON: DEMOLER - BOTON: VENDER
+	 * 
+	 * JUGADOR ELIMINADO: - MENSAJE: JUGADOR HA SIDO ELIMINADO - BOTON:
+	 * CONTINUAR
+	 * 
+	 * ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR
+	 * APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
+	 */
+
 	public void avanzar(int cant_casilleros) {
 		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
-	
+
 	public void avanzar_segun_dados() {
 		this.avanzar(controlador_cubilete.sumarValores());
 	}
@@ -368,5 +356,5 @@ public class ControladorPrincipal {
 	public ArrayList<Propiedad> getPropiedades() {
 		return jugador_actual.getPropiedades();
 	}
-	
+
 }

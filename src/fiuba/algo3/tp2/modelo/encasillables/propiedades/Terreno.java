@@ -22,6 +22,8 @@ public abstract class Terreno extends Propiedad implements Edificable {
 	
 	public void setConstruccion(Construccion nueva_construccion) {
 		construccion = nueva_construccion;
+		this.setChanged();
+		this.notifyObservers(this.construccion);
 	}
 	
 	@Override
@@ -52,6 +54,8 @@ public abstract class Terreno extends Propiedad implements Edificable {
 		Dinero monto_a_cobrar = precio_construccion.obtenerPorcentaje(PTJ_DE_REINTEGRO);
 		try {
 			construccion = construccion.demoler();
+			this.setChanged();
+			this.notifyObservers(this.construccion);
 		}catch(NoHayConstruccionesParaDemoler e) {
 			return false;
 		}

@@ -138,9 +138,6 @@
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
-	-fx-background-position: center center;
-    -fx-background-repeat:no-repeat;
-    -fx-background-size: 70.0%;
 }
 .VistaCasilleroDetalleCasa {
 	-fx-background-color:transparent;
