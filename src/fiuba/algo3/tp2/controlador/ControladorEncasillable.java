@@ -36,7 +36,7 @@ public class ControladorEncasillable implements Observer {
 	}
 */
 	public void sacarJugador(ControladorJugador controlador_jugador) {
-		VistaCasilleroJugador vista = controlador_jugador.getVista();
+		VistaCasilleroJugador vista = controlador_jugador.getVistaCasillero();
 		vistaCasillero.getJugadores().sacarJugador(vista);
 	}
 
@@ -50,7 +50,7 @@ public class ControladorEncasillable implements Observer {
 //	}
 
 	public void ponerJugador(ControladorJugador jugador) {
-		VistaCasilleroJugador puntito = jugador.getVista();
+		VistaCasilleroJugador puntito = jugador.getVistaCasillero();
 		vistaCasillero.getJugadores().ponerJugador(puntito);
 		//if (this.modelo.esPropiedad())
 		//	actualizarVistaEfecto(jugador);

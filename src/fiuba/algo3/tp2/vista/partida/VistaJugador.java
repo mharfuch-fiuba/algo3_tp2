@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.vista.partida;
 
-import fiuba.algo3.tp2.controlador.ControladorJugador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -11,32 +10,29 @@ import javafx.scene.paint.Color;
 
 public class VistaJugador extends VBox{
 	
-	ControladorJugador controladorJugador;
 	Label labelDinero;
 	
 
-	public VistaJugador(ControladorJugador controladorJugador){
+	public VistaJugador(String nombre,String dinero,Color color){
 		this.getStyleClass().add("VistaJugador");
-		this.controladorJugador = controladorJugador;
-		mostrarNombre();
-		mostrarDinero();
-		mostrarColor();
+		mostrarNombre(nombre);
+		mostrarDinero(dinero);
+		mostrarColor(color);
 	}
 	
-	private void mostrarNombre(){
-		Label labelNombre = new Label(controladorJugador.getNombre());
+	private void mostrarNombre(String nombre){
+		Label labelNombre = new Label(nombre);
 		labelNombre.setTextFill(Color.WHITE);
 		this.getChildren().add(labelNombre);
 	}
 	
-	private void mostrarDinero(){
-		labelDinero = new Label(String.valueOf(controladorJugador.getDinero().obtenerMontoEntero()));
+	private void mostrarDinero(String dinero){
+		labelDinero = new Label(dinero);
 		labelDinero.setTextFill(Color.WHITE);
 		this.getChildren().add(labelDinero);
 	}
 	
-	private void mostrarColor(){
-		Color color = controladorJugador.getColor();
+	private void mostrarColor(Color color){
 		Background background = new Background(new BackgroundFill(color,CornerRadii.EMPTY , Insets.EMPTY));
 		this.setBackground(background);
 	}

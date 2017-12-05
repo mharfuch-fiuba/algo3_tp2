@@ -17,7 +17,6 @@ public class AlgoPoly extends Application {
 		escenaPrincipal.getStylesheets().add("fiuba/algo3/tp2/vista/estilos/styles_1366x768.css");
 		
 		stage.setFullScreenExitHint("");
-		stage.setFullScreen(true);
 		stage.setTitle("AlgoPoly");
 		stage.setScene(escenaPrincipal);
 		

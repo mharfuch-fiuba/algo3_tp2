@@ -40,13 +40,12 @@ public class ControladorPrincipal {
 	private ControladorTablero controlador_tablero;
 	private ControladorCubilete controlador_cubilete;
 	private VistaAcciones contenedor_acciones;
-	private ContenedorRonda contenedor_ronda;
 	private ArrayList<ControladorJugador> controladores_jugadores;
 	private ControladorRonda controlador_ronda;
 	private ContenedorDinamico contenedorDinamico;
 	
 	private ControladorPrincipal() {
-		System.out.println("CONTSTRUCTOR CONTROLADOR PRINCIPAL");
+		System.out.println("CONSTRUCTOR CONTROLADOR PRINCIPAL");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = Cubilete.getInstance();
 		for(int i = 0;i<CANTIDAD_DE_DADOS;i++) {
@@ -58,7 +57,6 @@ public class ControladorPrincipal {
 		controlador_tablero = new ControladorTablero();
 		//INICIALIZAR RONDA
 		controlador_ronda = new ControladorRonda();
-		contenedor_ronda = new ContenedorRonda(controlador_ronda);
 		contenedor_acciones = new VistaAcciones();
 	}
 	
@@ -79,6 +77,7 @@ public class ControladorPrincipal {
 		colores.push(Color.BLUE);
 		for(String nombre:nombres) {
 			ControladorJugador controlador_jugador = new ControladorJugador(controlador_tablero.getModelo(), nombre, new Dinero(DINERO_INICIAL), (Color) colores.pop());
+			controlador_jugador.asociarVista();
 			controlador_ronda.agregarJugador(controlador_jugador);
 			System.out.println("Agrego : " + controlador_jugador.getNombre());
 			controladores_jugadores.add(controlador_jugador);
@@ -87,7 +86,7 @@ public class ControladorPrincipal {
 	
 	public void iniciar_partida(ContenedorPrincipal contenedor_principal) {
 		System.out.println("INICIANDO PARTIDA...");
-		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones, contenedor_ronda);
+		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones, controlador_ronda.getVistaRonda());
 	    controlador_tablero.dibujarJugadores(controladores_jugadores);
 		this.iniciar_ronda();
 	}

@@ -9,6 +9,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
+import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTituloTurno;
 
 public class ControladorRonda implements Observer {
@@ -17,13 +18,20 @@ public class ControladorRonda implements Observer {
 	private LabelTituloTurno tituloTurno;
 	//private ControladorCubilete cubilete;
 	private HashMap<Jugador, ControladorJugador> jugadores;
+	private ContenedorRonda vistaRonda;
 	
 
 	public ControladorRonda() {
 		this.jugadores = new HashMap<Jugador, ControladorJugador>();
 		this.modelo_ronda = new Ronda();
 		this.modelo_ronda.addObserver(this);
+		this.vistaRonda=new ContenedorRonda();
 		//this.cubilete= new ControladorCubilete(ronda.getCubilete());
+	}
+	
+	
+	public ContenedorRonda getVistaRonda(){
+		return this.vistaRonda;
 	}
 /*
 	public void vincularTitulo(LabelTituloTurno tituloTurno) {
@@ -114,6 +122,7 @@ public class ControladorRonda implements Observer {
 		Jugador jugador = controlador_jugador.getModelo();
 		modelo_ronda.agregarJugador(jugador);
 		jugadores.put(jugador, controlador_jugador);
+		this.vistaRonda.ponerJugador(controlador_jugador.getVista());
 	}
 	public ControladorJugador obtenerJugadorActual() {
 		return jugadores.get(modelo_ronda.obtenerJugadorActual());

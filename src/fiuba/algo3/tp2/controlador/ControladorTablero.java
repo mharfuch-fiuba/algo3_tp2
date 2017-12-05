@@ -56,14 +56,14 @@ public class ControladorTablero {
 	public void borrarJugador(ControladorJugador controlador_jugador){
 		Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
 		ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
-		VistaCasilleroJugador puntito = controlador_jugador.getVista();
+		VistaCasilleroJugador puntito = controlador_jugador.getVistaCasillero();
 		vista_casillero_actual.borrarJugador(puntito);
 	}
 	
 	public void dibujarJugador(ControladorJugador controlador_jugador){
 		Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
 		ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
-		VistaCasilleroJugador puntito = controlador_jugador.getVista();
+		VistaCasilleroJugador puntito = controlador_jugador.getVistaCasillero();
 		vista_casillero_actual.dibujarJugador(puntito);
 		System.out.println(modelo_casillero_actual.toString());
 		
