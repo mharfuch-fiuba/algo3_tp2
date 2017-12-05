@@ -129,7 +129,45 @@
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
-	
+	-fx-background-position: center center;
+    -fx-background-repeat:no-repeat;
+    -fx-background-size: 70%;
+}
+.VistaCasilleroDetalleCasa {
+	-fx-background-color:transparent;
+	-fx-border-color:transparent;
+	-fx-border-width:0px;
+	-fx-alignment: center;
+	-fx-pref-width: 128.0;	
+	-fx-pref-height: 42.0;
+	-fx-background-position: center center;
+    -fx-background-repeat:no-repeat;
+    -fx-background-size: 70%;
+    -fx-background-image:url(construcciones/algopoly-casa.png);
+}
+.VistaCasilleroDetalleDuplex{
+	-fx-background-color:transparent;
+	-fx-border-color:transparent;
+	-fx-border-width:0px;
+	-fx-alignment: center;
+	-fx-pref-width: 128.0;	
+	-fx-pref-height: 42.0;
+	-fx-background-position: center center;
+    -fx-background-repeat:no-repeat;
+    -fx-background-size: 70%;
+    -fx-background-image:url(construcciones/algopoly-duplex.png);
+}
+.VistaCasilleroDetalleHotel{
+	-fx-background-color:transparent;
+	-fx-border-color:transparent;
+	-fx-border-width:0px;
+	-fx-alignment: center;
+	-fx-pref-width: 128.0;	
+	-fx-pref-height: 42.0;
+	-fx-background-position: center center;
+    -fx-background-repeat:no-repeat;
+    -fx-background-size: 70%;
+    -fx-background-image:url(construcciones/algopoly-hotel.png);
 }
 .VistaCasilleroJugadores{
 	-fx-background-color:transparent;
