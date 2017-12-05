@@ -39,5 +39,9 @@ public class Dinero {
 	public boolean esMayorQue(Dinero otro_monto) {
 		return cantidad > otro_monto.obtenerMontoEntero();
 	}
+	
+	public String toString() {
+		return String.valueOf(cantidad);
+	}
 
 }

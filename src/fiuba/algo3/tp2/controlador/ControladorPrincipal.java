@@ -14,6 +14,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoD
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
@@ -192,6 +193,10 @@ public class ControladorPrincipal {
 		}catch(FaltaAdquirirParejaException e) {
 			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
 			contenedor_acciones.colocarVistaGenerica("Falta adquirir " + terreno_doble.getPareja(), new VistaConstruir());
+			return;
+		}catch(FaltanCasasException e) {
+			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
+			contenedor_acciones.colocarVistaGenerica("Faltan casas en " + terreno_doble.getPareja(), new VistaConstruir());
 			return;
 		}
 		contenedor_acciones.colocarVistaNormal();
