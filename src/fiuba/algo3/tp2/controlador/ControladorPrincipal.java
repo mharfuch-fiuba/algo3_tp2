@@ -26,12 +26,14 @@ import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderObligatoriamente;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
 
 	private static final int CANTIDAD_DE_DADOS = 2;
-	private static final int DINERO_INICIAL = 100000;
+	private static final int DINERO_INICIAL = 30000;
 	private static final int VELOCIDAD_ANIMACION = 200;
 
 	private ControladorJugador jugador_actual;
@@ -119,6 +121,7 @@ public class ControladorPrincipal {
 	}
 
 	public void cambiar_vista_efecto() {
+		
 		if (jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
 			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 			if (propiedad.getPropietario().esNull()) {
@@ -177,10 +180,10 @@ public class ControladorPrincipal {
 		try {
 			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
 		} catch (DineroInsuficienteException e) {
-			controlador_tablero.dibujarJugador(jugador_actual);
+			// controlador_tablero.dibujarJugador(jugador_actual);
 			// DEBERIA IR A UNA VISTA QUE LE PERMITA DEMOLER O VENDER
-			// contenedor_acciones.cambiarVistaDinamica(new
-			// VistaDineroInsuficiente());
+			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaVenderObligatoriamente());
+			return;
 		} catch (BancaRotaException e) {
 			jugador_fuera_de_juego();
 		}
@@ -211,20 +214,22 @@ public class ControladorPrincipal {
 			return;
 		}
 		contenedor_acciones.colocarVistaNormal();
-		// ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
 	}
-
+/*
 	public void demoler(Terreno terreno) {
 		terreno.demoler();// ACA PUEDE SALTAR EXCEPCION
 		// ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
 	}
-
+*/
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 		try {
 			jugador_actual.comprar(propiedad);
 		} catch (DineroInsuficienteException e) {
-			contenedor_acciones.colocarVistaDineroInsuficiente();
+			contenedor_acciones.colocarVistaGenerica("Dinero Insuficiente!", new VistaPropiedadLibre(propiedad.toString(), propiedad.getPrecio().obtenerMontoEntero()));
+			return;
+		} catch (BancaRotaException e) {
+			contenedor_acciones.colocarVistaGenerica("Dinero Insuficiente!", new VistaPropiedadLibre(propiedad.toString(), propiedad.getPrecio().obtenerMontoEntero()));
 			return;
 		}
 		terminar_turno();

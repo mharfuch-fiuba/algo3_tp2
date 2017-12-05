@@ -1,8 +1,5 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import java.util.ArrayList;
-
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
