@@ -20,6 +20,7 @@ public class VistaAcciones extends VBox {
 	}
 
 	private void cambiarVistaAccion(VistaAccion nueva_vista){
+		nueva_vista.setColorFondo(color_jugador);
 		this.getChildren().clear();
 		this.getChildren().add(new VistaTurnoTitulo(jugador_actual, color_jugador));
 		this.getChildren().add(nueva_vista);

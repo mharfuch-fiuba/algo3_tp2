@@ -100,14 +100,15 @@
 }
 
 .VistaTurnoTitulo{
-	-fx-background-color: #d86e3a;
 	-fx-alignment: center;
 	-fx-pref-width: 598.0;	
-	-fx-pref-height: 91.0;	
+	-fx-pref-height: 91.0;
+	-fx-font-size:36.0;	
+	-fx-text-fill: white;
+	
 }
 
 .VistaTurnoDinamica{
-	-fx-background-color: #3F6E4D;
 	-fx-alignment: center;
 	-fx-pref-width: 598.0;	
 	-fx-pref-height: 476.0;
@@ -197,12 +198,6 @@
 	-fx-background-color: white;
 		-fx-pref-width: 512.0;	
 	-fx-pref-height: 512.0;
-}
-
-
-.LabelTurnoTitulo{
-	-fx-font-size:36.0;	
-	-fx-text-fill: white;
 }
 
 .LabelTurnoDinamica{
