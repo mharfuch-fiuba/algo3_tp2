@@ -13,7 +13,7 @@ public class Subte extends Servicio {
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Subte";
 	}
 	

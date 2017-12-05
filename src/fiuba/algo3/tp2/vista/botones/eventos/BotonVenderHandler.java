@@ -9,16 +9,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class BotonVenderHandler implements EventHandler<ActionEvent> {
-	
-	private ArrayList<Propiedad> propiedades;
-	
-	public BotonVenderHandler(ArrayList<Propiedad> propiedades) {
-		this.propiedades = propiedades;
-	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().cambiarVistaAccion(new VistaVenderPropiedad(propiedades));
+		ControladorPrincipal.getInstance().cambiarVistaAccion(new VistaVenderPropiedad());
 	}
 
 }

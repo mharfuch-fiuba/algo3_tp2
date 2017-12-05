@@ -13,7 +13,7 @@ public class Edesur extends Servicio {
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "EDESUR";
 	}
 	@Override

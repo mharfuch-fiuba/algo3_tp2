@@ -14,7 +14,7 @@ public class SantaFe extends TerrenoSimple {
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Santa Fe";
 	}
 	@Override

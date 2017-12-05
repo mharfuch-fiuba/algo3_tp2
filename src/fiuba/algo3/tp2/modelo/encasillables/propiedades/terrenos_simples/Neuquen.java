@@ -14,7 +14,7 @@ public class Neuquen extends TerrenoSimple {
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Neuquen";
 	}
 	

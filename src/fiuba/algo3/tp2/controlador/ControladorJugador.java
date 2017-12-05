@@ -9,6 +9,7 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
@@ -165,6 +166,16 @@ public class ControladorJugador implements Observer {
 	
 	public ArrayList<Propiedad> getPropiedades() {
 		return this.modelo.getPropiedades();
+	}
+
+	public ArrayList<Terreno> getTerrenos() {
+		ArrayList<Terreno> terrenos = new ArrayList<Terreno>();
+		for(Propiedad propiedad:this.getPropiedades()) {
+			if(propiedad instanceof Terreno) {
+				terrenos.add((Terreno) propiedad);
+			}
+		}
+		return terrenos;
 	}
 
 }

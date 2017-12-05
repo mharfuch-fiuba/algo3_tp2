@@ -15,7 +15,7 @@ public class ImpuestoDeLujo implements Encasillable {
 		jugador.pagar(montoAPagar);
 	}
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Impuesto De Lujo";
 	}
 	

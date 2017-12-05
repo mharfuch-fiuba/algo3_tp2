@@ -13,7 +13,7 @@ public class AvanceDinamico implements Encasillable{
 	}
 
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Avance Dinamico";
 	}
 	

@@ -14,7 +14,7 @@ public class VistaAcciones extends VBox {
 	
 	public VistaAcciones(){
 		jugador_actual = "Sin Jugador";
-		this.colocarVistaNormal(new ArrayList<Propiedad>());
+		this.colocarVistaNormal();
 	}
 	
 	public void setJugadorActual(String jugador_actual, Color color_jugador) {
@@ -39,8 +39,8 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaCarcel());
 	}
 	
-	public void colocarVistaNormal(ArrayList<Propiedad> propiedades) {
-		this.cambiarVistaAccion(new VistaTurnoInicial(propiedades));
+	public void colocarVistaNormal() {
+		this.cambiarVistaAccion(new VistaTurnoInicial());
 	}
 	
 	public void colocarVistaDados() {
@@ -83,16 +83,20 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaPropiedadLibre(nombre, precio));
 	}
 
-	public void colocarVistaGenerica(VistaAccion vista_siguiente) {
-		this.cambiarVistaAccion(vista_siguiente);
+	public void colocarVistaGenerica(String texto, VistaAccion vista_siguiente) {
+		this.cambiarVistaAccion(new VistaMensajeGenerico(texto, vista_siguiente));
 	}
 
-	public void colocarVistaDineroInsuficiente(ArrayList<Propiedad> propiedades) {
-		this.cambiarVistaAccion(new VistaDineroInsuficiente(propiedades));
+	public void colocarVistaDineroInsuficiente() {
+		this.cambiarVistaAccion(new VistaDineroInsuficiente());
 	}
 
 	public void colocarVistaVacia() {
 		this.cambiarVistaAccion(new VistaVacia());
+	}
+
+	public void colocarVista(VistaAccion vista_siguiente) {
+		this.cambiarVistaAccion(vista_siguiente);
 	}
 	
 }

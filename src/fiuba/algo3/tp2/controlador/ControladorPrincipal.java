@@ -10,8 +10,10 @@ import fiuba.algo3.tp2.modelo.cubilete.*;
 import fiuba.algo3.tp2.modelo.encasillables.*;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoDoble;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
@@ -23,6 +25,7 @@ import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import javafx.scene.paint.Color;
 
@@ -95,7 +98,7 @@ public class ControladorPrincipal {
 		if(jugador_actual.estaEnCarcel())
 			contenedor_acciones.colocarVistaCarcel();
 		else
-			contenedor_acciones.colocarVistaNormal(jugador_actual.getPropiedades());
+			contenedor_acciones.colocarVistaNormal();
 	}
 	
 	public void lanzar_dado() {
@@ -117,7 +120,7 @@ public class ControladorPrincipal {
 		if(jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
 			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 			if(propiedad.getPropietario().esNull()) {
-				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.getNombre(),propiedad.getPrecio().obtenerMontoEntero());
+				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.toString(),propiedad.getPrecio().obtenerMontoEntero());
 				return;
 			}
 			if(propiedad.getPropietario() == jugador_actual.getModelo()) {
@@ -185,9 +188,13 @@ public class ControladorPrincipal {
 	
 	public void construir(Terreno terreno) {
 		try {terreno.construir();} catch(DineroInsuficienteException e) {
-			contenedor_acciones.colocarVistaDineroInsuficiente(jugador_actual.getPropiedades());
-			//TAMBIEN PUEDE SALIR ALGUN MENSAJE RELACIONADO CON LAS PROPIEDADES PAREJA
+			contenedor_acciones.colocarVistaDineroInsuficiente();
+		}catch(FaltaAdquirirParejaException e) {
+			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
+			contenedor_acciones.colocarVistaGenerica("Falta adquirir " + terreno_doble.getPareja(), new VistaConstruir());
+			return;
 		}
+		contenedor_acciones.colocarVistaNormal();
 		//ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
 		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA)
 	}
@@ -201,7 +208,7 @@ public class ControladorPrincipal {
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 		try {jugador_actual.comprar(propiedad);} catch(DineroInsuficienteException e) {
-			contenedor_acciones.colocarVistaDineroInsuficiente(jugador_actual.getPropiedades());
+			contenedor_acciones.colocarVistaDineroInsuficiente();
 			return;
 		}
 		terminar_turno();
@@ -209,9 +216,9 @@ public class ControladorPrincipal {
 	}
 	
 	public void vender(Propiedad propiedad) {
-		System.out.println(propiedad.getNombre());
+		System.out.println(propiedad.toString());
 		propiedad.vender();
-		contenedor_acciones.colocarVistaNormal(jugador_actual.getPropiedades());
+		contenedor_acciones.colocarVistaNormal();
 		//ACTUALIZAR VISTA TABLERO (PODRIA LLEGAR A CAMBIAR LA CANTIDAD DE CONSTRUCCIONES)
 		//ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA) no hace falta
 		
@@ -225,13 +232,13 @@ public class ControladorPrincipal {
 		try {
 			jugador_actual.pagarFianza();
 		}catch(NoPuedePagarFianzaException e) {
-			contenedor_acciones.colocarVistaGenerica(new VistaMensajeGenerico("No se puede pagar la fianza en este turno.", new VistaCarcel()));
+			contenedor_acciones.colocarVistaGenerica("No se puede pagar la fianza en este turno.", new VistaCarcel());
 			return;
 		}catch(DineroInsuficienteException e) {
-			contenedor_acciones.colocarVistaGenerica(new VistaMensajeGenerico("Dinero insuficiente.", new VistaCarcel()));
+			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaCarcel());
 			return;
 		}
-		contenedor_acciones.colocarVistaNormal(jugador_actual.getPropiedades());
+		contenedor_acciones.colocarVistaNormal();
 	}
 
 	public ContenedorTablero getVistaTablero() {
@@ -249,7 +256,7 @@ public class ControladorPrincipal {
 	}
 
 	public void cambiarVistaAccion(VistaAccion vista_siguiente) {
-		contenedor_acciones.colocarVistaGenerica(vista_siguiente);	
+		contenedor_acciones.colocarVista(vista_siguiente);	
 	}
 
 	public int getCubilete() {
@@ -262,6 +269,10 @@ public class ControladorPrincipal {
 
 	public int getCantidadEfectivoJugadorActual() {
 		return this.controlador_ronda.obtenerJugadorActual().getCantidadEfectivo();
+	}
+	
+	public ArrayList<Terreno> getTerrenos(){
+		return this.jugador_actual.getTerrenos();
 	}
 	
 	/*
@@ -350,6 +361,10 @@ public class ControladorPrincipal {
 
 	public void cambiar_vista_vacia() {
 		contenedor_acciones.colocarVistaVacia();
+	}
+
+	public ArrayList<Propiedad> getPropiedades() {
+		return jugador_actual.getPropiedades();
 	}
 	
 }

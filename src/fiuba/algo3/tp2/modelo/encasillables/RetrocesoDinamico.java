@@ -13,7 +13,7 @@ public class RetrocesoDinamico implements Encasillable{
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Retroceso Dinamico";
 	}
 	

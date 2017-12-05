@@ -17,7 +17,7 @@ public class BuenosAiresNorte extends TerrenoDoble {
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Bs. As. Norte";
 	}
 	

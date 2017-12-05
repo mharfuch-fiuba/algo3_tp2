@@ -65,7 +65,7 @@ public class ControladorTablero {
 		ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
 		VistaCasilleroJugador puntito = controlador_jugador.getVista();
 		vista_casillero_actual.dibujarJugador(puntito);
-		System.out.println(modelo_casillero_actual.getNombre());
+		System.out.println(modelo_casillero_actual.toString());
 		
 		
 		//ESTO DIBUJA OTRA COSA:

@@ -7,7 +7,8 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 
 public interface Encasillable {
 	
-	public String getNombre();
-	void aplicarEfecto(Jugador jugador,  Cubilete dados) throws DineroInsuficienteException, BancaRotaException;
-	boolean esPropiedad();
+	public String toString();
+	public void aplicarEfecto(Jugador jugador,  Cubilete dados) throws DineroInsuficienteException, BancaRotaException;
+	public boolean esPropiedad();
+	
 }

@@ -33,7 +33,7 @@ public class Quini6 implements Encasillable{
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Quini 6";
 	}
 	

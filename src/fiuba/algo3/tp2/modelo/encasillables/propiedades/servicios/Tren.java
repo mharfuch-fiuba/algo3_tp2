@@ -13,7 +13,7 @@ public class Tren extends Servicio {
 	}
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Tren";
 	}
 	@Override

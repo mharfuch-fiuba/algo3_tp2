@@ -14,7 +14,7 @@ public class Aysa extends Servicio {
 	
 	
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "AYSA";
 	}
 	

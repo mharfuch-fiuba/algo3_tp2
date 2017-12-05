@@ -20,7 +20,7 @@ public class PropiedadNull extends Propiedad {
 	}
 
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Propiedad Null";
 	}
 

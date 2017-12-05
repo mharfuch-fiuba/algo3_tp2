@@ -122,7 +122,7 @@ public class JugadorHumano extends Jugador {
 		propiedades.add(propiedad);
 		propiedad.setPropietario(this);
 		if(propiedad.esPropiedad()){
-			propiedadesComprables.add(propiedad.getNombre());
+			propiedadesComprables.add(propiedad.toString());
 		}
 	}
 

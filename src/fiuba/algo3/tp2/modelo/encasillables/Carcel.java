@@ -21,7 +21,7 @@ public class Carcel implements Encasillable {
 	}
 	 */
 	@Override
-	public String getNombre() {
+	public String toString() {
 		return "Carcel";
 	}
 	
