@@ -58,9 +58,21 @@ public class ControladorTablero {
 		
 		Terreno bsAsNorte = (Terreno) fmodelos.getBuenosAiresNorte();
 		bsAsNorte.addObserver(fvistas.getBuenosAiresNorte());
+		
+		Terreno cordobaNorte = (Terreno) fmodelos.getCordobaNorte();
+		cordobaNorte.addObserver(fvistas.getCordobaNorte());
+		
+		Terreno cordobaSur = (Terreno) fmodelos.getCordobaSur();
+		cordobaSur.addObserver(fvistas.getCordobaSur());
 
 		Terreno santaFe = (Terreno) fmodelos.getSantaFe();
 		santaFe.addObserver(fvistas.getSantaFe());
+		
+		Terreno saltaNorte = (Terreno) fmodelos.getSaltaNorte();
+		saltaNorte.addObserver(fvistas.getSaltaNorte());
+		
+		Terreno saltaSur = (Terreno) fmodelos.getSaltaSur();
+		saltaSur.addObserver(fvistas.getSaltaSur());
 		
 		Terreno neuquen = (Terreno) fmodelos.getNeuquen();
 		neuquen.addObserver(fvistas.getNeuquen());
