@@ -1,10 +1,12 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
+import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAvance;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDados;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPolicia;
@@ -109,6 +111,10 @@ public class VistaAcciones extends VBox {
 
 	public void colocarVista(VistaAccion vista_siguiente) {
 		this.cambiarVistaAccion(vista_siguiente);
+	}
+
+	public void colocarVistaGanador(String jugador) {
+		this.cambiarVistaAccion(new VistaGanador(jugador));
 	}
 	
 }

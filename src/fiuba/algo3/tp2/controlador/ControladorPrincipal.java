@@ -23,6 +23,7 @@ import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
+import fiuba.algo3.tp2.vista.AlgoPoly;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
@@ -33,8 +34,10 @@ import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderObligatoriamente;
+import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -120,7 +123,7 @@ public class ControladorPrincipal {
 		controlador_ronda.quitarJugador(jugador_actual);
 		if (controlador_ronda.contarJugadores() == 1) {
 			// Dibujar vista ganador
-			// contenedor_acciones.cambiarVistaDinamica(new VistaGanador());
+			contenedor_acciones.colocarVistaGanador(jugador_actual.getNombre());
 		}
 		// Dibujar vista jugador eliminado
 		// contenedor_acciones.cambiarVistaDinamica(new
@@ -368,6 +371,12 @@ public class ControladorPrincipal {
 
 	public ArrayList<Propiedad> getPropiedades() {
 		return jugador_actual.getPropiedades();
+	}
+
+	public void reiniciarPartida() {
+		//new AlgoPoly().start(new Scene(new contenedorPrincipal(new ContenedorPrincipal(new Stage));
+		//primaryStage.close();
+		//Platform.runLater( () -> new ReloadApp().start( new Stage() ) );
 	}
 
 }
