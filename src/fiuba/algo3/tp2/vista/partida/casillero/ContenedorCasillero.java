@@ -65,7 +65,8 @@ public class ContenedorCasillero extends VBox implements Observer{
 		System.out.println("entro al update de ContenedorCasillero");
 		if(arg instanceof Color){
 			Color color = (Color) arg;
-			this.contenedor.setBorder(new Border(new BorderStroke(color,BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+			this.contenedor.setBorder(new Border(new BorderStroke(color,BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(0,3,3,3))));
+			this.nombre.setBorder(new Border(new BorderStroke(color,BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3,3,0,3))));
 			return;
 		}	
 		Construccion construccion = (Construccion) arg;
