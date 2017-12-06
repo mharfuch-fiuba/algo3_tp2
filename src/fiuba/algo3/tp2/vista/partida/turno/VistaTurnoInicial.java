@@ -1,9 +1,5 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import java.util.ArrayList;
-
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.BotonConstruir;
 import fiuba.algo3.tp2.vista.botones.BotonVender;

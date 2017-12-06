@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.utils;
 
 import java.util.Iterator;
 
+@SuppressWarnings("rawtypes")
 public interface DoublyLinkedCircularListIterator extends Iterator {
 	public Object next();
 	public Object prev();

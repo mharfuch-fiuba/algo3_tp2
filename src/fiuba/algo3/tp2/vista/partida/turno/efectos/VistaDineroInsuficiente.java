@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
-import javafx.scene.control.Label;
 import fiuba.algo3.tp2.vista.botones.BotonVender;
+import javafx.scene.control.Label;
 
 
 public class VistaDineroInsuficiente extends VistaAccion {

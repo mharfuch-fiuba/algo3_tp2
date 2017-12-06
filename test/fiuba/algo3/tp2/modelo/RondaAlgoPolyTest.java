@@ -1,13 +1,12 @@
 package fiuba.algo3.tp2.modelo;
 
+import java.util.ArrayList;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-
-import java.util.ArrayList;
-
-import org.junit.Assert;
 
 public class RondaAlgoPolyTest {
 

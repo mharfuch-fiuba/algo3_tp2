@@ -9,12 +9,10 @@ import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
-import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoTitulo;
 
 public class ControladorRonda implements Observer {
 
 	private Ronda modelo_ronda;
-	private VistaTurnoTitulo tituloTurno;
 	//private ControladorCubilete cubilete;
 	private HashMap<Jugador, ControladorJugador> jugadores;
 	private ContenedorRonda vistaRonda;

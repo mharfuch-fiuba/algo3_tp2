@@ -1,9 +1,7 @@
 package fiuba.algo3.tp2.vista.botones.eventos;
 
-import fiuba.algo3.tp2.vista.VistaInicial;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class OpcionReiniciarEventHandler implements EventHandler<ActionEvent> {

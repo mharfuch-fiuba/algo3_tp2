@@ -2,9 +2,9 @@ package fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples;
 
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionBaldio;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionCasa;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
