@@ -1,9 +1,6 @@
 package fiuba.algo3.tp2.vista.botones.eventos;
 
-import java.util.ArrayList;
-
 import fiuba.algo3.tp2.controlador.ControladorPrincipal;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderPropiedad;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

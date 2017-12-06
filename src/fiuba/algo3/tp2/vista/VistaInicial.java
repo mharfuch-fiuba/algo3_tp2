@@ -4,12 +4,9 @@ import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonNuevaPartidaHandler;
 import fiuba.algo3.tp2.vista.pantallas.PantallaConfiguracionPartida;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-//import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class VistaInicial extends VBox {
 	

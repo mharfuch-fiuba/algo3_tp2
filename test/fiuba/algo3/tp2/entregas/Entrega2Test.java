@@ -13,7 +13,7 @@ import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Edificable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoDoble;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.TerrenoSimple;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 

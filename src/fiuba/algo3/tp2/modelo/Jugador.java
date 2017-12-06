@@ -5,11 +5,10 @@ import java.util.Observable;
 
 import fiuba.algo3.tp2.controlador.ControladorJugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.movimiento.Movimiento;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import javafx.scene.paint.Color;
 

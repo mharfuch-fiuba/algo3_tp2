@@ -1,22 +1,29 @@
 package fiuba.algo3.tp2.integracion;
 
+import org.junit.Assert;
+
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
 import fiuba.algo3.tp2.modelo.cubilete.CubileteFalso;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Edificable;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.*;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.*;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresNorte;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresSur;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaNorte;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaSur;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.SaltaNorte;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.SaltaSur;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
-import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.YaTienePropietarioException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 import junit.framework.TestCase;
-
-import org.junit.Assert;
 
 public class IntegracionMatiasTest extends TestCase {
 	

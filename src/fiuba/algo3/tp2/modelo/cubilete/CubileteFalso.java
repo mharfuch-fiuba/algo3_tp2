@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.modelo.cubilete;
 
-import java.util.ArrayList;
 
 public class CubileteFalso extends Cubilete{
 

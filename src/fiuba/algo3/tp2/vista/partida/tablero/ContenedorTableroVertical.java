@@ -1,10 +1,5 @@
 package fiuba.algo3.tp2.vista.partida.tablero;
 
-import java.util.ArrayList;
-
-import fiuba.algo3.tp2.vista.partida.casillero.ContenedorCasillero;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class ContenedorTableroVertical extends VBox {

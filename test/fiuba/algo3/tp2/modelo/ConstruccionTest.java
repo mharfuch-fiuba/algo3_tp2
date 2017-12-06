@@ -6,10 +6,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.Jugador;
-import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionNull;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresNorte;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.TerrenoDoble;

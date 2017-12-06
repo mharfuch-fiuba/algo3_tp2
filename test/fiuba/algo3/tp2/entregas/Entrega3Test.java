@@ -1,14 +1,7 @@
 package fiuba.algo3.tp2.entregas;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.Dinero;
-import fiuba.algo3.tp2.modelo.Jugador;
-import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
-import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class Entrega3Test {

@@ -1,6 +1,20 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import fiuba.algo3.tp2.vista.partida.turno.efectos.*;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAvance;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDados;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPolicia;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadAjena;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadPropia;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaQuini;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaRetroceso;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaSalida;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVacia;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 

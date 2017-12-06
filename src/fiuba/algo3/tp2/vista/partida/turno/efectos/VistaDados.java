@@ -2,11 +2,7 @@ package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
 import fiuba.algo3.tp2.controlador.ControladorCubilete;
 import fiuba.algo3.tp2.controlador.ControladorPrincipal;
-import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.vista.botones.BotonAvanzar;
-import fiuba.algo3.tp2.vista.botones.BotonPagarFianza;
-import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
-import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import javafx.scene.layout.HBox;
 
 public class VistaDados extends VistaAccion{

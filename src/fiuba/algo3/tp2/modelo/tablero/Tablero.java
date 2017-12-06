@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.modelo.tablero;
 
-import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
 

@@ -7,7 +7,6 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
 import fiuba.algo3.tp2.modelo.encasillables.Policia;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
-import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 public class PoliciaTest {
