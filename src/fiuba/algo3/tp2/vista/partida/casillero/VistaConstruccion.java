@@ -9,8 +9,8 @@ public class VistaConstruccion extends ImageView {
 	public VistaConstruccion(String nombreImagen){
 		System.out.println("Creo la construccion: "+nombreImagen);
 		this.setImage(new Image(nombreImagen));
-		this.setFitHeight(42);
-		this.setFitWidth(128);
+		this.setFitHeight(44);
+		this.setFitWidth(122);
 	}
 	
 }

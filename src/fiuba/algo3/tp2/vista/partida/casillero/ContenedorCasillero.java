@@ -20,7 +20,8 @@ public class ContenedorCasillero extends VBox implements Observer{
 	
 	private VistaCasilleroNombre nombre;
 	private VistaCasilleroDetalle detalle ;
-	private VistaCasilleroJugadores jugadores ;	
+	private VistaCasilleroJugadores jugadores ;
+	private VBox contenedor;
 	
 	public ContenedorCasillero(String nombreCasillero,Color color){
 		this.getStyleClass().add("VistaCasillero");
@@ -28,13 +29,16 @@ public class ContenedorCasillero extends VBox implements Observer{
 		detalle = new VistaCasilleroDetalle();
 		jugadores = new VistaCasilleroJugadores();
 		
-		//nombre.setPrefHeight(this.getPrefHeight()/3);
-		detalle.setPrefHeight(this.getPrefHeight()/3);
-		jugadores.setPrefHeight(this.getPrefHeight()/3);
-		//nombre.setPrefWidth(this.getPrefWidth());
-		detalle.setPrefWidth(this.getPrefWidth());
-		jugadores.setPrefWidth(this.getPrefWidth());
-		this.getChildren().addAll(nombre,detalle,jugadores);
+		//detalle.setPrefHeight(this.getPrefHeight()/3);
+		//jugadores.setPrefHeight(this.getPrefHeight()/3);
+		
+		//detalle.setPrefWidth(this.getPrefWidth());
+		//jugadores.setPrefWidth(this.getPrefWidth());
+		
+		contenedor = new VBox();
+		contenedor.getChildren().addAll(detalle,jugadores);
+		contenedor.getStyleClass().add("VistaCasilleroContenedor");
+		this.getChildren().addAll(nombre,contenedor);
 
 	}
 	
@@ -61,7 +65,7 @@ public class ContenedorCasillero extends VBox implements Observer{
 		System.out.println("entro al update de ContenedorCasillero");
 		if(arg instanceof Color){
 			Color color = (Color) arg;
-			this.setBorder(new Border(new BorderStroke(color,BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
+			this.contenedor.setBorder(new Border(new BorderStroke(color,BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
 			return;
 		}	
 		Construccion construccion = (Construccion) arg;

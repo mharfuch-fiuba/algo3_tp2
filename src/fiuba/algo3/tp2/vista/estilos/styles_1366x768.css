@@ -81,15 +81,15 @@
 	-fx-alignment: center;
 	-fx-pref-width: 768.0;
 	-fx-pref-height: 768.0;
-	-fx-border-color:transparent;
-	-fx-border-width:1;
+	-fx-border-color:red;
+	-fx-border-width:0 0 0 0;
 }
 
 .VistaRonda{
 	-fx-background-color: white;
 	-fx-alignment: center;
 	-fx-pref-width: 598.0;	
-	-fx-pref-height: 200.0;
+	-fx-pref-height: 201.0;
 }
 
 .VistaJugador{
@@ -118,18 +118,24 @@
 }
 
 .VistaCasillero{
-	-fx-border-color:transparent;
-	-fx-border-width:2.0;
+	-fx-border-style:none;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 128.0;
+	-fx-background-color:rgb(238.0,238.0,236.0);
+}
+
+.VistaCasilleroContenedor{
+	-fx-border-style:solid;
+	-fx-border-color:transparent;
+	-fx-border-width:3px;
+	-fx-pref-width: 122.0;	
+	-fx-pref-height: 86.0;
 	-fx-background-color:rgb(238.0,238.0,236.0);
 
 }
 
 .VistaCasilleroNombre{
-	-fx-border-color:transparent;
-	-fx-border-width:0.0;
-
+	-fx-border-style:none;
 	-fx-alignment: center;
 	-fx-pref-width: 128.0;	
 	-fx-pref-height: 42.0;
@@ -138,54 +144,17 @@
 }
 .VistaCasilleroDetalle{
 	-fx-background-color:transparent;
-	-fx-border-color:transparent;
-	-fx-border-width:0.0px;
+	-fx-border-style:none;
 	-fx-alignment: center;
-	-fx-pref-width: 128.0;	
+	-fx-pref-width: 122.0;	
 	-fx-pref-height: 42.0;
 }
-.VistaCasilleroDetalleCasa {
-	-fx-background-color:transparent;
-	-fx-border-color:transparent;
-	-fx-border-width:0.0px;
-	-fx-alignment: center;
-	-fx-pref-width: 128.0;	
-	-fx-pref-height: 42.0;
-	-fx-background-position: center center;
-    -fx-background-repeat:no-repeat;
-    -fx-background-size: 70.0%;
-    -fx-background-image:url(construcciones/algopoly-casa.png);
-}
-.VistaCasilleroDetalleDuplex{
-	-fx-background-color:transparent;
-	-fx-border-color:transparent;
-	-fx-border-width:0.0px;
-	-fx-alignment: center;
-	-fx-pref-width: 128.0;	
-	-fx-pref-height: 42.0;
-	-fx-background-position: center center;
-    -fx-background-repeat:no-repeat;
-    -fx-background-size: 70.0%;
-    -fx-background-image:url(construcciones/algopoly-duplex.png);
-}
-.VistaCasilleroDetalleHotel{
-	-fx-background-color:transparent;
-	-fx-border-color:transparent;
-	-fx-border-width:0.0px;
-	-fx-alignment: center;
-	-fx-pref-width: 128.0;	
-	-fx-pref-height: 42.0;
-	-fx-background-position: center center;
-    -fx-background-repeat:no-repeat;
-    -fx-background-size: 70.0%;
-    -fx-background-image:url(construcciones/algopoly-hotel.png);
-}
+
 .VistaCasilleroJugadores{
 	-fx-background-color:transparent;
-	-fx-border-color:transparent;
-	-fx-border-width:1.0px;
+	-fx-border-style:none;
 	-fx-alignment: center;
-	-fx-pref-width: 128.0;	
+	-fx-pref-width: 122.0;	
 	-fx-pref-height: 42.0;
 	-fx-spacing: 5.0;
 	
