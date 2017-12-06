@@ -8,7 +8,7 @@ public class VistaCasilleroDetalle extends HBox {
 
 	public VistaCasilleroDetalle() {
 		this.getStyleClass().add("VistaCasilleroDetalle");
-		VistaConstruccion noConstruccion = new VistaConstruccion("file:assets/construcciones/noConstruccion.png");
+		VistaConstruccion noConstruccion = new VistaConstruccion("file:assets/construcciones/construccion-null.png");
 		this.getChildren().add(noConstruccion);
 		this.vistaActual=noConstruccion;
 	}
