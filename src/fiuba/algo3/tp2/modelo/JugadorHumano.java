@@ -58,6 +58,7 @@ public class JugadorHumano extends Jugador {
 	}
 
 	public void comprar(Propiedad comprable) throws DineroInsuficienteException{
+		System.out.println("comprar de jugador");
 		comprable.comprar(this);
 		this.propiedades.add(comprable);
 	}

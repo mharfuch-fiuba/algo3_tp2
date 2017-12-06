@@ -21,9 +21,11 @@ public abstract class Propiedad extends Observable implements Encasillable {
 	}
 
 	public void setPropietario(Jugador nuevo_propietario) {
+		System.out.println("actualizo propietario");
 		propietario = nuevo_propietario;
 		this.setChanged();
-		//this.notifyAll();
+		this.notifyObservers(nuevo_propietario.getColor());
+		
 	}
 	
 	public Jugador getPropietario() {
@@ -33,7 +35,7 @@ public abstract class Propiedad extends Observable implements Encasillable {
 	public void comprar(Jugador jugador) throws DineroInsuficienteException {
 		if(!propietario.esNull()) throw new YaTienePropietarioException();
 		jugador.pagar(precio);
-		propietario = jugador;
+		this.setPropietario(jugador);
 	}
 	
 	public Dinero getPrecio(){

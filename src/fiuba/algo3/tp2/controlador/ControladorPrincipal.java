@@ -215,12 +215,7 @@ public class ControladorPrincipal {
 		}
 		contenedor_acciones.colocarVistaNormal();
 	}
-/*
-	public void demoler(Terreno terreno) {
-		terreno.demoler();// ACA PUEDE SALTAR EXCEPCION
-		// ACTUALIZAR VISTA TABLERO (CAMBIA LA CANTIDAD DE CONSTRUCCIONES)
-	}
-*/
+
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 		try {

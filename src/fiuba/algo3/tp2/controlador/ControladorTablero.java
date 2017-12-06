@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.controlador;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.FactoryEncasillables;
@@ -79,6 +80,18 @@ public class ControladorTablero {
 
 		Terreno tucuman = (Terreno) fmodelos.getTucuman();
 		tucuman.addObserver(fvistas.getTucuman());
+		
+		Propiedad edesur = (Propiedad) fmodelos.getEdesur();
+		edesur.addObserver(fvistas.getEdesur());
+		
+		Propiedad subte = (Propiedad) fmodelos.getSubte();
+		subte.addObserver(fvistas.getSubte());
+		
+		Propiedad aysa = (Propiedad) fmodelos.getAysa();
+		aysa.addObserver(fvistas.getAysa());
+		
+		Propiedad tren = (Propiedad) fmodelos.getTren();
+		tren.addObserver(fvistas.getTren());
 	}
 
 	public void dibujarJugadores(ArrayList<ControladorJugador> jugadores) {

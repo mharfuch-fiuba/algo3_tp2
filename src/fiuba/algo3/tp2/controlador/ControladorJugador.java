@@ -72,6 +72,7 @@ public class ControladorJugador implements Observer {
 	}
 
 	public void comprar(Propiedad propiedad) {
+		System.out.println("comprar de controlador");
 		this.modelo.comprar(propiedad);
 	}
 
@@ -116,45 +117,5 @@ public class ControladorJugador implements Observer {
 	public void asociarVista() {
 		this.modelo.addObserver(this);
 	}
-
-	/*
-	 * public void asociarVista(VistaJugador vista) { this.vista = vista; }
-	 * 
-	 * public ObservableList<String> getConstruibles() { // tengo que ver en
-	 * jugador como hacerlo ObservableList<String> fruits =
-	 * FXCollections.observableArrayList(jugador.getListaComprables()); return
-	 * fruits; }
-	 * 
-	 * public Encasillable getCasillero() { return
-	 * this.jugador.obtenerCasilleroActual(); }
-	 * 
-	 * public void avanzar(ControladorTablero tablero) { Cubilete cubilete =
-	 * Cubilete.getInstance(); // cubilete.lanzar(); System.out.println(
-	 * "Jugador lanza: " + cubilete.sumarValores()); //
-	 * this.jugador.avanzar(cubilete.sumarValores()); // ESTO ES PARA QUE NO SE
-	 * TELETRANSPORTE
-	 * 
-	 * for (int i = 0; i < cubilete.sumarValores(); i++) {
-	 * 
-	 * System.out.println("Jugador avanza"); ControladorEncasillable
-	 * viejoCasillero = tablero.getEncasillableActual(this);
-	 * viejoCasillero.sacarJugador(this); this.jugador.avanzar(1);
-	 * ControladorEncasillable nuevoCasillero =
-	 * tablero.getEncasillableActual(this); nuevoCasillero.ponerJugador(this); }
-	 * 
-	 * System.out.println("Jugador cae en " +
-	 * jugador.obtenerCasilleroActual().getNombre());
-	 * 
-	 * try { ControladorEncasillable viejoCasillero =
-	 * tablero.getEncasillableActual(this); viejoCasillero.sacarJugador(this);
-	 * this.jugador.aplicarEfectoDeCasilleroActual(cubilete);
-	 * ControladorEncasillable nuevoCasillero =
-	 * tablero.getEncasillableActual(this); nuevoCasillero.ponerJugador(this);
-	 * 
-	 * 
-	 * 
-	 * } catch (DineroInsuficienteException e) { // TODO Auto-generated catch
-	 * block e.printStackTrace(); } }
-	 */
 
 }

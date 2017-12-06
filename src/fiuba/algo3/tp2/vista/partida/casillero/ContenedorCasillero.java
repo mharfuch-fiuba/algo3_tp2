@@ -8,6 +8,11 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccio
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionCasa;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionDuplex;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionHotel;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -54,11 +59,18 @@ public class ContenedorCasillero extends VBox implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		System.out.println("entro al update de ContenedorCasillero");
+		if(arg instanceof Color){
+			Color color = (Color) arg;
+			this.setBorder(new Border(new BorderStroke(color,BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
+			return;
+		}
+		
 		Construccion construccion = (Construccion) arg;
 		if(construccion instanceof ConstruccionBaldio) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/baldio.png")) ;
 		if(construccion instanceof ConstruccionCasa) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/casa.png"));
 		if(construccion instanceof ConstruccionDuplex) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/duplex.png"));
 		if(construccion instanceof ConstruccionHotel) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/hotel.png"));	
+		
 	}
 	
 }
