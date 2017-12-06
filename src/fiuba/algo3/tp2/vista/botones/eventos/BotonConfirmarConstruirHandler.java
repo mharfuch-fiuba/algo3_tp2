@@ -16,7 +16,8 @@ public class BotonConfirmarConstruirHandler implements EventHandler<ActionEvent>
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		ControladorPrincipal.getInstance().construir(this.combo_terrenos.getValue());
+		//ControladorPrincipal.getInstance().construir(this.combo_terrenos.getValue());
+		ControladorPrincipal.getInstance().accionConfirmarConstruir(this.combo_terrenos.getValue());
 	}
 
 }

@@ -2,9 +2,9 @@ package fiuba.algo3.tp2.vista.partida.turno;
 
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.BotonConstruir;
+import fiuba.algo3.tp2.vista.botones.BotonTirarDados;
 import fiuba.algo3.tp2.vista.botones.BotonVender;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonIntercambiarHandler;
-import fiuba.algo3.tp2.vista.botones.eventos.BotonTirarDadosHandler;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 
 public class VistaTurnoInicial extends VistaAccion {
@@ -21,10 +21,12 @@ public class VistaTurnoInicial extends VistaAccion {
 		BotonAlgoPoly intercambiar = new BotonAlgoPoly("Intercambiar");
 		intercambiar.setOnAction(new BotonIntercambiarHandler());
 		
-		BotonAlgoPoly tirarDados = new BotonAlgoPoly("Tirar Dados");
-		tirarDados.setOnAction(new BotonTirarDadosHandler());
+		//BotonAlgoPoly tirarDados = new BotonAlgoPoly("Tirar Dados");
+		//tirarDados.setOnAction(new BotonTirarDadosHandler());
 		
-		BotonAlgoPoly[] botones = {construir,vender,intercambiar,tirarDados};
+		BotonTirarDados tirar_dados = new BotonTirarDados();
+		
+		BotonAlgoPoly[] botones = {construir,vender,intercambiar,tirar_dados};
 		return botones;
 	}
 	

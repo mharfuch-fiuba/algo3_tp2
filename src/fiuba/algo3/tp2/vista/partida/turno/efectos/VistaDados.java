@@ -1,8 +1,9 @@
 package fiuba.algo3.tp2.vista.partida.turno.efectos;
 
-import fiuba.algo3.tp2.controlador.ControladorCubilete;
-import fiuba.algo3.tp2.controlador.ControladorPrincipal;
+import java.util.ArrayList;
+
 import fiuba.algo3.tp2.vista.botones.BotonAvanzar;
+import fiuba.algo3.tp2.vista.partida.turno.VistaDado;
 import javafx.scene.layout.HBox;
 
 public class VistaDados extends VistaAccion{
@@ -13,19 +14,18 @@ public class VistaDados extends VistaAccion{
 		this.getChildren().addAll(label);
 	}
 	*/
-	
-	public VistaDados(){
-		ControladorCubilete dados = ControladorPrincipal.getInstance().getControladorDados();
+
+	public VistaDados(ArrayList<VistaDado> vistas_dados) {
 		this.getStyleClass().add("VistaTurnoDinamica");
-		HijoHorizontal sectorDados = new HijoHorizontal(dados);
+		HijoHorizontal sectorDados = new HijoHorizontal(vistas_dados);
 		BotonAvanzar continuar = new BotonAvanzar();
 		this.getChildren().addAll(sectorDados,continuar);
 	}
-	
+
 	private class HijoHorizontal extends HBox{
-		public HijoHorizontal(ControladorCubilete dados){
+		public HijoHorizontal(ArrayList<VistaDado> vistas_dados){
 			this.setSpacing(10);			
-			this.getChildren().addAll(dados.getVistasDados());
+			this.getChildren().addAll(vistas_dados);
 		}
 	}
 	

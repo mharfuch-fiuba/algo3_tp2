@@ -8,7 +8,8 @@ public class BotonAvanzarHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().avanzar_segun_dados();
+		//ControladorPrincipal.getInstance().avanzar_segun_dados();
+		ControladorPrincipal.getInstance().accionAvanzarSegunDados();
 	}
 
 }

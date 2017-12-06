@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.vista.partida.turno;
 
-import fiuba.algo3.tp2.controlador.ControladorJugador;
+import java.util.ArrayList;
+
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAvance;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
@@ -57,8 +58,8 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaTurnoInicial());
 	}
 	
-	public void colocarVistaDados() {
-		this.cambiarVistaAccion(new VistaDados());
+	public void colocarVistaDados(ArrayList<VistaDado> vistas_dados) {
+		this.cambiarVistaAccion(new VistaDados(vistas_dados));
 	}
 
 	public void colocarVistaImpuesto() {

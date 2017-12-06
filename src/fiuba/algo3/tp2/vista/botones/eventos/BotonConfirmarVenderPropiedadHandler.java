@@ -16,7 +16,7 @@ public class BotonConfirmarVenderPropiedadHandler implements EventHandler<Action
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		ControladorPrincipal.getInstance().vender(this.combo_propiedades.getValue());
+		ControladorPrincipal.getInstance().accionConfirmarVender(this.combo_propiedades.getValue());
 	}
 
 }

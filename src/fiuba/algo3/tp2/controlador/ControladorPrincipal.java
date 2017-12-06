@@ -22,8 +22,9 @@ import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
+import fiuba.algo3.tp2.modelo.excepciones.LimiteDeConstruccionesException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
-import fiuba.algo3.tp2.vista.AlgoPoly;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
@@ -34,10 +35,9 @@ import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderObligatoriamente;
-import javafx.scene.Scene;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderPropiedad;
 import javafx.scene.paint.Color;
 
 public class ControladorPrincipal {
@@ -113,12 +113,12 @@ public class ControladorPrincipal {
 		else
 			contenedor_acciones.colocarVistaNormal();
 	}
-
+/*
 	public void lanzar_dado() {
 		controlador_cubilete.lanzar();
 		contenedor_acciones.colocarVistaDados();
 	}
-
+*/
 	private void jugador_fuera_de_juego() {
 		controlador_ronda.quitarJugador(jugador_actual);
 		if (controlador_ronda.contarJugadores() == 1) {
@@ -205,7 +205,7 @@ public class ControladorPrincipal {
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		this.iniciar_ronda();
 	}
-
+/*
 	public void construir(Terreno terreno) {
 		try {
 			terreno.construir();
@@ -225,7 +225,7 @@ public class ControladorPrincipal {
 		}
 		contenedor_acciones.colocarVistaNormal();
 	}
-
+*/
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 		try {
@@ -240,7 +240,7 @@ public class ControladorPrincipal {
 		terminar_turno();
 		// ACTUALIZAR VISTA DINERO JUGADORES (PUEDE CAMBIAR LA PLATA)
 	}
-
+/*
 	public void vender(Propiedad propiedad) {
 		System.out.println(propiedad.toString());
 		propiedad.vender();
@@ -250,7 +250,7 @@ public class ControladorPrincipal {
 		// ACTUALIZAR VISTA JUGADORES (PUEDE CAMBIAR LA PLATA) no hace falta
 
 	}
-
+*/
 	public void intercambiar(Jugador destinatario, Propiedad entregada, Propiedad pedida) {
 		// ESTO ES MEDIO LIO DEJEMOSLO PARA EL FINAL !!!
 	}
@@ -355,11 +355,11 @@ public class ControladorPrincipal {
 		if(cant_casilleros == 0){this.terminar_turno();return;}
 		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
-
+/*
 	public void avanzar_segun_dados() {
 		this.avanzar(controlador_cubilete.sumarValores());
 	}
-
+*/
 	public void retroceder(int cant_casilleros) {
 		if(cant_casilleros == 0){this.terminar_turno();return;}
 		new AnimacionRetroceder(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
@@ -377,6 +377,61 @@ public class ControladorPrincipal {
 		//new AlgoPoly().start(new Scene(new contenedorPrincipal(new ContenedorPrincipal(new Stage));
 		//primaryStage.close();
 		//Platform.runLater( () -> new ReloadApp().start( new Stage() ) );
+	}
+
+	/* ACCIONES DE CADA BOTON */
+	
+	public void accionConstruir() {
+		this.cambiarVistaAccion(new VistaConstruir());
+	}
+
+	public void accionConfirmarConstruir(Terreno terreno) {
+		//ControladorPrincipal.getInstance().construir(terreno);
+		try {
+			terreno.construir();
+			//contenedor_acciones.colocarVistaNormal();
+			contenedor_acciones.colocarVistaGenerica("Se ha construido en: " + terreno + ".", new VistaConstruir());
+			return;
+		} catch (DineroInsuficienteException e) {
+			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaConstruir());
+			return;
+		} catch (FaltaAdquirirParejaException e) {
+			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
+			contenedor_acciones.colocarVistaGenerica("Falta adquirir " + terreno_doble.getPareja() + ".", new VistaConstruir());
+			return;
+		} catch (FaltanCasasException e) {
+			TerrenoDoble terreno_doble = (TerrenoDoble) terreno;
+			contenedor_acciones.colocarVistaGenerica("Faltan casas en " + terreno_doble.getPareja() + ".", new VistaConstruir());
+			return;
+		} catch (NoHayMasMejorasException e) {
+			contenedor_acciones.colocarVistaGenerica("No hay mas mejoras para " + terreno + ".", new VistaConstruir());
+			return;
+		}
+	}
+	
+	public void accionVender() {
+		this.cambiarVistaAccion(new VistaVenderPropiedad());
+	}
+	
+	public void accionConfirmarVender(Propiedad propiedad) {
+		propiedad.vender();
+		contenedor_acciones.colocarVistaGenerica("Vendiste " + propiedad + ".", new VistaVenderPropiedad());
+		return;
+	}
+	
+	public void accionConfirmarVenderObligado(Propiedad propiedad) {
+		propiedad.vender();
+		this.aplicar_efecto();
+		return;
+	}
+
+	public void accionLanzarDados() {
+		controlador_cubilete.lanzar();
+		contenedor_acciones.colocarVistaDados(controlador_cubilete.getVistasDados());
+	}
+
+	public void accionAvanzarSegunDados() {
+		this.avanzar(controlador_cubilete.sumarValores());
 	}
 
 }
