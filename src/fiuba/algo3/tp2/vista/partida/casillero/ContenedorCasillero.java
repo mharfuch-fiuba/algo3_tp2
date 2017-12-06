@@ -55,10 +55,10 @@ public class ContenedorCasillero extends VBox implements Observer{
 	public void update(Observable o, Object arg) {
 		System.out.println("entro al update de ContenedorCasillero");
 		Construccion construccion = (Construccion) arg;
-		if(construccion instanceof ConstruccionBaldio) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/baldio.png")) ;
-		if(construccion instanceof ConstruccionCasa) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/casa.png"));
-		if(construccion instanceof ConstruccionDuplex) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/duplex.png"));
-		if(construccion instanceof ConstruccionHotel) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/hotel.png"));	
+		if(construccion instanceof ConstruccionBaldio) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/construccion-baldio.png")) ;
+		if(construccion instanceof ConstruccionCasa) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/construccion-casa.png"));
+		if(construccion instanceof ConstruccionDuplex) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/construccion-duplex.png"));
+		if(construccion instanceof ConstruccionHotel) this.detalle.cambiarVista(new VistaConstruccion("file:assets/construcciones/construccion-hotel.png"));	
 	}
 	
 }
