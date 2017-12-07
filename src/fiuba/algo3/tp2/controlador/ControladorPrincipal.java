@@ -175,6 +175,14 @@ public class ControladorPrincipal {
 	public ArrayList<Propiedad> getPropiedades() {
 		return jugador_actual.getPropiedades();
 	}
+	
+	public ArrayList<Jugador> getOtrosJugadores() {
+		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		for(Jugador jugador:controlador_ronda.obtenerJugadores()) {
+			if(jugador != this.jugador_actual.getModelo()) jugadores.add(jugador);
+		}
+		return jugadores;
+	}
 
 	public void reiniciarPartida() {
 
@@ -385,6 +393,14 @@ public class ControladorPrincipal {
 		contenedor_acciones.colocarVistaJugadorExpulsado(jugador_actual.getNombre());
 		controlador_tablero.borrarJugador(jugador_actual);
 		return;
+	}
+
+	public void accionIntercambiar() {
+		contenedor_acciones.colocarVistaIntercambiarPropiedad(); 
+	}
+
+	public void accionProponerIntercambio(Propiedad propiedad, Jugador jugador) {
+		contenedor_acciones.colocarVistaConfirmarIntercambio(propiedad, jugador); 
 	}
 
 }

@@ -2,13 +2,17 @@ package fiuba.algo3.tp2.vista.partida.turno;
 
 import java.util.ArrayList;
 
+import fiuba.algo3.tp2.modelo.Jugador;
+import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAvance;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConfirmarIntercambio;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDados;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaJugadorGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaIntercambiarPropiedad;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaJugadorExpulsado;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPolicia;
@@ -121,6 +125,14 @@ public class VistaAcciones extends VBox {
 
 	public void colocarVistaJugadorExpulsado(String jugador) {
 		this.cambiarVistaAccion(new VistaJugadorExpulsado(jugador));
+	}
+
+	public void colocarVistaIntercambiarPropiedad() {
+		this.cambiarVistaAccion(new VistaIntercambiarPropiedad());
+	}
+
+	public void colocarVistaConfirmarIntercambio(Propiedad propiedad, Jugador jugador) {
+		this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad,jugador));
 	}
 	
 }

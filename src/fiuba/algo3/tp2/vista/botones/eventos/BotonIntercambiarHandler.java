@@ -8,7 +8,7 @@ public class BotonIntercambiarHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().intercambiar(null, null, null);
+		ControladorPrincipal.getInstance().accionIntercambiar();
 	}
 
 }

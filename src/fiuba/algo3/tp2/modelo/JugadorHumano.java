@@ -207,4 +207,8 @@ public class JugadorHumano extends Jugador {
 		return movimiento.estaEnCarcel();
 	}
 	
+	public String toString() {
+		return this.getNombre();
+	}
+	
 }
