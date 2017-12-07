@@ -9,7 +9,6 @@ public class AlgoPoly extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		//ControladorPrincipal controlador_principal = new ControladorPrincipal();
 		ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
 		contenedorPrincipal.inicializar();
 		
@@ -21,7 +20,7 @@ public class AlgoPoly extends Application {
 		stage.setScene(escenaPrincipal);
 		
 		stage.setMaximized(false);
-		stage.setFullScreen(false);
+		stage.setFullScreen(true);
 		stage.setResizable(false);
 		stage.show();
 		
