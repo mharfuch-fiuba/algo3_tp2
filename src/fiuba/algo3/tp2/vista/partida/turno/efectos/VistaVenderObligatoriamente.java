@@ -15,7 +15,7 @@ public class VistaVenderObligatoriamente extends VistaAccion {
 	public VistaVenderObligatoriamente() {
 		ArrayList<Propiedad> propiedades = ControladorPrincipal.getInstance().getPropiedades();
 		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija qué desea vender:");
+		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija que desea vender:");
 		
 		ObservableList<Propiedad> opciones = FXCollections.observableArrayList(propiedades);
 		ComboBox<Propiedad> combo_propiedades = new ComboBox<Propiedad>(opciones);

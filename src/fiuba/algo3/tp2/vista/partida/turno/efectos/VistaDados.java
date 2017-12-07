@@ -7,13 +7,6 @@ import fiuba.algo3.tp2.vista.partida.turno.VistaDado;
 import javafx.scene.layout.HBox;
 
 public class VistaDados extends VistaAccion{
-/*
-	public VistaDados(Cubilete cubilete){
-		LabelTurnoDinamica label = new LabelTurnoDinamica("LANZASTE DADOS");
-		BotonPagarFianza boton = new BotonPagarFianza(null);
-		this.getChildren().addAll(label);
-	}
-	*/
 
 	public VistaDados(ArrayList<VistaDado> vistas_dados) {
 		this.getStyleClass().add("VistaTurnoDinamica");

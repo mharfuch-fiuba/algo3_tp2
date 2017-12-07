@@ -7,7 +7,7 @@ public class VistaImpuesto extends VistaAccion{
 
 	public VistaImpuesto(){
 		LabelTurnoDinamica label1 = new LabelTurnoDinamica("Impuesto al lujo.");
-		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Pagarás 10% de tu efectivo.");
+		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Pagaras 10% de tu efectivo.");
 		BotonAplicarEfecto boton = new BotonAplicarEfecto();
 		this.getChildren().addAll(label1,label2,boton);
 	}

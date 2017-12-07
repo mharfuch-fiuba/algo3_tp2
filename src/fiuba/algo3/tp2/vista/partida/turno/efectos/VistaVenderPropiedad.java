@@ -17,7 +17,7 @@ public class VistaVenderPropiedad extends VistaAccion {
 	public VistaVenderPropiedad() {
 		ArrayList<Propiedad> propiedades = ControladorPrincipal.getInstance().getPropiedades();
 		this.getStyleClass().add("VistaTurnoDinamica");
-		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija qué desea vender:");
+		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija que desea vender:");
 		
 		System.out.println(propiedades);
 		

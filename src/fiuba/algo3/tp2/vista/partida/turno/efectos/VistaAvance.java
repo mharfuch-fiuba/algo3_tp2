@@ -7,7 +7,7 @@ public class VistaAvance extends VistaAccion {
 	
 	public VistaAvance(int cant_casilleros) {
 		LabelTurnoDinamica label1 = new LabelTurnoDinamica("Caiste en Avance Dinamico.");
-		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Avanzarás " + cant_casilleros + " casilleros.");
+		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Avanzaras " + cant_casilleros + " casilleros.");
 		BotonAvanceDinamico boton = new BotonAvanceDinamico(cant_casilleros);
 		this.getChildren().addAll(label1, label2, boton);
 		
