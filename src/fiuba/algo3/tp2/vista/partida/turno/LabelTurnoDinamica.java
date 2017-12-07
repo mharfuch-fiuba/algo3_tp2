@@ -9,7 +9,4 @@ public class LabelTurnoDinamica extends Label{
 		this.setText(texto);
 	}
 	
-	public void cambiarTexto(String texto){
-		this.setText(texto);
-	}
 }

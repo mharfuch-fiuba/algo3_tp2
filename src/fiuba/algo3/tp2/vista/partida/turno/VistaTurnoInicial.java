@@ -20,9 +20,6 @@ public class VistaTurnoInicial extends VistaAccion {
 		
 		BotonIntercambiar intercambiar = new BotonIntercambiar();
 		
-		//BotonAlgoPoly tirarDados = new BotonAlgoPoly("Tirar Dados");
-		//tirarDados.setOnAction(new BotonTirarDadosHandler());
-		
 		BotonTirarDados tirar_dados = new BotonTirarDados();
 		
 		BotonAlgoPoly[] botones = {construir,vender,intercambiar,tirar_dados};

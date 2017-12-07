@@ -2,13 +2,10 @@ package fiuba.algo3.tp2.controlador;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Observable;
-import java.util.Observer;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 
 public class ControladorRonda {
