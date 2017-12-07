@@ -71,6 +71,7 @@ public class Ronda extends Observable implements Iterable<Jugador> {
 	}
 
 	public void quitarJugador(Jugador jugador_actual) {
+		iterador.remove();
 		//datos.remove(jugador_actual);
 		//HAY QUE VERIFICAR QUE EL ITERADOR NO QUEDE EN UN ESTADO INVALIDO
 	}

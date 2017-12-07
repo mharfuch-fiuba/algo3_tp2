@@ -43,7 +43,7 @@ import javafx.scene.paint.Color;
 public class ControladorPrincipal {
 
 	private static final int CANTIDAD_DE_DADOS = 2;
-	private static final int DINERO_INICIAL = 100000;
+	private static final int DINERO_INICIAL = 30000;
 	private static final int VELOCIDAD_ANIMACION = 200;
 
 	private ControladorJugador jugador_actual;
@@ -399,10 +399,8 @@ public class ControladorPrincipal {
 	}
 
 	public void accionConfirmarConstruir(Terreno terreno) {
-		//ControladorPrincipal.getInstance().construir(terreno);
 		try {
 			terreno.construir();
-			//contenedor_acciones.colocarVistaNormal();
 			contenedor_acciones.colocarVistaGenerica("Se ha construido en: " + terreno + ".", new VistaConstruir());
 			return;
 		} catch (DineroInsuficienteException e) {
@@ -516,15 +514,19 @@ public class ControladorPrincipal {
 		controlador_tablero.borrarJugador(jugador_actual);
 		try {
 			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
+			controlador_tablero.dibujarJugador(jugador_actual);
+			this.accionTerminarTurno();
+			return;
 		} catch (DineroInsuficienteException e) {
+			System.out.println("DINERO INSUFICIENTE");
 			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaVenderObligatoriamente());
+			controlador_tablero.dibujarJugador(jugador_actual);
 			return;
 		} catch (BancaRotaException e) {
+			System.out.println("BANCA ROTA");
 			this.expulsarJugador();
 			return;
 		}
-		controlador_tablero.dibujarJugador(jugador_actual);
-		this.accionTerminarTurno();		
 	}
 
 	public void accionComprar() {
@@ -550,7 +552,7 @@ public class ControladorPrincipal {
 			contenedor_acciones.colocarVistaNormal();
 			return;
 		} catch (NoPuedePagarFianzaException e) {
-			contenedor_acciones.colocarVistaGenerica("No se puede pagar la fianza en este turno.", new VistaCarcel());
+			contenedor_acciones.colocarVistaGenerica("No se puede pagar la fianza\nen este turno.", new VistaCarcel());
 			return;
 		} catch (DineroInsuficienteException | BancaRotaException e) {
 			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaCarcel());
@@ -572,7 +574,18 @@ public class ControladorPrincipal {
 		this.iniciar_ronda();
 	}
 	
+	private void venderPropiedades(ArrayList<Propiedad> propiedades) {
+		for(Propiedad propiedad:propiedades) {
+			propiedad.vender();
+		}
+	}
+	
 	private void expulsarJugador() {
+		this.venderPropiedades(jugador_actual.getPropiedades());
+		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
+		Jugador propietario = propiedad.getPropietario();
+		jugador_actual.getModelo().pagar(jugador_actual.getDinero());
+		propietario.cobrar(jugador_actual.getDinero());
 		controlador_ronda.quitarJugador(jugador_actual);
 		if (controlador_ronda.contarJugadores() == 1) {
 			contenedor_acciones.colocarVistaJugadorGanador(jugador_actual.getNombre());

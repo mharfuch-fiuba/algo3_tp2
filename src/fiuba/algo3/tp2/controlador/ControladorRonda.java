@@ -57,7 +57,7 @@ public class ControladorRonda implements Observer {
 	}
 	public void quitarJugador(ControladorJugador jugador_actual) {
 		modelo_ronda.quitarJugador(jugador_actual.getModelo());
-		jugadores.remove(jugador_actual);
+		//jugadores.remove(jugador_actual);
 	}
 	public int contarJugadores() {
 		return modelo_ronda.contarJugadores();
