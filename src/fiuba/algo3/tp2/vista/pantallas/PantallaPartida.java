@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2.vista.pantallas;
 
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
-import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
+import fiuba.algo3.tp2.vista.partida.ronda.ContenedorRonda;
 import fiuba.algo3.tp2.vista.partida.tablero.ContenedorTablero;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import javafx.scene.layout.BorderPane;

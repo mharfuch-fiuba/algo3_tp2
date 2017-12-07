@@ -6,7 +6,7 @@ import java.util.HashMap;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
+import fiuba.algo3.tp2.vista.partida.ronda.ContenedorRonda;
 
 public class ControladorRonda {
 

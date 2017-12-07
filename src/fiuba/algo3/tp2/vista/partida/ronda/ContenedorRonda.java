@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.vista.partida;
+package fiuba.algo3.tp2.vista.partida.ronda;
 
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;

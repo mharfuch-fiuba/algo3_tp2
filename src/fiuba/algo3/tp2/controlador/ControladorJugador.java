@@ -12,8 +12,8 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
-import fiuba.algo3.tp2.vista.partida.VistaJugador;
 import fiuba.algo3.tp2.vista.partida.casillero.VistaCasilleroJugador;
+import fiuba.algo3.tp2.vista.partida.ronda.VistaJugador;
 import javafx.scene.paint.Color;
 
 public class ControladorJugador implements Observer {
