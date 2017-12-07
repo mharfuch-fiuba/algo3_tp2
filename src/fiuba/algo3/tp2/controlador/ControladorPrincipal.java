@@ -259,7 +259,7 @@ public class ControladorPrincipal {
 
 		if (casillero_actual instanceof Carcel) {
 			this.accionAplicarEfecto();
-			contenedor_acciones.colocarVistaCarcel();
+			//contenedor_acciones.colocarVistaCarcel();
 			return;
 		}
 
