@@ -7,6 +7,7 @@ import java.util.Observer;
 
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.Ronda;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 
@@ -18,9 +19,9 @@ public class ControladorRonda implements Observer {
 	private ContenedorRonda vistaRonda;
 	
 
-	public ControladorRonda() {
+	public ControladorRonda(Cubilete cubilete) {
 		this.jugadores = new HashMap<Jugador, ControladorJugador>();
-		this.modelo_ronda = new Ronda();
+		this.modelo_ronda = new Ronda(cubilete);
 		this.modelo_ronda.addObserver(this);
 		this.vistaRonda=new ContenedorRonda();
 		//this.cubilete= new ControladorCubilete(ronda.getCubilete());
@@ -55,9 +56,8 @@ public class ControladorRonda implements Observer {
 	public ArrayList<Jugador> obtenerJugadores() {
 		return modelo_ronda.obtenerJugadores();
 	}
-	public void quitarJugador(ControladorJugador jugador_actual) {
-		modelo_ronda.quitarJugador(jugador_actual.getModelo());
-		//jugadores.remove(jugador_actual);
+	public void quitarJugadorActual() {
+		modelo_ronda.quitarJugadorActual();
 	}
 	public int contarJugadores() {
 		return modelo_ronda.contarJugadores();

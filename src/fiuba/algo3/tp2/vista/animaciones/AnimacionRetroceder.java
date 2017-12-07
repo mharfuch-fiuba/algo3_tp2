@@ -17,7 +17,7 @@ public class AnimacionRetroceder extends AnimationTimer {
 		this.tiempo_espera = tiempo_espera;
 		this.jugador_actual = jugador_actual;
 		this.controlador_tablero = controlador_tablero;
-		ControladorPrincipal.getInstance().cambiar_vista_vacia();
+		ControladorPrincipal.getInstance().mostrarVistaDeEspera();
 		this.start();
 	}
 	

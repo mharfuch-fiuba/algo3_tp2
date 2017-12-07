@@ -6,7 +6,7 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.cubilete.CubileteFalso;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
@@ -30,7 +30,7 @@ public class Entrega1Test {
 	public void test01_ElCapitalSeIncrementaEn50000AlCaerEnQuini6PorPrimeraVez() throws Exception {
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
@@ -45,7 +45,7 @@ public class Entrega1Test {
 	public void test02_ElCapitalSeIncrementaEn30000AlCaerEnQuini6PorSegundaVez() throws Exception {
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
@@ -57,7 +57,7 @@ public class Entrega1Test {
 
 		Lanzable dado3 = new DadoCargado(7);
 		Lanzable dado4 = new DadoCargado(13);
-		CubileteFalso cubilete2 = new CubileteFalso();
+		Cubilete cubilete2 = new Cubilete();
 		cubilete2.agregar(dado3);
 		cubilete2.agregar(dado4);
 		cubilete2.lanzar();
@@ -73,7 +73,7 @@ public class Entrega1Test {
 	public void test03_ElCapitalNoSeIncrementaAlCaerEnQuini6PorTerceraVez() throws Exception {
 		Lanzable dado1 = new DadoCargado(7);
 		Lanzable dado2 = new DadoCargado(14);
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
@@ -85,7 +85,7 @@ public class Entrega1Test {
 
 		Lanzable dado3 = new DadoCargado(7);
 		Lanzable dado4 = new DadoCargado(13);
-		CubileteFalso cubilete2 = new CubileteFalso();
+		Cubilete cubilete2 = new Cubilete();
 		cubilete2.agregar(dado3);
 		cubilete2.agregar(dado4);
 		cubilete2.lanzar();
@@ -97,7 +97,7 @@ public class Entrega1Test {
 
 		Lanzable dado5 = new DadoCargado(7);
 		Lanzable dado6 = new DadoCargado(13);
-		CubileteFalso cubilete3 = new CubileteFalso();
+		Cubilete cubilete3 = new Cubilete();
 		cubilete3.agregar(dado5);
 		cubilete3.agregar(dado6);
 		cubilete3.lanzar();
@@ -119,7 +119,7 @@ public class Entrega1Test {
 	public void test05_ElJugadorQueCaeEnLaCarcelNoPuedeMoverse() throws Exception {
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
@@ -136,7 +136,7 @@ public class Entrega1Test {
 	public void test06_ElJugadorQuePagaLaFianzaPuedeMoverse() throws Exception {
 		Lanzable dado1 = new DadoCargado(1);
 		Lanzable dado2 = new DadoCargado(4);
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
@@ -157,7 +157,7 @@ public class Entrega1Test {
 
 		Lanzable dado1 = new DadoCargado(2);
 		Lanzable dado2 = new DadoCargado(3);
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(dado1);
 		cubilete.agregar(dado2);
 		cubilete.lanzar();
@@ -181,9 +181,9 @@ public class Entrega1Test {
 
 	@Test
 	public void test08_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado6Avanza4Casilleros() throws DineroInsuficienteException {
-		CubileteFalso cubilete_que_saca_1 = new CubileteFalso();
+		Cubilete cubilete_que_saca_1 = new Cubilete();
 		cubilete_que_saca_1.agregar(new DadoCargado(1));
-		CubileteFalso cubilete_que_saca_6 = new CubileteFalso();
+		Cubilete cubilete_que_saca_6 = new Cubilete();
 		cubilete_que_saca_6.agregar(new DadoCargado(6));
 		cubilete_que_saca_1.lanzar();
 		jugador100k.avanzar(cubilete_que_saca_1.sumarValores());
@@ -198,7 +198,7 @@ public class Entrega1Test {
 
 	@Test
 	public void test09_ElJugadorQueCaeEnAvanceDinamicoHabiendoSacado7Avanza5CasillerosSiSuCapitalEsDe100000() throws DineroInsuficienteException {
-		CubileteFalso cubilete_que_saca_7 = new CubileteFalso();
+		Cubilete cubilete_que_saca_7 = new Cubilete();
 		cubilete_que_saca_7.agregar(new DadoCargado(1));
 		cubilete_que_saca_7.agregar(new DadoCargado(6));
 		cubilete_que_saca_7.lanzar();
@@ -215,10 +215,10 @@ public class Entrega1Test {
 
 		jugador100k.comprar(new SantaFe());
 		jugador100k.comprar(new Neuquen());
-		CubileteFalso cubilete_que_saca_7 = new CubileteFalso();
+		Cubilete cubilete_que_saca_7 = new Cubilete();
 		cubilete_que_saca_7.agregar(new DadoCargado(6));
 		cubilete_que_saca_7.agregar(new DadoCargado(1));
-		CubileteFalso cubilete_que_saca_12 = new CubileteFalso();
+		Cubilete cubilete_que_saca_12 = new Cubilete();
 		cubilete_que_saca_12.agregar(new DadoCargado(6));
 		cubilete_que_saca_12.agregar(new DadoCargado(6));
 		cubilete_que_saca_7.lanzar();
@@ -240,7 +240,7 @@ public class Entrega1Test {
 	@Test
 	public void test12_ElJugadorQueCaeEnPoliciaVaALaCarcel()
 			throws DineroInsuficienteException {
-		CubileteFalso cubilete_que_saca_15 = new CubileteFalso();
+		Cubilete cubilete_que_saca_15 = new Cubilete();
 		cubilete_que_saca_15.agregar(new DadoCargado(15));
 		cubilete_que_saca_15.lanzar();
 		jugador100k.avanzar(cubilete_que_saca_15.sumarValores());
@@ -251,7 +251,7 @@ public class Entrega1Test {
 
 	@Test
 	public void test12_ElJugadorQueCaeEnPoliciaNoPuedeMoverse() throws Exception {
-		CubileteFalso cubilete_que_saca_15 = new CubileteFalso();
+		Cubilete cubilete_que_saca_15 = new Cubilete();
 		cubilete_que_saca_15.agregar(new DadoCargado(15));
 		cubilete_que_saca_15.lanzar();
 		jugador100k.avanzar(cubilete_que_saca_15.sumarValores());

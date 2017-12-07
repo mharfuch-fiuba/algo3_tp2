@@ -6,18 +6,7 @@ public class Cubilete {
 	
 	private ArrayList<Lanzable> dados;
 	
-    private static final Cubilete INSTANCE = new Cubilete();
-
-    public static Cubilete getInstance() {
-        return INSTANCE;
-    }
-		
-    // El constructor privado/protected no permite que se genere un constructor por defecto.
-	protected Cubilete() {
-		this.dados = new ArrayList<Lanzable>();
-	}
-	
-	public void vaciar(){
+	public Cubilete() {
 		this.dados = new ArrayList<Lanzable>();
 	}
 
@@ -38,16 +27,17 @@ public class Cubilete {
 		}
 		return valores_sumados;
 	}
-	
-	public int getDado1(){
-		return 1;
-	}
-	
-	public int getDado2(){
-		return 2;
-	}
 		
 	public ArrayList<Lanzable> getLanzables(){
 		return this.dados;
 	}
+
+	public boolean esDoble() {
+		int valor = dados.get(0).obtenerValor();
+		for(int i=1;i<dados.size();i++) {
+			if(valor != dados.get(i).obtenerValor()) return false;
+		}
+		return true;
+	}
+	
 }

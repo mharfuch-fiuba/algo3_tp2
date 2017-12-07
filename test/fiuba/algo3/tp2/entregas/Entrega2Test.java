@@ -7,7 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.JugadorHumano;
-import fiuba.algo3.tp2.modelo.cubilete.CubileteFalso;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.Lanzable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Edificable;
@@ -37,7 +37,7 @@ public class Entrega2Test {
 	private TerrenoSimple tucuman;
 	
 	public Entrega2Test() {
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
 		jugador100k.avanzar(cubilete.sumarValores());
 		bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
@@ -147,7 +147,7 @@ public class Entrega2Test {
 		terreno.construir();
 
 		jugador200k.avanzar(2);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		int dineroDespues = jugador200k.obtenerDinero().obtenerMontoEntero();
 		Assert.assertEquals(197000, dineroDespues);
 		
@@ -156,7 +156,7 @@ public class Entrega2Test {
 
 	@Test
 	public void test04_jugadorQueCaeEnBuenosAiresDeOtroCon1CasaEnNorteYDosEnSurPaga3500EnCadaUna() throws DineroInsuficienteException {
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		Lanzable dadoSiempre2 = new DadoCargado(2);
 		cubilete.agregar(dadoSiempre2);
 		
@@ -261,7 +261,7 @@ public class Entrega2Test {
 	@Test
 	public void test07_SiUnJugadorCaeEnBuenosAiresSurDeOtroConHotelPaga5k() throws DineroInsuficienteException {
 		
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		Lanzable dadoSiempre2 = new DadoCargado(2);
 		cubilete.agregar(dadoSiempre2);
 		
@@ -291,10 +291,10 @@ public class Entrega2Test {
 	
 	@Test
 	public void test08_JugadorCaeEnCordobaSurDeOtroPropietarioYPagaAlquilerDeHotel() throws DineroInsuficienteException{
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		Lanzable dado_siempre_6 = new DadoCargado(6);
 		Lanzable dado_siempre_3 = new DadoCargado(3);
-		CubileteFalso cubilete2 = new CubileteFalso();
+		Cubilete cubilete2 = new Cubilete();
 		cubilete.agregar(dado_siempre_6);
 		cubilete2.agregar(dado_siempre_3);
 		
@@ -320,7 +320,7 @@ public class Entrega2Test {
 
 	@Test
 	public void test08_JugadorCaeEnSaltaNorteDeOtroPropietarioYPagaAlquilerDeHotel() throws DineroInsuficienteException{
-		CubileteFalso cubilete = new CubileteFalso();
+		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[]{13,1}));
 		
 		jugador100k.avanzar(cubilete.sumarValores());
@@ -367,7 +367,7 @@ public class Entrega2Test {
 		jugador100k.comprarCasilleroActual();
 		bsAsSur.construir();
 		jugador200k.avanzar(2);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(3000, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -382,7 +382,7 @@ public class Entrega2Test {
 		TerrenoDoble bsAsNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		bsAsNorte.construir();
 		jugador200k.avanzar(4);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(3500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -397,7 +397,7 @@ public class Entrega2Test {
 		jugador100k.comprarCasilleroActual();
 		cordobaSur.construir();
 		jugador200k.avanzar(6);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(1500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -414,7 +414,7 @@ public class Entrega2Test {
 		
 		jugador200k.avanzar(9);
 		Dinero monto_inicial = jugador200k.obtenerDinero();
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero monto_final = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(monto_inicial.obtenerMontoEntero() - 1800, monto_final.obtenerMontoEntero());
@@ -427,7 +427,7 @@ public class Entrega2Test {
 		TerrenoSimple santaFe = (TerrenoSimple) jugador100k.obtenerCasilleroActual();
 		santaFe.construir();
 		jugador200k.avanzar(11);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(3500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -443,7 +443,7 @@ public class Entrega2Test {
 		saltaNorte.construir();
 		
 		jugador200k.avanzar(13);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(3250, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -458,7 +458,7 @@ public class Entrega2Test {
 		TerrenoDoble saltaSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		saltaSur.construir();
 		jugador200k.avanzar(14);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(3250, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -471,7 +471,7 @@ public class Entrega2Test {
 		TerrenoSimple neuquen = (TerrenoSimple) jugador100k.obtenerCasilleroActual();
 		neuquen.construir();
 		jugador200k.avanzar(17);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(3800, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -484,7 +484,7 @@ public class Entrega2Test {
 		TerrenoSimple tucuman = (TerrenoSimple) jugador100k.obtenerCasilleroActual();
 		tucuman.construir();
 		jugador200k.avanzar(19);
-		jugador200k.aplicarEfectoDeCasilleroActual(new CubileteFalso());
+		jugador200k.aplicarEfectoDeCasilleroActual(new Cubilete());
 		Dinero dineroDespuesDeInteractuar = jugador200k.obtenerDinero();
 		
 		Assert.assertEquals(4500, 200000 - dineroDespuesDeInteractuar.obtenerMontoEntero());
@@ -494,9 +494,9 @@ public class Entrega2Test {
 	public void test11_jugadorSacaDoceCaeEnTrenYaAdquiridoSuPropietarioNoTieneSubteSuDineroSeReduce5400() throws DineroInsuficienteException {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 5400;
-		CubileteFalso cubilete_que_saca_12 = new CubileteFalso();
+		Cubilete cubilete_que_saca_12 = new Cubilete();
 		cubilete_que_saca_12.agregar(new DadoCargado(12));
-		CubileteFalso cubilete_que_saca_16 = new CubileteFalso();
+		Cubilete cubilete_que_saca_16 = new Cubilete();
 		cubilete_que_saca_16.agregar(new DadoCargado(16));
 		/* CREO AL JUGADOR 1, LO AVANZO HASTA EL TREN Y LO COMPRO */
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(100000));
@@ -514,10 +514,10 @@ public class Entrega2Test {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 9600;
 		
-		CubileteFalso cubilete_que_saca_12 = new CubileteFalso();
+		Cubilete cubilete_que_saca_12 = new Cubilete();
 		cubilete_que_saca_12.agregar(new DadoCargado(12));
 		/* CREO AL JUGADOR 1, LO AVANZO HASTA EL SUBTE Y LO COMPRO LUEGO HASTA EL TREN Y LO COMPRO */
-		CubileteFalso cubilete_que_saca_8 = new CubileteFalso();
+		Cubilete cubilete_que_saca_8 = new Cubilete();
 		cubilete_que_saca_8.agregar(new DadoCargado(8));
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(100000));
 		jugador1.avanzar(cubilete_que_saca_8.sumarValores());
@@ -526,7 +526,7 @@ public class Entrega2Test {
 		jugador1.avanzar(cubilete_que_saca_8.sumarValores());
 		jugador1.comprarCasilleroActual(); // Compra el tren
 		/* CREO AL JUGADOR 2 Y LO AVANZO HASTA EL TREN */
-		CubileteFalso cubilete_que_saca_16 = new CubileteFalso();
+		Cubilete cubilete_que_saca_16 = new Cubilete();
 		cubilete_que_saca_16.agregar(new DadoCargado(16));
 		Jugador jugador2 = new JugadorHumano(tablero, new Dinero(monto_inicial));
 		jugador2.avanzar(cubilete_que_saca_16.sumarValores());
@@ -541,13 +541,13 @@ public class Entrega2Test {
 		
 		//JUGADOR 1 COMPRA SANTA FE
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
-		CubileteFalso cubilete_que_saca_11 = new CubileteFalso();
+		Cubilete cubilete_que_saca_11 = new Cubilete();
 		cubilete_que_saca_11.agregar(new DadoCargado(11));
 		jugador1.avanzar(cubilete_que_saca_11.sumarValores());
 		jugador1.comprarCasilleroActual();
 		//JUGADOR 2 COMPRA CORDOBA NORTE
 		Jugador jugador2 = new JugadorHumano(tablero, new Dinero(monto_inicial));
-		CubileteFalso cubilete_que_saca_9 = new CubileteFalso();
+		Cubilete cubilete_que_saca_9 = new Cubilete();
 		cubilete_que_saca_9.agregar(new DadoCargado(9));
 		jugador2.avanzar(cubilete_que_saca_9.sumarValores());
 		jugador2.comprarCasilleroActual();
@@ -575,7 +575,7 @@ public class Entrega2Test {
 		final int monto_inicial = 10000;
 		final int monto_esperado = monto_inicial - (int) (monto_inicial * 0.1);
 		
-		CubileteFalso cubilete_que_saca_10 = new CubileteFalso();
+		Cubilete cubilete_que_saca_10 = new Cubilete();
 		cubilete_que_saca_10.agregar(new DadoCargado(10));
 		/* CREO AL JUGADOR 1, LO AVANZO HASTA EDESUR Y LO COMPRO */
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
@@ -589,9 +589,9 @@ public class Entrega2Test {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 6000;
 		
-		CubileteFalso cubilete_que_saca_12 = new CubileteFalso();
+		Cubilete cubilete_que_saca_12 = new Cubilete();
 		cubilete_que_saca_12.agregar(new DadoCargado(12));
-		CubileteFalso cubilete_que_saca_3 = new CubileteFalso();
+		Cubilete cubilete_que_saca_3 = new Cubilete();
 		cubilete_que_saca_3.agregar(new DadoCargado(3));
 		/* CREO AL JUGADOR 1, LO AVANZO HASTA EDESUR Y LO COMPRO */
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(100000));
@@ -609,15 +609,15 @@ public class Entrega2Test {
 		final int monto_inicial = 20000;
 		final int monto_esperado = monto_inicial - 12000;
 		
-		CubileteFalso cubilete_que_saca_12 = new CubileteFalso();
+		Cubilete cubilete_que_saca_12 = new Cubilete();
 		cubilete_que_saca_12.agregar(new DadoCargado(12));
 		/* CREO AL JUGADOR 1, LO AVANZO HASTA EDESUR Y LO COMPRO LUEGO HASTA AYSA Y LO COMPRO */
-		CubileteFalso cubilete_que_saca_3 = new CubileteFalso();
+		Cubilete cubilete_que_saca_3 = new Cubilete();
 		cubilete_que_saca_3.agregar(new DadoCargado(3));
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(100000));
 		jugador1.avanzar(cubilete_que_saca_3.sumarValores());
 		jugador1.comprarCasilleroActual(); // Compra edesur
-		CubileteFalso cubilete_que_saca_9 = new CubileteFalso();
+		Cubilete cubilete_que_saca_9 = new Cubilete();
 		cubilete_que_saca_9.agregar(new DadoCargado(9));
 		jugador1.avanzar(cubilete_que_saca_9.sumarValores());
 		jugador1.comprarCasilleroActual(); // Compra aysa

@@ -18,7 +18,7 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadPropia;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaQuini;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaRetroceso;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaSalida;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVacia;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDeEspera;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -107,8 +107,8 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaDineroInsuficiente());
 	}
 
-	public void colocarVistaVacia() {
-		this.cambiarVistaAccion(new VistaVacia());
+	public void colocarVistaDeEspera() {
+		this.cambiarVistaAccion(new VistaDeEspera());
 	}
 
 	public void colocarVista(VistaAccion vista_siguiente) {

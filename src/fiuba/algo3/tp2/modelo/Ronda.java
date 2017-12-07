@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.Observable;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
 import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
@@ -15,33 +14,36 @@ public class Ronda extends Observable implements Iterable<Jugador> {
 	private DoublyLinkedCircularList datos;
 	private DoublyLinkedCircularListIterator iterador;
 	private Cubilete cubilete;
+	private int cant_dobles;
 
-	public Ronda() {
+	public Ronda(Cubilete cubilete) {
 		this.datos = new DoublyLinkedCircularList();
 		this.iterador = this.datos.iterator();
-		this.cubilete = Cubilete.getInstance();
-		this.cubilete.vaciar();
-		this.cubilete.agregar(new DadoCubico());
-		this.cubilete.agregar(new DadoCubico());
+		this.cant_dobles = 0;
+		this.cubilete = cubilete;
 	}
 
 	public void agregarJugador(Jugador jugador) {
-		// Puede cambiar el jugador actual!
 		datos.add(jugador);
 		this.iterador = datos.iterator();
 	}
 
 	public void avanzarTurno() throws NoHayJugadoresException {
+		if(cubilete.esDoble()) {
+			cant_dobles++;
+			if(cant_dobles == 1) return;
+		}
 		Jugador actual = (Jugador) iterador.actual();
 		actual.avisarCambioDeTurno();
 		iterador.next();
+		this.cant_dobles = 0;
 		setChanged();
 		notifyObservers();
 	}
 
 	public Jugador obtenerJugadorActual() throws NoHayJugadoresException {
 		try {
-			return (Jugador) this.iterador.actual();// puedo porque se que guardo solo Jugadores
+			return (Jugador) this.iterador.actual();
 		} catch (Exception e) {
 			throw new NoHayJugadoresException();
 		}
@@ -61,19 +63,8 @@ public class Ronda extends Observable implements Iterable<Jugador> {
 		return obtenerJugadores().iterator();
 	}
 
-	public Cubilete getCubilete() {
-		return this.cubilete;
-	}
-	
-	public Cubilete lanzarDados(){
-		this.cubilete.lanzar();
-		return this.cubilete;
-	}
-
-	public void quitarJugador(Jugador jugador_actual) {
+	public void quitarJugadorActual() {
 		iterador.remove();
-		//datos.remove(jugador_actual);
-		//HAY QUE VERIFICAR QUE EL ITERADOR NO QUEDE EN UN ESTADO INVALIDO
 	}
 
 	public int contarJugadores() {

@@ -54,6 +54,9 @@ public class DoublyLinkedCircularList {
 			nodo_anterior.next = nodo_siguiente;
 			nodo_siguiente.prev = nodo_anterior;
 			actual = nodo_siguiente;
+			System.out.println("actual " + actual.data);
+			System.out.println("sig " + nodo_siguiente.data);
+			System.out.println("ant " + nodo_anterior.data);
 		}
 
 		public int size() {

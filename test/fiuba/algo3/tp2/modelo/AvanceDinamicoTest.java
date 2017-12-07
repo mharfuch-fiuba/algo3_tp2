@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.cubilete.CubileteFalso;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
@@ -13,7 +13,7 @@ public class AvanceDinamicoTest {
 
 	Tablero tablero = new Tablero();
 	Jugador jugador = new JugadorHumano(tablero, new Dinero(100000));
-	CubileteFalso cubilete_para_llegar_hasta_avance_dinamico = new CubileteFalso();
+	Cubilete cubilete_para_llegar_hasta_avance_dinamico = new Cubilete();
 	private static final int cant_propiedades = 3;
 	private static final int distancia_hasta_avance_dinamico = 7;
 	
@@ -28,12 +28,12 @@ public class AvanceDinamicoTest {
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
 			Jugador jugador1 = new JugadorHumano(tablero, new Dinero(100000));
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico.sumarValores());
-			CubileteFalso cubilete1 = new CubileteFalso();
+			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
 			jugador1.aplicarEfectoDeCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I
 			Jugador jugador2 = new JugadorHumano(tablero, new Dinero(100000));
-			CubileteFalso cubilete2 = new CubileteFalso();
+			Cubilete cubilete2 = new Cubilete();
 			int distancia_esperada = distancia_hasta_avance_dinamico  + i - 2;
 			cubilete2.agregar(new DadoCargado(distancia_esperada));
 			cubilete2.lanzar();
@@ -50,12 +50,12 @@ public class AvanceDinamicoTest {
 			//LLEVO AL JUGADOR HASTA AVANCE DINAMICO
 			Jugador jugador1 = new JugadorHumano(tablero, new Dinero(100000));
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico.sumarValores());
-			CubileteFalso cubilete1 = new CubileteFalso();
+			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
 			jugador1.aplicarEfectoDeCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + PLATA % I
 			Jugador jugador2 = new JugadorHumano(tablero, new Dinero(100000));
-			CubileteFalso cubilete2 = new CubileteFalso();
+			Cubilete cubilete2 = new Cubilete();
 			int distancia_esperada = distancia_hasta_avance_dinamico + jugador1.obtenerDinero().obtenerMontoEntero() % i;
 			cubilete2.agregar(new DadoCargado(distancia_esperada));
 			cubilete2.lanzar();
@@ -76,12 +76,12 @@ public class AvanceDinamicoTest {
 				jugador1.comprar(new Neuquen());
 			}
 			jugador1.avanzar(cubilete_para_llegar_hasta_avance_dinamico.sumarValores());
-			CubileteFalso cubilete1 = new CubileteFalso();
+			Cubilete cubilete1 = new Cubilete();
 			cubilete1.agregar(new DadoCargado(i));
 			jugador1.aplicarEfectoDeCasilleroActual(cubilete1);
 			//LLEVO AL JUGADOR 2 HASTA AVANCE DINAMICO + I - CANT_PROP
 			Jugador jugador2 = new JugadorHumano(tablero, new Dinero(100000));
-			CubileteFalso cubilete2 = new CubileteFalso();
+			Cubilete cubilete2 = new Cubilete();
 			int distancia_esperada = distancia_hasta_avance_dinamico + i - jugador1.getCantidadDePropiedades();
 			cubilete2.agregar(new DadoCargado(distancia_esperada));
 			cubilete2.lanzar();

@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.tp2.modelo.cubilete.CubileteFalso;
+import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.encasillables.RetrocesoDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
@@ -23,7 +23,7 @@ public class RetrocesoDinamicoTest{
 	Tablero tablero = new Tablero();
 	Dinero dinero = new Dinero(100000);
 	Jugador jugador = new JugadorHumano(tablero, dinero);
-	CubileteFalso cubilete = new CubileteFalso();
+	Cubilete cubilete = new Cubilete();
 
 	// Tests grupo [2,3,4,5,6]
 	@Test
@@ -31,7 +31,7 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -45,7 +45,7 @@ public class RetrocesoDinamicoTest{
 		jugador.comprar(comprable);
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 2));
 		jugador.avanzar(cubilete.sumarValores());
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -65,10 +65,10 @@ public class RetrocesoDinamicoTest{
 		jugador.comprar(comprable2);
 		jugador.comprar(comprable3);
 		
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico-2));
 		jugador.avanzar(cubilete.sumarValores()); 
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(2));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -82,7 +82,7 @@ public class RetrocesoDinamicoTest{
 	public void test05unJugadorCon100000EfectivoQueSaca10NoRetrocede() throws Exception {
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete.sumarValores());
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete.sumarValores());
 		Encasillable casillero = jugador.obtenerCasilleroActual();
@@ -95,7 +95,7 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -109,7 +109,7 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -124,7 +124,7 @@ public class RetrocesoDinamicoTest{
 		jugador.avanzar(cubilete.sumarValores()); // Ahora est� a 10 lugares de
 									// RetrocesoDin�mico
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(10));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -139,7 +139,7 @@ public class RetrocesoDinamicoTest{
 	public void test09unJugadorQueSaca11Retrocede9Lugares() throws Exception {
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 11));
 		jugador.avanzar(cubilete.sumarValores());
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(11));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
@@ -153,7 +153,7 @@ public class RetrocesoDinamicoTest{
 		cubilete.agregar(new DadoCargado(posicionEnTableroDeRetrocesoDinamico - 12));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
-		cubilete = new CubileteFalso();
+		cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(12));
 		jugador.avanzar(cubilete.sumarValores());
 		jugador.aplicarEfectoDeCasilleroActual(cubilete);
