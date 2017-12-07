@@ -11,60 +11,51 @@ import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
 import fiuba.algo3.tp2.vista.partida.ContenedorRonda;
 
-public class ControladorRonda implements Observer {
+public class ControladorRonda {
 
 	private Ronda modelo_ronda;
-	//private ControladorCubilete cubilete;
 	private HashMap<Jugador, ControladorJugador> jugadores;
 	private ContenedorRonda vistaRonda;
-	
 
 	public ControladorRonda(Cubilete cubilete) {
 		this.jugadores = new HashMap<Jugador, ControladorJugador>();
 		this.modelo_ronda = new Ronda(cubilete);
-		this.modelo_ronda.addObserver(this);
-		this.vistaRonda=new ContenedorRonda();
-		//this.cubilete= new ControladorCubilete(ronda.getCubilete());
+		this.vistaRonda = new ContenedorRonda();
 	}
-	
-	
-	public ContenedorRonda getVistaRonda(){
+
+	public ContenedorRonda getVistaRonda() {
 		return this.vistaRonda;
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-		try {
-			//this.tituloTurno.(this.modelo_ronda.obtenerJugadorActual().getNombre());
-		} catch (NoHayJugadoresException e) {
-			e.printStackTrace();
-		}
-	}	
 	public ArrayList<ControladorJugador> getJugadores() {
 		return new ArrayList<ControladorJugador>(jugadores.values());
 	}
-	
+
 	public void agregarJugador(ControladorJugador controlador_jugador) {
 		Jugador jugador = controlador_jugador.getModelo();
 		modelo_ronda.agregarJugador(jugador);
 		jugadores.put(jugador, controlador_jugador);
 		this.vistaRonda.ponerJugador(controlador_jugador.getVista());
 	}
+
 	public ControladorJugador obtenerJugadorActual() {
 		return jugadores.get(modelo_ronda.obtenerJugadorActual());
 	}
+
 	public ArrayList<Jugador> obtenerJugadores() {
 		return modelo_ronda.obtenerJugadores();
 	}
+
 	public void quitarJugadorActual() {
 		modelo_ronda.quitarJugadorActual();
 	}
+
 	public int contarJugadores() {
 		return modelo_ronda.contarJugadores();
 	}
+
 	public void avanzarTurno() {
 		modelo_ronda.avanzarTurno();
 	}
-
 
 }

@@ -1,18 +1,18 @@
-package fiuba.algo3.tp2.vista;
+package fiuba.algo3.tp2.vista.pantallas;
 
 import fiuba.algo3.tp2.controlador.ControladorPrincipal;
+import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.botones.BotonAlgoPoly;
 import fiuba.algo3.tp2.vista.botones.eventos.BotonNuevaPartidaHandler;
-import fiuba.algo3.tp2.vista.pantallas.PantallaConfiguracionPartida;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class VistaInicial extends VBox {
+public class PantallaInicial extends VBox {
 	
 	private ControladorPrincipal controlador_principal;
 	
-	public VistaInicial(ContenedorPrincipal stage, ControladorPrincipal controlador_principal) {
+	public PantallaInicial(ContenedorPrincipal stage, ControladorPrincipal controlador_principal) {
 		Image logo = new Image("file:assets/logo.png");
 		ImageView vistaImagen = new ImageView(logo);
 		vistaImagen.setFitHeight(240);

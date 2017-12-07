@@ -113,17 +113,7 @@ public class ControladorTablero {
 		VistaCasilleroJugador puntito = controlador_jugador.getVistaCasillero();
 		vista_casillero_actual.dibujarJugador(puntito);
 		System.out.println(modelo_casillero_actual.toString());
-		
-		
-		//ESTO DIBUJA OTRA COSA:
-		//Encasillable modelo_casillero_actual = controlador_jugador.getModelo().obtenerCasilleroActual();
-		//ContenedorCasillero vista_casillero_actual = casilleros.get(modelo_casillero_actual);
-		//vista_casillero_actual.dibujarJugador(controlador_jugador.getVista());
 	}
-
-	//public Tablero getModelo() {
-		//return modelo_tablero;
-	//}
 
 	public ContenedorTablero getVista() {
 		return vista_tablero;

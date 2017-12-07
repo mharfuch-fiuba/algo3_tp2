@@ -1,8 +1,9 @@
-package fiuba.algo3.tp2.vista;
+package fiuba.algo3.tp2.vista.pantallas;
 
 import java.util.ArrayList;
 
 import javafx.scene.Node;
+import javafx.scene.control.TextField;
 
 @SuppressWarnings("serial")
 public class TextFieldNombres extends ArrayList<Node> {
@@ -26,6 +27,15 @@ public class TextFieldNombres extends ArrayList<Node> {
 		nombres.add(nombreJugador2.getText());
 		nombres.add(nombreJugador3.getText());
 		return nombres;
+	}
+	
+	private class TextFieldNombreJugador extends TextField {
+
+		public TextFieldNombreJugador(String textoDefault){			
+			this.setText(textoDefault);
+			this.getStyleClass().add("TextFieldNombreJugador");
+		}
+		
 	}
 	
 }
