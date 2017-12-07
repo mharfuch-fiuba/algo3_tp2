@@ -14,8 +14,8 @@ public class BotonRetrocesoDinamicoHandler implements EventHandler<ActionEvent> 
 
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().retroceder(cant_casilleros);
-
+		//ControladorPrincipal.getInstance().retroceder(cant_casilleros);
+		ControladorPrincipal.getInstance().accionRetrocesoDinamico(cant_casilleros);
 	}
 
 }

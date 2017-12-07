@@ -8,7 +8,8 @@ public class BotonPagarFianzaHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().pagar_fianza();
+		//ControladorPrincipal.getInstance().pagar_fianza();
+		ControladorPrincipal.getInstance().accionPagarFianza();
 	}
 
 }

@@ -7,7 +7,7 @@ public class VistaRetroceso extends VistaAccion {
 
 	public VistaRetroceso(int cant_casilleros) {
 		LabelTurnoDinamica label1 = new LabelTurnoDinamica("Caiste en Retroceso Dinamico.");
-		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Retrocederas " + cant_casilleros + " casilleros");
+		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Retrocederás " + cant_casilleros + " casilleros.");
 		BotonRetrocesoDinamico boton = new BotonRetrocesoDinamico(cant_casilleros);
 		this.getChildren().addAll(label1,label2,boton);
 	}

@@ -22,9 +22,9 @@ import fiuba.algo3.tp2.modelo.excepciones.BancaRotaException;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltaAdquirirParejaException;
 import fiuba.algo3.tp2.modelo.excepciones.FaltanCasasException;
-import fiuba.algo3.tp2.modelo.excepciones.LimiteDeConstruccionesException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.excepciones.NoPuedePagarFianzaException;
+import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
@@ -104,7 +104,7 @@ public class ControladorPrincipal {
 		this.iniciar_ronda();
 	}
 
-	public void iniciar_ronda() {
+	private void iniciar_ronda() {
 		System.out.println("INICIA RONDA...");
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre(), jugador_actual.getColor());
@@ -119,6 +119,7 @@ public class ControladorPrincipal {
 		contenedor_acciones.colocarVistaDados();
 	}
 */
+	/*
 	private void jugador_fuera_de_juego() {
 		controlador_ronda.quitarJugador(jugador_actual);
 		if (controlador_ronda.contarJugadores() == 1) {
@@ -129,7 +130,8 @@ public class ControladorPrincipal {
 		// contenedor_acciones.cambiarVistaDinamica(new
 		// VistaJugadorEliminado(jugador_actual.getNombre()));
 	}
-
+	*/
+/*
 	public void cambiar_vista_efecto() {
 		
 		if (jugador_actual.obtenerCasilleroActual() instanceof Propiedad) {
@@ -183,7 +185,8 @@ public class ControladorPrincipal {
 		}
 
 	}
-
+*/
+	/*
 	public void aplicar_efecto() {
 		if(jugador_actual.estaEnCarcel()) {this.terminar_turno(); return;}
 		System.out.println("APLICA EFECTIO!");
@@ -199,12 +202,14 @@ public class ControladorPrincipal {
 		controlador_tablero.dibujarJugador(jugador_actual);
 		this.terminar_turno();
 	}
-
+*/
+	/*
 	public void terminar_turno() {
 		controlador_ronda.avanzarTurno();
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		this.iniciar_ronda();
 	}
+	*/
 /*
 	public void construir(Terreno terreno) {
 		try {
@@ -226,6 +231,7 @@ public class ControladorPrincipal {
 		contenedor_acciones.colocarVistaNormal();
 	}
 */
+	/*
 	public void comprar() {
 		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
 		try {
@@ -240,6 +246,7 @@ public class ControladorPrincipal {
 		terminar_turno();
 		// ACTUALIZAR VISTA DINERO JUGADORES (PUEDE CAMBIAR LA PLATA)
 	}
+	*/
 /*
 	public void vender(Propiedad propiedad) {
 		System.out.println(propiedad.toString());
@@ -254,7 +261,7 @@ public class ControladorPrincipal {
 	public void intercambiar(Jugador destinatario, Propiedad entregada, Propiedad pedida) {
 		// ESTO ES MEDIO LIO DEJEMOSLO PARA EL FINAL !!!
 	}
-
+/*
 	public void pagar_fianza() {
 		try {
 			jugador_actual.pagarFianza();
@@ -270,7 +277,7 @@ public class ControladorPrincipal {
 		}
 		contenedor_acciones.colocarVistaNormal();
 	}
-
+*/
 	public ContenedorTablero getVistaTablero() {
 		return controlador_tablero.getVista();
 	}
@@ -350,21 +357,23 @@ public class ControladorPrincipal {
 	 * ESTARIA LINDO QUE CUANDO JUEGA UN JUGADOR LAS PROPIEDADES DE ESE JUGADOR
 	 * APAREZCAN DE UN COLOR DISTINTO EN EL TABLERO
 	 */
-
+/*
 	public void avanzar(int cant_casilleros) {
-		if(cant_casilleros == 0){this.terminar_turno();return;}
+		if(cant_casilleros == 0){this.accionTerminarTurno();return;}
 		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
+*/
 /*
 	public void avanzar_segun_dados() {
 		this.avanzar(controlador_cubilete.sumarValores());
 	}
 */
+	/*
 	public void retroceder(int cant_casilleros) {
-		if(cant_casilleros == 0){this.terminar_turno();return;}
+		if(cant_casilleros == 0){this.accionTerminarTurno();return;}
 		new AnimacionRetroceder(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
-
+*/
 	public void cambiar_vista_vacia() {
 		contenedor_acciones.colocarVistaVacia();
 	}
@@ -379,6 +388,10 @@ public class ControladorPrincipal {
 		//Platform.runLater( () -> new ReloadApp().start( new Stage() ) );
 	}
 
+	
+	
+	
+	
 	/* ACCIONES DE CADA BOTON */
 	
 	public void accionConstruir() {
@@ -419,9 +432,9 @@ public class ControladorPrincipal {
 		return;
 	}
 	
-	public void accionConfirmarVenderObligado(Propiedad propiedad) {
+	public void accionConfirmarVenderObligatoriamente(Propiedad propiedad) {
 		propiedad.vender();
-		this.aplicar_efecto();
+		this.accionAplicarEfecto();
 		return;
 	}
 
@@ -431,7 +444,143 @@ public class ControladorPrincipal {
 	}
 
 	public void accionAvanzarSegunDados() {
-		this.avanzar(controlador_cubilete.sumarValores());
+		//this.avanzar(controlador_cubilete.sumarValores());
+		int cant_casilleros = controlador_cubilete.sumarValores();
+		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
+	}
+	
+	public void accionMostrarEfecto() {
+		
+		Encasillable casillero_actual = jugador_actual.obtenerCasilleroActual();
+		
+		if (casillero_actual instanceof Propiedad) {
+			Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
+			if (propiedad.getPropietario().esNull()) {
+				contenedor_acciones.colocarVistaPropiedadLibre(propiedad.toString(), propiedad.getPrecio().obtenerMontoEntero());
+				return;
+			}
+			if (propiedad.getPropietario() == jugador_actual.getModelo()) {
+				contenedor_acciones.colocarVistaPropiedadPropia();
+				return;
+			} else {
+				contenedor_acciones.colocarVistaPropiedadAjena(propiedad.getPropietario().getNombre(), propiedad.getAlquiler(controlador_cubilete.getModelo()).obtenerMontoEntero());
+				return;
+			}
+		}
+
+		if (casillero_actual instanceof Carcel) {
+			this.accionAplicarEfecto();
+			contenedor_acciones.colocarVistaCarcel();
+			return;
+		}
+
+		if (casillero_actual instanceof ImpuestoDeLujo) {
+			contenedor_acciones.colocarVistaImpuesto();
+			return;
+		}
+
+		if (casillero_actual instanceof AvanceDinamico) {	
+			AvanceDinamico casillero = (AvanceDinamico) jugador_actual.obtenerCasilleroActual();
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			contenedor_acciones.colocarVistaAvance(cant_casilleros);
+			return;
+		}
+
+		if (casillero_actual instanceof RetrocesoDinamico) {
+			RetrocesoDinamico casillero = (RetrocesoDinamico) jugador_actual.obtenerCasilleroActual();
+			int cant_casilleros = casillero.obtenerCantCasilleros(jugador_actual.getModelo(), controlador_cubilete.getModelo());
+			contenedor_acciones.colocarVistaRetroceso(cant_casilleros);
+			return;
+		}
+
+		if (casillero_actual instanceof Salida) {
+			contenedor_acciones.colocarVistaSalida();
+			return;
+		}
+
+		if (casillero_actual instanceof Quini6) {
+			Quini6 casillero = (Quini6) this.controlador_tablero.getModelo().getFactory().getQuini6();
+			Dinero monto_ganado = casillero.obtenerPremio(jugador_actual.getModelo());
+			contenedor_acciones.colocarVistaQuini(monto_ganado.obtenerMontoEntero());
+			return;
+		}
+
+		if (casillero_actual instanceof Policia) {
+			contenedor_acciones.colocarVistaPolicia();
+			return;
+		}
+
+	}
+
+	public void accionAplicarEfecto() {
+		controlador_tablero.borrarJugador(jugador_actual);
+		try {
+			jugador_actual.aplicarEfectoDeCasilleroActual(controlador_cubilete.getModelo());
+		} catch (DineroInsuficienteException e) {
+			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaVenderObligatoriamente());
+			return;
+		} catch (BancaRotaException e) {
+			this.expulsarJugador();
+			return;
+		}
+		controlador_tablero.dibujarJugador(jugador_actual);
+		this.accionTerminarTurno();		
+	}
+
+	public void accionComprar() {
+		Propiedad propiedad = (Propiedad) jugador_actual.obtenerCasilleroActual();
+		try {
+			jugador_actual.comprar(propiedad);
+		} catch (DineroInsuficienteException | BancaRotaException e) {
+			contenedor_acciones.colocarVistaGenerica("Dinero Insuficiente!", new VistaPropiedadLibre(propiedad.toString(), propiedad.getPrecio().obtenerMontoEntero()));
+			return;
+		}
+		this.accionTerminarTurno();
+	}
+
+	public void accionTerminarTurno() {
+		controlador_ronda.avanzarTurno();
+		jugador_actual = controlador_ronda.obtenerJugadorActual();
+		this.iniciar_ronda();
+	}
+
+	public void accionPagarFianza() {
+		try {
+			jugador_actual.pagarFianza();
+			contenedor_acciones.colocarVistaNormal();
+			return;
+		} catch (NoPuedePagarFianzaException e) {
+			contenedor_acciones.colocarVistaGenerica("No se puede pagar la fianza en este turno.", new VistaCarcel());
+			return;
+		} catch (DineroInsuficienteException | BancaRotaException e) {
+			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaCarcel());
+			return;
+		}
+	}
+
+	public void accionRetrocesoDinamico(int cant_casilleros) {
+		if(cant_casilleros == 0){this.accionTerminarTurno();return;}
+		new AnimacionRetroceder(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
+	}
+
+	public void accionAvanceDinamico(int cant_casilleros) {
+		if(cant_casilleros == 0){this.accionTerminarTurno();return;}
+		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
+	}
+	
+	public void accionIniciarTurno() {
+		this.iniciar_ronda();
+	}
+	
+	private void expulsarJugador() {
+		controlador_ronda.quitarJugador(jugador_actual);
+		if (controlador_ronda.contarJugadores() == 1) {
+			contenedor_acciones.colocarVistaJugadorGanador(jugador_actual.getNombre());
+			return;
+		}
+		contenedor_acciones.colocarVistaJugadorExpulsado(jugador_actual.getNombre());
+		controlador_tablero.borrarJugador(jugador_actual);
+		return;
 	}
 
 }

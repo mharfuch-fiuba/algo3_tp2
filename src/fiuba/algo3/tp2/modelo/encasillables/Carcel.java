@@ -14,12 +14,7 @@ public class Carcel implements Encasillable {
 		Movimiento movimiento_carcel = new MovimientoEnCarcelTurnoCero(movimiento_normal);
 		jugador.setMovimiento(movimiento_carcel);
 	}
-	/*
-	public void pagarFianza(Jugador jugador) throws DineroInsuficienteException {
-		Movimiento movimiento = jugador.getMovimiento();
-		movimiento.desencarcelar(jugador);
-	}
-	 */
+	
 	@Override
 	public String toString() {
 		return "Carcel";

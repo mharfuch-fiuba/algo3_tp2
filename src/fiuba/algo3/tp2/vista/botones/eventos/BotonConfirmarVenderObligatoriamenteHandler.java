@@ -16,7 +16,7 @@ public class BotonConfirmarVenderObligatoriamenteHandler implements EventHandler
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		ControladorPrincipal.getInstance().accionConfirmarVenderObligado(this.combo_propiedades.getValue());
+		ControladorPrincipal.getInstance().accionConfirmarVenderObligatoriamente(this.combo_propiedades.getValue());
 	}
 
 }

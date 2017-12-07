@@ -14,7 +14,8 @@ public class BotonAvanceDinamicoHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent arg0) {
-		ControladorPrincipal.getInstance().avanzar(cant_casilleros);
+		//ControladorPrincipal.getInstance().avanzar(cant_casilleros);
+		ControladorPrincipal.getInstance().accionAvanceDinamico(cant_casilleros);
 	}
 
 }

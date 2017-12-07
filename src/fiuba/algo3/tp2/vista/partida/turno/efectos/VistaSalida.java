@@ -7,7 +7,7 @@ public class VistaSalida extends VistaAccion{
 
 	public VistaSalida(){
 		LabelTurnoDinamica label1 = new LabelTurnoDinamica("Caiste en Salida.");
-		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Descansa que no pasa nada.");
+		LabelTurnoDinamica label2 = new LabelTurnoDinamica("Descansá que no pasa nada.");
 		BotonTerminarTurno boton = new BotonTerminarTurno();
 		this.getChildren().addAll(label1, label2, boton);
 	}
