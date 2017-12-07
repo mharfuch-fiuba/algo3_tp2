@@ -55,8 +55,12 @@ public class DoublyLinkedCircularList {
 			nodo_siguiente.prev = nodo_anterior;
 			actual = nodo_siguiente;
 			System.out.println("actual " + actual.data);
-			System.out.println("sig " + nodo_siguiente.data);
-			System.out.println("ant " + nodo_anterior.data);
+			System.out.println("sig" + nodo_siguiente.data);
+			System.out.println("sig ant" + nodo_siguiente.prev.data);
+			System.out.println("sig sig" + nodo_siguiente.next.data);
+			System.out.println("ant" + nodo_anterior.data);
+			System.out.println("ant ant" + nodo_anterior.prev.data);
+			System.out.println("ant sig " + nodo_anterior.next.data);
 		}
 
 		public int size() {
