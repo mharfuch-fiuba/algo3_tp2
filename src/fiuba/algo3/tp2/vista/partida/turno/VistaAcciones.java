@@ -128,6 +128,7 @@ public class VistaAcciones extends VBox {
 	//}
 
 	public void colocarVistaConfirmarIntercambio(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
+		if(propiedad_propia == null || propiedad_ajena == null) return;
 		this.color_jugador = propiedad_ajena.getPropietario().getColor();
 		this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad_propia, propiedad_ajena));	
 	}
