@@ -125,7 +125,7 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void agregarPropiedad(Propiedad propiedad) {
 		propiedades.add(propiedad);
-		propiedad.setPropietario(this);
+		propiedad.cambiarPropietario(this);
 		if(propiedad.esPropiedad()){
 			propiedadesComprables.add(propiedad.toString());
 		}

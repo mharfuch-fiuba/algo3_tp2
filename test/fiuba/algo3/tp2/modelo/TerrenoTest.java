@@ -145,22 +145,23 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void testVenderBuenosAiresSurRecibe17000() throws DineroInsuficienteException {
+	public void testVenderBuenosAiresSurRecibe26350() throws DineroInsuficienteException {
 		Dinero monto_inicial = jugador.obtenerDinero();
 		bsassur.vender();
 		Dinero monto_final = jugador.obtenerDinero();
-		Assert.assertEquals(17000, monto_final.obtenerMontoEntero() - monto_inicial.obtenerMontoEntero());
+		Assert.assertEquals(26350, monto_final.obtenerMontoEntero() - monto_inicial.obtenerMontoEntero());
 	}
 	
 	@Test
-	public void testVenderBuenosAiresSurConHotelRecibe32300() throws DineroInsuficienteException {
+	public void testVenderBuenosAiresSurConHotelRecibe41650() throws DineroInsuficienteException {
+		//OBSERVACION: AL VENDER DEMUELE TODAS LAS CONSTRUCCIONES DE EL Y DE SU PAREJA
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
 		Dinero monto_inicial = jugador.obtenerDinero();
 		bsassur.vender();
 		Dinero monto_final = jugador.obtenerDinero();
-		Assert.assertEquals(32300, monto_final.obtenerMontoEntero() - monto_inicial.obtenerMontoEntero());
+		Assert.assertEquals(41650, monto_final.obtenerMontoEntero() - monto_inicial.obtenerMontoEntero());
 	}
 	
 	@Test

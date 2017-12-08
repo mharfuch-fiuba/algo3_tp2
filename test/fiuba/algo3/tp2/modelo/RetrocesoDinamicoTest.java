@@ -57,10 +57,9 @@ public class RetrocesoDinamicoTest{
 	@Test
 	public void test03unJugadorCon3PropiedadesQueSaca2NoRetrocede() throws DineroInsuficienteException {
 		
-		
-		Propiedad comprable1 = new Tucuman();
-		Propiedad comprable2 = new Neuquen();
-		Propiedad comprable3 = new CordobaSur();
+		Propiedad comprable1 = (Propiedad) tablero.getFactory().getTucuman();
+		Propiedad comprable2 = (Propiedad) tablero.getFactory().getNeuquen();
+		Propiedad comprable3 = (Propiedad) tablero.getFactory().getCordobaSur();
 		jugador.comprar(comprable1);
 		jugador.comprar(comprable2);
 		jugador.comprar(comprable3);

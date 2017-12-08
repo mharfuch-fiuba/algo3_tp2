@@ -63,20 +63,29 @@ public abstract class Terreno extends Propiedad implements Edificable {
 		return true;
 	}
 	
+	public void demolerTodo() {
+		while(this.demoler()) {}
+	}
+	
 	@Override
 	public void vender() {
 		Jugador propietario = this.getPropietario();
 		Dinero precio_terreno = this.getPrecio();
 		Dinero monto_a_cobrar = precio_terreno.obtenerPorcentaje(PTJ_DE_REINTEGRO);
 		propietario.cobrar(monto_a_cobrar);
-		while(this.demoler()) {}
-		this.setPropietario(new JugadorNull());
+		this.demolerTodo();
+		this.cambiarPropietario(new JugadorNull());
 		propietario.quitarPropiedad(this);
 	}
 	
 	@Override
 	public Dinero getAlquiler(Cubilete dados) {
 		return this.construccion.getAlquiler();
+	}
+	
+	@Override
+	public void cambiarPropietario(Jugador nuevo_propietario) {
+		this.setPropietario(nuevo_propietario);
 	}
 	
 }

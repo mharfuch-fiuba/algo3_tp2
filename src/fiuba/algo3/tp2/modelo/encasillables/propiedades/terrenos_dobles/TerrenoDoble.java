@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles;
 
 import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Emparejable;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
@@ -44,6 +45,15 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 		Construccion nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
 		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 		this.setConstruccion(nueva_construccion);
+	}
+	
+	@Override
+	public void cambiarPropietario(Jugador nuevo_propietario) {
+		Terreno terreno_actual = this;
+		Terreno terreno_pareja = this.getPareja();
+		terreno_actual.demolerTodo();
+		terreno_pareja.demolerTodo();
+		this.setPropietario(nuevo_propietario);
 	}
 
 }

@@ -67,8 +67,13 @@ public abstract class Servicio extends Propiedad implements Emparejable {
 		Dinero precio_terreno = this.getPrecio();
 		Dinero monto_a_cobrar = precio_terreno.obtenerPorcentaje(PTJ_DE_REINTEGRO);
 		this.getPropietario().cobrar(monto_a_cobrar);
-		this.setPropietario(new JugadorNull());
+		this.cambiarPropietario(new JugadorNull());
 		propietario.quitarPropiedad(this);
+	}
+	
+	@Override
+	public void cambiarPropietario(Jugador nuevo_propietario) {
+		this.setPropietario(nuevo_propietario);
 	}
 	
 }

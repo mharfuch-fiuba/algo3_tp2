@@ -10,11 +10,11 @@ public class PropiedadNull extends Propiedad {
 
 	public PropiedadNull() {
 		super(new Dinero(0));
-		this.setPropietario(new JugadorNull());
+		this.cambiarPropietario(new JugadorNull());
 	}
 	
 	@Override
-	public void setPropietario(Jugador nuevo_propietario) {
+	public void cambiarPropietario(Jugador nuevo_propietario) {
 		this.propietario = nuevo_propietario;
 
 	}
