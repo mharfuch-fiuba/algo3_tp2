@@ -39,6 +39,7 @@ public class Entrega2Test {
 	public Entrega2Test() {
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
+		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
 		bsAsSur = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		cubilete.lanzar();
@@ -323,6 +324,7 @@ public class Entrega2Test {
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[]{13,1}));
 		
+		cubilete.lanzar();
 		jugador100k.avanzar(cubilete.sumarValores());
 		TerrenoDoble saltaNorte = (TerrenoDoble) jugador100k.obtenerCasilleroActual();
 		jugador100k.comprar(saltaNorte);

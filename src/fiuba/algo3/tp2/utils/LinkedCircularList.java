@@ -19,7 +19,7 @@ public class LinkedCircularList {
 		private Node actual;
 		
 		public InnerIterator() {
-			actual = primer_nodo;
+			actual = ultimo_nodo;
 		}
 		
 		public Object next() {

@@ -136,6 +136,7 @@ public class IntegracionMatiasTest extends TestCase {
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[] {3,5,4,4,4}));
+		cubilete.lanzar();
 		
 		//JUGADOR 1 COMPRA LOS PRIMEROS SERVICIOS
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(dinero_inicial));
@@ -260,6 +261,7 @@ public class IntegracionMatiasTest extends TestCase {
 		//SE CREA UN CUBILETE QUE RECORRE TODAS LAS PROPIEDADES DEL TABLERO Y REGRESA A SALIDA
 		Cubilete cubilete = new Cubilete();
 		cubilete.agregar(new DadoCargado(new int[] {2,2,2,3,2,2,1,3,2,1}));
+		cubilete.lanzar();
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(dinero_inicial));
 		int monto_esperado_jugador_1 = dinero_inicial;

@@ -28,8 +28,8 @@ public class LinkedCircularListTest {
 		LinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
-			resultado.add((Integer) iterator.actual());
 			iterator.next();
+			resultado.add((Integer) iterator.actual());
 		}
 		Assert.assertArrayEquals(new Object[]{1,2,1,2,1,2,1,2,1,2}, resultado.toArray());
 	}
@@ -43,8 +43,8 @@ public class LinkedCircularListTest {
 		LinkedCircularListIterator iterator = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
 		for(int i = 0;i<10;i++) {
-			resultado.add((Integer) iterator.actual());
 			iterator.next();
+			resultado.add((Integer) iterator.actual());
 		}
 		Assert.assertArrayEquals(new Object[]{1,2,3,1,2,3,1,2,3,1}, resultado.toArray());
 	}
@@ -59,6 +59,8 @@ public class LinkedCircularListTest {
 		LinkedCircularListIterator iterator1 = list.iterator();
 		LinkedCircularListIterator iterator2 = list.iterator();
 		ArrayList<Integer> resultado = new ArrayList<Integer>();
+		iterator1.next();
+		iterator2.next();
 		for(int i = 0;i<5;i++) {
 			resultado.add((Integer) iterator1.next());//24242
 			resultado.add((Integer) iterator2.next());//23412

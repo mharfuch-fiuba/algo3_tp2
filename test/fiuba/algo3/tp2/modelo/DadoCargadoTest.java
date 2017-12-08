@@ -57,8 +57,8 @@ public class DadoCargadoTest {
 		int[] secuencia = new int[] {0,1,2,3,4,5,6,7,8,9};
 		Lanzable dado = new DadoCargado(secuencia);
 		for(int i = 0;i < 1000;i++) {
-			Assert.assertEquals(i % secuencia.length, dado.obtenerValor(), DELTA);
 			dado.lanzar();
+			Assert.assertEquals(i % secuencia.length, dado.obtenerValor(), DELTA);
 		}
 	}
 

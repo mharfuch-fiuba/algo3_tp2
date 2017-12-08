@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Intercambio;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
+import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
 import fiuba.algo3.tp2.modelo.encasillables.AvanceDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
@@ -57,9 +58,13 @@ public class ControladorPrincipal {
 		System.out.println("CONSTRUCTOR CONTROLADOR PRINCIPAL");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = new Cubilete();
+		/*
 		for (int i = 0; i < CANTIDAD_DE_DADOS; i++) {
 			cubilete.agregar(new DadoCubico());
 		}
+		*/
+		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
+		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
 		controlador_cubilete = new ControladorCubilete(cubilete);
 		// INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
