@@ -12,6 +12,7 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAi
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.BuenosAiresSur;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.SantaFe;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
+import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 import fiuba.algo3.tp2.modelo.tablero.Tablero;
 
 
@@ -213,11 +214,10 @@ public class TerrenoTest {
 		Assert.assertTrue(stafe.getConstruccion() instanceof ConstruccionCasa);
 	}
 	
-	@Test
-	public void testConstruirDosVecesEnSantaFeConstruyeUnaCasa() throws DineroInsuficienteException {
+	@Test(expected = NoHayMasMejorasException.class)
+	public void testConstruirDosVecesEnSantaFeLanzaNoHayMasMejoras() throws DineroInsuficienteException {
 		stafe.construir();
 		stafe.construir();
-		Assert.assertTrue(stafe.getConstruccion() instanceof ConstruccionCasa);
 	}
 	
 	@Test

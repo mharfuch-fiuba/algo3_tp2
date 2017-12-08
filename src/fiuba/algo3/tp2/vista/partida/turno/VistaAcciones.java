@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.vista.partida.turno;
 
 import java.util.ArrayList;
 
-import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAvance;

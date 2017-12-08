@@ -43,7 +43,7 @@ import javafx.scene.paint.Color;
 public class ControladorPrincipal {
 
 	private static final int CANTIDAD_DE_DADOS = 2;
-	private static final int DINERO_INICIAL = 100000;
+	private static final int DINERO_INICIAL = 30000;
 	private static final int VELOCIDAD_ANIMACION = 200;
 
 	private ControladorJugador jugador_actual;

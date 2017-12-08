@@ -20,7 +20,8 @@ public abstract class TerrenoSimple extends Terreno {
 	}
 	
 	@Override
-	public void construir() throws DineroInsuficienteException {		
+	public void construir() throws DineroInsuficienteException, NoHayMasMejorasException {		
+		/*
 		try{
 			Construccion nueva_construccion = this.getConstruccion().construirMejora();
 			this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
@@ -29,5 +30,11 @@ public abstract class TerrenoSimple extends Terreno {
 		catch(NoHayMasMejorasException error){
 			//No hace nada porque no hay nada para construir
 		}
+		*/
+		Construccion nueva_construccion = this.getConstruccion().construirMejora();
+		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
+		this.setConstruccion(nueva_construccion);	
+		
 	}
+	
 }
