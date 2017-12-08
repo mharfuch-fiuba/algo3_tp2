@@ -17,7 +17,7 @@ public class IntercambioTest {
 		bsassur = (BuenosAiresSur) jugador1.obtenerCasilleroActual();
 		jugador1.comprarCasilleroActual();
 	}
-	
+	/*
 	@Test
 	public void testElJugador1IntercambiaUnaPropiedadPor30000ConElJugador2ElJugador2EsElNuevoPropietario() {
 		Intercambio intercambio = jugador1.generarIntercambio(bsassur, new Dinero(30000));
@@ -47,5 +47,5 @@ public class IntercambioTest {
 		intercambio.aceptarIntercambio(jugador2);
 		Assert.assertEquals(jugador2, bsassur.getPropietario());
 	}
-	
+	*/
 }

@@ -6,7 +6,7 @@ import fiuba.algo3.tp2.controlador.ControladorPrincipal;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.botones.BotonCambiarVista;
-import fiuba.algo3.tp2.vista.botones.BotonProponerIntercambio;
+import fiuba.algo3.tp2.vista.botones.BotonConfirmarIntercambio;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoInicial;
 import javafx.collections.FXCollections;
@@ -15,29 +15,16 @@ import javafx.scene.control.ComboBox;
 
 public class VistaConfirmarIntercambio extends VistaAccion {
 
-	public VistaConfirmarIntercambio() {
+	public VistaConfirmarIntercambio(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
 		this.getStyleClass().add("VistaTurnoDinamica");
 		
-		LabelTurnoDinamica mensaje1 = new LabelTurnoDinamica("Elija que desea vender:");
+		LabelTurnoDinamica mensaje1 = new LabelTurnoDinamica(propiedad_propia.getPropietario() + " quiere intercambiar");
+		LabelTurnoDinamica mensaje2 = new LabelTurnoDinamica(propiedad_propia + " por " + propiedad_ajena);
 		
-		ArrayList<Propiedad> propiedades = ControladorPrincipal.getInstance().getPropiedades();
-		ObservableList<Propiedad> opciones1 = FXCollections.observableArrayList(propiedades);
-		ComboBox<Propiedad> combo_propiedades = new ComboBox<Propiedad>(opciones1);
-		
-		LabelTurnoDinamica mensaje2 = new LabelTurnoDinamica("Elija el destinatario:");
-		
-		ArrayList<Jugador> jugadores = ControladorPrincipal.getInstance().getOtrosJugadores();
-		ObservableList<Jugador> opciones2 = FXCollections.observableArrayList(jugadores);
-		ComboBox<Jugador> combo_jugadores = new ComboBox<Jugador>(opciones2);
-		
-		BotonProponerIntercambio boton_confirmar = new BotonProponerIntercambio(combo_propiedades, combo_jugadores);
+		BotonConfirmarIntercambio boton_confirmar = new BotonConfirmarIntercambio(propiedad_propia, propiedad_ajena);
 		BotonCambiarVista boton_cancelar = new BotonCambiarVista("Cancelar", new VistaTurnoInicial());
 		
-		this.getChildren().addAll(mensaje1, combo_propiedades, mensaje2, combo_jugadores, boton_confirmar, boton_cancelar);
-	}
-
-	public VistaConfirmarIntercambio(Propiedad propiedad, Jugador jugador_origen) {
-		//LabelTurnoDinamica mensaje1 = new LabelTurnoDinamica(jugador_origen + "Quiere" + );
+		this.getChildren().addAll(mensaje1, mensaje2, boton_confirmar, boton_cancelar);
 	}
 	
 }

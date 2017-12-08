@@ -13,7 +13,7 @@ import javafx.scene.control.ComboBox;
 public class VistaVenderObligatoriamente extends VistaAccion {
 
 	public VistaVenderObligatoriamente() {
-		ArrayList<Propiedad> propiedades = ControladorPrincipal.getInstance().getPropiedades();
+		ArrayList<Propiedad> propiedades = ControladorPrincipal.getInstance().getPropiedadesPropias();
 		this.getStyleClass().add("VistaTurnoDinamica");
 		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija que desea vender:");
 		

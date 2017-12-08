@@ -12,7 +12,7 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDados;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDeEspera;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaIntercambiarPropiedad;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaProponerIntercambio;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaJugadorExpulsado;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaJugadorGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
@@ -127,12 +127,16 @@ public class VistaAcciones extends VBox {
 		this.cambiarVistaAccion(new VistaJugadorExpulsado(jugador));
 	}
 
-	public void colocarVistaIntercambiarPropiedad() {
-		this.cambiarVistaAccion(new VistaIntercambiarPropiedad());
+	public void colocarVistaProponerIntercambio() {
+		this.cambiarVistaAccion(new VistaProponerIntercambio());
 	}
 
-	public void colocarVistaConfirmarIntercambio(Propiedad propiedad, Jugador jugador) {
-		this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad,jugador));
+	//public void colocarVistaConfirmarIntercambio(Propiedad propiedad, Jugador jugador) {
+	//	this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad,jugador));
+	//}
+
+	public void colocarVistaConfirmarIntercambio(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
+		this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad_propia, propiedad_ajena));	
 	}
 	
 }

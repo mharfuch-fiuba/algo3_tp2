@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Stack;
 
 import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.Intercambio;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
@@ -30,6 +31,7 @@ import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
 import fiuba.algo3.tp2.vista.pantallas.PantallaPartida;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
+import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoInicial;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
@@ -126,10 +128,23 @@ public class ControladorPrincipal {
 		contenedor_acciones.colocarVistaDeEspera();
 	}
 
-	public ArrayList<Propiedad> getPropiedades() {
+	public ArrayList<Propiedad> getPropiedadesPropias() {
 		return jugador_actual.getPropiedades();
 	}
-
+	
+	public ArrayList<Propiedad> getPropiedadesAjenas() {
+		ArrayList<Propiedad> propiedades = new ArrayList<Propiedad>();
+		ArrayList<Jugador> jugadores = controlador_ronda.obtenerJugadores();
+		for(Jugador jugador:jugadores) {
+			if(jugador != this.jugador_actual.getModelo()) {
+				for(Propiedad propiedad:jugador.getPropiedades()) {
+					propiedades.add(propiedad);
+				}
+			}
+		}
+		return propiedades;
+	}
+/*
 	public ArrayList<Jugador> getOtrosJugadores() {
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 		for (Jugador jugador : controlador_ronda.obtenerJugadores()) {
@@ -138,7 +153,7 @@ public class ControladorPrincipal {
 		}
 		return jugadores;
 	}
-
+*/
 	public void reiniciarPartida() {
 
 	}
@@ -366,12 +381,33 @@ public class ControladorPrincipal {
 		return;
 	}
 
-	public void accionIntercambiar() {
-		contenedor_acciones.colocarVistaIntercambiarPropiedad();
+	public void accionProponerIntercambio() {
+		contenedor_acciones.colocarVistaProponerIntercambio();
 	}
-
+/*
 	public void accionProponerIntercambio(Propiedad propiedad, Jugador jugador) {
 		contenedor_acciones.colocarVistaConfirmarIntercambio(propiedad, jugador);
 	}
+*/
+/*
+	public void accionIntercambiar(Propiedad propiedad_origen, Jugador jugador) {
+		Intercambio intercambio = new Intercambio();
+		intercambio.agregarPropiedadOrigen(propiedad);
+		intercambio.agregarJugadorDestino(jugador);
+		intercambio.agregarJugadorOrigen(jugador_actual.getModelo());
+		contenedor_acciones.colocarVistaIntercambio(intercambio);
+	}
+*/
 
+	public void accionConfirmarPropuesta(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
+		contenedor_acciones.colocarVistaConfirmarIntercambio(propiedad_propia, propiedad_ajena);
+		
+	}
+
+	public void accionIntercambiar(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
+		Intercambio intercambio = new Intercambio(propiedad_propia, propiedad_ajena);
+		intercambio.aceptarIntercambio();
+		this.cambiarVistaAccion(new VistaTurnoInicial());
+	}
+	
 }
