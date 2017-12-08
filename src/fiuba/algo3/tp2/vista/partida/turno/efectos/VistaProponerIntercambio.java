@@ -3,11 +3,9 @@ package fiuba.algo3.tp2.vista.partida.turno.efectos;
 import java.util.ArrayList;
 
 import fiuba.algo3.tp2.controlador.ControladorPrincipal;
-import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.vista.botones.BotonCambiarVista;
 import fiuba.algo3.tp2.vista.botones.BotonConfirmarPropuesta;
-import fiuba.algo3.tp2.vista.botones.eventos.BotonConfirmarPropuestaHandler;
 import fiuba.algo3.tp2.vista.partida.turno.LabelTurnoDinamica;
 import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoInicial;
 import javafx.collections.FXCollections;

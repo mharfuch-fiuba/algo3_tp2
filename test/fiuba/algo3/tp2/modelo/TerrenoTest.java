@@ -67,31 +67,17 @@ public class TerrenoTest {
 		Assert.assertTrue(bsassur.getConstruccion() instanceof ConstruccionHotel);
 	}
 	
-	@Test
-	public void testConstruirCuatroVecesEnBuenosAiresSurLaConstruccionEsHotel() throws DineroInsuficienteException {
+	@Test(expected=NoHayMasMejorasException.class)
+	public void testConstruirCuatroVecesEnBuenosAiresSurLaLanzaNoHayMasMejoras() throws DineroInsuficienteException {
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
-		Assert.assertTrue(bsassur.getConstruccion() instanceof ConstruccionHotel);
 	}
 	
-	@Test
-	public void testDemolerCuatroVecesEnBuenosAiresSurConHotelEsBaldio() throws DineroInsuficienteException {
-		bsassur.construir();
-		bsassur.construir();
-		bsassur.construir();
-		bsassur.construir();
-		bsassur.demoler();
-		bsassur.demoler();
-		bsassur.demoler();
-		bsassur.demoler();
-		Assert.assertTrue(bsassur.getConstruccion() instanceof ConstruccionBaldio);
-	}
 	
 	@Test
 	public void testDemolerTresVecesEnBuenosAiresSurConHotelEsBaldio() throws DineroInsuficienteException {
-		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
@@ -106,7 +92,6 @@ public class TerrenoTest {
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
-		bsassur.construir();
 		bsassur.demoler();
 		bsassur.demoler();
 		Assert.assertTrue(bsassur.getConstruccion() instanceof ConstruccionCasa);
@@ -117,14 +102,12 @@ public class TerrenoTest {
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
-		bsassur.construir();
 		bsassur.demoler();
 		Assert.assertTrue(bsassur.getConstruccion() instanceof ConstruccionDuplex);
 	}
 	
 	@Test
 	public void testDemolerUnHotelEnBuenosAiresSurRecibe6800() throws DineroInsuficienteException {
-		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();
 		bsassur.construir();

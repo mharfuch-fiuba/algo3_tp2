@@ -12,12 +12,12 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccio
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayMasMejorasException;
 
-
 public abstract class TerrenoDoble extends Terreno implements Emparejable {
-	
+
 	private Terreno pareja;
 
-	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas, Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
+	public TerrenoDoble(Dinero precioTerreno, Dinero alquiler, Dinero alquilerCon1Casa, Dinero alquilerCon2Casas,
+			Dinero alquilerConHotel, Dinero costoConstruccionCasa, Dinero costoConstruccionHotel) {
 		super(precioTerreno);
 		Construccion baldio = new ConstruccionBaldio(alquiler);
 		Construccion casa = new ConstruccionCasa(costoConstruccionCasa, alquilerCon1Casa, baldio);
@@ -28,27 +28,22 @@ public abstract class TerrenoDoble extends Terreno implements Emparejable {
 		duplex.setMejora(hotel);
 		this.setConstruccion(baldio);
 	}
-	
+
 	@Override
 	public void setPareja(Propiedad casillero) {
-		pareja = (Terreno)casillero;
+		pareja = (Terreno) casillero;
 	}
-	
+
 	@Override
 	public TerrenoDoble getPareja() {
 		return (TerrenoDoble) pareja;
 	}
-	
+
 	@Override
-	public void construir() throws DineroInsuficienteException {
-		try{
-			Construccion nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
-			this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
-			this.setConstruccion(nueva_construccion);			
-		}
-		catch(NoHayMasMejorasException error){
-			//No hago nada porque no hay mejoras
-		}
+	public void construir() throws DineroInsuficienteException, NoHayMasMejorasException {
+		Construccion nueva_construccion = this.getConstruccion().construirMejora(this, pareja);
+		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
+		this.setConstruccion(nueva_construccion);
 	}
 
 }
