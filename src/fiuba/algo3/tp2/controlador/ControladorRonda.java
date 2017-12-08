@@ -55,4 +55,8 @@ public class ControladorRonda {
 		modelo_ronda.avanzarTurno();
 	}
 
+	public void reiniciarDobles() {
+		modelo_ronda.reiniciar_dobles();
+	}
+
 }

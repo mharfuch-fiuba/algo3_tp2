@@ -15,12 +15,16 @@ public class Ronda extends Observable implements Iterable<Jugador> {
 	private DoublyLinkedCircularListIterator iterador;
 	private Cubilete cubilete;
 	private int cant_dobles;
-
+	
 	public Ronda(Cubilete cubilete) {
 		this.datos = new DoublyLinkedCircularList();
 		this.iterador = this.datos.iterator();
 		this.cant_dobles = 0;
 		this.cubilete = cubilete;
+	}
+	
+	public void reiniciar_dobles() {
+		this.cant_dobles = 0;
 	}
 
 	public void agregarJugador(Jugador jugador) {

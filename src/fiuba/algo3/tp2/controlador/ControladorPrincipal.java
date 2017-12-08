@@ -242,8 +242,8 @@ public class ControladorPrincipal {
 		}
 
 		if (casillero_actual instanceof Carcel) {
+			this.controlador_ronda.reiniciarDobles();
 			this.accionAplicarEfecto();
-			// contenedor_acciones.colocarVistaCarcel();
 			return;
 		}
 
