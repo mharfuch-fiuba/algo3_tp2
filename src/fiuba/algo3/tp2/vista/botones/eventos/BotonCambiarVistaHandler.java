@@ -15,7 +15,8 @@ public class BotonCambiarVistaHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().cambiarVistaAccion(vista);
+		//ControladorPrincipal.getInstance().cambiarVistaAccion(vista);
+		ControladorPrincipal.getInstance().accionCambiarVista(vista);
 	}
 
 }

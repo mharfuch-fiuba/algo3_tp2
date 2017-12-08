@@ -45,13 +45,6 @@ public class VistaAcciones extends VBox {
 		this.getChildren().clear();
 		this.getChildren().add(new VistaTurnoTitulo(jugador_actual, color_jugador));
 		this.getChildren().add(nueva_vista);
-		/*
-		System.out.println("Saco" + this.vista_actual);
-		this.getChildren().remove(this.vista_actual);
-		System.out.println("pongo" + nueva_vista);
-		this.getChildren().add(nueva_vista);
-		this.vista_actual = nueva_vista;
-		*/
 	}
 	
 	public void colocarVistaCarcel() {
@@ -135,7 +128,12 @@ public class VistaAcciones extends VBox {
 	//}
 
 	public void colocarVistaConfirmarIntercambio(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
+		this.color_jugador = propiedad_ajena.getPropietario().getColor();
 		this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad_propia, propiedad_ajena));	
+	}
+
+	public void setColorFonado(Color color) {
+		this.color_jugador = color;
 	}
 	
 }

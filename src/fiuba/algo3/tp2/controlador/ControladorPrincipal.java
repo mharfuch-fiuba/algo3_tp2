@@ -106,20 +106,17 @@ public class ControladorPrincipal {
 		System.out.println("INICIA RONDA...");
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre(), jugador_actual.getColor());
+		contenedor_acciones.setColorFonado(jugador_actual.getColor());
 		if (jugador_actual.estaEnCarcel())
 			contenedor_acciones.colocarVistaCarcel();
 		else
 			contenedor_acciones.colocarVistaNormal();
 	}
-
-	public void intercambiar(Jugador destinatario, Propiedad entregada, Propiedad pedida) {
-		// ESTO ES MEDIO LIO DEJEMOSLO PARA EL FINAL !!!
-	}
-
+/*
 	public void cambiarVistaAccion(VistaAccion vista_siguiente) {
 		contenedor_acciones.colocarVista(vista_siguiente);
 	}
-
+*/
 	public ArrayList<Terreno> getTerrenos() {
 		return this.jugador_actual.getTerrenos();
 	}
@@ -161,7 +158,8 @@ public class ControladorPrincipal {
 	/* ACCIONES DE CADA BOTON */
 
 	public void accionConstruir() {
-		this.cambiarVistaAccion(new VistaConstruir());
+		//this.cambiarVistaAccion(new VistaConstruir());
+		contenedor_acciones.colocarVista(new VistaConstruir());
 	}
 
 	public void accionConfirmarConstruir(Terreno terreno) {
@@ -191,7 +189,8 @@ public class ControladorPrincipal {
 	}
 
 	public void accionVender() {
-		this.cambiarVistaAccion(new VistaVenderPropiedad());
+		//this.cambiarVistaAccion(new VistaVenderPropiedad());
+		contenedor_acciones.colocarVista(new VistaVenderPropiedad());
 	}
 
 	public void accionConfirmarVender(Propiedad propiedad) {
@@ -401,13 +400,27 @@ public class ControladorPrincipal {
 
 	public void accionConfirmarPropuesta(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
 		contenedor_acciones.colocarVistaConfirmarIntercambio(propiedad_propia, propiedad_ajena);
-		
 	}
 
 	public void accionIntercambiar(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
+		Color color = propiedad_propia.getPropietario().getColor();
 		Intercambio intercambio = new Intercambio(propiedad_propia, propiedad_ajena);
 		intercambio.aceptarIntercambio();
-		this.cambiarVistaAccion(new VistaTurnoInicial());
+		contenedor_acciones.setColorFonado(color);
+		//vista.setColorFondo(propiedad_propia.getPropietario().getColor());
+		contenedor_acciones.colocarVista(new VistaTurnoInicial());
+	}
+
+	public void accionCancelarIntercambio(Propiedad propiedad_propia) {
+		//restore color
+		Color color = propiedad_propia.getPropietario().getColor();
+		contenedor_acciones.setColorFonado(color);
+		//vista.setColorFondo(propiedad_propia.getPropietario().getColor());
+		contenedor_acciones.colocarVista(new VistaTurnoInicial());
+	}
+
+	public void accionCambiarVista(VistaAccion vista) {
+		contenedor_acciones.colocarVista(vista);
 	}
 	
 }

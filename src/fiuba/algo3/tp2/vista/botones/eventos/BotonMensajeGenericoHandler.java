@@ -15,7 +15,8 @@ public class BotonMensajeGenericoHandler implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().cambiarVistaAccion(vista_siguiente);
+		//ControladorPrincipal.getInstance().cambiarVistaAccion(vista_siguiente);
+		ControladorPrincipal.getInstance().accionCambiarVista(vista_siguiente);
 	}
 	
 }

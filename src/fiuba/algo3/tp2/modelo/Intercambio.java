@@ -17,7 +17,7 @@ public class Intercambio {
 		Jugador destinatario = this.propiedad_ajena.getPropietario();
 		
 		originario.entregarPropiedad(destinatario, this.propiedad_propia);
-		destinatario.entregarPropiedad(destinatario, this.propiedad_ajena);
+		destinatario.entregarPropiedad(originario, this.propiedad_ajena);
 	}
 
 }
