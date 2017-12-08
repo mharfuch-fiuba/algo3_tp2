@@ -83,9 +83,4 @@ public abstract class Terreno extends Propiedad implements Edificable {
 		return this.construccion.getAlquiler();
 	}
 	
-	@Override
-	public void cambiarPropietario(Jugador nuevo_propietario) {
-		this.setPropietario(nuevo_propietario);
-	}
-	
 }

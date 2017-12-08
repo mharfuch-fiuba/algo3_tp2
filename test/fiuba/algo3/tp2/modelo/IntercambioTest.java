@@ -34,6 +34,7 @@ public class IntercambioTest {
 		jugador2.avanzar(11);
 		santafe = (SantaFe) jugador2.obtenerCasilleroActual();
 		jugador2.comprarCasilleroActual();
+		santafe.construir();
 	}
 	
 	@Test
@@ -74,6 +75,13 @@ public class IntercambioTest {
 		Intercambio intercambio = new Intercambio(bsassur, santafe);
 		intercambio.aceptarIntercambio();
 		Assert.assertEquals(ConstruccionBaldio.class, bsasnorte.getConstruccion().getClass());
+	}
+	
+	@Test
+	public void testJugador1IntercambiaBsAsSurPorSantaFeSantaFeNoTieneConstrucciones() {
+		Intercambio intercambio = new Intercambio(bsassur, santafe);
+		intercambio.aceptarIntercambio();
+		Assert.assertEquals(ConstruccionBaldio.class, santafe.getConstruccion().getClass());
 	}
 	
 }

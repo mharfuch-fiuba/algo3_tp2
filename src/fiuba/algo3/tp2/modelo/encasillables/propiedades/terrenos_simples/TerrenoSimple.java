@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples;
 
 import fiuba.algo3.tp2.modelo.Dinero;
+import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.Terreno;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.Construccion;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.construibles.ConstruccionBaldio;
@@ -25,6 +26,12 @@ public abstract class TerrenoSimple extends Terreno {
 		this.getPropietario().pagar(nueva_construccion.getPrecioConstruccion());
 		this.setConstruccion(nueva_construccion);	
 		
+	}
+	
+	@Override
+	public void cambiarPropietario(Jugador nuevo_propietario) {
+		this.demolerTodo();
+		this.setPropietario(nuevo_propietario);
 	}
 	
 }
