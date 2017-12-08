@@ -30,12 +30,14 @@ import fiuba.algo3.tp2.modelo.tablero.Encasillable;
 import fiuba.algo3.tp2.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionAvanzar;
 import fiuba.algo3.tp2.vista.animaciones.AnimacionRetroceder;
+import fiuba.algo3.tp2.vista.pantallas.PantallaConfiguracionPartida;
 import fiuba.algo3.tp2.vista.pantallas.PantallaPartida;
 import fiuba.algo3.tp2.vista.partida.turno.VistaAcciones;
 import fiuba.algo3.tp2.vista.partida.turno.VistaTurnoInicial;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaAccion;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaCarcel;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaConstruir;
+import fiuba.algo3.tp2.vista.partida.turno.efectos.PantallaJugadorGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadLibre;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderObligatoriamente;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaVenderPropiedad;
@@ -44,7 +46,7 @@ import javafx.scene.paint.Color;
 public class ControladorPrincipal {
 
 	private static final int CANTIDAD_DE_DADOS = 2;
-	private static final int DINERO_INICIAL = 100000;
+	private static final int DINERO_INICIAL = 50000;
 	private static final int VELOCIDAD_ANIMACION = 200;
 
 	private ControladorJugador jugador_actual;
@@ -53,9 +55,16 @@ public class ControladorPrincipal {
 	private VistaAcciones contenedor_acciones;
 	private ArrayList<ControladorJugador> controladores_jugadores;
 	private ControladorRonda controlador_ronda;
+	private ContenedorPrincipal contenedor_principal;
 
 	private ControladorPrincipal() {
 		System.out.println("CONSTRUCTOR CONTROLADOR PRINCIPAL");
+		this.inicializar();
+	}
+	
+	private void inicializar() {
+		// TODO Auto-generated method stub
+		System.out.println("INICIALIZANDO...");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = new Cubilete();
 		/*
@@ -77,6 +86,10 @@ public class ControladorPrincipal {
 
 	public static ControladorPrincipal getInstance() {
 		return INSTANCE;
+	}
+	
+	public void asociarContenedorPrincipal(ContenedorPrincipal contenedor_principal) {
+		this.contenedor_principal = contenedor_principal;
 	}
 
 	public void agregarJugadores(ArrayList<String> nombres) {
@@ -156,9 +169,6 @@ public class ControladorPrincipal {
 		return jugadores;
 	}
 */
-	public void reiniciarPartida() {
-
-	}
 
 	/* ACCIONES DE CADA BOTON */
 
@@ -377,7 +387,7 @@ public class ControladorPrincipal {
 		propietario.cobrar(jugador_actual.getDinero());
 		controlador_ronda.quitarJugadorActual();
 		if (controlador_ronda.contarJugadores() == 1) {
-			contenedor_acciones.colocarVistaJugadorGanador(jugador_actual.getNombre());
+			contenedor_principal.cambiarVistaDinamica(new PantallaJugadorGanador(contenedor_principal, jugador_actual.getNombre()));
 			return;
 		}
 		contenedor_acciones.colocarVistaJugadorExpulsado(jugador_actual.getNombre());
@@ -426,6 +436,11 @@ public class ControladorPrincipal {
 
 	public void accionCambiarVista(VistaAccion vista) {
 		contenedor_acciones.colocarVista(vista);
+	}
+
+	public void accionReiniciarPartida() {
+		this.inicializar();
+		this.contenedor_principal.cambiarVistaDinamica(new PantallaConfiguracionPartida(this.contenedor_principal));
 	}
 	
 }

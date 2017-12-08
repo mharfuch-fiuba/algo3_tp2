@@ -8,7 +8,7 @@ public class BotonReiniciarPartidaHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent event) {
-		ControladorPrincipal.getInstance().reiniciarPartida();
+		ControladorPrincipal.getInstance().accionReiniciarPartida();
 	}
 
 }
