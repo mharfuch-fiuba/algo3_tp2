@@ -17,13 +17,13 @@ public class VistaProponerIntercambio extends VistaAccion {
 	public VistaProponerIntercambio() {
 		this.getStyleClass().add("VistaTurnoDinamica");
 		
-		LabelTurnoDinamica mensaje1 = new LabelTurnoDinamica("¿Qué propiedad desea?");
+		LabelTurnoDinamica mensaje1 = new LabelTurnoDinamica("�Que propiedad desea?");
 		
 		ArrayList<Propiedad> propiedades_ajenas = ControladorPrincipal.getInstance().getPropiedadesAjenas();
 		ObservableList<Propiedad> opciones2 = FXCollections.observableArrayList(propiedades_ajenas);
 		ComboBox<Propiedad> combo_propiedades_ajenas = new ComboBox<Propiedad>(opciones2);
 		
-		LabelTurnoDinamica mensaje2 = new LabelTurnoDinamica("¿Qué propiedad ofrece?");
+		LabelTurnoDinamica mensaje2 = new LabelTurnoDinamica("�Que propiedad ofrece?");
 		
 
 		ArrayList<Propiedad> propiedades_propias = ControladorPrincipal.getInstance().getPropiedadesPropias();

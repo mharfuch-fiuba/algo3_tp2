@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class PantallaJugadorGanador extends VBox {
-	
+
 	public PantallaJugadorGanador(ContenedorPrincipal stage, String ganador) {
 		/* LOGO */
 		Image logo = new Image("file:assets/logo.png");
@@ -22,14 +22,13 @@ public class PantallaJugadorGanador extends VBox {
 		/* TEXTO */
 		Label etiqueta = new Label();
 		etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-		etiqueta.setText("Ganó " + ganador);
+		etiqueta.setText("Gano " + ganador);
 		etiqueta.setTextFill(Color.web("#FFFFFF"));
 		this.getChildren().add(etiqueta);
 		/* BOTON */
-		this.getChildren().add(new BotonReiniciarPartida());	
-		
+		this.getChildren().add(new BotonReiniciarPartida());
+
 		this.getStyleClass().add("VistaInicial");
-		//this.controlador_principal = controlador_principal;
 	}
 
 }

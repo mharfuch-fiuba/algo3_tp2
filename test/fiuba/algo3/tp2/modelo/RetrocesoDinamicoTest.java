@@ -10,7 +10,6 @@ import fiuba.algo3.tp2.modelo.encasillables.propiedades.Propiedad;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Subte;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.servicios.Tren;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaNorte;
-import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_dobles.CordobaSur;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Neuquen;
 import fiuba.algo3.tp2.modelo.encasillables.propiedades.terrenos_simples.Tucuman;
 import fiuba.algo3.tp2.modelo.excepciones.DineroInsuficienteException;

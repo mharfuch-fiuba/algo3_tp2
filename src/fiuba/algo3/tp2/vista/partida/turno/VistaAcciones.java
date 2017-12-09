@@ -12,7 +12,6 @@ import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDeEspera;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaDineroInsuficiente;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaImpuesto;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaJugadorExpulsado;
-import fiuba.algo3.tp2.vista.partida.turno.efectos.PantallaJugadorGanador;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaMensajeGenerico;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPolicia;
 import fiuba.algo3.tp2.vista.partida.turno.efectos.VistaPropiedadAjena;
@@ -118,10 +117,6 @@ public class VistaAcciones extends VBox {
 	public void colocarVistaProponerIntercambio() {
 		this.cambiarVistaAccion(new VistaProponerIntercambio());
 	}
-
-	//public void colocarVistaConfirmarIntercambio(Propiedad propiedad, Jugador jugador) {
-	//	this.cambiarVistaAccion(new VistaConfirmarIntercambio(propiedad,jugador));
-	//}
 
 	public void colocarVistaConfirmarIntercambio(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
 		if(propiedad_propia == null || propiedad_ajena == null) return;

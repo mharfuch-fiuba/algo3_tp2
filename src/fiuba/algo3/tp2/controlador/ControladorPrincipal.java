@@ -8,7 +8,6 @@ import fiuba.algo3.tp2.modelo.Dinero;
 import fiuba.algo3.tp2.modelo.Intercambio;
 import fiuba.algo3.tp2.modelo.Jugador;
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
-import fiuba.algo3.tp2.modelo.cubilete.DadoCargado;
 import fiuba.algo3.tp2.modelo.cubilete.DadoCubico;
 import fiuba.algo3.tp2.modelo.encasillables.AvanceDinamico;
 import fiuba.algo3.tp2.modelo.encasillables.Carcel;
@@ -63,17 +62,17 @@ public class ControladorPrincipal {
 	}
 	
 	private void inicializar() {
-		// TODO Auto-generated method stub
 		System.out.println("INICIALIZANDO...");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = new Cubilete();
-		/*
+		
 		for (int i = 0; i < CANTIDAD_DE_DADOS; i++) {
 			cubilete.agregar(new DadoCubico());
 		}
+		/*
+		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
+		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
 		*/
-		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
-		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
 		controlador_cubilete = new ControladorCubilete(cubilete);
 		// INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
@@ -130,11 +129,7 @@ public class ControladorPrincipal {
 		else
 			contenedor_acciones.colocarVistaNormal();
 	}
-/*
-	public void cambiarVistaAccion(VistaAccion vista_siguiente) {
-		contenedor_acciones.colocarVista(vista_siguiente);
-	}
-*/
+
 	public ArrayList<Terreno> getTerrenos() {
 		return this.jugador_actual.getTerrenos();
 	}
@@ -159,16 +154,6 @@ public class ControladorPrincipal {
 		}
 		return propiedades;
 	}
-/*
-	public ArrayList<Jugador> getOtrosJugadores() {
-		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-		for (Jugador jugador : controlador_ronda.obtenerJugadores()) {
-			if (jugador != this.jugador_actual.getModelo())
-				jugadores.add(jugador);
-		}
-		return jugadores;
-	}
-*/
 
 	/* ACCIONES DE CADA BOTON */
 
@@ -204,7 +189,6 @@ public class ControladorPrincipal {
 	}
 
 	public void accionVender() {
-		//this.cambiarVistaAccion(new VistaVenderPropiedad());
 		contenedor_acciones.colocarVista(new VistaVenderPropiedad());
 	}
 
@@ -230,7 +214,6 @@ public class ControladorPrincipal {
 	}
 
 	public void accionAvanzarSegunDados() {
-		// this.avanzar(controlador_cubilete.sumarValores());
 		int cant_casilleros = controlador_cubilete.sumarValores();
 		new AnimacionAvanzar(cant_casilleros, VELOCIDAD_ANIMACION, jugador_actual, controlador_tablero);
 	}
@@ -399,20 +382,7 @@ public class ControladorPrincipal {
 	public void accionProponerIntercambio() {
 		contenedor_acciones.colocarVistaProponerIntercambio();
 	}
-/*
-	public void accionProponerIntercambio(Propiedad propiedad, Jugador jugador) {
-		contenedor_acciones.colocarVistaConfirmarIntercambio(propiedad, jugador);
-	}
-*/
-/*
-	public void accionIntercambiar(Propiedad propiedad_origen, Jugador jugador) {
-		Intercambio intercambio = new Intercambio();
-		intercambio.agregarPropiedadOrigen(propiedad);
-		intercambio.agregarJugadorDestino(jugador);
-		intercambio.agregarJugadorOrigen(jugador_actual.getModelo());
-		contenedor_acciones.colocarVistaIntercambio(intercambio);
-	}
-*/
+
 
 	public void accionConfirmarPropuesta(Propiedad propiedad_propia, Propiedad propiedad_ajena) {
 		contenedor_acciones.colocarVistaConfirmarIntercambio(propiedad_propia, propiedad_ajena);
@@ -423,15 +393,12 @@ public class ControladorPrincipal {
 		Intercambio intercambio = new Intercambio(propiedad_propia, propiedad_ajena);
 		intercambio.aceptarIntercambio();
 		contenedor_acciones.setColorFonado(color);
-		//vista.setColorFondo(propiedad_propia.getPropietario().getColor());
 		contenedor_acciones.colocarVista(new VistaTurnoInicial());
 	}
 
 	public void accionCancelarIntercambio(Propiedad propiedad_propia) {
-		//restore color
 		Color color = propiedad_propia.getPropietario().getColor();
 		contenedor_acciones.setColorFonado(color);
-		//vista.setColorFondo(propiedad_propia.getPropietario().getColor());
 		contenedor_acciones.colocarVista(new VistaTurnoInicial());
 	}
 

@@ -9,10 +9,7 @@ import javafx.scene.layout.VBox;
 
 public class PantallaInicial extends VBox {
 	
-	//private ControladorPrincipal controlador_principal;
-	
-	//public PantallaInicial(ContenedorPrincipal stage, ControladorPrincipal controlador_principal) {
-	public PantallaInicial(ContenedorPrincipal stage) {
+		public PantallaInicial(ContenedorPrincipal stage) {
 		Image logo = new Image("file:assets/logo.png");
 		ImageView vistaImagen = new ImageView(logo);
 		vistaImagen.setFitHeight(240);
@@ -20,11 +17,9 @@ public class PantallaInicial extends VBox {
 		this.getChildren().add(vistaImagen);
 		agregarBotonNuevaPartida(stage);
 		this.getStyleClass().add("VistaInicial");
-		//this.controlador_principal = controlador_principal;
 	}
 	
 	private void agregarBotonNuevaPartida(ContenedorPrincipal stage){	
-		//PantallaConfiguracionPartida vistaConfiguracionPartida= new PantallaConfiguracionPartida(stage, controlador_principal);
 		PantallaConfiguracionPartida vistaConfiguracionPartida= new PantallaConfiguracionPartida(stage);
 		BotonAlgoPoly botonNuevaPartida = new BotonAlgoPoly("Nueva Partida");
 		botonNuevaPartida.setOnAction(new BotonNuevaPartidaHandler(stage,vistaConfiguracionPartida));

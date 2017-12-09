@@ -6,22 +6,18 @@ import java.util.Observable;
 
 import fiuba.algo3.tp2.modelo.cubilete.Cubilete;
 import fiuba.algo3.tp2.modelo.excepciones.NoHayJugadoresException;
-import fiuba.algo3.tp2.utils.DoublyLinkedCircularList;
-import fiuba.algo3.tp2.utils.DoublyLinkedCircularListIterator;
+
 import fiuba.algo3.tp2.utils.LinkedCircularList;
 import fiuba.algo3.tp2.utils.LinkedCircularListIterator;
 
 public class Ronda extends Observable implements Iterable<Jugador> {
 
-	//private DoublyLinkedCircularList datos;
-	//private DoublyLinkedCircularListIterator iterador;
 	private LinkedCircularList datos;
 	private LinkedCircularListIterator iterador;
 	private Cubilete cubilete;
 	private int cant_dobles;
 	
 	public Ronda(Cubilete cubilete) {
-		//this.datos = new DoublyLinkedCircularList();
 		this.datos = new LinkedCircularList();
 		this.iterador = this.datos.iterator();
 		this.cant_dobles = 0;
