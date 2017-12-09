@@ -35,7 +35,7 @@ public class LinkedCircularListTest {
 	}
 	
 	@Test
-	public void testDoublyCircularListDeTresElementosConUnIteradorUsandoNext() {
+	public void testCircularListDeTresElementosConUnIteradorUsandoNext() {
 		LinkedCircularList list = new LinkedCircularList();
 		list.add(1);
 		list.add(2);
@@ -50,7 +50,7 @@ public class LinkedCircularListTest {
 	}
 	
 	@Test
-	public void testDoublyCircularListDeCutroElementoConDosIteradoresUsandoNext() {
+	public void testCircularListDeCuatroElementoConDosIteradoresUsandoNext() {
 		LinkedCircularList list = new LinkedCircularList();
 		list.add(1);
 		list.add(2);
@@ -67,6 +67,68 @@ public class LinkedCircularListTest {
 			resultado.add((Integer) iterator1.next());//31313
 		}
 		Assert.assertArrayEquals(new Object[]{2,2,3,4,3,1,2,4,3,4,1,1,2,2,3}, resultado.toArray());
+	}
+	
+	@Test
+	public void testCircularListDeCuatroElementosElActualEsElUltimoDespuesDeCrear() {
+		LinkedCircularList list = new LinkedCircularList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		LinkedCircularListIterator iterator = list.iterator();
+		Assert.assertEquals(4,iterator.actual());
+	}
+	
+	@Test
+	public void testCircularListDeTresElementosRemueveAlPrimero() {
+		LinkedCircularList list = new LinkedCircularList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		LinkedCircularListIterator iterator = list.iterator();
+		iterator.next();
+		iterator.remove();
+		Assert.assertEquals(2,iterator.actual());
+		iterator.next();
+		Assert.assertEquals(3,iterator.actual());
+		iterator.next();
+		Assert.assertEquals(2,iterator.actual());
+	}
+	
+	@Test
+	public void testCircularListDeTresElementosRemueveAlSegundo() {
+		LinkedCircularList list = new LinkedCircularList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		LinkedCircularListIterator iterator = list.iterator();
+		iterator.next();
+		iterator.next();
+		iterator.remove();
+		Assert.assertEquals(3,iterator.actual());
+		iterator.next();
+		Assert.assertEquals(1,iterator.actual());
+		iterator.next();
+		Assert.assertEquals(3,iterator.actual());
+	}
+	
+	@Test
+	public void testCircularListDeTresElementosRemueveAlTercero() {
+		LinkedCircularList list = new LinkedCircularList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		LinkedCircularListIterator iterator = list.iterator();
+		iterator.next();
+		iterator.next();
+		iterator.next();
+		iterator.remove();
+		Assert.assertEquals(1,iterator.actual());
+		iterator.next();
+		Assert.assertEquals(2,iterator.actual());
+		iterator.next();
+		Assert.assertEquals(1,iterator.actual());
 	}
 
 }

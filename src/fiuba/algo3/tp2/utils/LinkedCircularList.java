@@ -17,17 +17,26 @@ public class LinkedCircularList {
 	private class InnerIterator implements LinkedCircularListIterator {
 		
 		private Node actual;
+		private Node anterior;
 		
 		public InnerIterator() {
-			actual = ultimo_nodo;
+			actual = null;
+			anterior = null;
 		}
 		
 		public Object next() {
+			if(actual == null) {
+				actual = primer_nodo;
+				anterior = ultimo_nodo;
+				return actual();
+			}
+			anterior = actual;
 			actual = actual.next;
 			return actual.data;
 		}
 		
 		public Object actual() {
+			if(actual == null) return ultimo_nodo.data;
 			return actual.data;
 		}
 		
@@ -36,6 +45,7 @@ public class LinkedCircularList {
 			len --;
 			Node nodo_siguiente = actual.next;
 			actual = nodo_siguiente;
+			anterior.next = actual;
 		}
 
 		public int size() {

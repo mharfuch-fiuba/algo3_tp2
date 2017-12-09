@@ -34,6 +34,7 @@ public class IntegracionMatiasTest extends TestCase {
 		
 		Cubilete cubilete_que_saca_2 = new Cubilete();
 		cubilete_que_saca_2.agregar(new DadoCargado(2));
+		cubilete_que_saca_2.lanzar();
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
 		jugador1.avanzar(cubilete_que_saca_2.sumarValores());
@@ -74,6 +75,7 @@ public class IntegracionMatiasTest extends TestCase {
 
 		Cubilete cubilete_que_saca_2 = new Cubilete();
 		cubilete_que_saca_2.agregar(new DadoCargado(2));
+		cubilete_que_saca_2.lanzar();
 		
 		Jugador jugador1 = new JugadorHumano(tablero, new Dinero(monto_inicial));
 		jugador1.avanzar(cubilete_que_saca_2.sumarValores());
@@ -165,6 +167,7 @@ public class IntegracionMatiasTest extends TestCase {
 		int monto_esperado_jugador_2 = dinero_inicial;
 		Cubilete cubilete_saca_12 = new Cubilete();
 		cubilete_saca_12.agregar(new DadoCargado(12));
+		cubilete_saca_12.lanzar();
 		cubilete.lanzar();
 		
 		jugador2.avanzar(cubilete.sumarValores());
