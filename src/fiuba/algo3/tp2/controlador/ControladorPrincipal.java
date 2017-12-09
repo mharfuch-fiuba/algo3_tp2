@@ -46,7 +46,7 @@ import javafx.scene.paint.Color;
 public class ControladorPrincipal {
 
 	private static final int CANTIDAD_DE_DADOS = 2;
-	private static final int DINERO_INICIAL = 50000;
+	private static final int DINERO_INICIAL = 100000;
 	private static final int VELOCIDAD_ANIMACION = 200;
 
 	private ControladorJugador jugador_actual;
@@ -67,13 +67,11 @@ public class ControladorPrincipal {
 		System.out.println("INICIALIZANDO...");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = new Cubilete();
-		/*
 		for (int i = 0; i < CANTIDAD_DE_DADOS; i++) {
 			cubilete.agregar(new DadoCubico());
 		}
-		*/
-		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
-		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
+		//cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
+		//cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
 		controlador_cubilete = new ControladorCubilete(cubilete);
 		// INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
