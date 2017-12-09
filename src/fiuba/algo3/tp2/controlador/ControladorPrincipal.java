@@ -67,11 +67,13 @@ public class ControladorPrincipal {
 		System.out.println("INICIALIZANDO...");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = new Cubilete();
+		/*
 		for (int i = 0; i < CANTIDAD_DE_DADOS; i++) {
 			cubilete.agregar(new DadoCubico());
 		}
-		//cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
-		//cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
+		*/
+		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
+		cubilete.agregar(new DadoCargado(new int[] {1,1,1,1,1,1,6,2,6,2,6,2})); // <--- TEST PARA FUNDIR A LOS JUGADORES
 		controlador_cubilete = new ControladorCubilete(cubilete);
 		// INICIALIZAR TABLERO:
 		controlador_tablero = new ControladorTablero();
@@ -385,6 +387,7 @@ public class ControladorPrincipal {
 		propietario.cobrar(jugador_actual.getDinero());
 		controlador_ronda.quitarJugadorActual();
 		if (controlador_ronda.contarJugadores() == 1) {
+			this.jugador_actual = controlador_ronda.obtenerJugadorActual();
 			contenedor_principal.cambiarVistaDinamica(new PantallaJugadorGanador(contenedor_principal, jugador_actual.getNombre()));
 			return;
 		}
