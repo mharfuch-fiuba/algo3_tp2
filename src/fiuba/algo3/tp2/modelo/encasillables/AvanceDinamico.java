@@ -30,6 +30,7 @@ public class AvanceDinamico implements Encasillable{
 		if(nro_sacado > 1 && nro_sacado < 7) cant_casilleros = nro_sacado - 2;
 		if(nro_sacado > 6 && nro_sacado < 11) cant_casilleros = cant_efectivo % nro_sacado ;
 		if(nro_sacado > 10 && nro_sacado < 13) cant_casilleros = nro_sacado - cant_propiedades;
+		if(cant_casilleros < 0) return 0;
 		return cant_casilleros;
 	}
 
