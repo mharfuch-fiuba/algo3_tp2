@@ -64,8 +64,6 @@ public abstract class Jugador extends Observable{
 
 	public abstract void avisarCambioDeTurno();
 	
-	public abstract void pagarDeuda() throws DineroInsuficienteException;
-	
 	public abstract ArrayList<Propiedad> getPropiedades();
 
 	public ControladorJugador getControlador() {
@@ -75,8 +73,6 @@ public abstract class Jugador extends Observable{
 	public void setControlador(ControladorJugador controlador){
 		this.controlador=controlador;
 	}
-
-	public abstract void setDeuda(Deuda deuda);
 	
 	public abstract ArrayList<String> getListaComprables();
 

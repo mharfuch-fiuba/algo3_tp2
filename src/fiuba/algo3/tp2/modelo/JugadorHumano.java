@@ -21,7 +21,7 @@ public class JugadorHumano extends Jugador {
 	
 	private ArrayList<Propiedad> propiedades;
 	private ArrayList<String> propiedadesComprables;
-	private Deuda deuda;
+	//private Deuda deuda;
 	
 	private static final int PTJ_REINTEGRO_VENTA_DE_PROPIEDADES = 85;
 
@@ -30,7 +30,7 @@ public class JugadorHumano extends Jugador {
 		propiedades = new ArrayList<Propiedad>();
 		propiedadesComprables=new ArrayList<String>();
 		movimiento = new MovimientoNormal(tablero);
-		deuda = new Deuda(new Dinero(0));
+		//deuda = new Deuda(new Dinero(0));
 	}
 
 	@Override
@@ -180,16 +180,6 @@ public class JugadorHumano extends Jugador {
 	@Override
 	public void avisarCambioDeTurno() {
 		movimiento.avisarCambioDeTurno(this);
-	}
-
-	@Override
-	public void pagarDeuda() throws DineroInsuficienteException {
-		deuda.pagarDeuda(this);
-	}
-
-	@Override
-	public void setDeuda(Deuda nueva_deuda) {
-		deuda = nueva_deuda.clone();
 	}
 
 	@Override

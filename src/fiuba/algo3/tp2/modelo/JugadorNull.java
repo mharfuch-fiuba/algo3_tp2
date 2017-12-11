@@ -144,18 +144,6 @@ public class JugadorNull extends Jugador {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void pagarDeuda() throws DineroInsuficienteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setDeuda(Deuda deuda) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public ArrayList<String> getListaComprables(){
