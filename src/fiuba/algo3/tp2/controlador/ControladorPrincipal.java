@@ -57,12 +57,10 @@ public class ControladorPrincipal {
 	private ContenedorPrincipal contenedor_principal;
 
 	private ControladorPrincipal() {
-		System.out.println("CONSTRUCTOR CONTROLADOR PRINCIPAL");
 		this.inicializar();
 	}
 	
 	private void inicializar() {
-		System.out.println("INICIALIZANDO...");
 		controladores_jugadores = new ArrayList<ControladorJugador>();
 		Cubilete cubilete = new Cubilete();
 		
@@ -92,10 +90,7 @@ public class ControladorPrincipal {
 	}
 
 	public void agregarJugadores(ArrayList<String> nombres) {
-		System.out.println("AGREGANDO JUGADORES...");
-		System.out.println(nombres);
 		Collections.shuffle(nombres);
-		System.out.println(nombres);
 		Stack<Color> colores = new Stack<Color>();
 		colores.push(Color.SEAGREEN);
 		colores.push(Color.STEELBLUE);
@@ -105,13 +100,11 @@ public class ControladorPrincipal {
 					new Dinero(DINERO_INICIAL), colores.pop());
 			controlador_jugador.asociarVista();
 			controlador_ronda.agregarJugador(controlador_jugador);
-			System.out.println("Agrego : " + controlador_jugador.getNombre());
 			controladores_jugadores.add(controlador_jugador);
 		}
 	}
 
 	public void iniciar_partida(ContenedorPrincipal contenedor_principal) {
-		System.out.println("INICIANDO PARTIDA...");
 		new PantallaPartida(contenedor_principal, controlador_tablero.getVista(), contenedor_acciones,
 				controlador_ronda.getVistaRonda());
 		controlador_tablero.dibujarJugadores(controladores_jugadores);
@@ -120,7 +113,6 @@ public class ControladorPrincipal {
 	}
 
 	private void iniciar_ronda() {
-		System.out.println("INICIA RONDA...");
 		jugador_actual = controlador_ronda.obtenerJugadorActual();
 		contenedor_acciones.setJugadorActual(jugador_actual.getNombre(), jugador_actual.getColor());
 		contenedor_acciones.setColorFonado(jugador_actual.getColor());
@@ -293,12 +285,10 @@ public class ControladorPrincipal {
 			this.accionTerminarTurno();
 			return;
 		} catch (DineroInsuficienteException e) {
-			System.out.println("DINERO INSUFICIENTE");
 			contenedor_acciones.colocarVistaGenerica("Dinero insuficiente.", new VistaVenderObligatoriamente());
 			controlador_tablero.dibujarJugador(jugador_actual);
 			return;
 		} catch (BancaRotaException e) {
-			System.out.println("BANCA ROTA");
 			this.expulsarJugador();
 			return;
 		}

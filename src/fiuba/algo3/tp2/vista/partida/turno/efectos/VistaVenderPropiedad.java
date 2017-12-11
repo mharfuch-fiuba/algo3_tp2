@@ -19,8 +19,6 @@ public class VistaVenderPropiedad extends VistaAccion {
 		this.getStyleClass().add("VistaTurnoDinamica");
 		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija que desea vender:");
 		
-		System.out.println(propiedades);
-		
 		ObservableList<Propiedad> opciones = FXCollections.observableArrayList(propiedades);
 		ComboBox<Propiedad> combo_propiedades = new ComboBox<Propiedad>(opciones);
 		

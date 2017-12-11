@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 public class VistaConstruccion extends ImageView {
 
 	public VistaConstruccion(String nombreImagen){
-		System.out.println("Creo la construccion: "+nombreImagen);
 		this.setImage(new Image(nombreImagen));
 		this.setFitHeight(44);
 		this.setFitWidth(122);

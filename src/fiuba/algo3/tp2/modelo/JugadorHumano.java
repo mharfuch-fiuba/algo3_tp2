@@ -53,12 +53,9 @@ public class JugadorHumano extends Jugador {
 		this.dinero.aumentarCantidad(monto);
 		this.setChanged();
 		this.notifyObservers();
-		System.out.println(this.nombre + " cobra " + monto);
-		System.out.println("Saldo: " + dinero);
 	}
 
 	public void comprar(Propiedad comprable) throws DineroInsuficienteException{
-		System.out.println("comprar de jugador");
 		comprable.comprar(this);
 		this.propiedades.add(comprable);
 	}
@@ -99,8 +96,6 @@ public class JugadorHumano extends Jugador {
 		dinero.disminuirCantidad(monto);
 		setChanged();
 		notifyObservers();
-		System.out.println(this.nombre + " paga " + monto);
-		System.out.println("Saldo: " + dinero);
 	}
 
 	@Override

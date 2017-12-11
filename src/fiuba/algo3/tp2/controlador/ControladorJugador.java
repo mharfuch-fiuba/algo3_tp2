@@ -72,7 +72,6 @@ public class ControladorJugador implements Observer {
 	}
 
 	public void comprar(Propiedad propiedad) {
-		System.out.println("comprar de controlador");
 		this.modelo.comprar(propiedad);
 	}
 

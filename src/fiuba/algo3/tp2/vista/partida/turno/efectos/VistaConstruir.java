@@ -20,8 +20,6 @@ public class VistaConstruir extends VistaAccion {
 		this.getStyleClass().add("VistaTurnoDinamica");
 		LabelTurnoDinamica mensaje = new LabelTurnoDinamica("Elija donde desea construir:");
 		
-		System.out.println(terrenos);
-		
 		ObservableList<Terreno> opciones = FXCollections.observableArrayList(terrenos);
 		ComboBox<Terreno> combo_terrenos = new ComboBox<Terreno>(opciones);
 		

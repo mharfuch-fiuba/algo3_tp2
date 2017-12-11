@@ -33,7 +33,6 @@ public class AlgoPoly extends Application {
 
 	public static void main(String[] args) throws Exception {
 		launch(args);
-		System.out.println("FIN DEL PROGRAMA");
 	}
 	
 	
