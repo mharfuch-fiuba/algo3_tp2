@@ -3,7 +3,7 @@
 
 ## Integrantes
 
-* 95049	HARFUCH, Mateo			mharfuch@gmail.com
-* 97242	MARTIN, Julian			Julianmp09@gmail.com
-* 98519	RICALDONE, Matias		matias.ricaldone@gmail.com
-* 95758	ZUGNA, Federico			fede.zugna@gmail.com
+* 95049	HARFUCH, Mateo
+* 97242	MARTIN, Julian
+* 98519	RICALDONE, Matias
+* 95758	ZUGNA, Federico
